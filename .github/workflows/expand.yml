@@ -1,11 +1,13 @@
 # Keeps the watch list growing. Employers open their internship boards at
 # different times of year, so this re-probes candidates that had nothing last
 # month and onboards whichever ones now have a readable job board.
-name: gary - expand company list
+name: gary - discover employers
 
 on:
   schedule:
-    - cron: "40 6 * * *"
+    # Twice a day: the public feeds refresh daily, and employers open their
+    # internship boards at different times of year.
+    - cron: "40 6,18 * * *"
   workflow_dispatch:
     inputs:
       retry_all:
@@ -23,14 +25,17 @@ permissions:
 jobs:
   expand:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 120
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
 
-      - name: Look for employers we aren't watching yet
+      - name: Harvest new candidate employers from public feeds
+        run: python -m watcher.harvest
+
+      - name: Verify and onboard the ones with a real job board
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -41,21 +46,28 @@ jobs:
             python -m watcher.expand
           fi
 
+      # Absorb each new employer's existing backlog quietly, so onboarding
+      # hundreds of them never turns into hundreds of texts.
       - name: Seed the new companies so they don't all fire at once
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python -m watcher.agent run --no-browser
+        run: |
+          python -m watcher.agent run --tier core --no-browser --quiet-new-companies
+          for shard in 0 1 2 3 4 5 6 7; do
+            python -m watcher.agent run --tier wide --no-browser \
+              --shard "$shard/8" --quiet-new-companies || true
+          done
 
       - name: Commit the updated list
         run: |
-          if [ -z "$(git status --porcelain -- config.json state/)" ]; then
+          if [ -z "$(git status --porcelain -- config.json candidates.json state/)" ]; then
             echo "Nothing changed."
             exit 0
           fi
           git config user.name  "Gary"
           git config user.email "actions@github.com"
-          git add config.json state/
+          git add config.json candidates.json state/
           git commit -m "expand: refresh watched companies $(date -u +'%Y-%m-%d')"
           for attempt in 1 2 3 4 5; do
             git pull --rebase --autostash origin "${GITHUB_REF_NAME}" \

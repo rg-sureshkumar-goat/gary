@@ -38,6 +38,8 @@ class Args(object):
     only = None
     no_browser = True
     only_browser = False
+    tier = "all"
+    shard = None
     headed = False
     announce_new_companies = False
     token = "T"

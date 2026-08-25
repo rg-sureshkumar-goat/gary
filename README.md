@@ -7,9 +7,9 @@ Three things Gary does without being asked:
 
 - **Checks constantly.** Every 30 minutes for the sites plain HTTP can read;
   every 4 hours for the ones that need a real browser.
-- **Grows its own watch list.** Employers open internship boards at different
-  times of year, so a daily job re-probes a candidate list and onboards any
-  employer that now has a readable job board.
+- **Grows its own watch list.** Twice a day Gary reads public internship feeds,
+  pulls out employers it isn't watching, verifies each one has a real job board,
+  and adds it. The list is not curated by hand and has no ceiling.
 - **Only tells you about new things.** Gary remembers every posting it has seen,
   and a newly-onboarded company's existing backlog is absorbed silently.
 
@@ -145,6 +145,29 @@ Two knobs in `config.json`:
 - `us_only` — set `false` to watch worldwide.
 - `keep_unknown_locations` — what to do when a posting doesn't say where it is.
   `false` (the default) is strict; `true` errs toward sending you more.
+
+## Two tiers, and why
+
+Harvesting turns up thousands of employers -- far more than can be read inside
+one 30-minute window. So the watch list is split:
+
+| Tier | Who's in it | Cadence |
+|---|---|---|
+| `core` | The curated banks, consultancies and finance-heavy corporates | every 30 min, all at once |
+| `wide` | Everything harvesting has discovered | swept in 16 shards, one per run |
+
+The core tier is small enough to check constantly, which is what you want for
+the employers most likely to post a finance internship. The wide tier is swept
+in rotation so no single run ever runs long.
+
+Shards are chosen by a hash of the company name, not by list position. That
+matters: newly harvested employers slot into a shard without reshuffling
+everyone else, so adding a hundred companies doesn't cause the same sites to be
+re-checked back to back while others go unread.
+
+Wide-tier Workday boards are searched for `intern` only and paged less deeply
+than core ones, which also search `summer analyst`. That idiom is a banking
+one, and the banks are all in the core tier.
 
 ## Keeping the list growing
 

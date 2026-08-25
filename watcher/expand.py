@@ -197,6 +197,41 @@ def _workday_from_careers(candidate):
     return None
 
 
+BOARD_FIELDS = ("ats", "token", "host", "site", "searches", "max_results", "tier")
+
+
+def _verify_known_board(candidate):
+    """Check a board that was read off an apply URL rather than guessed.
+
+    Harvested candidates already carry an exact token or host, so there is no
+    slug ambiguity -- but the board still has to be real and non-trivial.
+    """
+    entry = {k: candidate[k] for k in BOARD_FIELDS if k in candidate}
+    ats = entry.get("ats")
+    if ats == "workday":
+        try:
+            total = _workday_jobs(entry["host"], entry["site"])
+        except Exception:
+            return None
+        return (entry, total) if total and total >= MIN_BOARD_SIZE else None
+
+    probes = {"greenhouse": _greenhouse, "lever": _lever,
+              "ashby": _ashby, "smartrecruiters": _smartrecruiters}
+    fn = probes.get(ats)
+    if not fn or not entry.get("token"):
+        return None
+    try:
+        hit = fn(entry["token"])
+    except Exception:
+        return None
+    if not hit or hit[1] < MIN_BOARD_SIZE:
+        return None
+    claimed = board_identity(entry)
+    if claimed is not None and not names_agree(claimed, candidate["name"]):
+        return None
+    return (entry, hit[1])
+
+
 def probe(candidate):
     """Return (config_entry, board_size) or None.
 
@@ -204,6 +239,9 @@ def probe(candidate):
     first-come -- so a board must also be big enough to be real and, where the
     platform will tell us, must name the company we were looking for.
     """
+    if candidate.get("ats"):
+        return _verify_known_board(candidate)
+
     for slug in slugs_for(candidate):
         for probe_fn in TOKEN_PROBES:
             try:
@@ -397,6 +435,8 @@ def run(args):
                 continue
 
             entry = {"name": name, "category": candidate.get("category", "corporate")}
+            if candidate.get("tier"):
+                entry["tier"] = candidate["tier"]
             entry.update(entry_bits)
             added.append((entry, size))
             ledger["tried"][name] = {"last": today, "result": "added",

@@ -6,6 +6,7 @@ already seen, and text the new corporate-finance / consulting internships.
 import argparse
 import concurrent.futures
 import datetime
+import hashlib
 import json
 import os
 import sys
@@ -63,6 +64,27 @@ def prune(state):
     state["seen"] = {k: v for k, v in state["seen"].items() if v >= cutoff}
 
 
+def select_shard(companies, spec):
+    """Take slice i of N, splitting by a stable hash of the company name.
+
+    Hashing the name rather than slicing the list means a company keeps its
+    shard as the list grows, so newly harvested employers don't reshuffle
+    everyone else and cause the same sites to be re-checked back to back.
+    """
+    try:
+        index, total = (int(part) for part in str(spec).split("/", 1))
+    except ValueError:
+        raise SystemExit("--shard must look like 3/8, got %r" % spec)
+    if total < 1 or not (0 <= index < total):
+        raise SystemExit("--shard %r is out of range" % spec)
+    picked = []
+    for company in companies:
+        digest = hashlib.sha1(company["name"].encode("utf-8")).hexdigest()
+        if int(digest[:8], 16) % total == index:
+            picked.append(company)
+    return picked
+
+
 def collect(companies, workers=8, headless=True):
     """Fetch every company. Returns (jobs, {company: error}).
 
@@ -107,6 +129,14 @@ def run(args):
     state = load_state(args.state)
 
     companies = [c for c in config["companies"] if c.get("enabled", True)]
+
+    if args.tier != "all":
+        companies = [c for c in companies
+                     if c.get("tier", "core") == args.tier]
+
+    if args.shard:
+        companies = select_shard(companies, args.shard)
+
     if args.no_browser:
         companies = [c for c in companies if c.get("ats") != "browser"]
     if args.only_browser:
@@ -257,6 +287,13 @@ def build_parser():
     parser.add_argument("--seed", action="store_true",
                         help="mark everything currently open as already seen")
     parser.add_argument("--only", help="limit to companies whose name contains this")
+    parser.add_argument("--tier", choices=["core", "wide", "all"], default="all",
+                        help="core = the curated finance/consulting list; "
+                             "wide = employers discovered by harvesting")
+    parser.add_argument("--shard",
+                        help="process one slice of the list, as i/N (e.g. 3/8). "
+                             "Lets a large watch list be swept in rotation "
+                             "without any single run running long.")
     parser.add_argument("--headed", action="store_true",
                         help="show the browser window (browser lane, debugging)")
     parser.add_argument("--no-browser", action="store_true",

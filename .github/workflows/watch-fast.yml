@@ -14,7 +14,7 @@ jobs:
   fast:
     uses: ./.github/workflows/_state.yml
     with:
-      args: "run --no-browser"
+      args: "run --tier core --no-browser"
       timeout: 20
     secrets:
       TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

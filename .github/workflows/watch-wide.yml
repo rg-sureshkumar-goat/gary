@@ -1,0 +1,36 @@
+# The long tail. Harvesting finds thousands of employers, more than one run can
+# read, so the wide list is swept in eight shards -- one per half hour, giving
+# every employer a check roughly every four hours.
+#
+# A shard of ~200 sites measures around a minute. Workday throttles a client
+# that has just made thousands of requests, and a throttled sweep took closer
+# to six minutes, so the 25-minute timeout leaves plenty of room.
+#
+# Shards are chosen by a hash of the company name, so newly harvested employers
+# slot in without reshuffling everyone else.
+name: gary - watch (wide sweep)
+
+on:
+  schedule:
+    - cron: "10,40 * * * *"
+  workflow_dispatch:
+    inputs:
+      shard:
+        description: "Shard to run, as i/N (blank = pick from the current hour)"
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  wide:
+    uses: ./.github/workflows/_state.yml
+    with:
+      # $(( )) is evaluated by the shell in the reusable workflow's run step.
+      # Half-hour index mod 8: cycles through every shard in four hours.
+      args: "run --tier wide --no-browser --shard $(( ($(date -u +%H) * 2 + $(date -u +%M) / 30) % 8 ))/8"
+      timeout: 25
+    secrets:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

@@ -40,7 +40,7 @@ else:
 
 # Each caller's args, e.g.   args: "run --no-browser"
 callers = {}
-for name in ("watch-fast.yml", "watch-browser.yml"):
+for name in ("watch-fast.yml", "watch-browser.yml", "watch-wide.yml"):
     text = read(name)
     a = re.search(r'^\s*args:\s*"([^"]*)"', text, re.M)
     if not a:
@@ -52,6 +52,12 @@ parser = build_parser()
 
 for name, args in callers.items():
     composed = template.replace("${{ inputs.args }}", args)
+    # The wide sweep computes its shard in the shell, e.g.
+    #   --shard $(( $(date -u +%H) % 8 ))/8
+    # Stand in a concrete value so the rest can be parsed as real argv.
+    # Non-greedy to the closing "))" -- the inner $(date ...) nests, so a
+    # [^)]* class stops one paren too early.
+    composed = re.sub(r"\$\(\(.*?\)\)", "3", composed)
     argv = shlex.split(composed)
     # Drop "python -m watcher.agent"
     if argv[:3] != ["python", "-m", "watcher.agent"]:
@@ -71,6 +77,17 @@ for name, args in callers.items():
     if parsed.command != "run":
         failures.append("%s: parsed command was %r" % (name, parsed.command))
 
+# The wide sweep must actually shard, or one run would try the whole long tail.
+wide_args = callers.get("watch-wide.yml", "")
+if "--shard" not in wide_args:
+    failures.append("the wide sweep must pass --shard, or it runs every "
+                    "harvested employer in a single job")
+if "--tier wide" not in wide_args:
+    failures.append("the wide sweep must scope itself to the wide tier")
+if "--tier core" not in callers.get("watch-fast.yml", ""):
+    failures.append("the fast lane must scope itself to the core tier, or it "
+                    "picks up thousands of harvested employers and overruns")
+
 # The two lanes must actually select different sets of companies.
 fast = parser.parse_args(["run", "--no-browser"])
 slow = parser.parse_args(["run", "--only-browser"])
@@ -79,13 +96,25 @@ if not fast.no_browser or fast.only_browser:
 if not slow.only_browser or slow.no_browser:
     failures.append("the browser lane should run only browser companies")
 
-# expand.yml invokes the agent directly; check those lines too.
-for line in re.findall(r"python -m watcher\.agent ([^\n]+)", read("expand.yml")):
-    tail = shlex.split(line.strip())
+# expand.yml invokes the agent directly, inside a shell script with line
+# continuations and a loop variable. Normalise those before parsing.
+expand_src = re.sub(r"\\\n\s*", " ", read("expand.yml"))
+for line in re.findall(r"python -m watcher\.agent ([^\n|]+)", expand_src):
+    cleaned = line.strip()
+    cleaned = re.sub(r'"\$\w+/(\d+)"', r"3/\1", cleaned)   # "$shard/8" -> 3/8
+    cleaned = re.sub(r"\$\(\(.*?\)\)", "3", cleaned)
+    cleaned = cleaned.replace("||", "").strip()
+    if not cleaned:
+        continue
+    try:
+        tail = shlex.split(cleaned)
+    except ValueError as exc:
+        failures.append("expand.yml command %r is not valid shell: %s" % (cleaned, exc))
+        continue
     try:
         parser.parse_args(tail)
     except SystemExit:
-        failures.append("expand.yml runs %r, which the agent cannot parse" % line.strip())
+        failures.append("expand.yml runs %r, which the agent cannot parse" % cleaned)
 
 # Both watch workflows must share the state concurrency group, or two runs
 # can clobber state/seen.json.
@@ -93,7 +122,7 @@ groups = set(re.findall(r"group:\s*([\w-]+)", state + read("expand.yml")))
 if len(groups) != 1:
     failures.append("workflows disagree on the concurrency group: %r" % sorted(groups))
 
-total = 2 * len(callers) + 2 + 1 + 1
+total = 2 * len(callers) + 3 + 2 + 1 + 1
 if failures:
     print("FAILED %d check(s):" % len(failures))
     for f in failures:
