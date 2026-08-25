@@ -53,7 +53,35 @@ def main():
             chats[chat["id"]] = "%s (%s)" % (who, chat.get("type"))
 
     if not chats:
-        print("No messages yet. Open Telegram, send your bot any message, then re-run this.")
+        username = me["result"].get("username", "")
+        print("Telegram has no message from you to this bot yet.\n")
+
+        # A webhook silently swallows getUpdates, and is the one cause that
+        # looks identical to "you didn't send anything".
+        try:
+            hook = fetch_json("https://api.telegram.org/bot%s/getWebhookInfo" % token)
+            info = hook.get("result") or {}
+            if info.get("url"):
+                print("  A webhook is set (%s), which consumes updates before this\n"
+                      "  script can see them. Clear it with:\n"
+                      "    https://api.telegram.org/bot<token>/deleteWebhook\n"
+                      % info["url"])
+                return 1
+            if info.get("pending_update_count"):
+                print("  Telegram reports %d pending update(s) but returned none --\n"
+                      "  try re-running in a few seconds.\n"
+                      % info["pending_update_count"])
+        except Exception:
+            pass
+
+        print("  Most likely: the message went to @BotFather rather than to your")
+        print("  bot. They are different chats.\n")
+        if username:
+            print("  Open this link, press START, then re-run:")
+            print("      https://t.me/%s\n" % username)
+        else:
+            print("  Search your bot by name in Telegram, press START, re-run.\n")
+        print("  Pressing START counts as a message -- you don't have to type one.")
         return 1
 
     print("Chat ids found:")
