@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-25T21:05:37Z",
+ "last_run": "2026-08-25T21:15:16Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 36,
+  "matching": 0,
   "new": 0,
-  "postings": 23527,
-  "sites": 200
+  "postings": 18,
+  "sites": 1
  },
  "reminders_sent": [],
  "seeded_companies": [
@@ -61,6 +61,7 @@
   "Blue Sky Innovators",
   "Boeing",
   "Bose",
+  "Boston Consulting Group",
   "Brex",
   "Bristol Myers Squibb",
   "Brookhaven Lab",
