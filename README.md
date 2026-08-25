@@ -57,12 +57,18 @@ It prints your chat id and offers to send a test message.
 
 ### 2. Push to GitHub
 
-The repo is already initialised and committed locally. Create an empty **public**
-repo on github.com named `gary`, then:
+The repo is already initialised, committed, and pointed at
+`github.com/rg-sureshkumar-goat/gary`. Create that repo as an empty **public**
+one (no README, no .gitignore), then:
 
 ```bash
-git remote add origin https://github.com/<your-username>/gary.git && git push -u origin main
+git push -u origin main
 ```
+
+Git asks for your username and a personal access token as the password. The
+token needs both the `repo` and `workflow` scopes — without `workflow`, GitHub
+refuses any push that touches `.github/workflows/`. macOS keychain stores it
+after the first push.
 
 Then add the two secrets under **Settings → Secrets and variables → Actions**:
 `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
