@@ -3,10 +3,12 @@
 
   1. In Telegram, message @BotFather -> /newbot -> copy the token it gives you.
   2. Open a chat with your new bot and send it any message (e.g. "hi").
-  3. Run:  TELEGRAM_BOT_TOKEN=<token> python3 telegram_setup.py
+  3. Run:  python3 telegram_setup.py
+     and paste the token when it asks. It is not echoed, and not stored.
 
 It prints the chat id you need, then offers to send a test message.
 """
+import getpass
 import os
 import sys
 
@@ -15,10 +17,24 @@ from watcher import notifier
 
 
 def main():
+    # Prompt rather than read argv, so the token never lands in shell history.
     token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     if not token:
-        print("Set TELEGRAM_BOT_TOKEN first, e.g.\n"
-              "  TELEGRAM_BOT_TOKEN=123456:ABC... python3 telegram_setup.py")
+        if not sys.stdin.isatty():
+            print("No token. Run this in a terminal, or set TELEGRAM_BOT_TOKEN.")
+            return 1
+        print("Paste the token BotFather gave you (it stays hidden), then press Enter.")
+        try:
+            token = getpass.getpass("Bot token: ").strip()
+        except (EOFError, KeyboardInterrupt):
+            print("\nCancelled.")
+            return 1
+    if not token:
+        print("No token entered.")
+        return 1
+    if ":" not in token:
+        print("That doesn't look like a bot token -- BotFather's tokens look "
+              "like 123456789:AAE...  Copy the whole line he sent you.")
         return 1
 
     me = fetch_json("https://api.telegram.org/bot%s/getMe" % token)

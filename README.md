@@ -50,8 +50,11 @@ Message [@BotFather](https://t.me/botfather) → `/newbot` → name it Gary → 
 the token. Send your new bot any message, then:
 
 ```bash
-TELEGRAM_BOT_TOKEN=<your-token> python3 telegram_setup.py
+python3 telegram_setup.py
 ```
+
+It asks for the token and hides it as you paste, so it never reaches your shell
+history.
 
 It prints your chat id and offers to send a test message.
 
