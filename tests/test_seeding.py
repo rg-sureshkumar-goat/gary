@@ -79,6 +79,9 @@ config, state = setup(tmp)
 agent.collect = fake_collect
 agent.notifier.notify = fake_notify
 agent.notifier.send = lambda *a, **k: None
+# This test is about the seeding diff, not credentials; the real preflight
+# would call Telegram, so stub it out.
+agent.notifier.check_credentials = lambda token, chat: None
 
 agent.run(Args(config, state))
 

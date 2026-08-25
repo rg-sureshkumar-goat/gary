@@ -121,6 +121,17 @@ def run(args):
             log("No company matches %r" % args.only)
             return 1
 
+    # Fail fast on a bad secret rather than after minutes of fetching.
+    if not args.dry_run:
+        problem = notifier.check_credentials(args.token, args.chat_id)
+        if problem:
+            log("Telegram is not configured correctly:")
+            log("   %s" % problem)
+            log("Set both secrets under Settings > Secrets and variables > "
+                "Actions, then run this workflow again.")
+            return 2
+        log("Telegram credentials verified.")
+
     log("Checking %d career sites..." % len(companies))
     all_jobs, errors = collect(companies, config.get("workers", 8),
                                headless=not args.headed)

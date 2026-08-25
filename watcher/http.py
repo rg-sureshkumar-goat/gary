@@ -1,6 +1,7 @@
 """Tiny stdlib HTTP helper. No third-party deps so the job never breaks on install."""
-import json
 import gzip
+import json
+import re
 import time
 import urllib.error
 import urllib.parse
@@ -19,11 +20,22 @@ DEFAULT_HEADERS = {
 }
 
 
+# Bot tokens and API keys ride in URLs. Error messages end up in CI logs, and
+# for a public repo those logs are world-readable, so redact before raising.
+_SECRET_IN_URL = re.compile(r"(/bot)\d{6,}:[A-Za-z0-9_-]{20,}", re.I)
+_QUERY_SECRET = re.compile(r"([?&](?:token|key|api_key|access_token)=)[^&\s]+", re.I)
+
+
+def redact(text):
+    text = _SECRET_IN_URL.sub(r"\1<REDACTED>", str(text or ""))
+    return _QUERY_SECRET.sub(r"\1<REDACTED>", text)
+
+
 class HttpError(Exception):
     def __init__(self, status, url, body=""):
-        super().__init__("HTTP %s for %s" % (status, url))
+        super().__init__("HTTP %s for %s" % (status, redact(url)))
         self.status = status
-        self.url = url
+        self.url = redact(url)
         self.body = body
 
 
