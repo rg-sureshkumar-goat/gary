@@ -1,0 +1,23 @@
+# The slow lane: sites that need a real browser (bot protection or JS-rendered
+# job lists). Chromium makes this minutes rather than seconds, so it runs less
+# often than the fast lane.
+name: gary - watch (browser lane)
+
+on:
+  schedule:
+    - cron: "15 */4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  browser:
+    uses: ./.github/workflows/_state.yml
+    with:
+      args: "run --only-browser"
+      install_browser: true
+      timeout: 40
+    secrets:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}

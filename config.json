@@ -1,0 +1,831 @@
+{
+  "workers": 14,
+  "rules": {
+    "search_location_too": false,
+    "internship_terms": [
+      "intern",
+      "interns",
+      "internship",
+      "internships",
+      "summer analyst",
+      "summer associate",
+      "summer scholar",
+      "summer programme",
+      "summer program",
+      "industrial placement",
+      "placement student",
+      "co-op",
+      "coop",
+      "spring week",
+      "insight programme",
+      "insight program",
+      "undergraduate",
+      "off-cycle",
+      "campus hire"
+    ],
+    "role_groups": {
+      "corporate_finance": [
+        "finance",
+        "financial",
+        "corporate finance",
+        "fp&a",
+        "fpa",
+        "financial planning",
+        "treasury",
+        "corporate development",
+        "corp dev",
+        "investment",
+        "investment banking",
+        "investment bank",
+        "capital markets",
+        "m&a",
+        "mergers",
+        "valuation",
+        "transaction services",
+        "transaction advisory",
+        "financial analyst",
+        "accounting",
+        "controller",
+        "controllership",
+        "equity research",
+        "asset management",
+        "private equity",
+        "venture capital",
+        "commercial finance",
+        "business finance",
+        "finance leadership",
+        "banking"
+      ],
+      "consulting": [
+        "consulting",
+        "consultant",
+        "strategy",
+        "strategic",
+        "advisory",
+        "business analyst",
+        "associate consultant",
+        "management consulting",
+        "corporate strategy",
+        "transformation",
+        "due diligence",
+        "operations improvement",
+        "business consulting"
+      ]
+    },
+    "exclude_terms": [
+      "software",
+      "engineer",
+      "engineering",
+      "developer",
+      "data scientist",
+      "machine learning",
+      "hardware",
+      "electrical",
+      "mechanical",
+      "chemical",
+      "biology",
+      "biomedical",
+      "clinical",
+      "nurse",
+      "physician",
+      "pharmacy",
+      "recruiter",
+      "recruiting",
+      "talent acquisition",
+      "devops",
+      "site reliability",
+      "qa engineer",
+      "attorney",
+      "paralegal",
+      "manufacturing",
+      "warehouse",
+      "technician",
+      "custodian"
+    ],
+    "us_only": true,
+    "keep_unknown_locations": false,
+    "locations_allow": []
+  },
+  "companies": [
+    {
+      "name": "Houlihan Lokey",
+      "category": "bank",
+      "ats": "workday",
+      "host": "hl.wd1.myworkdayjobs.com",
+      "site": "Campus"
+    },
+    {
+      "name": "PJT Partners",
+      "category": "bank",
+      "ats": "workday",
+      "host": "pjtpartners.wd1.myworkdayjobs.com",
+      "site": "Careers"
+    },
+    {
+      "name": "Raymond James",
+      "category": "bank",
+      "ats": "workday",
+      "host": "raymondjames.wd1.myworkdayjobs.com",
+      "site": "raymondjamesCareers",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Marsh McLennan (Oliver Wyman, Mercer)",
+      "category": "consulting",
+      "ats": "workday",
+      "host": "mmc.wd1.myworkdayjobs.com",
+      "site": "Careers",
+      "searches": [
+        "intern",
+        "summer analyst",
+        "placement"
+      ],
+      "max_results": 300
+    },
+    {
+      "name": "PwC (campus)",
+      "category": "consulting",
+      "ats": "workday",
+      "host": "pwc.wd3.myworkdayjobs.com",
+      "site": "Global_Campus_Careers",
+      "searches": [
+        "intern",
+        "internship",
+        "summer analyst",
+        "placement"
+      ]
+    },
+    {
+      "name": "PwC (experienced)",
+      "category": "consulting",
+      "ats": "workday",
+      "host": "pwc.wd3.myworkdayjobs.com",
+      "site": "Global_Experienced_Careers",
+      "searches": [
+        "intern"
+      ],
+      "max_results": 400
+    },
+    {
+      "name": "JPMorgan Chase",
+      "category": "bank",
+      "ats": "oracle",
+      "host": "jpmc.fa.oraclecloud.com",
+      "site": "CX_1001",
+      "max_results": 4000
+    },
+    {
+      "name": "Mastercard",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "mastercard.wd1.myworkdayjobs.com",
+      "site": "CorporateCareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Intel",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "intel.wd1.myworkdayjobs.com",
+      "site": "External",
+      "searches": [
+        "intern",
+        "co-op"
+      ]
+    },
+    {
+      "name": "Salesforce",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "salesforce.wd12.myworkdayjobs.com",
+      "site": "External_Career_Site",
+      "searches": [
+        "intern"
+      ]
+    },
+    {
+      "name": "NVIDIA",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "nvidia.wd5.myworkdayjobs.com",
+      "site": "NVIDIAExternalCareerSite",
+      "searches": [
+        "intern"
+      ]
+    },
+    {
+      "name": "Adobe",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "adobe.wd5.myworkdayjobs.com",
+      "site": "external_experienced",
+      "searches": [
+        "intern"
+      ]
+    },
+    {
+      "name": "Amazon",
+      "category": "corporate",
+      "ats": "amazon",
+      "searches": [
+        "finance internship",
+        "financial analyst internship"
+      ]
+    },
+    {
+      "name": "Point72",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "point72"
+    },
+    {
+      "name": "Jane Street",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "janestreet"
+    },
+    {
+      "name": "Stripe",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "stripe"
+    },
+    {
+      "name": "Robinhood",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "robinhood"
+    },
+    {
+      "name": "Brex",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "brex"
+    },
+    {
+      "name": "Affirm",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "affirm"
+    },
+    {
+      "name": "SoFi",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "sofi"
+    },
+    {
+      "name": "Chime",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "chime"
+    },
+    {
+      "name": "Betterment",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "betterment"
+    },
+    {
+      "name": "Ramp",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "ramp"
+    },
+    {
+      "name": "OpenAI",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "openai"
+    },
+    {
+      "name": "Notion",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "notion"
+    },
+    {
+      "name": "Perplexity",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "perplexity"
+    },
+    {
+      "name": "Vanta",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "vanta"
+    },
+    {
+      "name": "ElevenLabs",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "elevenlabs"
+    },
+    {
+      "name": "AlixPartners",
+      "category": "consulting",
+      "ats": "greenhouse",
+      "token": "alixpartners"
+    },
+    {
+      "name": "Roland Berger",
+      "category": "consulting",
+      "ats": "smartrecruiters",
+      "token": "rolandberger"
+    },
+    {
+      "name": "Charles River Associates",
+      "category": "consulting",
+      "ats": "greenhouse",
+      "token": "charlesriverassociates"
+    },
+    {
+      "name": "Teneo",
+      "category": "consulting",
+      "ats": "greenhouse",
+      "token": "teneo"
+    },
+    {
+      "name": "Accenture",
+      "category": "consulting",
+      "ats": "workday",
+      "host": "accenture.wd103.myworkdayjobs.com",
+      "site": "AccentureCareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ],
+      "max_results": 300
+    },
+    {
+      "name": "Huron Consulting",
+      "category": "consulting",
+      "ats": "workday",
+      "host": "huron.wd1.myworkdayjobs.com",
+      "site": "huroncareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Bank of America",
+      "category": "bank",
+      "ats": "workday",
+      "host": "ghr.wd1.myworkdayjobs.com",
+      "site": "lateral-us",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ],
+      "max_results": 300
+    },
+    {
+      "name": "Citigroup",
+      "category": "bank",
+      "ats": "workday",
+      "host": "citi.wd5.myworkdayjobs.com",
+      "site": "2",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ],
+      "max_results": 300
+    },
+    {
+      "name": "William Blair",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "williamblair"
+    },
+    {
+      "name": "Moelis & Company",
+      "category": "bank",
+      "ats": "workday",
+      "host": "moelis.wd1.myworkdayjobs.com",
+      "site": "Experienced-Hires",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Lincoln International",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "lincolninternational"
+    },
+    {
+      "name": "Baker Tilly",
+      "category": "bank",
+      "ats": "workday",
+      "host": "bakertilly.wd5.myworkdayjobs.com",
+      "site": "BTCareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "General Atlantic",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "generalatlantic"
+    },
+    {
+      "name": "Bain Capital",
+      "category": "bank",
+      "ats": "workday",
+      "host": "baincapital.wd1.myworkdayjobs.com",
+      "site": "External_Public",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "AQR Capital",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "aqr"
+    },
+    {
+      "name": "Jump Trading",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "jumptrading"
+    },
+    {
+      "name": "IMC Trading",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "imc"
+    },
+    {
+      "name": "Harris Williams",
+      "category": "bank",
+      "ats": "workday",
+      "host": "pnc.wd5.myworkdayjobs.com",
+      "site": "HarrisWilliams",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Guggenheim Partners",
+      "category": "bank",
+      "ats": "workday",
+      "host": "guggenheiminvestment.wd5.myworkdayjobs.com",
+      "site": "External",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Apollo Global Management",
+      "category": "bank",
+      "ats": "workday",
+      "host": "athene.wd5.myworkdayjobs.com",
+      "site": "Apollo_Careers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Capital Group",
+      "category": "bank",
+      "ats": "lever",
+      "token": "capital"
+    },
+    {
+      "name": "Block",
+      "category": "bank",
+      "ats": "greenhouse",
+      "token": "block"
+    },
+    {
+      "name": "T. Rowe Price",
+      "category": "bank",
+      "ats": "workday",
+      "host": "troweprice.wd5.myworkdayjobs.com",
+      "site": "TRowePriceInternational",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Discover",
+      "category": "bank",
+      "ats": "workday",
+      "host": "capitalone.wd12.myworkdayjobs.com",
+      "site": "Capital_One",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Visa",
+      "category": "bank",
+      "ats": "workday",
+      "host": "visa.wd5.myworkdayjobs.com",
+      "site": "Visa",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "MetLife",
+      "category": "bank",
+      "ats": "lever",
+      "token": "metlife"
+    },
+    {
+      "name": "S&P Global",
+      "category": "bank",
+      "ats": "workday",
+      "host": "spgi.wd5.myworkdayjobs.com",
+      "site": "SPGI_Careers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "AIG",
+      "category": "bank",
+      "ats": "workday",
+      "host": "aig.wd1.myworkdayjobs.com",
+      "site": "aig",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Nationwide",
+      "category": "bank",
+      "ats": "workday",
+      "host": "nationwide.wd1.myworkdayjobs.com",
+      "site": "Nationwide_Career",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Nasdaq",
+      "category": "bank",
+      "ats": "workday",
+      "host": "nasdaq.wd1.myworkdayjobs.com",
+      "site": "Global_External_Site",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Prudential Financial",
+      "category": "bank",
+      "ats": "workday",
+      "host": "pru.wd5.myworkdayjobs.com",
+      "site": "Careers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Unilever",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "unilever.wd3.myworkdayjobs.com",
+      "site": "Unilever_Experienced_Professionals",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Capital One",
+      "category": "bank",
+      "ats": "lever",
+      "token": "capital"
+    },
+    {
+      "name": "Nike",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "nike.wd1.myworkdayjobs.com",
+      "site": "nke2",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Target",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "target.wd5.myworkdayjobs.com",
+      "site": "targetcareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Boeing",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "boeing.wd1.myworkdayjobs.com",
+      "site": "EXTERNAL_CAREERS",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "AbbVie",
+      "category": "corporate",
+      "ats": "smartrecruiters",
+      "token": "abbvie"
+    },
+    {
+      "name": "Pfizer",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "pfizer.wd1.myworkdayjobs.com",
+      "site": "PfizerCareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Amgen",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "amgen.wd1.myworkdayjobs.com",
+      "site": "Careers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Merck",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "msd.wd5.myworkdayjobs.com",
+      "site": "SearchJobs",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Allstate",
+      "category": "bank",
+      "ats": "workday",
+      "host": "allstate.wd5.myworkdayjobs.com",
+      "site": "allstate_careers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Bristol Myers Squibb",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "bristolmyerssquibb.wd5.myworkdayjobs.com",
+      "site": "BMS",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Cigna",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "cigna.wd5.myworkdayjobs.com",
+      "site": "cignacareers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "ConocoPhillips",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "conocophillips.wd1.myworkdayjobs.com",
+      "site": "External",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Lyft",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "lyft"
+    },
+    {
+      "name": "Airbnb",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "airbnb"
+    },
+    {
+      "name": "Databricks",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "databricks"
+    },
+    {
+      "name": "Coinbase",
+      "category": "corporate",
+      "ats": "greenhouse",
+      "token": "coinbase"
+    },
+    {
+      "name": "Snowflake",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "snowflake"
+    },
+    {
+      "name": "Plaid",
+      "category": "corporate",
+      "ats": "ashby",
+      "token": "plaid"
+    },
+    {
+      "name": "Wealthfront",
+      "category": "corporate",
+      "ats": "lever",
+      "token": "wealthfront"
+    },
+    {
+      "name": "Comcast",
+      "category": "corporate",
+      "ats": "workday",
+      "host": "comcast.wd115.myworkdayjobs.com",
+      "site": "Comcast_Careers",
+      "searches": [
+        "intern",
+        "summer analyst"
+      ]
+    },
+    {
+      "name": "Deloitte (US)",
+      "category": "consulting",
+      "ats": "html",
+      "url_template": "https://apply.deloitte.com/en_US/careers/SearchJobs/intern/?jobRecordsPerPage=10&jobOffset={offset}",
+      "pages": 8,
+      "page_step": 10,
+      "link_pattern": "JobDetail",
+      "location_default": "United States"
+    },
+    {
+      "name": "EY (US)",
+      "category": "consulting",
+      "ats": "html",
+      "url_template": "https://careers.ey.com/ey/search/?q=intern&locationsearch=united+states&startrow={offset}",
+      "pages": 4,
+      "page_step": 25,
+      "link_pattern": "/ey/job/",
+      "location_from_url": "/ey/job/((?:[^-/]+-){0,3}[^-/]+)"
+    },
+    {
+      "name": "Boston Consulting Group",
+      "category": "consulting",
+      "ats": "browser",
+      "mode": "links",
+      "url_template": "https://careers.bcg.com/global/en/search-results?keywords=intern&from={page}",
+      "pages": 3,
+      "first_page": 0,
+      "page_step": 10,
+      "link_pattern": "/global/en/job/",
+      "wait_ms": 9000,
+      "scroll": 2
+    }
+  ]
+}

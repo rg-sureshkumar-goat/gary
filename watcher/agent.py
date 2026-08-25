@@ -1,0 +1,247 @@
+"""Entry point: poll every configured career site, diff against what we've
+already seen, and text the new corporate-finance / consulting internships.
+
+    python3 -m watcher.agent run [--dry-run] [--seed] [--only NAME]
+"""
+import argparse
+import concurrent.futures
+import datetime
+import json
+import os
+import sys
+
+from . import browser as browser_lane
+from . import notifier
+from .matcher import filter_jobs
+from .sources import fetch_company
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_PATH = os.path.join(ROOT, "config.json")
+STATE_PATH = os.path.join(ROOT, "state", "seen.json")
+PRUNE_AFTER_DAYS = 120
+
+
+def today():
+    return datetime.date.today().isoformat()
+
+
+def log(msg):
+    print("[%s] %s" % (datetime.datetime.now().strftime("%H:%M:%S"), msg), flush=True)
+
+
+def load_config(path=CONFIG_PATH):
+    with open(path) as fh:
+        return json.load(fh)
+
+
+def load_state(path=STATE_PATH):
+    try:
+        with open(path) as fh:
+            state = json.load(fh)
+    except (IOError, ValueError):
+        state = {}
+    state.setdefault("seen", {})       # job id -> last date observed
+    state.setdefault("broken", {})     # company -> last error reported
+    state.setdefault("seeded_companies", [])  # companies whose backlog we've absorbed
+    return state
+
+
+def save_state(state, path=STATE_PATH):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w") as fh:
+        json.dump(state, fh, indent=1, sort_keys=True)
+    os.replace(tmp, path)
+
+
+def prune(state):
+    """Forget postings we haven't seen in a long time, so the file stays small."""
+    cutoff = (datetime.date.today() -
+              datetime.timedelta(days=PRUNE_AFTER_DAYS)).isoformat()
+    state["seen"] = {k: v for k, v in state["seen"].items() if v >= cutoff}
+
+
+def collect(companies, workers=8, headless=True):
+    """Fetch every company. Returns (jobs, {company: error}).
+
+    Plain-HTTP sites run in parallel. Browser-lane sites run sequentially in a
+    single shared browser -- cheaper than a browser per site, and Playwright's
+    sync API doesn't belong in a thread pool.
+    """
+    http_sites = [c for c in companies if c.get("ats") != "browser"]
+    browser_sites = [c for c in companies if c.get("ats") == "browser"]
+
+    jobs, errors = [], {}
+
+    if http_sites:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=workers) as pool:
+            futures = {pool.submit(fetch_company, c): c for c in http_sites}
+            for future in concurrent.futures.as_completed(futures):
+                company = futures[future]
+                try:
+                    found, error = future.result()
+                except Exception as exc:                  # pragma: no cover
+                    found, error = [], "%s: %s" % (type(exc).__name__, exc)
+                if error:
+                    errors[company["name"]] = error
+                    log("  %-28s FAILED (%s)" % (company["name"], error))
+                else:
+                    log("  %-28s %d postings" % (company["name"], len(found)))
+                    jobs.extend(found)
+
+    if browser_sites:
+        log("Browser lane: %d site(s)" % len(browser_sites))
+        results = browser_lane.fetch_all(browser_sites, headless=headless, log=log)
+        for name, (found, error) in results.items():
+            if error:
+                errors[name] = error
+            jobs.extend(found)
+
+    return jobs, errors
+
+
+def run(args):
+    config = load_config(args.config)
+    state = load_state(args.state)
+
+    companies = [c for c in config["companies"] if c.get("enabled", True)]
+    if args.no_browser:
+        companies = [c for c in companies if c.get("ats") != "browser"]
+    if args.only_browser:
+        companies = [c for c in companies if c.get("ats") == "browser"]
+    if not companies:
+        log("No companies selected; nothing to do.")
+        return 0
+    if args.only:
+        wanted = args.only.lower()
+        companies = [c for c in companies if wanted in c["name"].lower()]
+        if not companies:
+            log("No company matches %r" % args.only)
+            return 1
+
+    log("Checking %d career sites..." % len(companies))
+    all_jobs, errors = collect(companies, config.get("workers", 8),
+                               headless=not args.headed)
+    log("Fetched %d postings total" % len(all_jobs))
+
+    matches = filter_jobs(all_jobs, config["rules"])
+    log("%d match the internship filters" % len(matches))
+
+    seen = state["seen"]
+
+    # A company we've never checked before arrives with a full backlog of open
+    # roles. Those aren't news -- absorb them quietly and only report what the
+    # company posts from here on. Without this, every expansion run would send
+    # a flood.
+    seeded = set(state["seeded_companies"])
+    fresh_companies = sorted(c["name"] for c in companies if c["name"] not in seeded)
+    absorbed = [j for j in matches if j["company"] not in seeded]
+
+    new_jobs = [j for j in matches
+                if j["id"] not in seen and j["company"] in seeded]
+    log("%d are new since the last run" % len(new_jobs))
+    if fresh_companies:
+        log("%d newly watched company/companies (%d open roles absorbed, not sent)"
+            % (len(fresh_companies), len(absorbed)))
+
+    first_run = not seen
+    if first_run and not args.seed:
+        log("First run with an empty state file -- seeding instead of notifying.")
+
+    # --- notify -------------------------------------------------------------
+    if args.dry_run:
+        for job in new_jobs:
+            print("  NEW  %-30s %-60s %s" % (job["company"], job["title"], job["url"]))
+        if not new_jobs:
+            print("  (nothing new)")
+    elif args.seed or first_run:
+        token, chat = args.token, args.chat_id
+        if token and chat:
+            notifier.send(token, chat, (
+                "✅ <b>Gary is live.</b>\n"
+                "I'm watching %d career sites. %d matching US roles are open "
+                "right now; I'll only text you about ones posted from here on."
+                % (len(companies), len(matches))
+            ))
+    elif new_jobs or fresh_companies:
+        token, chat = args.token, args.chat_id
+        if not (token and chat):
+            log("ERROR: TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID are not set.")
+            return 2
+        if new_jobs:
+            count = notifier.notify(token, chat, new_jobs)
+            log("Sent %d Telegram message(s)." % count)
+        if fresh_companies and args.announce_new_companies:
+            names = ", ".join(notifier.esc(n) for n in fresh_companies[:12])
+            more = "" if len(fresh_companies) <= 12 else \
+                   " and %d more" % (len(fresh_companies) - 12)
+            try:
+                notifier.send(token, chat,
+                              "🛰 <b>Gary is now watching:</b> %s%s.\n"
+                              "Their %d currently-open roles were absorbed; "
+                              "you'll hear about new postings only."
+                              % (names, more, len(absorbed)))
+            except Exception as exc:
+                log("Could not send the new-company notice: %s" % exc)
+
+    # --- flag newly-broken sources so failures aren't silent -----------------
+    newly_broken = {c: e for c, e in errors.items() if state["broken"].get(c) != e}
+    if newly_broken and not args.dry_run and args.token and args.chat_id and not first_run:
+        lines = ["⚠️ <b>Career sites I couldn't read this run</b>"]
+        lines += ["  • %s — <i>%s</i>" % (notifier.esc(c), notifier.esc(e))
+                  for c, e in sorted(newly_broken.items())]
+        lines.append("\nTheir config may need updating; other sites are unaffected.")
+        try:
+            notifier.send(args.token, args.chat_id, "\n".join(lines))
+        except Exception as exc:
+            log("Could not send the failure notice: %s" % exc)
+
+    # --- persist ------------------------------------------------------------
+    if not args.dry_run:
+        stamp = today()
+        for job in matches:
+            seen[job["id"]] = stamp
+        state["seeded_companies"] = sorted(seeded | {c["name"] for c in companies})
+        state["broken"] = errors
+        state["last_run"] = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
+        state["last_run_stats"] = {
+            "sites": len(companies),
+            "postings": len(all_jobs),
+            "matching": len(matches),
+            "new": 0 if (first_run or args.seed) else len(new_jobs),
+            "failed": len(errors),
+        }
+        prune(state)
+        save_state(state, args.state)
+        log("State saved (%d ids tracked)." % len(state["seen"]))
+
+    return 0
+
+
+def main(argv=None):
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("command", nargs="?", default="run", choices=["run"])
+    parser.add_argument("--config", default=CONFIG_PATH)
+    parser.add_argument("--state", default=STATE_PATH)
+    parser.add_argument("--dry-run", action="store_true",
+                        help="print what would be sent; touch nothing")
+    parser.add_argument("--seed", action="store_true",
+                        help="mark everything currently open as already seen")
+    parser.add_argument("--only", help="limit to companies whose name contains this")
+    parser.add_argument("--headed", action="store_true",
+                        help="show the browser window (browser lane, debugging)")
+    parser.add_argument("--no-browser", action="store_true",
+                        help="skip browser-lane sites entirely")
+    parser.add_argument("--only-browser", action="store_true",
+                        help="run only the browser-lane sites")
+    parser.add_argument("--quiet-new-companies", dest="announce_new_companies",
+                        action="store_false", default=True,
+                        help="don't announce newly watched employers")
+    args = parser.parse_args(argv)
+    args.token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
+    args.chat_id = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
+    return run(args)
+
+
+if __name__ == "__main__":
+    sys.exit(main())

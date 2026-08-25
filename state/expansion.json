@@ -1,0 +1,792 @@
+{
+  "tried": {
+    "AlixPartners": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Boston Consulting Group": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Cornerstone Research": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Roland Berger": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Kearney": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Charles River Associates": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "KPMG": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Simon-Kucher": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Teneo": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Deloitte": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "L.E.K. Consulting": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Analysis Group": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "FTI Consulting": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "ZS Associates": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Accenture": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Alvarez & Marsal": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Goldman Sachs": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Bridgespan Group": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Slalom": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Barclays": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Morgan Stanley": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Huron Consulting": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Wells Fargo": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Putnam Associates": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Bank of America": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Citigroup": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "HSBC": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "UBS": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Nomura": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "TD Securities": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Deutsche Bank": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Macquarie": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Navigant": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Evercore": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Lazard": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "US Bank": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "BNP Paribas": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Fifth Third Bank": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "William Blair": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Jefferies": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Centerview Partners": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Moelis & Company": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "RBC Capital Markets": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Perella Weinberg Partners": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Stifel": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Lincoln International": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Truist": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Blackstone": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "KKR": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "TPG": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Regions Bank": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Carlyle Group": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Baker Tilly": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "General Atlantic": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Bain Capital": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Bain & Company": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Citadel": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "McKinsey & Company": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "AQR Capital": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Warburg Pincus": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Vista Equity Partners": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Jump Trading": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "D. E. Shaw": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "IMC Trading": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Bridgewater Associates": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Piper Sandler": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Optiver": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "SIG": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "BlackRock": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "KeyBanc": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "PNC": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Millennium Management": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Vanguard": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Hudson River Trading": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Harris Williams": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Guggenheim Partners": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "BMO Capital Markets": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Apollo Global Management": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Fidelity Investments": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Capital Group": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "lever"
+    },
+    "Block": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Charles Schwab": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "T. Rowe Price": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Discover": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "PayPal": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "BNY Mellon": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Northern Trust": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Fiserv": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Two Sigma": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Moody's": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Visa": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "MetLife": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "lever"
+    },
+    "CME Group": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "MSCI": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Travelers": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "S&P Global": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Progressive": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "AIG": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Microsoft": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Nationwide": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Liberty Mutual": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Nasdaq": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Prudential Financial": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "State Street": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Apple": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Meta": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Tesla": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Google": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Netflix": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Nestle": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "PepsiCo": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Coca-Cola": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "American Express": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Unilever": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Colgate-Palmolive": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "General Mills": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Capital One": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "lever"
+    },
+    "Johnson & Johnson": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Baird": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Procter & Gamble": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Kimberly-Clark": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Disney": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Walmart": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Nike": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Target": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Costco": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Kraft Heinz": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "General Electric": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Boeing": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Caterpillar": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Home Depot": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Honeywell": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Lockheed Martin": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Chubb": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Lowe's": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "General Motors": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "AbbVie": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Pfizer": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "RTX": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Medtronic": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Amgen": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "John Deere": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Eli Lilly": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Merck": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Allstate": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "UnitedHealth Group": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Bristol Myers Squibb": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "IBM": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Cigna": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "ConocoPhillips": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Exxon Mobil": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Cisco": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Oracle": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Uber": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Qualcomm": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Lyft": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Dell": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Airbnb": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Databricks": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Coinbase": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Snowflake": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Plaid": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Wealthfront": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "lever"
+    },
+    "HP": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Warner Bros Discovery": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Comcast": {
+      "last": "2026-08-25",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Texas Instruments": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Marriott": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Delta Air Lines": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Chevron": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Ford": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "DoorDash": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "FIS": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Hilton": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "FedEx": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "CVS Health": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Mondelez": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "3M": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "UPS": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "United Airlines": {
+      "last": "2026-08-25",
+      "result": "none"
+    },
+    "Ares Management": {
+      "last": "2026-08-25",
+      "result": "none"
+    }
+  },
+  "last_run": "2026-08-25"
+}

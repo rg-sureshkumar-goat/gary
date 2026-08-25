@@ -1,0 +1,3 @@
+# Only the browser lane needs this. The HTTP lane is stdlib-only, so the agent
+# still runs (minus browser-lane companies) if this isn't installed.
+playwright==1.47.0

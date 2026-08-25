@@ -1,0 +1,21 @@
+# The main loop: every 30 minutes, check every career site that plain HTTP can
+# read. Takes a couple of minutes, so this is what makes the agent feel live.
+name: gary - watch (fast lane)
+
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fast:
+    uses: ./.github/workflows/_state.yml
+    with:
+      args: "run --no-browser"
+      timeout: 20
+    secrets:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
