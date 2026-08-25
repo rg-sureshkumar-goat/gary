@@ -106,6 +106,19 @@
     "keep_unknown_locations": false,
     "locations_allow": []
   },
+  "reminders": [
+    {
+      "name": "GitHub personal access token",
+      "expires": "2026-11-23",
+      "warn_days": [
+        14,
+        7,
+        3,
+        1
+      ],
+      "message": "Generate a new one at github.com/settings/tokens with the <b>repo</b> and <b>workflow</b> scopes, then run <code>git push</code> once so the keychain picks it up. My scheduled runs are unaffected \u2014 this is only for pushing from your Mac."
+    }
+  ],
   "companies": [
     {
       "name": "Houlihan Lokey",

@@ -12,6 +12,7 @@ import sys
 
 from . import browser as browser_lane
 from . import notifier
+from . import reminders as reminder_lib
 from .matcher import filter_jobs
 from .sources import fetch_company
 
@@ -43,6 +44,7 @@ def load_state(path=STATE_PATH):
     state.setdefault("seen", {})       # job id -> last date observed
     state.setdefault("broken", {})     # company -> last error reported
     state.setdefault("seeded_companies", [])  # companies whose backlog we've absorbed
+    state.setdefault("reminders_sent", [])    # expiry warnings already delivered
     return state
 
 
@@ -183,6 +185,21 @@ def run(args):
                               % (names, more, len(absorbed)))
             except Exception as exc:
                 log("Could not send the new-company notice: %s" % exc)
+
+    # --- dated reminders (credentials that are about to lapse) ---------------
+    sent_keys = set(state["reminders_sent"])
+    pending = reminder_lib.due(config.get("reminders"), sent_keys)
+    if pending and args.dry_run:
+        for _key, text in pending:
+            print("  REMIND  %s" % text.replace("\n", " ").replace("<b>", "")
+                                      .replace("</b>", ""))
+    elif pending and args.token and args.chat_id:
+        for key, text in pending:
+            try:
+                notifier.send(args.token, args.chat_id, text)
+                state["reminders_sent"].append(key)
+            except Exception as exc:
+                log("Could not send reminder %r: %s" % (key, exc))
 
     # --- flag newly-broken sources so failures aren't silent -----------------
     newly_broken = {c: e for c, e in errors.items() if state["broken"].get(c) != e}

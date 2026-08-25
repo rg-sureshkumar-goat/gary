@@ -117,7 +117,7 @@ The browser lane needs `pip install -r requirements-browser.txt` and
 Tests — no network, no Chromium:
 
 ```bash
-python3 -m tests.test_matcher && python3 -m tests.test_geo && python3 -m tests.test_browser && python3 -m tests.test_seeding
+for t in matcher geo browser expand seeding reminders; do python3 -m tests.test_$t; done
 ```
 
 ## The US filter
@@ -207,6 +207,30 @@ and (4) passes the US gate.
   isn't catching it. `--dry-run --only <company>` prints why a posting was dropped.
 
 Matching is whole-word, so `intern` never fires on *internal* or *international*.
+
+## Expiry reminders
+
+Credentials lapse quietly. `reminders` in `config.json` lists dated things Gary
+should warn about:
+
+```json
+"reminders": [
+  { "name": "GitHub personal access token",
+    "expires": "2026-11-23",
+    "warn_days": [14, 7, 3, 1],
+    "message": "..." }
+]
+```
+
+Gary texts you at each threshold, once on the day, then daily while overdue.
+Warnings are keyed by expiry date as well as name, so putting a new date in
+re-arms every threshold automatically — no state to clear by hand.
+
+Worth being clear about what the GitHub token is for: **Gary's scheduled runs
+don't use it.** The workflows authenticate with the `GITHUB_TOKEN` that GitHub
+mints fresh for every run, which can't expire. The personal access token only
+authenticates pushes from your own machine, so when it lapses Gary carries on
+watching and committing state — it's your local `git push` that stops.
 
 ## Notes
 
