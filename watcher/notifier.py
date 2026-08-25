@@ -131,9 +131,21 @@ def check_credentials(token, chat_id):
         return "TELEGRAM_BOT_TOKEN is unset or empty."
     if not chat_id:
         return "TELEGRAM_CHAT_ID is unset or empty."
+    token_looks_like_chat_id = token.lstrip("-").isdigit()
+    chat_looks_like_token = ":" in str(chat_id)
+    if token_looks_like_chat_id and chat_looks_like_token:
+        return ("The two secrets look swapped: TELEGRAM_BOT_TOKEN holds a bare "
+                "number and TELEGRAM_CHAT_ID holds something with a colon. "
+                "The token (digits:letters, from BotFather) goes in "
+                "TELEGRAM_BOT_TOKEN; the plain number goes in "
+                "TELEGRAM_CHAT_ID.")
     if ":" not in token:
-        return ("TELEGRAM_BOT_TOKEN doesn't look like a bot token (expected "
-                "digits, a colon, then letters). Check for a truncated paste.")
+        extra = (" It looks like a chat id -- did the two secrets get swapped?"
+                 if token_looks_like_chat_id else
+                 " Check for a truncated paste, or a stray quote.")
+        return ("TELEGRAM_BOT_TOKEN doesn't look like a bot token. BotFather's "
+                "tokens are digits, a colon, then ~35 letters, e.g. "
+                "8123456789:AAE...%s" % extra)
     if not str(chat_id).lstrip("-").isdigit():
         return ("TELEGRAM_CHAT_ID should be a number like 123456789, but is "
                 "%r. Check for quotes or stray whitespace in the secret."

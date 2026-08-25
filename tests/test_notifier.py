@@ -45,6 +45,10 @@ cases = [
     (("no-colon-here", "123"),    "bot token"),
     ((TOKEN, "not-a-number"),     "should be a number"),
     ((TOKEN, '"123456"'),         "should be a number"),
+    # The mix-up that actually happened in setup: values entered the wrong way
+    # round. A chat id has no colon, so this otherwise reads as a bad token.
+    (("123456789", TOKEN),        "swapped"),
+    (("123456789", "987654321"),  "swapped"),
 ]
 for (tok, chat), needle in cases:
     msg = check_credentials(tok, chat)
