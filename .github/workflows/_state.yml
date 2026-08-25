@@ -64,7 +64,9 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-        run: python -m watcher.agent run ${{ inputs.args }}
+        # Callers pass the subcommand themselves (e.g. "run --no-browser"),
+        # so do not repeat it here.
+        run: python -m watcher.agent ${{ inputs.args }}
 
       - name: Remember what we've already seen
         run: |

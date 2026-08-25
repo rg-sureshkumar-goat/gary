@@ -235,7 +235,8 @@ def run(args):
     return 0
 
 
-def main(argv=None):
+def build_parser():
+    """Exposed so the workflow tests can check the commands CI actually runs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("command", nargs="?", default="run", choices=["run"])
     parser.add_argument("--config", default=CONFIG_PATH)
@@ -254,6 +255,11 @@ def main(argv=None):
     parser.add_argument("--quiet-new-companies", dest="announce_new_companies",
                         action="store_false", default=True,
                         help="don't announce newly watched employers")
+    return parser
+
+
+def main(argv=None):
+    parser = build_parser()
     args = parser.parse_args(argv)
     args.token = os.environ.get("TELEGRAM_BOT_TOKEN", "").strip()
     args.chat_id = os.environ.get("TELEGRAM_CHAT_ID", "").strip()
