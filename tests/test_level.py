@@ -52,12 +52,42 @@ if suits("Finance Intern (Undergraduate)", "mba"):
 if not suits("MBA Finance Leadership Program", "mba"):
     failures.append("an MBA student should match an MBA posting")
 
+# --- accepting several levels at once --------------------------------------- #
+BOTH = ["undergraduate", "masters"]
+both_keep = [
+    "2027 Accounting & Finance Development Program Intern (Undergraduate)",
+    "Summer Analyst - Rising Senior",
+    "Finance Intern - Bachelor's Degree Required",
+    "Investment Banking Summer Analyst - Masters",
+    "Summer Analyst - MBA or MS candidates",
+    "Corporate Development Intern (Summer 2027)",
+]
+both_drop = [
+    "MBA Finance Leadership Development Program Intern",
+    "2027 Finance Leader Accelerator Program Intern (MBA)",
+    "PhD Quantitative Research Intern",
+]
+for title in both_keep:
+    if not suits(title, BOTH):
+        failures.append("undergrad+masters should keep: %s" % title[:56])
+for title in both_drop:
+    if suits(title, BOTH):
+        failures.append("undergrad+masters should drop: %s" % title[:56])
+
+# A single level as a plain string must keep working.
+if suits("Finance Intern (Undergraduate)", "masters"):
+    failures.append("a lone string level should still filter")
+
+# An empty list means no filtering, like "any".
+if not suits("MBA Finance Leadership Program", []):
+    failures.append("an empty level list should disengage the filter")
+
 # Turning the filter off keeps everything.
 for title in DROP:
     if not suits(title, "any") or not suits(title, None):
         failures.append("the filter should be disengaged by 'any'/None: %s" % title[:40])
 
-total = len(KEEP) + len(DROP) + 3 + len(DROP)
+total = len(KEEP) + len(DROP) + 3 + len(DROP) + len(both_keep) + len(both_drop) + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

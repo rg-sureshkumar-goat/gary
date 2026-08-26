@@ -65,18 +65,36 @@ def levels_named(text):
     return found
 
 
+def accepted(my_level):
+    """Normalise the setting into a set of levels, or None for no filtering.
+
+    Accepts a single level or a list, since a student may reasonably want both
+    undergraduate and graduate listings -- plenty of undergraduate-labelled
+    internships take master's students.
+    """
+    if not my_level:
+        return None
+    if isinstance(my_level, str):
+        my_level = [my_level]
+    wanted = {str(x).strip().lower() for x in my_level if str(x).strip()}
+    if not wanted or "any" in wanted:
+        return None
+    return wanted
+
+
 def suits(text, my_level):
-    """Is this posting open to someone at `my_level`?
+    """Is this posting open to a student at any of the accepted levels?
 
     A posting that names no level suits everyone -- that is the common case,
     and treating silence as exclusion would discard most real listings.
     """
-    if not my_level or my_level == "any":
+    wanted = accepted(my_level)
+    if wanted is None:
         return True
     named = levels_named(text)
     if not named:
         return True
-    return my_level in named
+    return bool(named & wanted)
 
 
 def explain(text, my_level):
@@ -84,4 +102,5 @@ def explain(text, my_level):
     named = sorted(levels_named(text))
     if not named:
         return ""
-    return "aimed at %s, not %s" % ("/".join(named), my_level)
+    wanted = accepted(my_level) or set()
+    return "aimed at %s, not %s" % ("/".join(named), "/".join(sorted(wanted)))

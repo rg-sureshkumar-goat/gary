@@ -304,19 +304,22 @@ python3 -m watcher.agent run ... --recommend-aged --min-age-days 90
 ## Degree level
 
 An MS Finance student sits in an awkward gap: it is a graduate degree, but it
-is not an MBA. So two kinds of posting are filtered out --
+is not an MBA. With `["undergraduate", "masters"]` set, what gets filtered out
+is the postings aimed somewhere else entirely --
 
 - MBA-only programmes, e.g. *MBA Finance Leadership Development Program*
-- undergraduate-only ones, e.g. *Finance Development Program (Undergraduate)*
+- doctoral ones, e.g. *PhD Quantitative Research Intern*
 
-Set yours in `config.json`:
+Set yours in `config.json`. It takes a single level or a list:
 
 ```json
-"education_level": "masters"
+"education_level": ["undergraduate", "masters"]
 ```
 
-Accepted values are `undergraduate`, `masters`, `mba`, `phd`, or `any` to
-switch the filter off.
+Values are `undergraduate`, `masters`, `mba`, `phd`, or `any` to switch the
+filter off. Listing both undergraduate and graduate levels is usually right:
+plenty of undergraduate-labelled internships take master's students, and
+restricting to one level throws those away.
 
 **A posting that names no level is always kept.** Most listings say nothing
 about degree level, and treating silence as exclusion would discard the

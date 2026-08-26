@@ -24,6 +24,9 @@ SHOULD_MATCH = [
     "Management Consulting Summer Associate",
     "Treasury Internship - Summer 2027",
     "Spring Week - Investment Banking",
+    # Undergraduate-labelled roles are wanted too, alongside graduate ones.
+    "Finance Development Program Intern (Undergraduate)",
+    "Corporate Finance Summer Analyst - Rising Senior",
 ]
 
 SHOULD_NOT_MATCH = [
@@ -42,7 +45,6 @@ SHOULD_NOT_MATCH = [
     ("MBA Finance Leadership Development Program Intern", "MBA-only"),
     ("2027 MBA Finance Leadership Development Program (FLDP) Internship",
      "MBA-only"),
-    ("Finance Development Program Intern (Undergraduate)", "undergraduate-only"),
 ]
 
 

@@ -107,7 +107,10 @@
     "locations_allow": [],
     "target_years": [],
     "max_alerts_per_run": 40,
-    "education_level": "masters"
+    "education_level": [
+      "undergraduate",
+      "masters"
+    ]
   },
   "reminders": [
     {
