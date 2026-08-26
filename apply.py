@@ -70,10 +70,42 @@ def label_for(page, element):
         return ""
 
 
+# Frames that are never form content.
+SKIP_FRAME = ("recaptcha", "gstatic", "doubleclick", "googletagmanager",
+              "addtoany", "googleapis", "facebook", "hotjar")
+
+
+def form_frames(page):
+    """Every frame that could hold the application form.
+
+    Greenhouse, Workday and Lever commonly embed the form in an iframe on the
+    employer's own careers page, so searching only the top document finds
+    nothing but the site's search box.
+    """
+    frames = []
+    for frame in page.frames:
+        url = (frame.url or "").lower()
+        if any(bad in url for bad in SKIP_FRAME):
+            continue
+        try:
+            count = len(frame.query_selector_all("input, textarea, select"))
+        except Exception:
+            continue
+        if count:
+            frames.append((frame, count))
+    # Richest frame first: that is the application, not a newsletter signup.
+    frames.sort(key=lambda f: -f[1])
+    return [f for f, _ in frames]
+
+
 def fill(page, profile, dry_run=False):
     filled, skipped, credentials = [], [], []
+    frames = form_frames(page)
+    if not frames:
+        return filled, skipped, credentials
 
-    for element in page.query_selector_all("input, textarea, select"):
+    frame = frames[0]
+    for element in frame.query_selector_all("input, textarea, select"):
         try:
             if not element.is_visible() or not element.is_enabled():
                 continue
@@ -85,7 +117,7 @@ def fill(page, profile, dry_run=False):
         if kind in ("hidden", "submit", "button", "checkbox", "radio"):
             continue
 
-        label = formfill.normalise(label_for(page, element))
+        label = formfill.normalise(label_for(frame, element))
 
         # A password field is never filled, whatever it is labelled.
         if kind == "password" or formfill.is_credential(label):
@@ -126,7 +158,7 @@ def fill(page, profile, dry_run=False):
     return filled, skipped, credentials
 
 
-def report(filled, skipped, credentials, page):
+def report(filled, skipped, credentials, page, frame=None):
     print("\n--- filled %d field(s) ---" % len(filled))
     for label, value in filled:
         print("   %-42s %s" % (label[:42], str(value)[:44]))
@@ -141,8 +173,9 @@ def report(filled, skipped, credentials, page):
         for label in credentials:
             print("   %s" % label[:60])
 
+    scope = frame or page
     buttons = []
-    for el in page.query_selector_all("button, input[type=submit]"):
+    for el in scope.query_selector_all("button, input[type=submit]"):
         try:
             text = (el.inner_text() or el.get_attribute("value") or "").strip()
         except Exception:
@@ -153,6 +186,12 @@ def report(filled, skipped, credentials, page):
         print("\nSubmit control on this page: %r -- left for you to click."
               % buttons[0])
 
+    # A CAPTCHA is a deliberate wall against automation. Solving one is not
+    # something this tool will attempt.
+    if any("recaptcha" in (f.url or "").lower() or "captcha" in (f.url or "").lower()
+           for f in page.frames):
+        print("This form is behind a CAPTCHA, so it has to be finished by hand.")
+
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
@@ -161,6 +200,10 @@ def main(argv=None):
     parser.add_argument("--dry-run", action="store_true",
                         help="report what would be filled, change nothing")
     parser.add_argument("--wait-ms", type=int, default=6000)
+    parser.add_argument("--headless", action="store_true",
+                        help="inspect a form without opening a window; only "
+                             "sensible with --dry-run, since you cannot review "
+                             "or submit a form you cannot see")
     args = parser.parse_args(argv)
 
     profile = load_profile(args.profile)
@@ -169,7 +212,8 @@ def main(argv=None):
 
     sync_playwright = _require_playwright()
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, args=LAUNCH_ARGS)
+        headless = args.headless and args.dry_run
+        browser = p.chromium.launch(headless=headless, args=LAUNCH_ARGS)
         ctx = browser.new_context(user_agent=UA, locale="en-US",
                                   viewport={"width": 1400, "height": 1000})
         ctx.add_init_script(STEALTH)
@@ -178,15 +222,23 @@ def main(argv=None):
         page.goto(args.url, wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(args.wait_ms)
 
+        frames = form_frames(page)
+        if not frames:
+            print("No form fields found. The application may open behind an "
+                  "'Apply' button -- click through to it, then re-run on that "
+                  "page.")
         filled, skipped, credentials = fill(page, profile, args.dry_run)
-        report(filled, skipped, credentials, page)
+        report(filled, skipped, credentials, page,
+               frames[0] if frames else None)
 
-        print("\nThe browser is open. Check every field, then submit it yourself.")
-        print("Press Enter here when you're done to close it.")
-        try:
-            input()
-        except (EOFError, KeyboardInterrupt):
-            pass
+        if not headless:
+            print("\nThe browser is open. Check every field, then submit it "
+                  "yourself.")
+            print("Press Enter here when you're done to close it.")
+            try:
+                input()
+            except (EOFError, KeyboardInterrupt):
+                pass
         browser.close()
     return 0
 

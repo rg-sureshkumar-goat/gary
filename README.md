@@ -381,10 +381,34 @@ It will not click Submit. An application goes to a real employer under your
 name, and a wrong graduation year or GPA is a misrepresentation you would be
 answering for, not the tool. The last look stays with you.
 
+### Teaching it your answers
+
+Rather than editing `profile.json` by hand, fill one application yourself and
+let Gary read your answers back:
+
+```bash
+.venv/bin/python learn.py "https://boards.greenhouse.io/acme/jobs/123"
+```
+
+Fill the form as you normally would, **don't submit**, then press Enter in the
+terminal. Gary reads what you typed, shows you what it learned, and saves it
+once you confirm. Password and SSN fields are never read back.
+
+It learns **answers, not clicks**. A recorded click sequence only works on the
+form it was recorded against, since every employer lays their form out
+differently -- but your name, university and graduation year are the same
+everywhere. Employer-specific questions are stored against the question text,
+so identical wording elsewhere gets the same answer.
+
 **It leaves fields blank rather than guessing.** If a dropdown has no clear
 match it is skipped and listed in the report. So *"Is your cumulative GPA above
 a 3.5?"* is left alone even though your profile has a GPA, because a number
 cannot answer a yes/no threshold question.
+
+A master's student is asked about both degrees, so undergraduate questions read
+from `undergrad_gpa`, `undergrad_graduation` and friends. Without those keys
+they stay blank rather than borrowing your graduate figures -- on a real form
+this was filling *"undergraduate GPA"* with a graduation date.
 
 **`profile.json` is gitignored, and must stay that way.** This repo is public.
 `profile.example.json` is the template; `*.pdf` and `*.docx` are ignored too,

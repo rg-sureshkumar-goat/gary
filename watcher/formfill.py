@@ -38,11 +38,18 @@ FIELD_PATTERNS = [
     ("postal_code", r"zip|postal\s+code|post\s*code"),
     ("country",     r"\bcountry\b"),
     ("university",  r"\buniversity\b|\bcollege\b|\bschool\b|\binstitution\b"),
+    # "In what year did you complete your undergraduate degree?" asks for a
+    # year, not a degree name, so year-questions are matched before degrees.
+    ("graduation",  r"\b(?:what|which)\s+year\b|\byear\s+did\s+you\b|"
+                    r"\byear\s+of\s+(?:graduation|completion)\b"),
     ("degree",      r"\bdegree\b|qualification"),
     ("major",       r"\bmajor\b|field\s+of\s+study|discipline|concentration"),
-    ("graduation",  r"graduat\w*\s*(?:date|year|month)?|expected\s+completion|"
-                    r"anticipated\s+graduation"),
+    # GPA first: "undergraduate GPA" is a GPA question, not a date one.
     ("gpa",         r"\bgpa\b|grade\s+point"),
+    # \b matters -- without it "graduat\w*" matches inside "undergraduate",
+    # so "undergraduate GPA" and "undergraduate degree" both read as dates.
+    ("graduation",  r"\bgraduat\w*\s*(?:date|year|month)?|expected\s+completion|"
+                    r"anticipated\s+graduation"),
     ("work_authorization",
                     r"authoriz\w+\s+to\s+work|legally\s+authorized|"
                     r"work\s+authorization|eligible\s+to\s+work"),
@@ -81,15 +88,63 @@ def is_credential(label):
     return bool(CREDENTIAL.search(normalise(label)))
 
 
+# Questions phrased as yes/no. Answering one with a date or a degree name is
+# how "Have you completed your undergraduate degree?" became "Master of
+# Science" -- a confidently wrong answer submitted under the user's name.
+_YES_NO_QUESTION = re.compile(
+    r"^\s*(will|have|has|are|is|do|does|did|can|would|should|were|was)\b"
+    r".*\?\s*$", re.I | re.S)
+
+_YES_NO_VALUES = {"yes", "no", "y", "n", "true", "false"}
+
+
+def expects_yes_no(label):
+    return bool(_YES_NO_QUESTION.match(normalise(label)))
+
+
+# A master's student has two degrees, and forms ask about both. "Undergraduate
+# GPA" must not be answered from the graduate GPA, so these labels look for an
+# undergrad_-prefixed key and stay blank if the profile has none.
+_PRIOR_DEGREE = re.compile(r"\bundergraduate?\b|\bundergrad\b|\bbachelors?\b|"
+                           r"\bbachelor['’]s\b", re.I)
+_PRIOR_KEYS = ("university", "degree", "major", "graduation", "gpa")
+
+
+def prior_degree_key(label, key):
+    """Redirect a question about a previous degree to its own profile key."""
+    if key in _PRIOR_KEYS and _PRIOR_DEGREE.search(normalise(label)):
+        return "undergrad_" + key
+    return key
+
+
+def custom_answer(label, profile):
+    """An answer you gave to this exact question before.
+
+    Employers ask their own questions -- "Which office are you interested in?"
+    -- that no generic key covers. Those are stored verbatim against the
+    question text, so the same wording anywhere else is answered the same way.
+    """
+    answers = profile.get("custom_answers") or {}
+    return answers.get(normalise(label).lower().rstrip("?").strip())
+
+
 def value_for(label, profile):
     """The value to type into this field, or None to leave it alone."""
+    if is_credential(label):
+        return None
     key = key_for(label)
     if key is None:
-        return None
+        saved = custom_answer(label, profile)
+        return str(saved) if saved not in (None, "") else None
+    key = prior_degree_key(label, key)
     value = profile.get(key)
     if value in (None, ""):
         return None
-    return str(value)
+    value = str(value)
+    if expects_yes_no(label) and value.strip().lower() not in _YES_NO_VALUES:
+        # The form wants yes or no; the profile holds something else.
+        return None
+    return value
 
 
 def _tokens(text):

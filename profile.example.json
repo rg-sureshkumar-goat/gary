@@ -1,33 +1,33 @@
 {
   "_comment": "Copy to profile.json and fill in. profile.json is gitignored -- this repo is public, so never put real details in a committed file. Leave anything out that you would rather type yourself; a missing key means Gary leaves that field blank.",
-
   "first_name": "Ada",
   "last_name": "Lovelace",
   "preferred_first_name": "Ada",
   "full_name": "Ada Lovelace",
   "email": "ada@example.com",
   "phone": "555-0100",
-
   "linkedin": "https://www.linkedin.com/in/example",
   "website": "",
-
   "address": "1 Example Street",
   "city": "New York",
   "state": "NY",
   "postal_code": "10001",
   "country": "United States",
-
   "university": "Example University",
   "degree": "Master of Science",
   "major": "Finance",
   "graduation": "May 2027",
   "gpa": "3.8",
-
+  "_comment_prior": "If you hold a prior degree, answer questions about it separately. A master's student is often asked for their undergraduate GPA and graduation year; without these, those fields are left blank rather than answered from your current degree.",
+  "undergrad_university": "Example College",
+  "undergrad_degree": "Bachelor of Science",
+  "undergrad_major": "Economics",
+  "undergrad_graduation": "May 2025",
+  "undergrad_gpa": "3.6",
   "work_authorization": "Yes",
   "sponsorship": "No",
   "start_date": "June 2027",
   "referral": "Company website",
-
   "resume": "~/Documents/resume.pdf",
   "cover_letter": ""
 }

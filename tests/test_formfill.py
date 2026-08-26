@@ -108,12 +108,65 @@ if choose_option("Preferred office", ["Chicago", "New York"], PROFILE) is not No
 if choose_option("Please select your university.", [], PROFILE) is not None:
     failures.append("returned a choice from an empty option list")
 
+# --- the mis-fills found on Lincoln International's real form --------------- #
+# Each of these filled a confidently wrong answer before being fixed.
+MS_STUDENT = {
+    "graduation": "May 2027", "gpa": "3.8", "degree": "Master of Science",
+    "university": "New York University",
+    "undergrad_gpa": "3.6", "undergrad_graduation": "May 2025",
+    "undergrad_degree": "Bachelor of Science",
+}
+REAL_FORM = [
+    # "graduat\w*" used to match inside "undergraduate", so this got a date.
+    ("Please provide your undergraduate GPA.", "3.6"),
+    # A yes/no question answered with a degree name.
+    ("Have you completed your undergraduate degree?", None),
+    # A yes/no question answered with a graduation date.
+    ("Will you begin your MBA program in the fall of 2026?", None),
+    # Asks for a year, not the name of a degree.
+    ("In what year did you complete your undergraduate degree?", "May 2025"),
+    # The graduate figures must still come from the graduate keys.
+    ("Cumulative GPA", "3.8"),
+    ("Expected graduation date", "May 2027"),
+    ("What is your highest degree?", "Master of Science"),
+]
+for label, expected in REAL_FORM:
+    got = value_for(label, MS_STUDENT)
+    if got != expected:
+        failures.append("%-54s -> %r, expected %r" % (label[:52], got, expected))
+
+# Without prior-degree keys, undergraduate questions stay blank rather than
+# borrowing the graduate answers.
+ONLY_GRAD = {"graduation": "May 2027", "gpa": "3.8", "degree": "Master of Science"}
+for label in ["Please provide your undergraduate GPA.",
+              "In what year did you complete your undergraduate degree?",
+              "Undergraduate university"]:
+    if value_for(label, ONLY_GRAD) is not None:
+        failures.append("answered an undergraduate question from graduate data: %r"
+                        % label[:50])
+
+# --- remembered answers to employer-specific questions ---------------------- #
+WITH_CUSTOM = dict(MS_STUDENT, custom_answers={
+    "which lincoln office are you interested in": "Chicago",
+    "how did you hear about this opportunity": "University career fair",
+})
+if value_for("Which Lincoln office are you interested in?", WITH_CUSTOM) != "Chicago":
+    failures.append("a remembered answer was not reused")
+# Question mark and casing must not defeat the lookup.
+if value_for("WHICH LINCOLN OFFICE ARE YOU INTERESTED IN", WITH_CUSTOM) != "Chicago":
+    failures.append("remembered answers should ignore case and punctuation")
+if value_for("Describe a time you led a team", WITH_CUSTOM) is not None:
+    failures.append("invented an answer for an unremembered question")
+# A credential must not be fillable even if one is somehow saved.
+if value_for("Password", dict(MS_STUDENT, custom_answers={"password": "x"})) is not None:
+    failures.append("a saved credential would have been filled")
+
 # --- label tidying ----------------------------------------------------------- #
 if normalise("  First   Name * (required) ") != "First Name":
     failures.append("normalise left decoration in: %r"
                     % normalise("  First   Name * (required) "))
 
-total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1
+total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
