@@ -48,6 +48,11 @@ def load_state(path=STATE_PATH):
     state.setdefault("seeded_companies", [])  # companies whose backlog we've absorbed
     state.setdefault("reminders_sent", [])    # expiry warnings already delivered
     state.setdefault("recommended", {})       # job id -> date last recommended
+    state.setdefault("reported", [])          # job ids actually texted to the user
+
+    # "seen" is an observation log used to age postings; it is not proof the
+    # user was ever told. Keeping them separate means a role absorbed under the
+    # old silent-onboarding behaviour still gets reported.
 
     # Older state stored a bare date string. Treat it as both first and last
     # sighting so long-open detection still has something to work with.
@@ -79,6 +84,7 @@ def prune(state):
                      if _last_seen(v) >= cutoff}
     state["recommended"] = {k: v for k, v in state.get("recommended", {}).items()
                             if k in state["seen"]}
+    state["reported"] = sorted(set(state.get("reported", [])) & set(state["seen"]))
 
 
 def select_shard(companies, spec):
@@ -195,14 +201,24 @@ def run(args):
     # a flood.
     seeded = set(state["seeded_companies"])
     fresh_companies = sorted(c["name"] for c in companies if c["name"] not in seeded)
-    absorbed = [j for j in matches if j["company"] not in seeded]
 
-    new_jobs = [j for j in matches
-                if j["id"] not in seen and j["company"] in seeded]
-    log("%d are new since the last run" % len(new_jobs))
+    # Every matching role Gary has not already reported, including the backlog
+    # a newly watched employer arrives with. Those roles are open and they
+    # match, so they get reported with their details like any other -- what
+    # keeps a bulk onboarding manageable is the per-run cap below, not silence.
+    reported = set(state["reported"])
+    pending = [j for j in matches if j["id"] not in reported]
+
+    cap = config["rules"].get("max_alerts_per_run", 40)
+    new_jobs = pending[:cap] if cap else pending
+    deferred = pending[len(new_jobs):]
+
+    log("%d matching role(s) not yet reported" % len(pending))
+    if deferred:
+        log("   sending %d now, %d will follow on later runs"
+            % (len(new_jobs), len(deferred)))
     if fresh_companies:
-        log("%d newly watched company/companies (%d open roles absorbed, not sent)"
-            % (len(fresh_companies), len(absorbed)))
+        log("%d newly watched company/companies" % len(fresh_companies))
 
     first_run = not seen
     if first_run and not args.seed:
@@ -229,7 +245,13 @@ def run(args):
             log("ERROR: TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID are not set.")
             return 2
         if new_jobs:
-            count = notifier.notify(token, chat, new_jobs)
+            header = None
+            if deferred:
+                header = ("🔔 <b>%d new internship%s</b>\n<i>%d more queued; "
+                          "they'll arrive on the next run.</i>"
+                          % (len(new_jobs), "" if len(new_jobs) == 1 else "s",
+                             len(deferred)))
+            count = notifier.notify(token, chat, new_jobs, header=header)
             log("Sent %d Telegram message(s)." % count)
         if fresh_companies and args.announce_new_companies:
             names = ", ".join(notifier.esc(n) for n in fresh_companies[:12])
@@ -237,10 +259,8 @@ def run(args):
                    " and %d more" % (len(fresh_companies) - 12)
             try:
                 notifier.send(token, chat,
-                              "🛰 <b>Gary is now watching:</b> %s%s.\n"
-                              "Their %d currently-open roles were absorbed; "
-                              "you'll hear about new postings only."
-                              % (names, more, len(absorbed)))
+                              "🛰 <b>Gary is now watching:</b> %s%s."
+                              % (names, more))
             except Exception as exc:
                 log("Could not send the new-company notice: %s" % exc)
 
@@ -312,6 +332,8 @@ def run(args):
     # --- persist ------------------------------------------------------------
     if not args.dry_run:
         stamp = today()
+        # Every match updates the observation log, which is what dates a
+        # posting for the long-open digest.
         for job in matches:
             record = seen.get(job["id"])
             if isinstance(record, dict):
@@ -326,6 +348,13 @@ def run(args):
                     first = (datetime.date.today()
                              - datetime.timedelta(days=posted[0])).isoformat()
                 seen[job["id"]] = {"f": first, "l": stamp}
+        # Only roles actually sent count as reported; deferred ones stay in
+        # the queue and go out on a later run.
+        if not (first_run or args.seed):
+            reported |= {j["id"] for j in new_jobs}
+        else:
+            reported |= {j["id"] for j in matches}
+        state["reported"] = sorted(reported)
         state["seeded_companies"] = sorted(seeded | {c["name"] for c in companies})
         state["broken"] = errors
         state["last_run"] = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"

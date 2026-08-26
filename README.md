@@ -234,17 +234,30 @@ and (4) passes the US gate.
 
 Matching is whole-word, so `intern` never fires on *internal* or *international*.
 
-## Seeing what's already open
+## What gets reported
 
-The watch lanes only report postings Gary hasn't seen before. When Gary starts
-watching an employer, whatever is already on their board is **absorbed**: the
-roles are recorded as seen so they aren't announced as new. Those roles are
-genuinely open and genuinely match -- they just arrived before Gary did, so it
-stays quiet about them.
+Every matching role Gary hasn't already told you about is reported with its
+details -- company, position linked to the application, location and cycle.
+That includes the backlog a newly watched employer arrives with: those roles
+are open and they match, so they are not treated differently from a posting
+that appeared five minutes ago.
 
-That's deliberate (onboarding 1,600 employers would otherwise mean thousands of
-texts at once) but it does mean a backlog of perfectly good roles you never
-hear about. To see them, run
+What keeps a bulk onboarding manageable is a cap, not silence.
+`max_alerts_per_run` (default 40) limits how many go out in one run; the rest
+stay queued and arrive on later runs. Nothing is dropped.
+
+Gary keeps two separate records, and the distinction matters:
+
+| Record | Means | Used for |
+|---|---|---|
+| `seen` | Gary observed this posting | dating it for the long-open digest |
+| `reported` | Gary actually texted you about it | deciding what still needs sending |
+
+Conflating them is how roles went missing before: a posting recorded as
+"seen" during onboarding looked reported, so it was never sent.
+
+To re-list everything currently open, including roles you have already been
+told about, run
 [gary - show open roles](../../actions/workflows/open-roles.yml) and pick
 `core` or `everything`:
 

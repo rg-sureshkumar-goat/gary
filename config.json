@@ -105,7 +105,8 @@
     "us_only": true,
     "keep_unknown_locations": false,
     "locations_allow": [],
-    "target_years": []
+    "target_years": [],
+    "max_alerts_per_run": 40
   },
   "reminders": [
     {
