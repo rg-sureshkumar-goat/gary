@@ -78,7 +78,60 @@ for description, needle in [
 if _explain("some unrecognised problem") is not None:
     failures.append("invented a hint for an unknown error")
 
-total = 6 + len(cases) + 1 + 5
+# --- message packing -------------------------------------------------------- #
+from watcher.notifier import build_messages, build_aged_messages, TELEGRAM_LIMIT  # noqa: E402
+
+def job(i, company="Acme Capital Partners International"):
+    return {"company": company,
+            "title": "2027 Investment Banking Summer Analyst, Group %d" % i,
+            "location": "New York, NY", "cycle": "Summer 2027",
+            "posted_at": "2026-08-20",
+            "url": "https://careers.example.com/en-US/board/job/"
+                   "New-York-NY-United-States/Investment-Banking-Summer-"
+                   "Analyst-Group-%d_R-%06d" % (i, i)}
+
+# One employer posting far more roles than fit in a single message. Splitting
+# only between companies would emit one oversized message, which Telegram
+# rejects outright.
+many = [job(i) for i in range(120)]
+msgs = build_messages(many)
+
+if any(len(m) > TELEGRAM_LIMIT for m in msgs):
+    failures.append("a message exceeded Telegram's %d-char limit: %r"
+                    % (TELEGRAM_LIMIT, [len(m) for m in msgs]))
+if len(msgs) < 2:
+    failures.append("120 roles from one company should span several messages")
+
+joined = "".join(msgs)
+for i in range(120):
+    if ("Group %d<" % i) not in joined and ("Group %d," % i) not in joined:
+        failures.append("role %d was dropped while packing" % i)
+        break
+
+# Every message carrying entries must name the employer, or a continuation
+# message arrives with roles and no company against them.
+for n, m in enumerate(msgs):
+    if "•" in m and "Acme Capital Partners" not in m:
+        failures.append("message %d lists roles without naming the company" % n)
+
+# Each entry must carry a working application link.
+if joined.count('<a href="https://careers.example.com') != 120:
+    failures.append("not every entry carried its application link")
+
+# Several employers still group under their own headings.
+mixed = build_messages([job(1, "Alpha Bank"), job(2, "Beta Advisors")])
+if "<b>Alpha Bank</b>" not in mixed[0] or "<b>Beta Advisors</b>" not in mixed[0]:
+    failures.append("companies should each get a heading")
+
+# The long-open digest uses the same packing and reports how long roles sat.
+aged = [dict(job(i), days_open=90 + i) for i in range(60)]
+amsgs = build_aged_messages(aged, 60)
+if any(len(m) > TELEGRAM_LIMIT for m in amsgs):
+    failures.append("an aged-digest message exceeded the limit")
+if "open 90 days" not in "".join(amsgs):
+    failures.append("the digest should say how long a role has been open")
+
+total = 6 + len(cases) + 1 + 5 + 7
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -12,42 +12,73 @@ def esc(text):
     return html.escape(str(text or ""), quote=False)
 
 
-def build_messages(jobs, header=None):
-    """Render new roles into one or more HTML messages, grouped by company."""
+def _entry(job):
+    """One posting: the position (linked to its application) and its details.
+
+    The company name comes from the heading this entry sits under, and _pack
+    repeats that heading whenever a company's roles carry into a new message,
+    so an entry is never shown without its employer.
+    """
+    lines = ['  • <a href="%s">%s</a>' % (esc(job["url"]), esc(job["title"]))]
+
+    detail = [d for d in (job.get("location"), job.get("cycle")) if d]
+    if job.get("days_open"):
+        detail.append("open %d days" % job["days_open"])
+    elif job.get("posted_at"):
+        detail.append("posted %s" % job["posted_at"])
+    if detail:
+        lines.append("     <i>%s</i>" % esc(" · ".join(detail)))
+
+    return "\n".join(lines)
+
+
+def _pack(entries, intro):
+    """Chunk entries into messages under Telegram's size cap.
+
+    Splitting only between companies is not enough: one employer can post more
+    roles than fit in a single message, and Telegram rejects anything over the
+    limit outright. So packing happens per posting, and a company heading is
+    repeated whenever its roles carry over into the next message.
+    """
+    messages, current, current_company = [], intro, None
+
+    for company, text in entries:
+        piece = ""
+        if company != current_company:
+            piece += "\n\n<b>%s</b>" % esc(company)
+        piece += "\n" + text
+
+        if len(current) + len(piece) > TELEGRAM_LIMIT - 32:
+            messages.append(current)
+            # Re-state the company, since the reader lost the heading.
+            current = "<b>%s</b> <i>(continued)</i>\n%s" % (esc(company), text)
+        else:
+            current += piece
+        current_company = company
+
+    if current.strip():
+        messages.append(current)
+    return messages
+
+
+def _entries_by_company(jobs, sort_key):
     by_company = {}
     for job in jobs:
         by_company.setdefault(job["company"], []).append(job)
-
-    blocks = []
+    entries = []
     for company in sorted(by_company):
-        lines = ["<b>%s</b>" % esc(company)]
-        for job in sorted(by_company[company], key=lambda j: j["title"]):
-            bits = ['  • <a href="%s">%s</a>' % (esc(job["url"]), esc(job["title"]))]
-            detail = [d for d in (job.get("location"), job.get("cycle")) if d]
-            if detail:
-                bits.append("\n     <i>%s</i>" % esc(" · ".join(detail)))
-            if job.get("posted_at"):
-                bits.append(" <i>· posted %s</i>" % esc(job["posted_at"]))
-            lines.append("".join(bits))
-        blocks.append("\n".join(lines))
+        for job in sorted(by_company[company], key=sort_key):
+            entries.append((company, _entry(job)))
+    return entries
 
-    if not blocks:
+
+def build_messages(jobs, header=None):
+    """Render new roles: company, position, and the application link."""
+    if not jobs:
         return []
-
     intro = header or "🔔 <b>%d new internship%s</b>" % (
-        len(jobs), "" if len(jobs) == 1 else "s"
-    )
-
-    messages, current = [], intro
-    for block in blocks:
-        candidate = current + "\n\n" + block
-        if len(candidate) > TELEGRAM_LIMIT - 32:
-            messages.append(current)
-            current = block
-        else:
-            current = candidate
-    messages.append(current)
-    return messages
+        len(jobs), "" if len(jobs) == 1 else "s")
+    return _pack(_entries_by_company(jobs, lambda j: j["title"]), intro)
 
 
 # Telegram's own wording is terse; say which setting is actually wrong.
@@ -90,42 +121,13 @@ def build_aged_messages(jobs, min_days):
     """A digest of roles that have been open a long time and still are."""
     if not jobs:
         return []
-
     intro = ("📌 <b>Still open after %s</b>\n"
              "<i>%d role%s that %s been listed a while and %s still accepting "
              "applications.</i>"
              % (_months(min_days), len(jobs), "" if len(jobs) == 1 else "s",
                 "has" if len(jobs) == 1 else "have",
                 "is" if len(jobs) == 1 else "are"))
-
-    by_company = {}
-    for job in jobs:
-        by_company.setdefault(job["company"], []).append(job)
-
-    blocks = []
-    for company in sorted(by_company):
-        lines = ["<b>%s</b>" % esc(company)]
-        for job in sorted(by_company[company], key=lambda j: -j["days_open"]):
-            line = '  • <a href="%s">%s</a>' % (esc(job["url"]), esc(job["title"]))
-            bits = ["open %d days" % job["days_open"]]
-            if job.get("cycle"):
-                bits.insert(0, esc(job["cycle"]))
-            if job.get("location"):
-                bits.insert(0, esc(job["location"]))
-            line += "\n     <i>%s</i>" % " · ".join(bits)
-            lines.append(line)
-        blocks.append("\n".join(lines))
-
-    messages, current = [], intro
-    for block in blocks:
-        candidate = current + "\n\n" + block
-        if len(candidate) > TELEGRAM_LIMIT - 32:
-            messages.append(current)
-            current = block
-        else:
-            current = candidate
-    messages.append(current)
-    return messages
+    return _pack(_entries_by_company(jobs, lambda j: -j.get("days_open", 0)), intro)
 
 
 def send(token, chat_id, text, disable_preview=True):
