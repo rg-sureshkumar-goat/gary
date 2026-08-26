@@ -16212,6 +16212,20 @@
       "tier": "wide",
       "ats": "lever",
       "token": "waabi"
+    },
+    {
+      "name": "Maximor AI",
+      "category": "corporate",
+      "tier": "wide",
+      "ats": "ashby",
+      "token": "maximor"
+    },
+    {
+      "name": "Compeer Financial",
+      "category": "corporate",
+      "tier": "wide",
+      "ats": "greenhouse",
+      "token": "compeerfinancial"
     }
   ]
 }

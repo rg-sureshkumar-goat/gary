@@ -9757,7 +9757,25 @@
       "last": "2026-08-25",
       "result": "added",
       "ats": "lever"
+    },
+    "The Browser Company": {
+      "last": "2026-08-26",
+      "result": "none"
+    },
+    "Maximor AI": {
+      "last": "2026-08-26",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Xpansiv": {
+      "last": "2026-08-26",
+      "result": "none"
+    },
+    "Compeer Financial": {
+      "last": "2026-08-26",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
-  "last_run": "2026-08-25"
+  "last_run": "2026-08-26"
 }

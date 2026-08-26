@@ -22261,6 +22261,38 @@
       "tier": "wide",
       "ats": "lever",
       "token": "zushealth"
+    },
+    {
+      "name": "Compeer Financial",
+      "category": "corporate",
+      "source": "harvested",
+      "tier": "wide",
+      "ats": "greenhouse",
+      "token": "compeerfinancial"
+    },
+    {
+      "name": "Maximor AI",
+      "category": "corporate",
+      "source": "harvested",
+      "tier": "wide",
+      "ats": "ashby",
+      "token": "maximor"
+    },
+    {
+      "name": "The Browser Company",
+      "category": "corporate",
+      "source": "harvested",
+      "tier": "wide",
+      "ats": "ashby",
+      "token": "the"
+    },
+    {
+      "name": "Xpansiv",
+      "category": "corporate",
+      "source": "harvested",
+      "tier": "wide",
+      "ats": "lever",
+      "token": "Xpansiv"
     }
   ]
 }
