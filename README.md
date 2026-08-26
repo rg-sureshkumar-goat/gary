@@ -356,6 +356,40 @@ To watch only certain years, set `target_years` in `config.json`:
 Postings that don't state a year always pass the filter -- plenty of genuine
 listings simply don't say, and dropping those would lose good roles.
 
+## Pre-filling applications
+
+Applications ask the same things over and over. `apply.py` opens one in a
+visible browser, fills what it recognises from your profile, attaches your
+resume, and then stops.
+
+```bash
+cp profile.example.json profile.json     # then fill it in
+.venv/bin/python apply.py "https://boards.greenhouse.io/acme/jobs/123"
+```
+
+It prints what it filled, what it left for you, and where the Submit button is.
+You read the form over and submit it yourself.
+
+**Two things it will not do.**
+
+It will not enter passwords or create accounts. Password fields are skipped on
+sight, whatever they are labelled, and so are SSN, card and bank fields. Sites
+like Workday and Oracle require an account before you can apply -- log in
+yourself, then run this on the form that follows.
+
+It will not click Submit. An application goes to a real employer under your
+name, and a wrong graduation year or GPA is a misrepresentation you would be
+answering for, not the tool. The last look stays with you.
+
+**It leaves fields blank rather than guessing.** If a dropdown has no clear
+match it is skipped and listed in the report. So *"Is your cumulative GPA above
+a 3.5?"* is left alone even though your profile has a GPA, because a number
+cannot answer a yes/no threshold question.
+
+**`profile.json` is gitignored, and must stay that way.** This repo is public.
+`profile.example.json` is the template; `*.pdf` and `*.docx` are ignored too,
+so a resume in the folder is not committed by accident.
+
 ## Expiry reminders
 
 Credentials lapse quietly. `reminders` in `config.json` lists dated things Gary

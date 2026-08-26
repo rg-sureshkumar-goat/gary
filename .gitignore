@@ -4,3 +4,9 @@ __pycache__/
 .env
 .venv/
 state/*.tmp
+
+# Personal details and documents. This repo is public -- these must never be
+# committed. profile.example.json is the template to copy.
+profile.json
+*.pdf
+*.docx
