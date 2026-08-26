@@ -106,7 +106,8 @@
     "keep_unknown_locations": false,
     "locations_allow": [],
     "target_years": [],
-    "max_alerts_per_run": 40
+    "max_alerts_per_run": 40,
+    "education_level": "masters"
   },
   "reminders": [
     {

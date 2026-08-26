@@ -301,6 +301,34 @@ python3 -m watcher.agent run --tier core --no-browser --recommend-aged --dry-run
 python3 -m watcher.agent run ... --recommend-aged --min-age-days 90
 ```
 
+## Degree level
+
+An MS Finance student sits in an awkward gap: it is a graduate degree, but it
+is not an MBA. So two kinds of posting are filtered out --
+
+- MBA-only programmes, e.g. *MBA Finance Leadership Development Program*
+- undergraduate-only ones, e.g. *Finance Development Program (Undergraduate)*
+
+Set yours in `config.json`:
+
+```json
+"education_level": "masters"
+```
+
+Accepted values are `undergraduate`, `masters`, `mba`, `phd`, or `any` to
+switch the filter off.
+
+**A posting that names no level is always kept.** Most listings say nothing
+about degree level, and treating silence as exclusion would discard the
+majority of genuinely open roles. A posting is only dropped when it names one
+or more levels and none of them is yours -- so *"MBA or MS candidates"* and
+*"Undergraduate and Graduate Students"* both come through for a master's
+student.
+
+A bare "MS" only counts as a degree next to a word that makes it one
+(*candidates*, *students*, *program*). Otherwise Microsoft and Morgan Stanley
+would read as master's programmes.
+
 ## Recruiting cycles
 
 Internship titles almost always name a cycle -- "Summer 2027", "2027 Summer

@@ -17,7 +17,6 @@ SHOULD_MATCH = [
     "OLIVER WYMAN - INTERN CONSULTANT - 2026 - NETHERLANDS",
     "Associate Consultant Intern, Strategy & Transformation, Internship Program 2027",
     "2027 Financial Analyst Intern",
-    "2027 MBA Finance Leadership Development Program (FLDP) Internship",
     "Finance Intern",
     "2027 Point72 Academy Investment Analyst Summer Internship Program",
     "Summer Analyst, Corporate Finance",
@@ -39,6 +38,11 @@ SHOULD_NOT_MATCH = [
     ("Clinical Research Intern", "clinical"),
     ("Talent Acquisition Intern, Finance Team", "recruiting"),
     ("Data Scientist Intern, Strategy", "data scientist"),
+    # Wrong degree level for an MS Finance student.
+    ("MBA Finance Leadership Development Program Intern", "MBA-only"),
+    ("2027 MBA Finance Leadership Development Program (FLDP) Internship",
+     "MBA-only"),
+    ("Finance Development Program Intern (Undergraduate)", "undergraduate-only"),
 ]
 
 
