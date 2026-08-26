@@ -11,6 +11,7 @@ import json
 import os
 import sys
 
+from . import aging
 from . import browser as browser_lane
 from . import notifier
 from . import reminders as reminder_lib
@@ -42,10 +43,17 @@ def load_state(path=STATE_PATH):
             state = json.load(fh)
     except (IOError, ValueError):
         state = {}
-    state.setdefault("seen", {})       # job id -> last date observed
+    state.setdefault("seen", {})       # job id -> {"f": first seen, "l": last seen}
     state.setdefault("broken", {})     # company -> last error reported
     state.setdefault("seeded_companies", [])  # companies whose backlog we've absorbed
     state.setdefault("reminders_sent", [])    # expiry warnings already delivered
+    state.setdefault("recommended", {})       # job id -> date last recommended
+
+    # Older state stored a bare date string. Treat it as both first and last
+    # sighting so long-open detection still has something to work with.
+    for job_id, value in list(state["seen"].items()):
+        if not isinstance(value, dict):
+            state["seen"][job_id] = {"f": value, "l": value}
     return state
 
 
@@ -57,11 +65,20 @@ def save_state(state, path=STATE_PATH):
     os.replace(tmp, path)
 
 
+def _last_seen(record):
+    if isinstance(record, dict):
+        return record.get("l") or record.get("f") or ""
+    return record or ""
+
+
 def prune(state):
     """Forget postings we haven't seen in a long time, so the file stays small."""
     cutoff = (datetime.date.today() -
               datetime.timedelta(days=PRUNE_AFTER_DAYS)).isoformat()
-    state["seen"] = {k: v for k, v in state["seen"].items() if v >= cutoff}
+    state["seen"] = {k: v for k, v in state["seen"].items()
+                     if _last_seen(v) >= cutoff}
+    state["recommended"] = {k: v for k, v in state.get("recommended", {}).items()
+                            if k in state["seen"]}
 
 
 def select_shard(companies, spec):
@@ -227,6 +244,25 @@ def run(args):
             except Exception as exc:
                 log("Could not send the new-company notice: %s" % exc)
 
+    # --- long-open roles, still accepting applications -----------------------
+    if args.recommend_aged:
+        aged = aging.select_aged(matches, seen, min_days=args.min_age_days,
+                                 recommended=state["recommended"])
+        log("%d role(s) open %d+ days and still listed"
+            % (len(aged), args.min_age_days))
+        if args.dry_run:
+            for job in aged[:40]:
+                print("  AGED %4dd  %-26s %s" % (job["days_open"],
+                                                 job["company"][:26],
+                                                 job["title"][:56]))
+        elif aged and args.token and args.chat_id:
+            stamp = today()
+            for message in notifier.build_aged_messages(aged, args.min_age_days):
+                notifier.send(args.token, args.chat_id, message)
+            for job in aged:
+                state["recommended"][job["id"]] = stamp
+            log("Sent the long-open digest.")
+
     # --- dated reminders (credentials that are about to lapse) ---------------
     sent_keys = set(state["reminders_sent"])
     pending = reminder_lib.due(config.get("reminders"), sent_keys)
@@ -258,7 +294,19 @@ def run(args):
     if not args.dry_run:
         stamp = today()
         for job in matches:
-            seen[job["id"]] = stamp
+            record = seen.get(job["id"])
+            if isinstance(record, dict):
+                record["l"] = stamp
+            else:
+                # First sighting: anchor the age clock at the board's own
+                # posted date when it gives one, so a role that was already
+                # months old when Gary arrived isn't treated as brand new.
+                posted = aging.parse_posted(job.get("posted_at"))
+                first = stamp
+                if posted and posted[1]:
+                    first = (datetime.date.today()
+                             - datetime.timedelta(days=posted[0])).isoformat()
+                seen[job["id"]] = {"f": first, "l": stamp}
         state["seeded_companies"] = sorted(seeded | {c["name"] for c in companies})
         state["broken"] = errors
         state["last_run"] = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
@@ -300,6 +348,12 @@ def build_parser():
                         help="skip browser-lane sites entirely")
     parser.add_argument("--only-browser", action="store_true",
                         help="run only the browser-lane sites")
+    parser.add_argument("--recommend-aged", action="store_true",
+                        help="send a digest of roles that have been open a "
+                             "long time and are still listed")
+    parser.add_argument("--min-age-days", type=int, default=60,
+                        help="how long a role must have been open to be "
+                             "recommended (default 60)")
     parser.add_argument("--quiet-new-companies", dest="announce_new_companies",
                         action="store_false", default=True,
                         help="don't announce newly watched employers")

@@ -6,6 +6,7 @@ Matching is phrase-based with word boundaries, so "intern" never fires on
 import re
 
 from . import geo
+from . import season as season_lib
 
 _CACHE = {}
 
@@ -77,10 +78,17 @@ def classify(job, rules):
         if not _hits(location, allowed):
             return False, {"why": "location %r not in allow-list" % location}
 
+    # Which recruiting cycle this is for, e.g. Summer 2027.
+    cycle = season_lib.parse_season(title)
+    if not season_lib.wanted(cycle, rules.get("target_years")):
+        return False, {"why": "cycle %s not in target_years"
+                              % season_lib.label(cycle)}
+
     return True, {
         "groups": sorted(groups),
         "level": level[0],
         "terms": matched_terms[:4],
+        "cycle": season_lib.label(cycle),
     }
 
 
@@ -91,5 +99,6 @@ def filter_jobs(jobs, rules):
         if ok:
             job = dict(job)
             job["match"] = reason
+            job["cycle"] = reason.get("cycle", "")
             kept.append(job)
     return kept

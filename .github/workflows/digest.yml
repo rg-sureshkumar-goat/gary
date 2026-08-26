@@ -1,0 +1,67 @@
+# Weekly: roles that have been open a long while and are still listed.
+#
+# The regular lanes only ever report postings Gary hasn't seen before, so a
+# role that has sat open for months is never mentioned again after its first
+# day. Those are often still taking applications, so this sweeps everything --
+# the curated list and all eight shards of the long tail -- and sends a digest
+# grouped by employer.
+name: gary - long-open digest
+
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+    inputs:
+      min_age_days:
+        description: "How long a role must have been open"
+        required: false
+        default: "60"
+        type: string
+
+concurrency:
+  group: gary-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Find roles still open after a long time
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MIN_AGE: ${{ github.event.inputs.min_age_days || '60' }}
+        run: |
+          python -m watcher.agent run --tier core --no-browser \
+            --recommend-aged --min-age-days "$MIN_AGE" --quiet-new-companies
+          for shard in 0 1 2 3 4 5 6 7; do
+            python -m watcher.agent run --tier wide --no-browser \
+              --shard "$shard/8" --recommend-aged --min-age-days "$MIN_AGE" \
+              --quiet-new-companies || true
+          done
+
+      - name: Remember what was recommended
+        run: |
+          if [ -z "$(git status --porcelain -- state/)" ]; then
+            echo "No state change; nothing to commit."
+            exit 0
+          fi
+          git config user.name  "Gary"
+          git config user.email "actions@github.com"
+          git add state/
+          git commit -m "state: long-open digest $(date -u +'%Y-%m-%d')"
+          for attempt in 1 2 3 4 5; do
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" \
+              && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((attempt * 4))
+          done
+          exit 1

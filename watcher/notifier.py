@@ -23,8 +23,9 @@ def build_messages(jobs, header=None):
         lines = ["<b>%s</b>" % esc(company)]
         for job in sorted(by_company[company], key=lambda j: j["title"]):
             bits = ['  • <a href="%s">%s</a>' % (esc(job["url"]), esc(job["title"]))]
-            if job.get("location"):
-                bits.append("\n     <i>%s</i>" % esc(job["location"]))
+            detail = [d for d in (job.get("location"), job.get("cycle")) if d]
+            if detail:
+                bits.append("\n     <i>%s</i>" % esc(" · ".join(detail)))
             if job.get("posted_at"):
                 bits.append(" <i>· posted %s</i>" % esc(job["posted_at"]))
             lines.append("".join(bits))
@@ -75,6 +76,56 @@ def _explain(description):
         if needle in low:
             return hint
     return None
+
+
+def _months(days):
+    if days >= 365:
+        years = days // 365
+        return "%d year%s+" % (years, "" if years == 1 else "s")
+    months = days // 30
+    return "%d month%s" % (months, "" if months == 1 else "s")
+
+
+def build_aged_messages(jobs, min_days):
+    """A digest of roles that have been open a long time and still are."""
+    if not jobs:
+        return []
+
+    intro = ("📌 <b>Still open after %s</b>\n"
+             "<i>%d role%s that %s been listed a while and %s still accepting "
+             "applications.</i>"
+             % (_months(min_days), len(jobs), "" if len(jobs) == 1 else "s",
+                "has" if len(jobs) == 1 else "have",
+                "is" if len(jobs) == 1 else "are"))
+
+    by_company = {}
+    for job in jobs:
+        by_company.setdefault(job["company"], []).append(job)
+
+    blocks = []
+    for company in sorted(by_company):
+        lines = ["<b>%s</b>" % esc(company)]
+        for job in sorted(by_company[company], key=lambda j: -j["days_open"]):
+            line = '  • <a href="%s">%s</a>' % (esc(job["url"]), esc(job["title"]))
+            bits = ["open %d days" % job["days_open"]]
+            if job.get("cycle"):
+                bits.insert(0, esc(job["cycle"]))
+            if job.get("location"):
+                bits.insert(0, esc(job["location"]))
+            line += "\n     <i>%s</i>" % " · ".join(bits)
+            lines.append(line)
+        blocks.append("\n".join(lines))
+
+    messages, current = [], intro
+    for block in blocks:
+        candidate = current + "\n\n" + block
+        if len(candidate) > TELEGRAM_LIMIT - 32:
+            messages.append(current)
+            current = block
+        else:
+            current = candidate
+    messages.append(current)
+    return messages
 
 
 def send(token, chat_id, text, disable_preview=True):

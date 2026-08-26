@@ -40,6 +40,8 @@ class Args(object):
     only_browser = False
     tier = "all"
     shard = None
+    recommend_aged = False
+    min_age_days = 60
     headed = False
     announce_new_companies = False
     token = "T"

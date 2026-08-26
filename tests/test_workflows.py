@@ -88,6 +88,12 @@ if "--tier core" not in callers.get("watch-fast.yml", ""):
     failures.append("the fast lane must scope itself to the core tier, or it "
                     "picks up thousands of harvested employers and overruns")
 
+digest_src = read("digest.yml")
+if "--recommend-aged" not in digest_src:
+    failures.append("the digest workflow must pass --recommend-aged")
+if "gary-state" not in digest_src:
+    failures.append("the digest must share the state concurrency group")
+
 # The two lanes must actually select different sets of companies.
 fast = parser.parse_args(["run", "--no-browser"])
 slow = parser.parse_args(["run", "--only-browser"])
@@ -96,12 +102,16 @@ if not fast.no_browser or fast.only_browser:
 if not slow.only_browser or slow.no_browser:
     failures.append("the browser lane should run only browser companies")
 
-# expand.yml invokes the agent directly, inside a shell script with line
-# continuations and a loop variable. Normalise those before parsing.
-expand_src = re.sub(r"\\\n\s*", " ", read("expand.yml"))
-for line in re.findall(r"python -m watcher\.agent ([^\n|]+)", expand_src):
+# expand.yml and digest.yml invoke the agent directly, inside shell scripts
+# with line continuations, loop variables and env expansions. Normalise those
+# before parsing.
+direct_src = ""
+for name in ("expand.yml", "digest.yml"):
+    direct_src += re.sub(r"\\\n\s*", " ", read(name)) + "\n"
+for line in re.findall(r"python -m watcher\.agent ([^\n|]+)", direct_src):
     cleaned = line.strip()
     cleaned = re.sub(r'"\$\w+/(\d+)"', r"3/\1", cleaned)   # "$shard/8" -> 3/8
+    cleaned = re.sub(r'"\$[A-Z_]+"', "60", cleaned)         # "$MIN_AGE"  -> 60
     cleaned = re.sub(r"\$\(\(.*?\)\)", "3", cleaned)
     cleaned = cleaned.replace("||", "").strip()
     if not cleaned:
@@ -109,12 +119,12 @@ for line in re.findall(r"python -m watcher\.agent ([^\n|]+)", expand_src):
     try:
         tail = shlex.split(cleaned)
     except ValueError as exc:
-        failures.append("expand.yml command %r is not valid shell: %s" % (cleaned, exc))
+        failures.append("workflow command %r is not valid shell: %s" % (cleaned, exc))
         continue
     try:
         parser.parse_args(tail)
     except SystemExit:
-        failures.append("expand.yml runs %r, which the agent cannot parse" % cleaned)
+        failures.append("a workflow runs %r, which the agent cannot parse" % cleaned)
 
 # Both watch workflows must share the state concurrency group, or two runs
 # can clobber state/seen.json.
@@ -122,7 +132,7 @@ groups = set(re.findall(r"group:\s*([\w-]+)", state + read("expand.yml")))
 if len(groups) != 1:
     failures.append("workflows disagree on the concurrency group: %r" % sorted(groups))
 
-total = 2 * len(callers) + 3 + 2 + 1 + 1
+total = 2 * len(callers) + 3 + 2 + 2 + 1 + 1
 if failures:
     print("FAILED %d check(s):" % len(failures))
     for f in failures:

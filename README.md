@@ -234,6 +234,64 @@ and (4) passes the US gate.
 
 Matching is whole-word, so `intern` never fires on *internal* or *international*.
 
+## Long-open roles
+
+The watch lanes only ever report postings Gary hasn't seen before, so a role
+that has been open for months is never mentioned again after its first day.
+Plenty of those are still taking applications. Once a week Gary sweeps
+everything and sends a digest of roles open **60+ days and still listed**.
+
+Working out how long something has been open is the fiddly part, because the
+evidence varies in quality:
+
+| Source | What it gives | Good enough alone? |
+|---|---|---|
+| Greenhouse, Oracle, RSS | an exact date | yes |
+| Workday | `30+ Days Ago` | **no** — a floor of 30 can't prove 60 |
+| `html` pages | nothing | no |
+| Gary's own history | the day it first appeared | yes, once it's old enough |
+
+So Gary takes whichever evidence is stronger, and a floor is never treated as
+proof. A Workday role showing `30+ Days Ago` only enters the digest once Gary
+has actually watched it for 60 days. That means the digest starts out covering
+mainly Greenhouse and Oracle employers, and broadens as Gary's history deepens.
+
+When Gary first records a posting it anchors the age clock to the board's own
+posted date where there is one, so a role that was already months old when Gary
+arrived isn't mistaken for a new one.
+
+Roles are held back for 45 days after being recommended, so the digest doesn't
+repeat itself every week.
+
+```bash
+python3 -m watcher.agent run --tier core --no-browser --recommend-aged --dry-run
+python3 -m watcher.agent run ... --recommend-aged --min-age-days 90
+```
+
+## Recruiting cycles
+
+Internship titles almost always name a cycle -- "Summer 2027", "2027 Summer
+Analyst", "Fall 2026 Co-op". Gary reads it and shows it next to each role, so
+you can see at a glance which year a posting is for.
+
+Season and year are found independently and then combined, because titles put
+them anywhere: *"2027 Commercial & Investment Bank - Global Investment Banking
+Program - Summer Analyst"* separates them by five words, and matching them as
+one pattern misses it.
+
+A bare year only counts as a cycle when the title also reads as early-careers.
+Otherwise `Q1 2027 Revenue Manager` and `FY2027 Planning` would look like
+internship cycles.
+
+To watch only certain years, set `target_years` in `config.json`:
+
+```json
+"target_years": [2027, 2028]
+```
+
+Postings that don't state a year always pass the filter -- plenty of genuine
+listings simply don't say, and dropping those would lose good roles.
+
 ## Expiry reminders
 
 Credentials lapse quietly. `reminders` in `config.json` lists dated things Gary
