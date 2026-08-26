@@ -33,6 +33,37 @@ PROFILE = os.path.join(ROOT, "profile.json")
 SUBMIT_WORDS = ("submit", "apply now", "send application", "finish")
 
 
+def open_browser(playwright, headless, session_dir):
+    """A browser that can remember a sign-in, if a session directory is given.
+
+    Workday makes you sign in before showing the application. Keeping the
+    browser profile on disk means you log in once by hand rather than every
+    run -- your credentials are still only ever typed by you.
+    """
+    if session_dir:
+        os.makedirs(session_dir, exist_ok=True)
+        ctx = playwright.chromium.launch_persistent_context(
+            session_dir, headless=headless, args=LAUNCH_ARGS, user_agent=UA,
+            locale="en-US", viewport={"width": 1400, "height": 1000})
+        return None, ctx
+    browser = playwright.chromium.launch(headless=headless, args=LAUNCH_ARGS)
+    ctx = browser.new_context(user_agent=UA, locale="en-US",
+                              viewport={"width": 1400, "height": 1000})
+    return browser, ctx
+
+
+def close_browser(browser, ctx):
+    try:
+        ctx.close()
+    except Exception:
+        pass
+    if browser:
+        try:
+            browser.close()
+        except Exception:
+            pass
+
+
 def load_profile(path):
     if not os.path.exists(path):
         print("No profile.json found.\n"
@@ -70,6 +101,43 @@ def label_for(page, element):
         return ""
 
 
+# Workday renders dropdowns as buttons with a popup rather than <select>, and
+# wraps its inputs in data-automation-id containers. Without these selectors a
+# Workday form looks empty.
+CONTROL_SELECTOR = (
+    "input, textarea, select, "
+    "button[aria-haspopup='listbox'], [role=combobox], "
+    "[data-automation-id] input, [data-automation-id] textarea")
+
+
+def controls(frame):
+    """Every fillable control, including custom widgets.
+
+    A comma-separated CSS query already returns each element once even when it
+    matches several of the selectors, so no de-duplication is needed. Trying to
+    de-duplicate by markup collapses genuinely distinct fields that happen to
+    share the same opening tag -- two "Attach" file inputs, for instance.
+    """
+    return frame.query_selector_all(CONTROL_SELECTOR)
+
+
+def widget_value(frame, element):
+    """What a control currently holds, native or custom."""
+    try:
+        tag = element.evaluate("el => el.tagName.toLowerCase()")
+        if tag == "select":
+            return element.evaluate(
+                "el => el.selectedOptions.length ? "
+                "el.selectedOptions[0].textContent.trim() : ''")
+        if tag == "button":
+            # A Workday dropdown shows its selection as the button's text.
+            text = (element.inner_text() or "").strip()
+            return "" if text.lower() in ("select one", "select", "") else text
+        return element.input_value()
+    except Exception:
+        return ""
+
+
 # Frames that are never form content.
 SKIP_FRAME = ("recaptcha", "gstatic", "doubleclick", "googletagmanager",
               "addtoany", "googleapis", "facebook", "hotjar")
@@ -88,7 +156,7 @@ def form_frames(page):
         if any(bad in url for bad in SKIP_FRAME):
             continue
         try:
-            count = len(frame.query_selector_all("input, textarea, select"))
+            count = len(frame.query_selector_all(CONTROL_SELECTOR))
         except Exception:
             continue
         if count:
@@ -105,7 +173,7 @@ def fill(page, profile, dry_run=False):
         return filled, skipped, credentials
 
     frame = frames[0]
-    for element in frame.query_selector_all("input, textarea, select"):
+    for element in controls(frame):
         try:
             if not element.is_visible() or not element.is_enabled():
                 continue
@@ -200,6 +268,12 @@ def main(argv=None):
     parser.add_argument("--dry-run", action="store_true",
                         help="report what would be filled, change nothing")
     parser.add_argument("--wait-ms", type=int, default=6000)
+    parser.add_argument("--session", default=os.path.join(ROOT, ".browser-session"),
+                        help="directory holding the browser profile, so a "
+                             "Workday sign-in survives between runs. You log "
+                             "in yourself; nothing is typed for you.")
+    parser.add_argument("--no-session", action="store_true",
+                        help="use a throwaway browser profile instead")
     parser.add_argument("--headless", action="store_true",
                         help="inspect a form without opening a window; only "
                              "sensible with --dry-run, since you cannot review "
@@ -213,11 +287,10 @@ def main(argv=None):
     sync_playwright = _require_playwright()
     with sync_playwright() as p:
         headless = args.headless and args.dry_run
-        browser = p.chromium.launch(headless=headless, args=LAUNCH_ARGS)
-        ctx = browser.new_context(user_agent=UA, locale="en-US",
-                                  viewport={"width": 1400, "height": 1000})
+        browser, ctx = open_browser(p, headless, None if args.no_session
+                                    else args.session)
         ctx.add_init_script(STEALTH)
-        page = ctx.new_page()
+        page = ctx.pages[0] if ctx.pages else ctx.new_page()
         print("opening %s" % args.url)
         page.goto(args.url, wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(args.wait_ms)
@@ -239,7 +312,7 @@ def main(argv=None):
                 input()
             except (EOFError, KeyboardInterrupt):
                 pass
-        browser.close()
+        close_browser(browser, ctx)
     return 0
 
 

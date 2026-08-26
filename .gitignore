@@ -10,3 +10,6 @@ state/*.tmp
 profile.json
 *.pdf
 *.docx
+
+# Browser profile holding your signed-in sessions.
+.browser-session/

@@ -24,14 +24,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
-from apply import form_frames, label_for, PROFILE  # noqa: E402
+from apply import (form_frames, label_for, controls, widget_value,  # noqa: E402
+                   open_browser, close_browser, PROFILE, ROOT)
 
 
 def harvest(frame):
     """Read back the labels and values on a form the user has filled in."""
     learned, custom, skipped = {}, {}, []
 
-    for element in frame.query_selector_all("input, textarea, select"):
+    for element in controls(frame):
         try:
             if not element.is_visible():
                 continue
@@ -39,7 +40,10 @@ def harvest(frame):
             tag = element.evaluate("el => el.tagName.toLowerCase()")
         except Exception:
             continue
-        if kind in ("hidden", "submit", "button", "checkbox", "radio"):
+        # A custom dropdown is a <button>; a real submit button is not.
+        if kind in ("hidden", "submit", "checkbox", "radio"):
+            continue
+        if tag == "button" and not element.get_attribute("aria-haspopup"):
             continue
 
         label = formfill.normalise(label_for(frame, element))
@@ -53,17 +57,7 @@ def harvest(frame):
         if kind == "file":
             continue
 
-        try:
-            if tag == "select":
-                value = element.evaluate(
-                    "el => el.selectedOptions.length ? "
-                    "el.selectedOptions[0].textContent.trim() : ''")
-            else:
-                value = element.input_value()
-        except Exception:
-            continue
-
-        value = " ".join(str(value or "").split())
+        value = " ".join(str(widget_value(frame, element) or "").split())
         if not value or value.lower() in ("select...", "select", "--", "choose"):
             continue
 
@@ -95,6 +89,10 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("url", help="an application form to learn from")
     parser.add_argument("--profile", default=PROFILE)
+    parser.add_argument("--session", default=os.path.join(ROOT, ".browser-session"),
+                        help="browser profile directory, so a Workday sign-in "
+                             "survives between runs")
+    parser.add_argument("--no-session", action="store_true")
     parser.add_argument("--wait-ms", type=int, default=5000)
     args = parser.parse_args(argv)
 
@@ -105,30 +103,46 @@ def main(argv=None):
 
     sync_playwright = _require_playwright()
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, args=LAUNCH_ARGS)
-        ctx = browser.new_context(user_agent=UA, locale="en-US",
-                                  viewport={"width": 1400, "height": 1000})
+        browser, ctx = open_browser(p, False, None if args.no_session
+                                    else args.session)
         ctx.add_init_script(STEALTH)
-        page = ctx.new_page()
+        page = ctx.pages[0] if ctx.pages else ctx.new_page()
         print("opening %s" % args.url)
         page.goto(args.url, wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(args.wait_ms)
 
         print("\nFill the form in as you normally would. Don't submit it.")
-        print("When you're done, come back here and press Enter.")
-        try:
-            input()
-        except (EOFError, KeyboardInterrupt):
-            browser.close()
-            return 1
+        print("Workday spreads an application over several pages -- press Enter")
+        print("here after each one, then move on. Type 'done' when finished.")
 
-        frames = form_frames(page)
-        if not frames:
-            print("No form fields found on that page.")
-            browser.close()
+        learned, custom, skipped = {}, {}, []
+        pages_read = 0
+        while True:
+            try:
+                answer = input("\n[Enter] read this page, or 'done': ").strip().lower()
+            except (EOFError, KeyboardInterrupt):
+                answer = "done"
+            if answer.startswith("d") or answer.startswith("q"):
+                break
+
+            current = ctx.pages[-1] if ctx.pages else page
+            frames = form_frames(current)
+            if not frames:
+                print("   no form fields visible on this page")
+                continue
+            page_learned, page_custom, page_skipped = harvest(frames[0])
+            learned.update(page_learned)
+            custom.update(page_custom)
+            skipped.extend(page_skipped)
+            pages_read += 1
+            print("   read %d answer(s) from this page (%d in total)"
+                  % (len(page_learned) + len(page_custom),
+                     len(learned) + len(custom)))
+
+        close_browser(browser, ctx)
+        if not pages_read:
+            print("Nothing read.")
             return 1
-        learned, custom, skipped = harvest(frames[0])
-        browser.close()
 
     if not learned and not custom:
         print("Nothing to learn -- the form looked empty.")

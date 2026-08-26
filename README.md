@@ -394,6 +394,21 @@ Fill the form as you normally would, **don't submit**, then press Enter in the
 terminal. Gary reads what you typed, shows you what it learned, and saves it
 once you confirm. Password and SSN fields are never read back.
 
+**Workday** -- the platform most of these employers use -- needs three things
+the others don't, all handled:
+
+- *You must sign in before the form appears.* The browser profile is kept in
+  `.browser-session/` (gitignored), so you sign in by hand once and it is
+  remembered. Nothing is ever typed into a login form for you.
+- *The application runs over several pages.* `learn.py` reads each page when
+  you press Enter and accumulates across all of them; type `done` at the end.
+- *Its controls aren't standard HTML.* Workday builds dropdowns as buttons with
+  popups and wraps inputs in `data-automation-id` containers, so a plain
+  `input, select` query finds nothing. Both are matched now.
+
+Point `learn.py` at a Workday application **after** signing in and clicking
+Apply -- the job advert page itself has no form on it.
+
 It learns **answers, not clicks**. A recorded click sequence only works on the
 form it was recorded against, since every employer lays their form out
 differently -- but your name, university and graduation year are the same
