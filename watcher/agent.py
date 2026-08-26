@@ -244,6 +244,25 @@ def run(args):
             except Exception as exc:
                 log("Could not send the new-company notice: %s" % exc)
 
+    # --- everything currently open, on request -------------------------------
+    # The watch lanes only ever report roles Gary has not seen before, so a
+    # role that was already posted when Gary started watching an employer is
+    # absorbed and never mentioned. This is how you see those.
+    if args.send_open:
+        log("%d role(s) currently open and matching" % len(matches))
+        if args.dry_run:
+            for job in matches[:60]:
+                print("  OPEN  %-26s %-56s %s" % (job["company"][:26],
+                                                  job["title"][:54], job["url"][:60]))
+        elif matches and args.token and args.chat_id:
+            header = ("📋 <b>%d open role%s</b>\n<i>Everything matching right "
+                      "now, including roles posted before Gary started "
+                      "watching.</i>"
+                      % (len(matches), "" if len(matches) == 1 else "s"))
+            for message in notifier.build_messages(matches, header=header):
+                notifier.send(args.token, args.chat_id, message)
+            log("Sent the open-roles catalogue.")
+
     # --- long-open roles, still accepting applications -----------------------
     if args.recommend_aged:
         aged = aging.select_aged(matches, seen, min_days=args.min_age_days,
@@ -348,6 +367,9 @@ def build_parser():
                         help="skip browser-lane sites entirely")
     parser.add_argument("--only-browser", action="store_true",
                         help="run only the browser-lane sites")
+    parser.add_argument("--send-open", action="store_true",
+                        help="send every currently-open matching role, not "
+                             "just ones Gary hasn't reported before")
     parser.add_argument("--recommend-aged", action="store_true",
                         help="send a digest of roles that have been open a "
                              "long time and are still listed")

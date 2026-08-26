@@ -88,6 +88,14 @@ if "--tier core" not in callers.get("watch-fast.yml", ""):
     failures.append("the fast lane must scope itself to the core tier, or it "
                     "picks up thousands of harvested employers and overruns")
 
+open_src = read("open-roles.yml")
+if "--send-open" not in open_src:
+    failures.append("the open-roles workflow must pass --send-open")
+# Match the YAML key, not the word: the file's own comment says "Not
+# scheduled", which a substring check reads as a trigger.
+if re.search(r"^\s*schedule:", open_src, re.M):
+    failures.append("open-roles must not be scheduled -- it re-sends known roles")
+
 digest_src = read("digest.yml")
 if "--recommend-aged" not in digest_src:
     failures.append("the digest workflow must pass --recommend-aged")
@@ -106,12 +114,13 @@ if not slow.only_browser or slow.no_browser:
 # with line continuations, loop variables and env expansions. Normalise those
 # before parsing.
 direct_src = ""
-for name in ("expand.yml", "digest.yml"):
+for name in ("expand.yml", "digest.yml", "open-roles.yml"):
     direct_src += re.sub(r"\\\n\s*", " ", read(name)) + "\n"
 for line in re.findall(r"python -m watcher\.agent ([^\n|]+)", direct_src):
     cleaned = line.strip()
     cleaned = re.sub(r'"\$\w+/(\d+)"', r"3/\1", cleaned)   # "$shard/8" -> 3/8
     cleaned = re.sub(r'"\$[A-Z_]+"', "60", cleaned)         # "$MIN_AGE"  -> 60
+    cleaned = re.sub(r"\$[A-Z_]+", "60", cleaned)           # bare $SCOPE
     cleaned = re.sub(r"\$\(\(.*?\)\)", "3", cleaned)
     cleaned = cleaned.replace("||", "").strip()
     if not cleaned:
@@ -132,7 +141,7 @@ groups = set(re.findall(r"group:\s*([\w-]+)", state + read("expand.yml")))
 if len(groups) != 1:
     failures.append("workflows disagree on the concurrency group: %r" % sorted(groups))
 
-total = 2 * len(callers) + 3 + 2 + 2 + 1 + 1
+total = 2 * len(callers) + 3 + 2 + 2 + 2 + 1 + 1
 if failures:
     print("FAILED %d check(s):" % len(failures))
     for f in failures:

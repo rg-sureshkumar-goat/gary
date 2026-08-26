@@ -40,6 +40,7 @@ class Args(object):
     only_browser = False
     tier = "all"
     shard = None
+    send_open = False
     recommend_aged = False
     min_age_days = 60
     headed = False

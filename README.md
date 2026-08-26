@@ -234,6 +234,26 @@ and (4) passes the US gate.
 
 Matching is whole-word, so `intern` never fires on *internal* or *international*.
 
+## Seeing what's already open
+
+The watch lanes only report postings Gary hasn't seen before. When Gary starts
+watching an employer, whatever is already on their board is **absorbed**: the
+roles are recorded as seen so they aren't announced as new. Those roles are
+genuinely open and genuinely match -- they just arrived before Gary did, so it
+stays quiet about them.
+
+That's deliberate (onboarding 1,600 employers would otherwise mean thousands of
+texts at once) but it does mean a backlog of perfectly good roles you never
+hear about. To see them, run
+[gary - show open roles](../../actions/workflows/open-roles.yml) and pick
+`core` or `everything`:
+
+```bash
+python3 -m watcher.agent run --tier core --no-browser --send-open --dry-run
+```
+
+It isn't scheduled, because it re-sends roles you may already have looked at.
+
 ## Long-open roles
 
 The watch lanes only ever report postings Gary hasn't seen before, so a role

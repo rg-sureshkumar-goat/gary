@@ -1,0 +1,52 @@
+# On demand: every matching role that is open right now.
+#
+# The watch lanes only report postings Gary has not seen before, so anything
+# already posted when Gary started watching an employer was absorbed silently
+# and never mentioned. Those roles are still open and still match. Run this to
+# see them.
+#
+# Not scheduled -- it re-sends roles you may already have seen, so it is
+# triggered by hand.
+name: gary - show open roles
+
+on:
+  workflow_dispatch:
+    inputs:
+      scope:
+        description: "Which employers to list"
+        required: true
+        default: core
+        type: choice
+        options: [core, everything]
+
+concurrency:
+  group: gary-state
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  catalogue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: List everything currently open
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SCOPE: ${{ github.event.inputs.scope }}
+        run: |
+          python -m watcher.agent run --tier core --no-browser \
+            --send-open --quiet-new-companies
+          if [ "$SCOPE" = "everything" ]; then
+            for shard in 0 1 2 3 4 5 6 7; do
+              python -m watcher.agent run --tier wide --no-browser \
+                --shard "$shard/8" --send-open --quiet-new-companies || true
+            done
+          fi
