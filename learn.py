@@ -61,9 +61,15 @@ def harvest(frame):
         if formfill.is_page_furniture(label, ident_raw):
             continue
         if formfill.is_option_label(label):
-            # The label is the option, not the question; the real question is
-            # elsewhere and this would be stored as a meaningless "yes".
-            continue
+            # The label is the option, not the question. On Workday the
+            # question is often the section heading above it -- "Are you at
+            # least 18 years of age?" with a control labelled only "Yes". Use
+            # the heading as the question rather than discarding the answer.
+            heading = formfill.normalise(section_for(frame, element))
+            if formfill.is_reusable_question(heading):
+                label = heading
+            else:
+                continue
         if kind == "password" or formfill.is_credential(label):
             skipped.append(label)
             continue

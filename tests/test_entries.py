@@ -176,6 +176,20 @@ for label in ["Are you at least 18 years of age?", "Company", "Role Description"
     if is_option_label(label):
         failures.append("a real question mistaken for option text: %r" % label)
 
+# A control labelled only "Yes" still carries a real answer when the question
+# is the heading above it. Discarding those lost the sponsorship question and
+# three others from a real recording.
+from watcher.formfill import is_reusable_question  # noqa: E402
+for heading in ["Are you at least 18 years of age?",
+                "Have you ever been dismissed, terminated, or asked to resign?",
+                "Will you now or in the future require sponsorship?"]:
+    if not is_reusable_question(heading):
+        failures.append("a question heading was not recognised: %r" % heading)
+# A heading that is not a question must not become one.
+for heading in ["From", "Education", "Work Experience", ""]:
+    if is_reusable_question(heading):
+        failures.append("a section heading was mistaken for a question: %r" % heading)
+
 # --- a signature date split across three boxes ------------------------------- #
 WHEN = datetime.date(2027, 1, 5)
 for part, expected in [("Day", "5"), ("Month", "1"), ("Year", "2027")]:
@@ -191,7 +205,7 @@ if value_for("Day", {}, "Date") != str(datetime.date.today().day):
     failures.append("split signature date not filled from today")
 
 total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2 \
-        + 5 + 9 + 3 + 4 + 1
+        + 5 + 9 + 3 + 4 + 1 + 7
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
