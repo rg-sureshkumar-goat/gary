@@ -162,6 +162,21 @@ def main(argv=None):
         print("Everything you entered already matches your profile.")
         return 0
 
+    # A bare "Degree" or "GPA" says nothing about which degree it belongs to.
+    # If you hold two, the wrong slot is an easy mistake to make silently.
+    AMBIGUOUS = {"degree", "gpa", "university", "major", "graduation"}
+    clashes = [c for c in changed
+               if c[0] in AMBIGUOUS and c[1] not in (None, "")]
+    if clashes:
+        print("\n--- check these before saving ---")
+        print("   The form asked without saying which degree it meant, and you")
+        print("   hold more than one. Gary assumed your current one:")
+        for key, was, now in clashes:
+            print("      %-14s %r would replace %r" % (key, now, was))
+        print("   If that is your earlier degree, save, then move it with:")
+        for key, _was, now in clashes:
+            print("      python3 profile.py --set undergrad_%s=%r" % (key, now))
+
     print("\n--- learned ---")
     for key, was, now in changed:
         if was in (None, ""):
