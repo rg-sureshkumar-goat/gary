@@ -455,8 +455,11 @@ def add_buttons(frame, block):
                 'h1,h2,h3,h4,h5,legend,label,div,span,p'))
                 .filter(e => {
                     const t = (e.innerText || '').trim();
-                    return t && t.length < 40 && titleRe.test(t) &&
-                           e.children.length === 0;
+                    // Short text is enough: a wrapper holding the whole
+                    // section reads long and is excluded anyway. Requiring no
+                    // child elements missed "Work Experience" entirely,
+                    // because Workday wraps that title in a span.
+                    return t && t.length < 40 && titleRe.test(t);
                 });
 
             const out = [];
@@ -753,6 +756,11 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         if value:
             if not dry_run:
                 element.fill(value)
+                try:
+                    if not (widget_value(frame, element) or "").strip():
+                        _UNREADABLE_FILLED.add(field_key)
+                except Exception:
+                    _UNREADABLE_FILLED.add(field_key)
             filled.append((label, value))
         elif label:
             skipped.append((label, "not in your profile"))

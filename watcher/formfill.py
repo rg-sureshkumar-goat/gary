@@ -408,10 +408,25 @@ def value_for(label, profile, section="", identity="", entry=0):
 
 
 def _tokens(text):
-    return set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
+    """Words for comparison, with apostrophes and plurals levelled.
+
+    Dropdowns say "Master's Degree" where a profile says "Masters"; without
+    this they share no token at all and the degree is never selected.
+    """
+    # Filler words carry no meaning and create false matches: "Master of
+    # Science" and "Bachelor of Science" share two of three words otherwise.
+    stop = {"of", "the", "in", "and", "a", "an", "for", "to", "at", "on"}
+    cleaned = str(text or "").lower().replace("\u2019", "'").replace("'s", "")
+    words = [w for w in re.findall(r"[a-z0-9]+", cleaned) if w not in stop]
+    out = set()
+    for word in words:
+        if len(word) > 3 and word.endswith("s"):
+            word = word[:-1]
+        out.add(word)
+    return out
 
 
-def fallbacks_for(label, profile, section="", identity="", entry=0):
+def fallbacks_for(label, profile, section="", identity="", entry=0):  # noqa: C901
     """Alternatives to try when a dropdown has no option matching your answer.
 
     Some values simply are not offered: a major like "Arts and Entertainment
@@ -431,6 +446,9 @@ def fallbacks_for(label, profile, section="", identity="", entry=0):
     key = key_for(label)
     if key:
         key = prior_degree_key(label, key)
+        # An entry holding the earlier degree uses that degree's chain.
+        if entry and key in _PRIOR_KEYS and _entry_is_prior(profile, entry):
+            key = "undergrad_" + key
         for value in table.get(key) or []:
             if value not in out:
                 out.append(value)
