@@ -24,14 +24,21 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
-from apply import (form_frames, label_for, controls, widget_value,  # noqa: E402
-                   looks_like_login, open_browser, close_browser, PROFILE, ROOT)
+from apply import (form_frames, label_for, section_for, controls,  # noqa: E402
+                   widget_value, looks_like_login, open_browser,
+                   close_browser, PROFILE, ROOT)
 
 
 def harvest(frame):
-    """Read back the labels and values on a form the user has filled in."""
-    learned, custom, skipped = {}, {}, []
-    skipped_generic = []
+    """Read back every question on the page and exactly what you answered.
+
+    Nothing is interpreted here. Earlier versions mapped each field onto a
+    canonical key -- degree, gpa, university -- and two different questions
+    mapping to the same key silently overwrote each other, which is how a
+    profile holding two degrees ended up scrambled. The question text is the
+    key, and your answer is stored as typed.
+    """
+    answers, skipped = {}, []
 
     for element in controls(frame):
         try:
@@ -41,7 +48,6 @@ def harvest(frame):
             tag = element.evaluate("el => el.tagName.toLowerCase()")
         except Exception:
             continue
-        # A custom dropdown is a <button>; a real submit button is not.
         if kind in ("hidden", "submit", "checkbox", "radio"):
             continue
         if tag == "button" and not element.get_attribute("aria-haspopup"):
@@ -50,8 +56,6 @@ def harvest(frame):
         label = formfill.normalise(label_for(frame, element))
         if not label:
             continue
-
-        # Never read a credential back off the page.
         if kind == "password" or formfill.is_credential(label):
             skipped.append(label)
             continue
@@ -59,33 +63,23 @@ def harvest(frame):
             continue
 
         value = " ".join(str(widget_value(frame, element) or "").split())
-        if not value or value.lower() in ("select...", "select", "--", "choose"):
+        if not value or value.lower() in ("select...", "select", "select one",
+                                          "--", "choose", "choose one"):
             continue
 
-        key = formfill.key_for(label)
-        if key:
-            key = formfill.prior_degree_key(label, key)
-            learned[key] = value
-        elif formfill.is_reusable_question(label):
-            custom[formfill.normalise(label).lower().rstrip("?").strip()] = value
-        else:
-            # Too generic to reuse -- "Year" on this form is not "Year" on the
-            # next one.
-            skipped_generic.append(label)
+        section = formfill.normalise(section_for(frame, element))
+        answers[formfill.answer_key(section, label)] = value
 
-    return learned, custom, skipped, skipped_generic
+    return answers, skipped
 
 
-def merge(profile, learned, custom):
+def merge(profile, recorded):
+    """Store the recorded answers, reporting anything that changed."""
+    answers = profile.setdefault("answers", {})
     changed = []
-    for key, value in sorted(learned.items()):
-        if profile.get(key) != value:
-            changed.append((key, profile.get(key), value))
-            profile[key] = value
-    answers = profile.setdefault("custom_answers", {})
-    for question, value in sorted(custom.items()):
+    for question, value in sorted(recorded.items()):
         if answers.get(question) != value:
-            changed.append(("custom: " + question[:40], answers.get(question), value))
+            changed.append((question, answers.get(question), value))
             answers[question] = value
     return changed
 
@@ -98,6 +92,10 @@ def main(argv=None):
                         help="browser profile directory, so a Workday sign-in "
                              "survives between runs")
     parser.add_argument("--no-session", action="store_true")
+    parser.add_argument("--reset", action="store_true",
+                        help="discard previously learned answers first, so a "
+                             "scrambled profile is replaced rather than merged "
+                             "into. Contact details you typed by hand are kept.")
     parser.add_argument("--wait-ms", type=int, default=5000)
     args = parser.parse_args(argv)
 
@@ -105,6 +103,18 @@ def main(argv=None):
     if os.path.exists(args.profile):
         with open(args.profile) as fh:
             profile = json.load(fh)
+
+    if args.reset:
+        dropped = len(profile.get("answers") or {}) + len(profile.get("custom_answers") or {})
+        # Canonical fields derived by earlier versions are what got scrambled;
+        # clear those too so nothing stale survives.
+        for key in ("answers", "custom_answers", "degree", "gpa", "university",
+                    "major", "graduation", "undergrad_degree", "undergrad_gpa",
+                    "undergrad_university", "undergrad_major",
+                    "undergrad_graduation"):
+            profile.pop(key, None)
+        print("Cleared %d previously learned answer(s) and the degree fields."
+              % dropped)
 
     sync_playwright = _require_playwright()
     with sync_playwright() as p:
@@ -120,7 +130,7 @@ def main(argv=None):
         print("Workday spreads an application over several pages -- press Enter")
         print("here after each one, then move on. Type 'done' when finished.")
 
-        learned, custom, skipped, generic = {}, {}, [], []
+        recorded, skipped = {}, []
         pages_read = 0
         while True:
             try:
@@ -138,64 +148,45 @@ def main(argv=None):
             if looks_like_login(frames[0]):
                 print("   that's a sign-in page -- nothing read from it")
                 continue
-            page_learned, page_custom, page_skipped, page_generic = harvest(frames[0])
-            learned.update(page_learned)
-            custom.update(page_custom)
+            page_answers, page_skipped = harvest(frames[0])
+            recorded.update(page_answers)
             skipped.extend(page_skipped)
-            generic.extend(page_generic)
             pages_read += 1
-            print("   read %d answer(s) from this page (%d in total)"
-                  % (len(page_learned) + len(page_custom),
-                     len(learned) + len(custom)))
+            print("   recorded %d answer(s) from this page (%d in total)"
+                  % (len(page_answers), len(recorded)))
 
         close_browser(browser, ctx)
         if not pages_read:
             print("Nothing read.")
             return 1
 
-    if not learned and not custom:
-        print("Nothing to learn -- the form looked empty.")
+    if not recorded:
+        print("Nothing recorded -- the form looked empty.")
         return 1
 
-    changed = merge(profile, learned, custom)
-    if not changed:
-        print("Everything you entered already matches your profile.")
-        return 0
+    changed = merge(profile, recorded)
 
-    # A bare "Degree" or "GPA" says nothing about which degree it belongs to.
-    # If you hold two, the wrong slot is an easy mistake to make silently.
-    AMBIGUOUS = {"degree", "gpa", "university", "major", "graduation"}
-    clashes = [c for c in changed
-               if c[0] in AMBIGUOUS and c[1] not in (None, "")]
-    if clashes:
-        print("\n--- check these before saving ---")
-        print("   The form asked without saying which degree it meant, and you")
-        print("   hold more than one. Gary assumed your current one:")
-        for key, was, now in clashes:
-            print("      %-14s %r would replace %r" % (key, now, was))
-        print("   If that is your earlier degree, save, then move it with:")
-        for key, _was, now in clashes:
-            print("      python3 profile.py --set undergrad_%s=%r" % (key, now))
-
-    print("\n--- learned ---")
-    for key, was, now in changed:
-        if was in (None, ""):
-            print("   %-34s %s" % (key[:34], str(now)[:44]))
-        else:
-            print("   %-34s %s  (was %s)" % (key[:34], str(now)[:32], str(was)[:20]))
-    if generic:
-        print("\n--- too generic to reuse (%d) ---" % len(generic))
-        print("   These labels say nothing about what is being asked, so an")
-        print("   answer saved under them would land in unrelated fields:")
-        for label in sorted(set(generic))[:12]:
-            print("      %s" % label[:56])
+    print("\n--- recorded %d answer(s), exactly as you entered them ---"
+          % len(recorded))
+    for question in sorted(recorded):
+        marker = " "
+        was = next((c[1] for c in changed if c[0] == question), None)
+        if was not in (None, ""):
+            marker = "*"
+        print(" %s %-46s %s" % (marker, question[:46], str(recorded[question])[:40]))
+    if any(c[1] not in (None, "") for c in changed):
+        print("\n   * replaced an answer you had given before")
 
     if skipped:
         print("\n--- not read (credential fields) ---")
-        for label in skipped:
+        for label in sorted(set(skipped)):
             print("   %s" % label[:60])
 
-    print("\nSave these to %s? [y/N] " % os.path.basename(args.profile), end="")
+    if not changed:
+        print("\nEverything already matches what was saved.")
+        return 0
+
+    print("\nSave to %s? [y/N] " % os.path.basename(args.profile), end="")
     try:
         if not input().strip().lower().startswith("y"):
             print("Nothing saved.")
@@ -209,7 +200,7 @@ def main(argv=None):
         json.dump(profile, fh, indent=2, sort_keys=True)
         fh.write("\n")
     os.replace(tmp, args.profile)
-    print("Saved. apply.py will use these on the next form.")
+    print("Saved %d answer(s). Review them with:  python3 profile.py" % len(changed))
     return 0
 
 

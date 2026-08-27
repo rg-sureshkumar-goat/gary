@@ -146,18 +146,22 @@ def main(argv=None):
                 else:
                     print("     %-30s  %s" % (label, show(value, key, args.mask)[:44]))
 
-    custom = profile.get("custom_answers") or {}
-    print("\nRemembered answers to specific questions")
-    print("  " + "-" * 40)
-    if custom:
-        for question in sorted(custom):
-            print("     %-46s  %s" % (question[:46], str(custom[question])[:24]))
+    answers = dict(profile.get("custom_answers") or {})
+    answers.update(profile.get("answers") or {})
+    print("\nAnswers recorded from forms, exactly as you entered them (%d)"
+          % len(answers))
+    print("  " + "-" * 58)
+    if answers:
+        for question in sorted(answers):
+            shown = str(answers[question])
+            print("     %-44s  %s" % (question[:44], shown[:30]))
     else:
-        print("     none yet")
+        print("     none yet -- run learn.py on an application")
 
     extra = [k for k in profile
              if k not in {f for _, fields in GROUPS for f, _ in fields}
-             and k not in ("custom_answers",) and not k.startswith("_")]
+             and k not in ("custom_answers", "answers")
+             and not k.startswith("_")]
     if extra:
         print("\nOther keys in the file: %s" % ", ".join(sorted(extra)))
 

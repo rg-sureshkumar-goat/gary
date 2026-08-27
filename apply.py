@@ -166,6 +166,31 @@ def form_frames(page):
     return [f for f, _ in frames]
 
 
+def section_for(frame, element):
+    """The heading a field sits under, e.g. "Education" or "My Experience".
+
+    Workday asks "School", "Degree" and "Year" once per education entry and
+    again per job. The question alone cannot tell those apart; the section
+    heading can.
+    """
+    try:
+        return frame.evaluate("""el => {
+            let node = el;
+            for (let hop = 0; hop < 8 && node; hop++) {
+                node = node.parentElement;
+                if (!node) break;
+                const head = node.querySelector(
+                    'h1,h2,h3,h4,legend,[role=heading]');
+                if (head && head.innerText && head.innerText.trim()) {
+                    return head.innerText.trim().slice(0, 60);
+                }
+            }
+            return '';
+        }""", element)
+    except Exception:
+        return ""
+
+
 def looks_like_login(frame):
     """Whether this form is a sign-in or account-creation form.
 
@@ -218,6 +243,7 @@ def fill(page, profile, dry_run=False):
             continue
 
         label = formfill.normalise(label_for(frame, element))
+        section = formfill.normalise(section_for(frame, element))
 
         # A password field is never filled, whatever it is labelled.
         if kind == "password" or formfill.is_credential(label):
@@ -238,7 +264,7 @@ def fill(page, profile, dry_run=False):
         if tag == "select":
             options = element.evaluate(
                 "el => Array.from(el.options).map(o => o.textContent.trim())")
-            choice = formfill.choose_option(label, options, profile)
+            choice = formfill.choose_option(label, options, profile, section)
             if choice:
                 if not dry_run:
                     element.select_option(label=choice)
@@ -247,7 +273,7 @@ def fill(page, profile, dry_run=False):
                 skipped.append((label, "no confident match -- pick it yourself"))
             continue
 
-        value = formfill.value_for(label, profile)
+        value = formfill.value_for(label, profile, section)
         if value:
             if not dry_run:
                 element.fill(value)

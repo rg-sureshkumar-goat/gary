@@ -236,6 +236,43 @@ total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4 \
         + len(AUTH_FORMS) + len(APPLICATION_FORMS) + 1 \
         + len(NOT_REUSABLE) + len(REUSABLE) + 2
 
+# --- verbatim answers, scoped so two questions cannot collide -------------- #
+# Mapping every field onto a canonical key is what scrambled a profile holding
+# two degrees: "Degree" under Education and "Degree" under a prior schooling
+# section both wrote to the same place.
+from watcher.formfill import answer_key  # noqa: E402
+
+if answer_key("Education", "Year") == answer_key("Work Experience", "Year"):
+    failures.append("a generic question was not scoped to its section")
+if answer_key("Education", "Which office interests you?") != "which office interests you":
+    failures.append("a specific question should not be scoped to a section")
+
+SCOPED = {"answers": {
+    "education :: year": "2026",
+    "work experience :: year": "2024",
+    "which lincoln office are you interested in": "Chicago",
+    "degree": "Master of Science",
+}}
+if value_for("Year", SCOPED, "Education") != "2026":
+    failures.append("scoped answer not found for Education/Year")
+if value_for("Year", SCOPED, "Work Experience") != "2024":
+    failures.append("scoped answer not found for Work Experience/Year")
+# A specific question is answered wherever it appears.
+if value_for("Which Lincoln office are you interested in?", SCOPED, "Anything") != "Chicago":
+    failures.append("a specific question should match regardless of section")
+# What you actually typed beats anything inferred from a canonical field.
+VERBATIM_WINS = {"degree": "Master of Science",
+                 "answers": {"degree": "Bachelor of Business Administration"}}
+if value_for("Degree", VERBATIM_WINS) != "Bachelor of Business Administration":
+    failures.append("a recorded answer should outrank a canonical field")
+# Credentials stay blocked even if somehow recorded.
+if value_for("Password", {"answers": {"password": "x"}}) is not None:
+    failures.append("a recorded credential would have been filled")
+
+total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4 \
+        + len(AUTH_FORMS) + len(APPLICATION_FORMS) + 1 \
+        + len(NOT_REUSABLE) + len(REUSABLE) + 2 + 7
+
 # --- label tidying ----------------------------------------------------------- #
 if normalise("  First   Name * (required) ") != "First Name":
     failures.append("normalise left decoration in: %r"

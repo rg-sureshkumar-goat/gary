@@ -175,25 +175,56 @@ def prior_degree_key(label, key):
     return key
 
 
-def custom_answer(label, profile):
+def answer_key(section, question):
+    """How a recorded answer is stored.
+
+    Generic questions are scoped to the section they appeared under, because
+    "Year" beneath Education and "Year" beneath Work Experience are different
+    questions that happen to share a word.
+    """
+    q = normalise(question).lower().rstrip("?").strip()
+    if not q:
+        return ""
+    if is_reusable_question(question):
+        return q
+    sect = normalise(section).lower().strip()
+    return ("%s :: %s" % (sect, q)) if sect else q
+
+
+def custom_answer(label, profile, section=""):
     """An answer you gave to this exact question before.
 
-    Employers ask their own questions -- "Which office are you interested in?"
-    -- that no generic key covers. Those are stored verbatim against the
-    question text, so the same wording anywhere else is answered the same way.
+    Answers are recorded verbatim against the question text rather than mapped
+    onto a canonical field, so two different questions can never overwrite each
+    other -- which is what scrambled a profile holding two degrees.
     """
-    answers = profile.get("custom_answers") or {}
-    return answers.get(normalise(label).lower().rstrip("?").strip())
+    answers = dict(profile.get("answers") or {})
+    answers.update(profile.get("custom_answers") or {})   # older files
+    key = answer_key(section, label)
+    if key in answers:
+        return answers[key]
+    # A specific question matches wherever it appears, section or not.
+    plain = normalise(label).lower().rstrip("?").strip()
+    if is_reusable_question(label) and plain in answers:
+        return answers[plain]
+    return None
 
 
-def value_for(label, profile):
-    """The value to type into this field, or None to leave it alone."""
+def value_for(label, profile, section=""):
+    """The value to type into this field, or None to leave it alone.
+
+    A verbatim answer to this exact question wins over any canonical field:
+    it is what you actually typed, and it cannot have been confused with a
+    different question.
+    """
     if is_credential(label):
         return None
+    saved = custom_answer(label, profile, section)
+    if saved not in (None, ""):
+        return str(saved)
     key = key_for(label)
     if key is None:
-        saved = custom_answer(label, profile)
-        return str(saved) if saved not in (None, "") else None
+        return None
     key = prior_degree_key(label, key)
     value = profile.get(key)
     if value in (None, ""):
@@ -209,13 +240,13 @@ def _tokens(text):
     return set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
 
 
-def choose_option(label, options, profile):
+def choose_option(label, options, profile, section=""):
     """Pick the dropdown option matching your saved answer.
 
     Returns None when nothing clearly matches. Guessing here is how a form ends
     up claiming the wrong graduation year or visa status.
     """
-    wanted = value_for(label, profile)
+    wanted = value_for(label, profile, section)
     if wanted is None or not options:
         return None
 
