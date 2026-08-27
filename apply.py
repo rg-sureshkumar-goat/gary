@@ -731,6 +731,13 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 filled.append((label, choice))
             else:
                 close_combobox(frame)
+                # Say what was on offer. Guessing at an employer's wording is
+                # what has cost the most time here.
+                if options:
+                    shown = ", ".join(str(o)[:28] for o in options[:8])
+                    if len(options) > 8:
+                        shown += ", ... (%d total)" % len(options)
+                    reason = "%s | offered: %s" % (reason, shown)
                 skipped.append((label, reason))
             continue
 
