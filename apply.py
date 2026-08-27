@@ -93,6 +93,12 @@ def load_profile(path):
     return {k: v for k, v in profile.items() if not k.startswith("_")}
 
 
+# Text a widget shows about itself rather than the question being asked.
+STATUS_TEXT = re.compile(
+    r"^\d*\s*items?\s+selected$|^select\s+one$|^select$|^choose$|"
+    r"^search$|^required$|^\s*$", re.I)
+
+
 def label_for(page, element):
     """The visible question text for a form control.
 
@@ -118,6 +124,15 @@ def label_for(page, element):
 
             const aria = clean(el.getAttribute('aria-label'));
             if (aria) return aria;
+
+            // A multiselect renders "0 items selected" inside itself; the real
+            // question sits in a label just before it.
+            let prev = el.previousElementSibling;
+            for (let n = 0; n < 3 && prev; n++) {
+                const t = clean(prev.innerText || prev.textContent);
+                if (t && t.length < 60 && !/items?\s+selected/i.test(t)) return t;
+                prev = prev.previousElementSibling;
+            }
 
             if (el.id) {
                 const byFor = document.querySelector(
@@ -164,7 +179,7 @@ def identity_of(frame, element):
 # wraps its inputs in data-automation-id containers. Without these selectors a
 # Workday form looks empty.
 CONTROL_SELECTOR = (
-    "input, textarea, select, "
+    "input, textarea, select, input[type=file], "
     "button[aria-haspopup='listbox'], button[aria-haspopup], "
     "button[aria-label*='Select One'], button[aria-label*='select one'], "
     "[role=combobox], [role=listbox], "
@@ -515,6 +530,19 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
     Clicking Add creates a blank entry; it never submits anything.
     """
     created = []
+    try:
+        titles = frame.evaluate("""([titles]) => {
+            const re = new RegExp('^(' + titles.join('|') + ')\\\\b', 'i');
+            return Array.from(document.querySelectorAll(
+                'h1,h2,h3,h4,h5,legend,label,div,span,p'))
+                .map(e => (e.innerText || '').trim())
+                .filter(t => t && t.length < 40 && re.test(t))
+                .slice(0, 10);
+        }""", [list(SECTION_TITLES)])
+        if titles and log:
+            log("   section titles seen: %s" % ", ".join(sorted(set(titles))))
+    except Exception:
+        pass
     for block in ("work history", "education"):
         wanted = entries_wanted(profile, block)
         if not wanted:
@@ -577,7 +605,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
     # Workday's repeated sections start empty. Press Add first, or there are
     # no fields on the page to fill.
-    opened = open_entry_sections(frame, profile, dry_run)
+    opened = open_entry_sections(frame, profile, dry_run, log=print)
     for block, what in opened:
         filled.append(("Add %s" % block, what))
 
@@ -623,7 +651,9 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
     for element in controls(frame):
         try:
-            if not element.is_visible() or not element.is_enabled():
+            kind_probe = (element.get_attribute("type") or "").lower()
+            if kind_probe != "file" and (not element.is_visible()
+                                         or not element.is_enabled()):
                 continue
             kind = (element.get_attribute("type") or "").lower()
             tag = element.evaluate("el => el.tagName.toLowerCase()")
@@ -634,6 +664,9 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         label = formfill.normalise(label_for(frame, element))
+        if STATUS_TEXT.match(label or ""):
+            # The widget described itself; look to its heading instead.
+            label = formfill.normalise(section_for(frame, element)) or label
         section = formfill.normalise(section_for(frame, element))
         ident = identity_of(frame, element)
         if formfill.is_page_furniture(label, ident):
@@ -653,6 +686,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
         if kind == "file":
             file_slots += 1
+            # A hidden input still accepts a file; requiring visibility means
+            # the resume is never attached.
             # Greenhouse labels both file inputs "Attach"; the first is the
             # resume and the second the cover letter. Sending the resume twice
             # looks careless to an employer.
