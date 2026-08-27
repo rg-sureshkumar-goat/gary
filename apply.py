@@ -289,7 +289,32 @@ def widget_value(frame, element):
             # A Workday dropdown shows its selection as the button's text.
             text = (element.inner_text() or "").strip()
             return "" if text.lower() in ("select one", "select", "") else text
-        return element.input_value()
+
+        value = (element.input_value() or "").strip()
+        if value:
+            return value
+
+        # A typeahead combobox often keeps its input empty and renders the
+        # chosen option as a chip beside it. Without reading that back, the
+        # field looks unanswered and gets re-selected on every pass.
+        role = element.get_attribute("role") or ""
+        if role == "combobox" or element.get_attribute("aria-haspopup"):
+            shown = frame.evaluate("""el => {
+                const holder = el.closest('[data-automation-id], div');
+                if (!holder) return '';
+                const bits = holder.querySelectorAll(
+                    '[data-automation-id*=selectedItem], [class*=selected], '
+                    '[role=option][aria-selected=true], li');
+                for (const b of bits) {
+                    const t = (b.innerText || '').trim();
+                    if (t && t.length < 80) return t;
+                }
+                return '';
+            }""", element)
+            shown = " ".join(str(shown or "").split())
+            if shown.lower() not in ("select one", "select", ""):
+                return shown
+        return ""
     except Exception:
         return ""
 
@@ -474,6 +499,24 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
     return created
 
 
+_RECENTLY_FILLED = {}
+
+
+def _too_soon(key, seconds=25):
+    """Was this field answered a moment ago?
+
+    Some controls cannot be read back reliably, and without this they are
+    re-answered on every pass -- which reopens dropdowns under the user.
+    """
+    import time
+    now = time.time()
+    last = _RECENTLY_FILLED.get(key, 0)
+    if now - last < seconds:
+        return True
+    _RECENTLY_FILLED[key] = now
+    return False
+
+
 def fill(page, profile, dry_run=False, open_locations=None, company="",
          hq_table=None):
     filled, skipped, credentials = [], [], []
@@ -644,6 +687,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 continue
         except Exception:
             pass
+        if _too_soon("%s|%s|%s" % (page.url, label, ident)):
+            continue
 
         value = names_lib.name_for(label, profile, all_labels, section, ident)
         if value is None:
@@ -756,7 +801,6 @@ def main(argv=None):
             print("\nSign in and click Apply. Each page is filled as you reach")
             print("it -- check every field, and submit it yourself.")
             print("Close the window when you're done.\n")
-            done = set()
             while True:
                 try:
                     current = ctx.pages[-1] if ctx.pages else None
@@ -764,23 +808,21 @@ def main(argv=None):
                         break
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
-                        signature = tuple(sorted(
-                            formfill.normalise(label_for(frames[0], el))
-                            for el in controls(frames[0])))
-                        # Fill a page once; polling would otherwise retype over
-                        # whatever you had just corrected.
-                        if signature and signature not in done:
-                            done.add(signature)
-                            f, sk, cr = fill(current, profile, args.dry_run,
-                                             open_locations, args.company,
-                                             hq_table)
-                            if f or sk:
-                                print("--- this page: filled %d, left %d ---"
-                                      % (len(f), len(sk)))
-                                for lab, val in f:
-                                    print("   %-36s %s" % (lab[:36], str(val)[:36]))
-                                for lab, why in sk:
-                                    print("   %-36s (left: %s)" % (lab[:36], why[:26]))
+                        # Fill on every pass. Only empty fields are touched, so
+                        # this never overwrites anything -- and keying off the
+                        # page's labels instead would mark a page done forever,
+                        # so a field you cleared would never be refilled.
+                        f, sk, cr = fill(current, profile, args.dry_run,
+                                         open_locations, args.company,
+                                         hq_table)
+                        if f:
+                            print("--- filled %d ---" % len(f))
+                            for lab, val in f:
+                                print("   %-36s %s" % (lab[:36], str(val)[:36]))
+                            left = [x for x in sk if x[0] not in
+                                    {y[0] for y in f}]
+                            for lab, why in left[:6]:
+                                print("   %-36s (left: %s)" % (lab[:36], why[:26]))
                     current.wait_for_timeout(args.poll_seconds * 1000)
                 except Exception:
                     break
