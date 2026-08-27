@@ -89,6 +89,45 @@ if value_for("Company", RECORDED_AT_A, "Work Experience", "employerName", 1) == 
         value_for("Company", RECORDED_AT_A, "Work Experience", "employerName", 2):
     failures.append("ignoring the field id merged the two work entries")
 
+# --- each education entry reads its own degree's fields ---------------------- #
+# The second entry was inheriting the master's major and GPA, because a bare
+# "Field of Study" maps to the current degree unless the entry is known to
+# hold the earlier one.
+TWO_DEGREES = {
+    "major": "Finance", "gpa": "4.0", "degree": "Masters",
+    "undergrad_major": "Arts and Entertainment Technologies",
+    "undergrad_gpa": "3.74", "undergrad_degree": "Bachelors",
+    "answers": {
+        "education 1 :: degree :: degreeselect": "Masters",
+        "education 2 :: degree :: degreeselect": "Bachelors",
+    },
+}
+for entry, field, expected in [
+    (1, "Field of Study", "Finance"),
+    (2, "Field of Study", "Arts and Entertainment Technologies"),
+    (1, "Overall Result (GPA)", "4.0"),
+    (2, "Overall Result (GPA)", "3.74"),
+]:
+    got = value_for(field, TWO_DEGREES, "Education", "fieldOfStudy", entry)
+    if got != expected:
+        failures.append("education %d %s -> %r, expected %r"
+                        % (entry, field, got, expected))
+
+# Which entry is the earlier degree comes from what it says, not its number.
+REVERSED = dict(TWO_DEGREES, answers={
+    "education 1 :: degree :: degreeselect": "Bachelors",
+    "education 2 :: degree :: degreeselect": "Masters",
+})
+if value_for("Field of Study", REVERSED, "Education", "fieldOfStudy", 1) != \
+        "Arts and Entertainment Technologies":
+    failures.append("listing the bachelor's first was not honoured")
+if value_for("Field of Study", REVERSED, "Education", "fieldOfStudy", 2) != "Finance":
+    failures.append("listing the master's second was not honoured")
+
+# With no entry number there is no prior-degree question to answer.
+if value_for("Field of Study", TWO_DEGREES, "Education", "fieldOfStudy", 0) != "Finance":
+    failures.append("an unnumbered field should use the current degree")
+
 # --- "have you worked here before" defaults to No --------------------------- #
 FOR_DEFAULT_NO = [
     "Have you previously been employed with Houlihan Lokey?",
@@ -271,7 +310,7 @@ if value_for("Day", {}, "Date") != str(datetime.date.today().day):
     failures.append("split signature date not filled from today")
 
 total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2 \
-        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2 + len(NOT_PRIOR_EMPLOYMENT) + len(LOOKED_UP_AT_B) + 1
+        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2 + len(NOT_PRIOR_EMPLOYMENT) + len(LOOKED_UP_AT_B) + 1 + 4 + 2 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

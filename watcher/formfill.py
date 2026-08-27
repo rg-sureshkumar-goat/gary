@@ -241,6 +241,25 @@ _PRIOR_DEGREE = re.compile(r"\bundergraduate?\b|\bundergrad\b|\bbachelors?\b|"
 _PRIOR_KEYS = ("university", "degree", "major", "graduation", "gpa")
 
 
+_UNDERGRAD_DEGREE = re.compile(r"bachelor|\bb\.?s\.?\b|\bb\.?a\.?\b|"
+                              r"undergrad", re.I)
+
+
+def _entry_is_prior(profile, entry):
+    """Does this education entry hold the earlier degree?
+
+    Decided by what that entry's recorded degree says, not by its number --
+    a form may list the master's first or the bachelor's first.
+    """
+    answers = dict(profile.get("custom_answers") or {})
+    answers.update(profile.get("answers") or {})
+    prefix = "education %d ::" % entry
+    for key, value in answers.items():
+        if key.startswith(prefix) and "degree" in key:
+            return bool(_UNDERGRAD_DEGREE.search(str(value)))
+    return False
+
+
 def prior_degree_key(label, key):
     """Redirect a question about a previous degree to its own profile key."""
     if key in _PRIOR_KEYS and _PRIOR_DEGREE.search(normalise(label)):
@@ -368,6 +387,11 @@ def value_for(label, profile, section="", identity="", entry=0):
     key = key_for(label)
     if key is not None:
         key = prior_degree_key(label, key)
+        # An education block holding the earlier degree must read the
+        # undergrad_ fields, or the second entry inherits the current
+        # degree's major and GPA.
+        if entry and key in _PRIOR_KEYS and _entry_is_prior(profile, entry):
+            key = "undergrad_" + key
         value = profile.get(key)
         if value not in (None, ""):
             value = str(value)

@@ -462,6 +462,29 @@ def add_buttons(frame, block):
         return []
 
 
+def entries_present(frame, block):
+    """How many entries of a block are already on the page.
+
+    Counted as the most times any one field repeats: an education block with
+    School, Field of Study and GPA showing twice is two entries, not six.
+    Counting fields instead is what made this press Add on every pass.
+    """
+    counts = {}
+    for element in controls(frame):
+        try:
+            label = formfill.normalise(label_for(frame, element))
+            section = formfill.normalise(section_for(frame, element))
+            ident = identity_of(frame, element)
+        except Exception:
+            continue
+        if formfill.block_of(section, ident, label) != block:
+            continue
+        key = formfill.answer_key(section, label,
+                                  formfill.base_identity(ident))
+        counts[key] = counts.get(key, 0) + 1
+    return max(counts.values()) if counts else 0
+
+
 def open_entry_sections(frame, profile, dry_run=False, log=None):
     """Press Add until each repeated section has room for what we know.
 
@@ -472,17 +495,8 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
         wanted = entries_wanted(profile, block)
         if not wanted:
             continue
-        for attempt in range(wanted):
-            # Re-read each time: pressing Add changes the page.
-            present = len({formfill.answer_key(
-                formfill.normalise(section_for(frame, el)),
-                formfill.normalise(label_for(frame, el)),
-                formfill.base_identity(identity_of(frame, el)))
-                for el in controls(frame)
-                if formfill.block_of(
-                    formfill.normalise(section_for(frame, el)),
-                    identity_of(frame, el),
-                    formfill.normalise(label_for(frame, el))) == block})
+        for _ in range(wanted):
+            present = entries_present(frame, block)
             if present >= wanted:
                 break
             indexes = add_buttons(frame, block)
@@ -494,10 +508,10 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
             try:
                 frame.evaluate("""([i]) => {
                     const b = document.querySelectorAll(
-                        'button, [role=button], a[role=button]')[i];
+                        'button,[role=button],a[role=button]')[i];
                     if (b) b.click();
-                }""", [indexes[0]])
-                frame.wait_for_timeout(1200)
+                }""", [indexes[-1]])
+                frame.wait_for_timeout(1400)
                 created.append((block, "pressed Add"))
             except Exception:
                 break
