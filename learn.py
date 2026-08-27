@@ -31,6 +31,7 @@ from apply import (form_frames, label_for, controls, widget_value,  # noqa: E402
 def harvest(frame):
     """Read back the labels and values on a form the user has filled in."""
     learned, custom, skipped = {}, {}, []
+    skipped_generic = []
 
     for element in controls(frame):
         try:
@@ -65,10 +66,14 @@ def harvest(frame):
         if key:
             key = formfill.prior_degree_key(label, key)
             learned[key] = value
-        else:
+        elif formfill.is_reusable_question(label):
             custom[formfill.normalise(label).lower().rstrip("?").strip()] = value
+        else:
+            # Too generic to reuse -- "Year" on this form is not "Year" on the
+            # next one.
+            skipped_generic.append(label)
 
-    return learned, custom, skipped
+    return learned, custom, skipped, skipped_generic
 
 
 def merge(profile, learned, custom):
@@ -115,7 +120,7 @@ def main(argv=None):
         print("Workday spreads an application over several pages -- press Enter")
         print("here after each one, then move on. Type 'done' when finished.")
 
-        learned, custom, skipped = {}, {}, []
+        learned, custom, skipped, generic = {}, {}, [], []
         pages_read = 0
         while True:
             try:
@@ -133,10 +138,11 @@ def main(argv=None):
             if looks_like_login(frames[0]):
                 print("   that's a sign-in page -- nothing read from it")
                 continue
-            page_learned, page_custom, page_skipped = harvest(frames[0])
+            page_learned, page_custom, page_skipped, page_generic = harvest(frames[0])
             learned.update(page_learned)
             custom.update(page_custom)
             skipped.extend(page_skipped)
+            generic.extend(page_generic)
             pages_read += 1
             print("   read %d answer(s) from this page (%d in total)"
                   % (len(page_learned) + len(page_custom),
@@ -162,6 +168,13 @@ def main(argv=None):
             print("   %-34s %s" % (key[:34], str(now)[:44]))
         else:
             print("   %-34s %s  (was %s)" % (key[:34], str(now)[:32], str(was)[:20]))
+    if generic:
+        print("\n--- too generic to reuse (%d) ---" % len(generic))
+        print("   These labels say nothing about what is being asked, so an")
+        print("   answer saved under them would land in unrelated fields:")
+        for label in sorted(set(generic))[:12]:
+            print("      %s" % label[:56])
+
     if skipped:
         print("\n--- not read (credential fields) ---")
         for label in skipped:

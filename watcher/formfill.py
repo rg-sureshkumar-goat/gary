@@ -91,8 +91,44 @@ def is_auth_form(labels, has_password=False):
 
 def normalise(label):
     text = re.sub(r"[\*∗]", " ", str(label or ""))
-    text = re.sub(r"\(required\)|\(optional\)", " ", text, flags=re.I)
+    # "(required)" and a bare trailing "Required" both appear; strip either, or
+    # the same question is remembered twice under different keys.
+    text = re.sub(r"\((?:required|optional)\)", " ", text, flags=re.I)
+    text = re.sub(r"\b(?:required|optional)\s*$", " ", text, flags=re.I)
     return " ".join(text.split())
+
+
+# Labels too generic to reuse across forms. Workday splits a date into three
+# selects each labelled only "Month"/"Day"/"Year", and its work-history section
+# has "Company" and "Location". Remembering an answer under those keys would
+# put an employment year into a graduation-year field on the next form.
+GENERIC_LABELS = {
+    "day", "month", "year", "date", "from", "to", "start", "end",
+    "company", "employer", "location", "city", "state", "country", "region",
+    "language", "title", "job title", "role", "role description", "position",
+    "name", "type", "level", "status", "other", "yes", "no", "select",
+    "description", "details", "comments", "notes", "school", "degree",
+    "major", "field of study", "gpa",
+}
+
+
+def is_reusable_question(label):
+    """Is this label specific enough to remember an answer against?
+
+    Only questions that identify themselves are stored. A bare "Year" says
+    nothing about which year is being asked for, so an answer saved under it
+    would be applied to unrelated fields on every later form.
+    """
+    text = normalise(label).lower().rstrip("?").strip()
+    if not text or text in GENERIC_LABELS:
+        return False
+    # Option text captured instead of a question. "No, I do not require
+    # sponsorship" is an answer; storing it as a question key is meaningless
+    # however many words it runs to.
+    if re.match(r"^(yes|no)\b", text):
+        return False
+    # A real question either asks something or is several words long.
+    return "?" in normalise(label) or len(text.split()) >= 4
 
 
 def key_for(label):

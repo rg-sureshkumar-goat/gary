@@ -199,6 +199,43 @@ if not is_auth_form(["Email Address", "Password"], has_password=True):
 total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4 \
         + len(AUTH_FORMS) + len(APPLICATION_FORMS) + 1
 
+# --- only specific questions are remembered --------------------------------- #
+# Workday splits a date into three selects labelled "Month", "Day", "Year", and
+# its work-history section has "Company" and "Location". An answer saved under
+# those would be dropped into unrelated fields on the next employer's form.
+from watcher.formfill import is_reusable_question  # noqa: E402
+
+NOT_REUSABLE = [
+    "Year", "Month", "Day", "Date", "From", "To",
+    "Company", "Employer", "Location", "City", "Language",
+    "Job Title", "Role Description", "Position", "Type", "Level",
+    # Option text captured instead of the question.
+    "Yes", "No", "Yes Required", "No, I do not require sponsorship",
+]
+REUSABLE = [
+    "Which Lincoln office are you interested in?",
+    "How did you hear about this opportunity?",
+    "Please provide your standardized test scores",
+    "What interests you about this role?",
+]
+for label in NOT_REUSABLE:
+    if is_reusable_question(label):
+        failures.append("would reuse an answer under a generic label: %r" % label)
+for label in REUSABLE:
+    if not is_reusable_question(label):
+        failures.append("refused to remember a real question: %r" % label)
+
+# A trailing "Required" must not create a second copy of the same question.
+if normalise("How did you hear about us? Required") != "How did you hear about us?":
+    failures.append("trailing 'Required' was not stripped: %r"
+                    % normalise("How did you hear about us? Required"))
+if normalise("First Name (required)") != "First Name":
+    failures.append("parenthesised '(required)' was not stripped")
+
+total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4 \
+        + len(AUTH_FORMS) + len(APPLICATION_FORMS) + 1 \
+        + len(NOT_REUSABLE) + len(REUSABLE) + 2
+
 # --- label tidying ----------------------------------------------------------- #
 if normalise("  First   Name * (required) ") != "First Name":
     failures.append("normalise left decoration in: %r"
