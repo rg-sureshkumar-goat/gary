@@ -539,7 +539,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         # Names follow their own rule, decided by the whole form.
-        value = names_lib.name_for(label, profile, all_labels)
+        value = names_lib.name_for(label, profile, all_labels, section, ident)
         if value is None:
             value = formfill.value_for(label, profile, section, ident, entry)
         if value:

@@ -62,6 +62,41 @@ check("Preferred Name", ["First Name", "Preferred Name"], "RG Sureshkumar",
 check("What name do you go by?", ["First Name", "What name do you go by?"],
       "RG Sureshkumar", "goes-by wording")
 
+# --- when both blocks are labelled identically ------------------------------- #
+# Workday labels the legal and preferred blocks with the same "First Name" and
+# "Last Name", and only the field ids tell them apart. Reading the label alone
+# put the legal name into the preferred boxes on a real BRG application.
+IDENTICAL = ["First Name", "Last Name", "First Name", "Last Name"]
+BY_ID = [
+    ("legalNameSection_firstName", "First Name", "Ramganesh"),
+    ("legalNameSection_lastName", "Last Name", "Sureshkumar Kamalanathan"),
+    ("preferredNameSection_firstName", "First Name", "RG"),
+    ("preferredNameSection_lastName", "Last Name", "Sureshkumar"),
+    # Lower-case ids, as they come back from a recording.
+    ("legalnamefirstname", "First Name", "Ramganesh"),
+    ("preferrednamefirstname", "First Name", "RG"),
+    ("preferrednamelastname", "Last Name", "Sureshkumar"),
+]
+for ident, lab, expected in BY_ID:
+    got = name_for(lab, P, IDENTICAL, "Preferred Name", ident)
+    if got != expected:
+        failures.append("%-32s %-11s -> %r, expected %r"
+                        % (ident, lab, got, expected))
+
+# The heading decides it when the id says nothing.
+for section, lab, expected in [("Legal Name", "First Name", "Ramganesh"),
+                               ("Legal Name", "Last Name", "Sureshkumar Kamalanathan"),
+                               ("Preferred Name", "First Name", "RG"),
+                               ("Preferred Name", "Last Name", "Sureshkumar")]:
+    got = name_for(lab, P, IDENTICAL, section, "")
+    if got != expected:
+        failures.append("under %r: %s -> %r, expected %r"
+                        % (section, lab, got, expected))
+
+# An id that mentions neither leaves the form-level rule in charge.
+if name_for("First Name", P, IDENTICAL, "", "textInput1") != "Ramganesh":
+    failures.append("a neutral id should not disturb the form-level rule")
+
 # --- recognising fields and toggles ------------------------------------------ #
 for label in ["First Name", "Last Name", "Full Name", "Surname", "Given Name"]:
     if not is_name_field(label):
@@ -90,7 +125,7 @@ if form_uses_legal(BOTH):
 if name_for("Email", P, PLAIN) is not None:
     failures.append("answered a non-name field")
 
-total = 4 + 4 + 4 + 2 + 5 + 4 + 4 + 4 + 1
+total = 4 + 4 + 4 + 2 + 5 + 4 + 4 + 4 + 1 + len(BY_ID) + 4 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -21,6 +21,11 @@ FIRST = re.compile(r"\bfirst\b|\bgiven\b|\bforename\b", re.I)
 LAST = re.compile(r"\blast\b|\bsurname\b|\bfamily\b", re.I)
 FULL = re.compile(r"\bfull\s+name\b|^name$|\bname\b", re.I)
 
+# Field ids are camelCase or snake_case -- legalNameSection_firstName -- so a
+# word-boundary match never fires inside them.
+ID_LEGAL = re.compile(r"legal", re.I)
+ID_PREFERRED = re.compile(r"prefer", re.I)
+
 # A checkbox that reveals the preferred-name boxes.
 PREFERRED_TOGGLE = re.compile(
     r"preferred\s+name|different\s+name|another\s+name|go\s+by\s+a\s+different",
@@ -47,24 +52,42 @@ def is_preferred_toggle(label):
     return bool(PREFERRED_TOGGLE.search(str(label or "")))
 
 
-def name_for(label, profile, labels_on_form=()):
+def name_for(label, profile, labels_on_form=(), section="", identity=""):
     """The value for a name field, or None if this is not one.
 
-    `labels_on_form` is every label on the form, because a plain "First Name"
-    means different things depending on whether a preferred-name field exists
-    elsewhere.
+    Three sources of evidence, most reliable first:
+
+      1. the field's own id. Workday names these exactly --
+         legalNameSection_firstName against preferredNameSection_firstName --
+         and that settles it.
+      2. the label, or the heading the field sits under.
+      3. the form as a whole: a plain "First Name" is the legal name when a
+         preferred-name block exists elsewhere, and the name you go by when
+         it doesn't.
+
+    Evidence 1 matters because a form can label both blocks identically, with
+    only the ids and the headings telling them apart -- so reading the label
+    alone puts the legal name in the preferred boxes.
     """
     text = " ".join(str(label or "").split())
     if not text or not is_name_field(text):
         return None
+    context = "%s %s" % (identity or "", section or "")
 
     legal_first = profile.get("legal_first_name") or profile.get("first_name")
     legal_last = profile.get("legal_last_name") or profile.get("last_name")
     known_first = profile.get("preferred_first_name") or profile.get("first_name")
     known_last = profile.get("preferred_last_name") or profile.get("last_name")
 
-    explicit_legal = bool(LEGAL.search(text))
-    explicit_preferred = bool(PREFERRED.search(text))
+    # The field's own id and its heading decide it when the label cannot.
+    explicit_legal = bool(LEGAL.search(text)) or bool(LEGAL.search(context))
+    explicit_preferred = (bool(PREFERRED.search(text))
+                          or bool(PREFERRED.search(context)))
+    # An id naming one of them outright beats everything else.
+    if ID_LEGAL.search(identity or ""):
+        explicit_legal, explicit_preferred = True, False
+    elif ID_PREFERRED.search(identity or ""):
+        explicit_legal, explicit_preferred = False, True
 
     if explicit_legal:
         if LAST.search(text):
