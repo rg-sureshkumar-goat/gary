@@ -455,48 +455,48 @@ def add_buttons(frame, block):
     button matches every section and the last one wins. Instead each button is
     paired with the nearest section title *before* it in document order.
     """
-    words = {"work history": r"work\s*experience|employment|work\s*history",
+    words = {"work history": r"work\\s*experience|employment|work\\s*history",
              "education": r"education|school|degree"}.get(block, block)
     try:
-        return frame.evaluate("""([words, titles]) => {
+        return frame.evaluate("""([words]) => {
             const want = new RegExp(words, 'i');
-            const titleRe = new RegExp('^(' + titles.join('|') + ')\\\\b', 'i');
-
             const all = Array.from(document.querySelectorAll(
                 'button,[role=button],a[role=button]'));
 
-            // Short standalone labels that name a section.
-            const headings = Array.from(document.querySelectorAll(
-                'h1,h2,h3,h4,h5,legend,label,div,span,p'))
-                .filter(e => {
-                    const t = (e.innerText || '').trim();
-                    // Short text is enough: a wrapper holding the whole
-                    // section reads long and is excluded anyway. Requiring no
-                    // child elements missed "Work Experience" entirely,
-                    // because Workday wraps that title in a span.
-                    return t && t.length < 40 && titleRe.test(t);
-                });
-
-            const out = [];
-            all.forEach((b, i) => {
+            const isAdd = b => {
                 const id = b.getAttribute('data-automation-id') || '';
                 const text = ((b.innerText || '') + ' ' +
                               (b.getAttribute('aria-label') || '')).trim();
-                if (!/add-button/i.test(id) && !/^\\s*add\\b/i.test(text)) return;
+                return /add-button/i.test(id) || /^\\s*add\\b/i.test(text);
+            };
+
+            const out = [];
+            all.forEach((b, i) => {
+                if (!isAdd(b)) return;
+                const text = ((b.innerText || '') + ' ' +
+                              (b.getAttribute('aria-label') || '')).trim();
                 if (want.test(text)) { out.push(i); return; }
 
-                // The nearest section title appearing before this button.
-                let owner = null;
-                for (const h of headings) {
-                    const pos = h.compareDocumentPosition(b);
-                    if (pos & Node.DOCUMENT_POSITION_FOLLOWING) owner = h;
-                }
-                if (owner && want.test((owner.innerText || '').trim())) {
-                    out.push(i);
+                // Walk up to the smallest container that both starts with this
+                // section's name and holds this button. Pairing by "nearest
+                // title above" is ambiguous when a title appears more than
+                // once, which is what broke this.
+                let node = b.parentElement;
+                for (let hop = 0; hop < 10 && node; hop++) {
+                    const t = (node.innerText || '').trim();
+                    if (t) {
+                        const head = t.split('\\n')[0].trim();
+                        if (want.test(head)) { out.push(i); return; }
+                        // Reached a container starting with a different
+                        // section: this button is not ours.
+                        const OTHER = /^(work\\s*experience|education|certification|language|skill|resume|cv|websites?)/i;
+                        if (OTHER.test(head) && !want.test(head)) return;
+                    }
+                    node = node.parentElement;
                 }
             });
             return out;
-        }""", [words, list(SECTION_TITLES)])
+        }""", [words])
     except Exception:
         return []
 
@@ -664,6 +664,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         label = formfill.normalise(label_for(frame, element))
+        _ident_early = identity_of(frame, element)
+        field_key = "%s|%s|%s" % (page.url, label, _ident_early)
         if STATUS_TEXT.match(label or ""):
             # The widget described itself; look to its heading instead.
             label = formfill.normalise(section_for(frame, element)) or label
@@ -699,8 +701,13 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 which = "resume" if file_slots == 1 else "cover_letter"
             path = os.path.expanduser(str(profile.get(which) or ""))
             if path and os.path.exists(path):
+                if field_key in _UNREADABLE_FILLED:
+                    continue
                 if not dry_run:
                     element.set_input_files(path)
+                    # A file input never reports its value back, so without
+                    # this the resume is attached again every few seconds.
+                    _UNREADABLE_FILLED.add(field_key)
                 filled.append((label or which, os.path.basename(path)))
             elif path:
                 skipped.append((label or which, "file not found: %s" % path))
