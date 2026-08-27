@@ -58,10 +58,20 @@ jobs:
           git config user.name  "Gary"
           git config user.email "actions@github.com"
           git add state/
-          git commit -m "state: long-open digest $(date -u +'%Y-%m-%d')"
+          git commit -m "state: $(date -u +'%Y-%m-%d %H:%M UTC')"
           for attempt in 1 2 3 4 5; do
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" \
-              && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
-            sleep $((attempt * 4))
+            git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            # Someone else pushed first. A rebase cannot merge JSON, so combine
+            # the two state files explicitly and try again -- every field is
+            # additive, so the union is the correct answer.
+            git fetch -q origin "${GITHUB_REF_NAME}"
+            git show "origin/${GITHUB_REF_NAME}:state/seen.json" > /tmp/theirs.json 2>/dev/null || echo '{}' > /tmp/theirs.json
+            cp state/seen.json /tmp/ours.json
+            git reset -q --hard "origin/${GITHUB_REF_NAME}"
+            python -m watcher.merge_state /tmp/ours.json /tmp/theirs.json --out state/seen.json
+            git add state/
+            git commit -q -m "state: merged $(date -u +'%Y-%m-%d %H:%M UTC')" || true
+            sleep $((attempt * 3))
           done
+          echo "Could not push state after 5 attempts" >&2
           exit 1
