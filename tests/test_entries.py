@@ -67,7 +67,27 @@ FOR_DEFAULT_NO = [
     "Are you a former employee?",
     "Have you previously worked at our firm?",
     "Previous employment with Citi?",
+    # Employers usually name themselves rather than saying "this company".
+    "Have you worked at BRG before?",
+    "Have you ever worked for Berkeley Research Group?",
+    "Have you been employed by this company before?",
+    "Have you worked here before?",
+    "Prior employment with the company?",
+    "Are you a rehire?",
 ]
+
+# Questions about a field of work, not about this employer. Answering No there
+# would be plainly wrong for someone with the experience.
+NOT_PRIOR_EMPLOYMENT = [
+    "Have you worked in finance before?",
+    "Have you worked in consulting previously?",
+    "Have you worked on M&A deals before?",
+    "Have you worked with clients before?",
+]
+for label in NOT_PRIOR_EMPLOYMENT:
+    if default_for(label) is not None:
+        failures.append("industry experience answered as prior employment: %r"
+                        % label)
 for label in FOR_DEFAULT_NO:
     if default_for(label) != "No":
         failures.append("should default to No: %r -> %r" % (label, default_for(label)))
@@ -222,7 +242,7 @@ if value_for("Day", {}, "Date") != str(datetime.date.today().day):
     failures.append("split signature date not filled from today")
 
 total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2 \
-        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2
+        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2 + len(NOT_PRIOR_EMPLOYMENT)
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

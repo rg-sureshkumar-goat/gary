@@ -1,6 +1,5 @@
 {
   "_comment": "US headquarters city per employer, used only to break a tie when an application allows one location and the role is open in several. Gary picks it only when the role is genuinely open there; otherwise the question is left blank. Add employers as you meet them: the key is matched loosely against the company name.",
-
   "JPMorgan Chase": "New York",
   "Goldman Sachs": "New York",
   "Morgan Stanley": "New York",
@@ -32,7 +31,6 @@
   "AQR Capital": "Greenwich",
   "Jump Trading": "Chicago",
   "IMC Trading": "Chicago",
-
   "McKinsey": "New York",
   "Boston Consulting Group": "Boston",
   "Bain": "Boston",
@@ -51,7 +49,6 @@
   "Teneo": "New York",
   "Roland Berger": "Chicago",
   "Baker Tilly": "Chicago",
-
   "Amazon": "Seattle",
   "Microsoft": "Redmond",
   "Target": "Minneapolis",
@@ -91,5 +88,7 @@
   "Coinbase": "Remote",
   "Databricks": "San Francisco",
   "Snowflake": "Bozeman",
-  "Plaid": "San Francisco"
+  "Plaid": "San Francisco",
+  "Berkeley Research Group": "Emeryville",
+  "BRG": "Emeryville"
 }

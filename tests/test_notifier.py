@@ -64,6 +64,17 @@ msg = check_credentials(TOKEN, "-1001234567890")
 if msg and "should be a number" in msg:
     failures.append("rejected a valid negative (group) chat id")
 
+# A Workday application page keeps "Sign In" and "Create Account" in its header
+# long after you have signed in. Treating that as a login form made Gary refuse
+# to fill an ordinary application, so wording only counts on a form small
+# enough to be a sign-in box. A password field still condemns any form.
+BIG_APPLICATION = ["First Name", "Last Name", "Email", "Phone", "Address",
+                   "City", "State", "Sign In", "Create Account"]
+if is_auth_form(BIG_APPLICATION[:6]):
+    failures.append("an ordinary application was mistaken for a login form")
+if not is_auth_form(["Email", "Password"], has_password=True):
+    failures.append("a password field must always condemn the form")
+
 # --- Telegram error wording maps to actionable advice ----------------------- #
 for description, needle in [
     ("Bad Request: chat not found", "TELEGRAM_CHAT_ID"),
@@ -131,7 +142,7 @@ if any(len(m) > TELEGRAM_LIMIT for m in amsgs):
 if "open 90 days" not in "".join(amsgs):
     failures.append("the digest should say how long a role has been open")
 
-total = 6 + len(cases) + 1 + 5 + 7
+total = 6 + len(cases) + 1 + 5 + 7 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

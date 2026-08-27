@@ -45,10 +45,24 @@ def open_browser(playwright, headless, session_dir):
     """
     if session_dir:
         os.makedirs(session_dir, exist_ok=True)
-        ctx = playwright.chromium.launch_persistent_context(
-            session_dir, headless=headless, args=LAUNCH_ARGS, user_agent=UA,
-            locale="en-US", viewport={"width": 1400, "height": 1000})
-        return None, ctx
+        try:
+            ctx = playwright.chromium.launch_persistent_context(
+                session_dir, headless=headless, args=LAUNCH_ARGS, user_agent=UA,
+                locale="en-US", viewport={"width": 1400, "height": 1000})
+            return None, ctx
+        except Exception as exc:
+            # A browser from an earlier run can outlive its Python process and
+            # keep the profile locked. Without this the launch fails silently
+            # and you carry on looking at the stale window.
+            if "already in use" not in str(exc) and "existing browser" not in str(exc):
+                raise
+            raise SystemExit(
+                "A browser from a previous run is still holding the saved\n"
+                "session, so this one could not start -- you would have been\n"
+                "left looking at the old window. Close every Chrome for\n"
+                "Testing window, or run:\n"
+                "    pkill -f 'user-data-dir=%s'\n"
+                "then try again." % session_dir)
     browser = playwright.chromium.launch(headless=headless, args=LAUNCH_ARGS)
     ctx = browser.new_context(user_agent=UA, locale="en-US",
                               viewport={"width": 1400, "height": 1000})
@@ -339,28 +353,33 @@ def section_for(frame, element):
 def looks_like_login(frame):
     """Whether this form is a sign-in or account-creation form.
 
-    Gary never authenticates anywhere. If a form carries a password field, or
-    reads like a sign-in, nothing on it is filled -- not the email, not the
-    name, nothing. Signing in is yours to do by hand.
+    Gary never authenticates anywhere. A password field condemns the form
+    outright -- that guarantee is absolute.
+
+    The wording check is deliberately narrow, though: an application page on
+    Workday carries "Sign In" and "Create Account" in its header long after you
+    have signed in, and treating that as a login form makes Gary refuse to fill
+    a perfectly ordinary application. So wording only counts on a form small
+    enough to actually be a sign-in box.
     """
     try:
         if frame.query_selector_all("input[type=password]"):
             return True
     except Exception:
         return True                     # unreadable: assume the worst
+
     labels = []
     for element in controls(frame):
         try:
             labels.append(label_for(frame, element))
         except Exception:
             continue
-    try:
-        heading = frame.evaluate(
-            "() => Array.from(document.querySelectorAll('h1,h2,h3,button'))"
-            ".slice(0, 40).map(e => e.innerText).join(' | ')")
-    except Exception:
-        heading = ""
-    return formfill.is_auth_form(labels + [heading])
+
+    # A real application has many fields; a sign-in box has two or three.
+    if len(labels) > 6:
+        return False
+
+    return formfill.is_auth_form(labels)
 
 
 def fill(page, profile, dry_run=False, open_locations=None, company="",
@@ -578,6 +597,11 @@ def main(argv=None):
                         help="where the role is open, e.g. "
                              "\"Chicago, IL; New York, NY\". Used to answer "
                              "office-preference questions.")
+    parser.add_argument("--watch", action="store_true",
+                        help="keep the window open and fill each page as you "
+                             "reach it. Needed on Workday, where the form only "
+                             "appears after you sign in and click Apply.")
+    parser.add_argument("--poll-seconds", type=int, default=3)
     parser.add_argument("--company", default="",
                         help="the employer, for looking up their US "
                              "headquarters when only one office may be chosen")
@@ -619,6 +643,45 @@ def main(argv=None):
             with open(HEADQUARTERS) as fh:
                 hq_table = json.load(fh)
         open_locations = location_lib.split_locations(args.locations or "")
+
+        if args.watch:
+            # Workday builds the application over several pages that only
+            # exist after signing in, so a single pass on load fills nothing.
+            print("\nSign in and click Apply. Each page is filled as you reach")
+            print("it -- check every field, and submit it yourself.")
+            print("Close the window when you're done.\n")
+            done = set()
+            while True:
+                try:
+                    current = ctx.pages[-1] if ctx.pages else None
+                    if current is None or current.is_closed():
+                        break
+                    frames = form_frames(current)
+                    if frames and not looks_like_login(frames[0]):
+                        signature = tuple(sorted(
+                            formfill.normalise(label_for(frames[0], el))
+                            for el in controls(frames[0])))
+                        # Fill a page once; polling would otherwise retype over
+                        # whatever you had just corrected.
+                        if signature and signature not in done:
+                            done.add(signature)
+                            f, sk, cr = fill(current, profile, args.dry_run,
+                                             open_locations, args.company,
+                                             hq_table)
+                            if f or sk:
+                                print("--- this page: filled %d, left %d ---"
+                                      % (len(f), len(sk)))
+                                for lab, val in f:
+                                    print("   %-36s %s" % (lab[:36], str(val)[:36]))
+                                for lab, why in sk:
+                                    print("   %-36s (left: %s)" % (lab[:36], why[:26]))
+                    current.wait_for_timeout(args.poll_seconds * 1000)
+                except Exception:
+                    break
+            print("\nWindow closed.")
+            close_browser(browser, ctx)
+            return 0
+
         filled, skipped, credentials = fill(page, profile, args.dry_run,
                                             open_locations, args.company,
                                             hq_table)

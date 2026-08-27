@@ -455,11 +455,14 @@ def _match_option(wanted, lowered):
 
 # Questions with a sensible default when nothing has been recorded.
 DEFAULT_ANSWERS = (
-    (re.compile(r"previously\s+(?:been\s+)?(?:employed|worked)|"
-                r"(?:worked|employed)\s+(?:for|at|with)\s+(?:this|our|the)\s+"
-                r"(?:company|firm|organi[sz]ation)|former\s+employee|"
-                r"current\s+or\s+former\s+employee|previous\s+employment\s+with",
-                re.I), "No"),
+    # Prior employment with this employer. Worded many ways, and employers
+    # usually name themselves rather than saying "this company".
+    (re.compile(
+        r"(?:previously|ever|before)\b[^?]{0,40}?\b(?:worked|employed)|"
+        r"\b(?:worked|employed)\b[^?]{0,45}?\b(?:before|previously|prior)\b|"
+        r"\b(?:worked|employed)\s+here\b|"
+        r"\b(?:former|previous|prior)\s+(?:employee|employment)\b|"
+        r"\bre-?hire\b", re.I), "No"),
     # The user is part-way through a 4+1, so the bachelor's is not finished.
     # This needs revisiting when they graduate.
     (re.compile(r"(?:have\s+you\s+)?(?:completed|finished|received|earned|"
@@ -469,9 +472,19 @@ DEFAULT_ANSWERS = (
 )
 
 
+# "Have you worked in finance before?" asks about a field, not about this
+# employer, and answering No there would be plainly wrong.
+_NOT_PRIOR_EMPLOYMENT = re.compile(
+    r"\bwork(?:ed|ing)?\s+in\s+(?!this\b|our\b|the\s+(?:company|firm|"
+    r"organi[sz]ation))|\bwork(?:ed|ing)?\s+on\b|\bwork(?:ed|ing)?\s+with\s+"
+    r"(?:clients|customers|teams|data|models)\b", re.I)
+
+
 def default_for(label):
     """A safe default for a question you have not answered before."""
     text = normalise(label)
+    if _NOT_PRIOR_EMPLOYMENT.search(text):
+        return None
     for pattern, answer in DEFAULT_ANSWERS:
         if pattern.search(text):
             return answer
