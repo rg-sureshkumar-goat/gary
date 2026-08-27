@@ -417,6 +417,10 @@ def _tokens(text):
     # Science" and "Bachelor of Science" share two of three words otherwise.
     stop = {"of", "the", "in", "and", "a", "an", "for", "to", "at", "on"}
     cleaned = str(text or "").lower().replace("\u2019", "'").replace("'s", "")
+    # Dotted abbreviations split into meaningless letters: "M.S." becomes
+    # {m, s}, which shares nothing with "Masters". Collapse them first.
+    cleaned = re.sub(r"(?<=[a-z])\.(?=[a-z])", "", cleaned)
+    cleaned = re.sub(r"(?<=[a-z])\.(?![a-z])", " ", cleaned)
     words = [w for w in re.findall(r"[a-z0-9]+", cleaned) if w not in stop]
     out = set()
     for word in words:
@@ -492,6 +496,10 @@ def _match_option(wanted, lowered):
         bare = _DIAL_CODE.sub("", text).strip()
         if bare and bare not in lowered:
             lowered[bare] = original
+        # "M.S." should also be findable as "ms".
+        undotted = re.sub(r"(?<=[a-z])\.(?=[a-z])", "", text).replace(".", "").strip()
+        if undotted and undotted not in lowered:
+            lowered[undotted] = original
 
     if target in lowered:
         return lowered[target]
