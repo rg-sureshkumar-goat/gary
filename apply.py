@@ -909,6 +909,7 @@ def main(argv=None):
             print("it -- check every field, and submit it yourself.")
             print("Close the window when you're done.\n")
             reported_buttons = set()
+            mishaps = 0
             while True:
                 try:
                     current = ctx.pages[-1] if ctx.pages else None
@@ -916,22 +917,10 @@ def main(argv=None):
                         break
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
-                        # Fill on every pass. Only empty fields are touched, so
-                        # this never overwrites anything -- and keying off the
-                        # page's labels instead would mark a page done forever,
-                        # so a field you cleared would never be refilled.
                         f, sk, cr = fill(current, profile, args.dry_run,
                                          open_locations, args.company,
                                          hq_table)
                         if not f:
-                            # Nothing to fill usually means the section is
-                            # still collapsed behind an Add control. Report
-                            # what buttons exist so the right one can be
-                            # matched.
-                            # Workday keeps one URL for the whole
-                            # application, so keying this on the URL reports
-                            # the job advert once and never the pages that
-                            # follow. Key it on what is actually on screen.
                             try:
                                 here = tuple(sorted(
                                     formfill.normalise(label_for(frames[0], el))
@@ -955,44 +944,49 @@ def main(argv=None):
                                         .filter(t => t.replace(/[| ]/g,''))
                                         .slice(0, 40)""")
                                     print("--- no fields filled ---")
-                                    print("   tabs open : %d" % len(ctx.pages))
-                                    print("   url       : %s" % current.url[:100])
-                                    try:
-                                        print("   headings  : %s" % frames[0].evaluate(
-                                            "() => Array.from(document.querySelectorAll("
-                                            "'h1,h2,h3')).slice(0,6)"
-                                            ".map(h => (h.innerText||'').trim())"
-                                            ".filter(Boolean).join(' | ')")[:150])
-                                    except Exception:
-                                        pass
-                                    print("   frames    : %d" % len(current.frames))
-                                    for fr in current.frames:
-                                        try:
-                                            n = len(fr.query_selector_all(CONTROL_SELECTOR))
-                                            vis = len([e for e in
-                                                       fr.query_selector_all(CONTROL_SELECTOR)
-                                                       if e.is_visible()])
-                                        except Exception:
-                                            n, vis = -1, -1
-                                        print("     frame %-58s controls=%-4s visible=%s"
-                                              % ((fr.url or "(main)")[:58], n, vis))
-                                    print("   chosen frame controls: %d"
-                                          % len(controls(frames[0])))
+                                    print("   url      : %s" % current.url[:100])
+                                    print("   headings : %s" % frames[0].evaluate(
+                                        "() => Array.from(document.querySelectorAll("
+                                        "'h1,h2,h3')).slice(0,6)"
+                                        ".map(h => (h.innerText||'').trim())"
+                                        ".filter(Boolean).join(' | ')")[:150])
+                                    print("   controls : %d" % len(controls(frames[0])))
                                     for b in buttons:
                                         print("   button: %s" % b[:90])
-                                except Exception as exc:
-                                    print("   (could not list buttons: %s)" % type(exc).__name__)
-                        if f:
+                                except Exception:
+                                    pass
+                        else:
                             print("--- filled %d ---" % len(f))
                             for lab, val in f:
                                 print("   %-36s %s" % (lab[:36], str(val)[:36]))
-                            left = [x for x in sk if x[0] not in
-                                    {y[0] for y in f}]
+                            left = [x for x in sk if x[0] not in {y[0] for y in f}]
                             for lab, why in left[:6]:
-                                print("   %-36s (left: %s)" % (lab[:36], why[:26]))
+                                print("   %-34s (left: %s)" % (lab[:34], why[:150]))
+                    mishaps = 0
                     current.wait_for_timeout(args.poll_seconds * 1000)
-                except Exception:
+                except KeyboardInterrupt:
                     break
+                except Exception as exc:
+                    # Workday navigates constantly, which destroys the page's
+                    # execution context mid-read. That is normal and must not
+                    # close the window -- only a genuinely gone page should.
+                    text = str(exc).lower()
+                    if ("closed" in text or "crashed" in text
+                            or "target page" in text):
+                        break
+                    mishaps += 1
+                    if mishaps == 1 or mishaps % 20 == 0:
+                        print("   (page busy: %s -- still watching)"
+                              % type(exc).__name__)
+                    if mishaps > 200:
+                        print("   too many errors in a row; stopping")
+                        break
+                    try:
+                        import time as _t
+                        _t.sleep(args.poll_seconds)
+                    except Exception:
+                        pass
+
             print("\nWindow closed.")
             close_browser(browser, ctx)
             return 0
