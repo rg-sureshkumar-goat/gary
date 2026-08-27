@@ -93,9 +93,13 @@ for section, lab, expected in [("Legal Name", "First Name", "Ramganesh"),
         failures.append("under %r: %s -> %r, expected %r"
                         % (section, lab, got, expected))
 
-# An id that mentions neither leaves the form-level rule in charge.
-if name_for("First Name", P, IDENTICAL, "", "textInput1") != "Ramganesh":
+# An id that mentions neither leaves the form-level rule in charge. These
+# labels carry no "preferred" field, so a plain box is the name you go by.
+if name_for("First Name", P, IDENTICAL, "", "textInput1") != "RG":
     failures.append("a neutral id should not disturb the form-level rule")
+# ...and with a preferred field present, the same neutral id yields the legal name.
+if name_for("First Name", P, BOTH, "", "textInput1") != "Ramganesh":
+    failures.append("a neutral id should not override a preferred-name form")
 
 # --- recognising fields and toggles ------------------------------------------ #
 for label in ["First Name", "Last Name", "Full Name", "Surname", "Given Name"]:
@@ -125,7 +129,7 @@ if form_uses_legal(BOTH):
 if name_for("Email", P, PLAIN) is not None:
     failures.append("answered a non-name field")
 
-total = 4 + 4 + 4 + 2 + 5 + 4 + 4 + 4 + 1 + len(BY_ID) + 4 + 1
+total = 4 + 4 + 4 + 2 + 5 + 4 + 4 + 4 + 1 + len(BY_ID) + 4 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
