@@ -74,6 +74,23 @@ for label in FOR_DEFAULT_NO:
     if value_for(label, {}) != "No":
         failures.append("default not applied when nothing is recorded: %r" % label)
 
+# The user is in a 4+1, so the bachelor's is not finished yet.
+UNDERGRAD_NO = [
+    "Have you completed your undergraduate degree?",
+    "Have you completed your undergraduate studies?",
+    "Have you received your bachelor's degree?",
+    "Have you earned your undergraduate degree?",
+]
+for label in UNDERGRAD_NO:
+    if default_for(label) != "No":
+        failures.append("should default to No: %r -> %r" % (label, default_for(label)))
+# The year question is not a yes/no and must keep its recorded answer.
+if default_for("In what year did you complete your undergraduate studies?") is not None:
+    failures.append("the undergraduate year question was given a yes/no default")
+recorded = {"answers": {"in what year did you complete your undergraduate studies": "2027"}}
+if value_for("In what year did you complete your undergraduate studies?", recorded) != "2027":
+    failures.append("a recorded undergraduate year was overwritten by a default")
+
 # Unrelated questions get no invented default.
 for label in ["Are you willing to relocate?", "Which office interests you?",
               "Are you legally authorized to work in the United States?"]:
@@ -205,7 +222,7 @@ if value_for("Day", {}, "Date") != str(datetime.date.today().day):
     failures.append("split signature date not filled from today")
 
 total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2 \
-        + 5 + 9 + 3 + 4 + 1 + 7
+        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

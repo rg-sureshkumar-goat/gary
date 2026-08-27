@@ -119,8 +119,10 @@ MS_STUDENT = {
 REAL_FORM = [
     # "graduat\w*" used to match inside "undergraduate", so this got a date.
     ("Please provide your undergraduate GPA.", "3.6"),
-    # A yes/no question answered with a degree name.
-    ("Have you completed your undergraduate degree?", None),
+    # A yes/no question must never be answered with a degree name. It now
+    # answers "No" from the standing default instead of being left blank --
+    # the user is part-way through a 4+1.
+    ("Have you completed your undergraduate degree?", "No"),
     # A yes/no question answered with a graduation date.
     ("Will you begin your MBA program in the fall of 2026?", None),
     # Asks for a year, not the name of a degree.

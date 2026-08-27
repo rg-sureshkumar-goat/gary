@@ -341,18 +341,21 @@ def value_for(label, profile, section="", identity="", entry=0):
         return part
 
     key = key_for(label)
-    if key is None:
-        # Nothing recorded: fall back to a safe default where one applies.
-        return default_for(label)
-    key = prior_degree_key(label, key)
-    value = profile.get(key)
-    if value in (None, ""):
-        return None
-    value = str(value)
-    if expects_yes_no(label) and value.strip().lower() not in _YES_NO_VALUES:
-        # The form wants yes or no; the profile holds something else.
-        return None
-    return value
+    if key is not None:
+        key = prior_degree_key(label, key)
+        value = profile.get(key)
+        if value not in (None, ""):
+            value = str(value)
+            # The form wants yes or no; a degree name is not an answer to
+            # "have you completed your undergraduate degree?".
+            if not (expects_yes_no(label)
+                    and value.strip().lower() not in _YES_NO_VALUES):
+                return value
+
+    # Last resort. This has to sit after the canonical lookup, not instead of
+    # it: a question can map to a field and still have a sensible default when
+    # that field holds nothing usable for it.
+    return default_for(label)
 
 
 def _tokens(text):
@@ -457,6 +460,12 @@ DEFAULT_ANSWERS = (
                 r"(?:company|firm|organi[sz]ation)|former\s+employee|"
                 r"current\s+or\s+former\s+employee|previous\s+employment\s+with",
                 re.I), "No"),
+    # The user is part-way through a 4+1, so the bachelor's is not finished.
+    # This needs revisiting when they graduate.
+    (re.compile(r"(?:have\s+you\s+)?(?:completed|finished|received|earned|"
+                r"obtained)\s+(?:your\s+)?(?:undergraduate|bachelor'?s?)"
+                r"(?:\s+(?:degree|studies))?|"
+                r"undergraduate\s+degree\s+(?:completed|conferred)", re.I), "No"),
 )
 
 

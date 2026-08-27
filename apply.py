@@ -586,13 +586,27 @@ def main(argv=None):
                frames[0] if frames else None)
 
         if not headless:
-            print("\nThe browser is open. Check every field, then submit it "
-                  "yourself.")
-            print("Press Enter here when you're done to close it.")
-            try:
-                input()
-            except (EOFError, KeyboardInterrupt):
-                pass
+            print("\nThe browser is open and the form is filled in.")
+            print("Check every field, then submit it yourself. Close the")
+            print("window when you're done.")
+            if sys.stdin.isatty():
+                print("(Or press Enter here to close it.)")
+                try:
+                    input()
+                except (EOFError, KeyboardInterrupt):
+                    pass
+            else:
+                # Launched without a terminal: wait for the window instead of
+                # a keypress, so the form stays up while you work through it.
+                while True:
+                    try:
+                        current = ctx.pages[-1] if ctx.pages else None
+                        if current is None or current.is_closed():
+                            break
+                        current.wait_for_timeout(3000)
+                    except Exception:
+                        break
+                print("Window closed.")
         close_browser(browser, ctx)
     return 0
 
