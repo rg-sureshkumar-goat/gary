@@ -539,6 +539,14 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         # Names follow their own rule, decided by the whole form.
+        # On a second pass over the same page -- Workday reveals State only
+        # once Country is set -- fill the blanks and leave everything else.
+        try:
+            if (widget_value(frame, element) or "").strip():
+                continue
+        except Exception:
+            pass
+
         value = names_lib.name_for(label, profile, all_labels, section, ident)
         if value is None:
             value = formfill.value_for(label, profile, section, ident, entry)

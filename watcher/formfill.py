@@ -30,6 +30,13 @@ FIELD_PATTERNS = [
     ("email",       r"\be-?mail\b"),
     ("phone_type",  r"phone\s+device\s+type|\bdevice\s+type\b|phone\s+type|"
                     r"type\s+of\s+phone"),
+    # A dial-code picker, not a number field.
+    ("phone_country_code",
+                    r"country\s+phone\s+code|phone\s+country\s+code|"
+                    r"\bcountry\s+code\b|dial(?:l?ing)?\s+code"),
+    # An extension is its own thing and is usually blank.
+    ("phone_extension",
+                    r"\bextension\b|\bext\.?\b(?!\w)"),
     ("phone",       r"\bphone\b|\bmobile\b|\btelephone\b|\bcell\b"),
     ("linkedin",    r"linked\s*in"),
     ("github",      r"git\s*hub"),

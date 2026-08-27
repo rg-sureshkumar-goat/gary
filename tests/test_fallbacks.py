@@ -92,12 +92,38 @@ for options, expected in [
         failures.append("phone type from %r -> %r, expected %r"
                         % (options, got, expected))
 
+# --- phone sub-fields ---------------------------------------------------------- #
+# Workday splits a phone into four controls. The general phone rule claimed all
+# of them, typing the number into the dial-code picker and the extension box.
+PHONE_FIELDS = [
+    ("Phone Number", "phone"),
+    ("Country Phone Code", "phone_country_code"),
+    ("Phone Country Code", "phone_country_code"),
+    ("Country Code", "phone_country_code"),
+    ("Phone Extension", "phone_extension"),
+    ("Extension", "phone_extension"),
+    ("Phone Device Type", "phone_type"),
+]
+for label, expected in PHONE_FIELDS:
+    if key_for(label) != expected:
+        failures.append("%-22s -> %r, expected %r" % (label, key_for(label), expected))
+
+from watcher.formfill import value_for  # noqa: E402
+NUMBER_ONLY = {"phone": "(817) 818-7051", "phone_type": "Mobile",
+               "phone_country_code": "United States"}
+if value_for("Phone Extension", NUMBER_ONLY) is not None:
+    failures.append("a phone number was typed into the extension box")
+if value_for("Country Phone Code", NUMBER_ONLY) == "(817) 818-7051":
+    failures.append("a phone number was typed into the dial-code picker")
+if value_for("Phone Number", NUMBER_ONLY) != "(817) 818-7051":
+    failures.append("the phone number no longer reaches the number field")
+
 # Yes/no matching still works alongside fallbacks.
 sponsor = {"sponsorship": "No"}
 if choose_option("Will you require sponsorship?", ["Yes", "No"], sponsor) != "No":
     failures.append("yes/no matching regressed")
 
-total = len(CASES) + 1 + 2 + 1 + 2 + 1 + 3 + 6
+total = len(CASES) + 1 + 2 + 1 + 2 + 1 + 3 + 6 + len(PHONE_FIELDS) + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
