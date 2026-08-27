@@ -575,6 +575,7 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
 
 _RECENTLY_FILLED = {}
 _UNREADABLE_FILLED = set()
+_LISTED_PAGES = set()
 
 
 def _too_soon(key, seconds=25):
@@ -605,6 +606,20 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
     # Workday's repeated sections start empty. Press Add first, or there are
     # no fields on the page to fill.
+    # One-time inventory of every control on the page, so a field that is
+    # never filled can be told apart from one that is never seen.
+    global _LISTED_PAGES
+    try:
+        sig = tuple(sorted(formfill.normalise(label_for(frame, el))
+                           for el in controls(frame)))
+        if sig and sig not in _LISTED_PAGES:
+            _LISTED_PAGES.add(sig)
+            print("   controls Gary can see (%d):" % len(sig))
+            for lab in sig:
+                print("      %r" % (lab[:70] or "(no label)"))
+    except Exception:
+        pass
+
     opened = open_entry_sections(frame, profile, dry_run, log=print)
     for block, what in opened:
         filled.append(("Add %s" % block, what))
