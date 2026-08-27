@@ -25,6 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
 from watcher import location as location_lib  # noqa: E402
+from watcher import names as names_lib  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PROFILE = os.path.join(ROOT, "profile.json")
@@ -372,6 +373,42 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
     frame = frames[0]
     seen_counts = {}
     file_slots = 0
+
+    # Read every label first. A plain "First Name" means the legal name on a
+    # form that has a preferred-name field elsewhere, and the name you go by on
+    # a form that hasn't -- so it cannot be answered field by field.
+    all_labels = []
+    for element in controls(frame):
+        try:
+            all_labels.append(formfill.normalise(label_for(frame, element)))
+        except Exception:
+            continue
+
+    # Tick whatever reveals the preferred-name boxes, then look again: those
+    # fields do not exist in the DOM until it is ticked.
+    if not names_lib.form_uses_legal(all_labels):
+        toggled = False
+        for element in frame.query_selector_all(
+                "input[type=checkbox], input[type=radio]"):
+            try:
+                if not element.is_visible():
+                    continue
+                label = formfill.normalise(label_for(frame, element))
+                if names_lib.is_preferred_toggle(label) and not element.is_checked():
+                    if not dry_run:
+                        element.check()
+                        frame.wait_for_timeout(600)
+                    filled.append((label, "ticked, to enter a preferred name"))
+                    toggled = True
+            except Exception:
+                continue
+        if toggled:
+            all_labels = []
+            for element in controls(frame):
+                try:
+                    all_labels.append(formfill.normalise(label_for(frame, element)))
+                except Exception:
+                    continue
     if looks_like_login(frame):
         print("\nThis is a sign-in or account-creation form, so nothing was "
               "filled.\nSign in yourself, then re-run on the application form.")
@@ -482,7 +519,10 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 skipped.append((label, reason))
             continue
 
-        value = formfill.value_for(label, profile, section, ident, entry)
+        # Names follow their own rule, decided by the whole form.
+        value = names_lib.name_for(label, profile, all_labels)
+        if value is None:
+            value = formfill.value_for(label, profile, section, ident, entry)
         if value:
             if not dry_run:
                 element.fill(value)

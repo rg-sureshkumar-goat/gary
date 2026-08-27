@@ -18,9 +18,13 @@ PROFILE = os.path.join(ROOT, "profile.json")
 
 GROUPS = [
     ("Who you are", [
-        ("first_name", "First name"),
-        ("last_name", "Last name"),
+        ("first_name", "First name (default)"),
+        ("last_name", "Last name (default)"),
+        ("legal_first_name", "Legal first name"),
+        ("legal_last_name", "Legal last name"),
         ("preferred_first_name", "Preferred first name"),
+        ("preferred_last_name", "Preferred last name"),
+        ("preferred_name", "Preferred name (one box)"),
         ("full_name", "Full name"),
         ("email", "Email"),
         ("phone", "Phone"),

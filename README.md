@@ -446,6 +446,32 @@ Which education entry is the graduate one is decided by **what the degree
 says**, not the order the form listed them in -- some forms put the master's
 first, some the bachelor's.
 
+### Which name goes in which box
+
+A person can have three names on one application, and a plain "First Name" box
+is ambiguous on its own:
+
+| The form... | Plain name fields get | Preferred fields get |
+|---|---|---|
+| says nothing about legal or preferred | the name you go by | -- |
+| asks for a **legal** name | the legal name | the name you go by |
+| doesn't say "legal" but offers a **preferred** name | the legal name | the name you go by |
+
+So the whole form is read before any name field is answered. Where a checkbox
+reveals the preferred-name boxes, it is ticked first and the form re-read,
+since those fields don't exist until then.
+
+Set the variants in your profile:
+
+```bash
+python3 profile.py --set first_name="RG" --set last_name="Sureshkumar" \
+  --set legal_first_name="Ramganesh" --set legal_last_name="Kamalanathan" \
+  --set preferred_name="RG Sureshkumar"
+```
+
+A single "Preferred name" box gets `preferred_name`; separate first/last boxes
+get the parts.
+
 ### Which office to apply to
 
 Office-preference questions follow their own rule, because a guess here routes
