@@ -165,7 +165,9 @@ def identity_of(frame, element):
 # Workday form looks empty.
 CONTROL_SELECTOR = (
     "input, textarea, select, "
-    "button[aria-haspopup='listbox'], [role=combobox], "
+    "button[aria-haspopup='listbox'], button[aria-haspopup], "
+    "button[aria-label*='Select One'], button[aria-label*='select one'], "
+    "[role=combobox], [role=listbox], "
     "[data-automation-id] input, [data-automation-id] textarea")
 
 
@@ -541,6 +543,7 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
 
 
 _RECENTLY_FILLED = {}
+_UNREADABLE_FILLED = set()
 
 
 def _too_soon(key, seconds=25):
@@ -698,8 +701,10 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         # A typeahead combobox: options only exist once it is opened.
+        aria_label = (element.get_attribute("aria-label") or "").lower()
         is_combo = (element.get_attribute("role") == "combobox"
-                    or element.get_attribute("aria-haspopup") in ("true", "listbox"))
+                    or element.get_attribute("aria-haspopup") in ("true", "listbox")
+                    or (tag == "button" and "select one" in aria_label))
         if is_combo and tag != "select":
             options = combobox_options(frame, element)
             if location_lib.is_location_question(label):
@@ -713,6 +718,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 reason = "no confident match -- pick it yourself"
             if choice and not dry_run and choose_from_combobox(frame, element, choice):
                 filled.append((label, choice))
+                # If it still reads as empty, remember it as done.
+                try:
+                    if not (widget_value(frame, element) or "").strip():
+                        _UNREADABLE_FILLED.add(field_key)
+                except Exception:
+                    _UNREADABLE_FILLED.add(field_key)
             elif choice and dry_run:
                 filled.append((label, choice))
             else:
@@ -728,7 +739,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 continue
         except Exception:
             pass
-        if _too_soon("%s|%s|%s" % (page.url, label, ident)):
+        field_key = "%s|%s|%s|%s" % (page.url, label, ident, entry)
+        # Some controls never report their value back. Once one has been
+        # answered, trust that rather than re-answering it every pass.
+        if field_key in _UNREADABLE_FILLED:
+            continue
+        if _too_soon(field_key):
             continue
 
         value = names_lib.name_for(label, profile, all_labels, section, ident)
