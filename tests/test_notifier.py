@@ -68,6 +68,8 @@ if msg and "should be a number" in msg:
 # long after you have signed in. Treating that as a login form made Gary refuse
 # to fill an ordinary application, so wording only counts on a form small
 # enough to be a sign-in box. A password field still condemns any form.
+from watcher.formfill import is_auth_form  # noqa: E402
+
 BIG_APPLICATION = ["First Name", "Last Name", "Email", "Phone", "Address",
                    "City", "State", "Sign In", "Create Account"]
 if is_auth_form(BIG_APPLICATION[:6]):
