@@ -982,8 +982,10 @@ def main(argv=None):
                             for lab, val in f:
                                 print("   %-36s %s" % (lab[:36], str(val)[:36]))
                             left = [x for x in sk if x[0] not in {y[0] for y in f}]
-                            for lab, why in left[:6]:
-                                print("   %-34s (left: %s)" % (lab[:34], why[:150]))
+                            # Print them all: truncating this hid the reason
+                            # Degree was being rejected for several rounds.
+                            for lab, why in left:
+                                print("   %-34s (left: %s)" % (lab[:34], why[:170]))
                     mishaps = 0
                     current.wait_for_timeout(args.poll_seconds * 1000)
                 except KeyboardInterrupt:
