@@ -293,7 +293,10 @@ def fill(page, profile, dry_run=False):
         ident = identity_of(frame, element)
         if formfill.is_page_furniture(label, ident):
             continue
-        base = formfill.answer_key(section, label, ident)
+        # Count repeats on an id with its entry number removed, or
+        # workExperience6/7 look like two different questions.
+        base = formfill.answer_key(section, label,
+                                   formfill.base_identity(ident))
         seen_counts[base] = seen_counts.get(base, 0) + 1
         block = formfill.block_of(section, ident, label)
         entry = seen_counts[base] if block in ("education", "work history") else 0

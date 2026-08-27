@@ -107,6 +107,26 @@ def usable_identity(identity):
     return text
 
 
+def base_identity(identity):
+    """A field id with its entry number removed.
+
+    Workday numbers repeated fields inside the id itself --
+    workExperience6RoleDescription, workExperience7RoleDescription. Those are
+    the same question on two different jobs, so the digits have to come out
+    before the two can be recognised as a repeat of each other.
+    """
+    return re.sub(r"\d+", "", usable_identity(identity))
+
+
+# A control whose label is only its own option text tells us nothing: the
+# question is elsewhere on the page.
+_OPTION_ONLY = re.compile(r"^(yes|no|true|false|n/?a|none|other)$", re.I)
+
+
+def is_option_label(label):
+    return bool(_OPTION_ONLY.match(normalise(label).strip().rstrip(".")))
+
+
 def is_page_furniture(label, identity=""):
     """Menus, language pickers and search boxes are not application questions."""
     return bool(_NOT_A_FIELD.search("%s %s" % (identity or "", label or "")))
@@ -315,6 +335,11 @@ def value_for(label, profile, section="", identity="", entry=0):
     saved = custom_answer(label, profile, section, identity, entry)
     if saved not in (None, ""):
         return str(expand_tokens(saved))
+    # A signature date is worked out now, never replayed.
+    part = date_part_today(label, section)
+    if part is not None:
+        return part
+
     key = key_for(label)
     if key is None:
         # Nothing recorded: fall back to a safe default where one applies.
@@ -443,3 +468,33 @@ def expand_tokens(value, today=None):
         return today.strftime(fmt)
     except ValueError:
         return today.strftime("%m/%d/%Y")
+
+
+_DATE_PART = re.compile(r"^(day|month|year|mm|dd|yyyy|yy)$", re.I)
+_SIGNATURE_SECTION = re.compile(
+    r"date|sign|today|acknowledg|certif|declaration|submit", re.I)
+
+
+def date_part_today(label, section, today=None):
+    """The right piece of today's date for a split date control.
+
+    Workday asks for a signature date as three separate boxes, so a whole date
+    is never visible to the today-detection. Replaying the recorded day would
+    put a stale date on every application.
+    """
+    import datetime
+    text = normalise(label).strip().rstrip(":").lower()
+    if not _DATE_PART.match(text):
+        return None
+    if not _SIGNATURE_SECTION.search(normalise(section)):
+        return None
+    today = today or datetime.date.today()
+    if text in ("day", "dd"):
+        return str(today.day)
+    if text in ("month", "mm"):
+        return str(today.month)
+    if text in ("year", "yyyy"):
+        return str(today.year)
+    if text == "yy":
+        return today.strftime("%y")
+    return None

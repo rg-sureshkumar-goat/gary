@@ -146,7 +146,52 @@ for question in ["Please provide your LinkedIn profile",
         failures.append("a standalone question was numbered into a block: %r"
                         % question)
 
-total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2
+# --- entry numbers hidden inside the field id -------------------------------- #
+# Workday numbers repeats in the id itself, so two jobs' descriptions looked
+# like two different questions and both were filed under work history 1.
+from watcher.formfill import (  # noqa: E402
+    base_identity, is_option_label, date_part_today)
+
+if base_identity("workExperience6RoleDescription") != \
+        base_identity("workExperience7RoleDescription"):
+    failures.append("two entries of the same field still look different")
+if not base_identity("workExperience6RoleDescription"):
+    failures.append("stripping digits emptied a meaningful id")
+if base_identity("f7187c9d9ecd10019f31601fd5d00002"):
+    failures.append("an opaque id survived digit-stripping")
+
+# With a shared base, occurrence counting separates the two jobs.
+k1 = answer_key("From", "Role Description", "workExperienceRoleDescription", 1)
+k2 = answer_key("From", "Role Description", "workExperienceRoleDescription", 2)
+if k1 == k2:
+    failures.append("the two descriptions still share a key")
+if not k1.startswith("work history 1") or not k2.startswith("work history 2"):
+    failures.append("descriptions were not numbered as jobs: %r / %r" % (k1, k2))
+
+# --- option text is not a question ------------------------------------------- #
+for label in ["Yes", "No", "yes", "N/A", "None", "Other"]:
+    if not is_option_label(label):
+        failures.append("option text treated as a question: %r" % label)
+for label in ["Are you at least 18 years of age?", "Company", "Role Description"]:
+    if is_option_label(label):
+        failures.append("a real question mistaken for option text: %r" % label)
+
+# --- a signature date split across three boxes ------------------------------- #
+WHEN = datetime.date(2027, 1, 5)
+for part, expected in [("Day", "5"), ("Month", "1"), ("Year", "2027")]:
+    got = date_part_today(part, "Date", WHEN)
+    if got != expected:
+        failures.append("signature %s -> %r, expected %r" % (part, got, expected))
+# Employment and education dates are real answers and must be left alone.
+for section in ["From", "To", "Work Experience", "Education"]:
+    if date_part_today("Year", section, WHEN) is not None:
+        failures.append("an employment/education year was overwritten with today's")
+# The whole-date path still works where a form uses one box.
+if value_for("Day", {}, "Date") != str(datetime.date.today().day):
+    failures.append("split signature date not filled from today")
+
+total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2 \
+        + 5 + 9 + 3 + 4 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
