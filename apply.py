@@ -18,6 +18,7 @@ Two things it will not do, by design:
 import argparse
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -382,6 +383,97 @@ def looks_like_login(frame):
     return formfill.is_auth_form(labels)
 
 
+def entries_wanted(profile, block):
+    """How many entries of a block the profile has data for."""
+    answers = dict(profile.get("custom_answers") or {})
+    answers.update(profile.get("answers") or {})
+    highest = 0
+    for key in answers:
+        m = re.match(r"%s (\d+) ::" % re.escape(block), key)
+        if m:
+            highest = max(highest, int(m.group(1)))
+    return highest
+
+
+def add_buttons(frame, block):
+    """The "Add" controls belonging to a section, e.g. Work Experience.
+
+    Workday builds these sections empty: until Add is pressed there are no
+    fields at all, which is why a page can look unfillable.
+    """
+    words = {"work history": r"work|experience|employment",
+             "education": r"education|school|degree"}.get(block, block)
+    try:
+        return frame.evaluate("""([words]) => {
+            const re = new RegExp(words, 'i');
+            const out = [];
+            const buttons = document.querySelectorAll(
+                'button, [role=button], a[role=button]');
+            buttons.forEach((b, i) => {
+                const text = ((b.innerText || '') + ' ' +
+                              (b.getAttribute('aria-label') || '')).trim();
+                if (!/^\s*add\b/i.test(text)) return;
+                // Either the button names the section, or it sits under it.
+                if (re.test(text)) { out.push(i); return; }
+                let node = b;
+                for (let hop = 0; hop < 8 && node; hop++) {
+                    node = node.parentElement;
+                    if (!node) break;
+                    const head = node.querySelector('h1,h2,h3,h4,legend,[role=heading]');
+                    if (head && re.test(head.innerText || '')) { out.push(i); return; }
+                }
+            });
+            return out;
+        }""", [words])
+    except Exception:
+        return []
+
+
+def open_entry_sections(frame, profile, dry_run=False, log=None):
+    """Press Add until each repeated section has room for what we know.
+
+    Clicking Add creates a blank entry; it never submits anything.
+    """
+    created = []
+    for block in ("work history", "education"):
+        wanted = entries_wanted(profile, block)
+        if not wanted:
+            continue
+        for attempt in range(wanted):
+            # Re-read each time: pressing Add changes the page.
+            present = len({formfill.answer_key(
+                formfill.normalise(section_for(frame, el)),
+                formfill.normalise(label_for(frame, el)),
+                formfill.base_identity(identity_of(frame, el)))
+                for el in controls(frame)
+                if formfill.block_of(
+                    formfill.normalise(section_for(frame, el)),
+                    identity_of(frame, el),
+                    formfill.normalise(label_for(frame, el))) == block})
+            if present >= wanted:
+                break
+            indexes = add_buttons(frame, block)
+            if not indexes:
+                break
+            if dry_run:
+                created.append((block, "would press Add"))
+                break
+            try:
+                frame.evaluate("""([i]) => {
+                    const b = document.querySelectorAll(
+                        'button, [role=button], a[role=button]')[i];
+                    if (b) b.click();
+                }""", [indexes[0]])
+                frame.wait_for_timeout(1200)
+                created.append((block, "pressed Add"))
+            except Exception:
+                break
+    if created and log:
+        for block, what in created:
+            log("   %s: %s" % (block, what))
+    return created
+
+
 def fill(page, profile, dry_run=False, open_locations=None, company="",
          hq_table=None):
     filled, skipped, credentials = [], [], []
@@ -392,6 +484,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
     frame = frames[0]
     seen_counts = {}
     file_slots = 0
+
+    # Workday's repeated sections start empty. Press Add first, or there are
+    # no fields on the page to fill.
+    opened = open_entry_sections(frame, profile, dry_run)
+    for block, what in opened:
+        filled.append(("Add %s" % block, what))
 
     # Read every label first. A plain "First Name" means the legal name on a
     # form that has a preferred-name field elsewhere, and the name you go by on
