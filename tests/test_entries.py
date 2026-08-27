@@ -102,7 +102,51 @@ if as_today_token("05/01/2025", TODAY) != "05/01/2025":
 if as_today_token("Manifesta Film", TODAY) != "Manifesta Film":
     failures.append("ordinary text was mangled by date detection")
 
-total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5
+# --- problems found on a real Workday recording ----------------------------- #
+from watcher.formfill import (  # noqa: E402
+    strip_value, usable_identity, is_page_furniture)
+
+# Workday joins a dropdown's question to its selection, so "Degree" reads as
+# "Degree Bachelors" once answered. The key then changed with the answer, and
+# both education entries were filed as entry 1.
+if strip_value("Degree Bachelors", "Bachelors") != "Degree":
+    failures.append("a selected value was not stripped from its own label")
+if strip_value("Degree Masters", "Masters") != "Degree":
+    failures.append("a selected value was not stripped from its own label")
+if strip_value("Degree Bachelors", "Bachelors") != strip_value("Degree Masters", "Masters"):
+    failures.append("two entries of the same question still differ")
+# A label that is only the value must not be emptied.
+if strip_value("Yes", "Yes") != "Yes":
+    failures.append("a label identical to its value was destroyed")
+# An unrelated value is left alone.
+if strip_value("Company", "Manifesta Film") != "Company":
+    failures.append("stripping altered an unrelated label")
+
+# Generated ids change between sessions and mean nothing.
+for bad in ["f7187c9d9ecd10019f31601fd5d00002", "a1b2c3d4e5f60718", "0f9e8d7c6b5a4931"]:
+    if usable_identity(bad):
+        failures.append("an opaque generated id was used as a key: %r" % bad)
+for good in ["companyName", "jobTitle", "gradeAverage", "degree"]:
+    if usable_identity(good) != good:
+        failures.append("a meaningful field id was discarded: %r" % good)
+
+# Menus and language pickers are not application questions.
+for label, ident in [("Settings", "utilityMenuButton"), ("Search", "searchBox"),
+                     ("English", "languageSelector")]:
+    if not is_page_furniture(label, ident):
+        failures.append("page furniture was treated as a question: %r" % label)
+if is_page_furniture("Company", "companyName"):
+    failures.append("a real field was mistaken for page furniture")
+
+# A specific question must never be dragged into a numbered block: LinkedIn and
+# country were being filed under "work history 1".
+for question in ["Please provide your LinkedIn profile",
+                 "Are you willing to relocate if required?"]:
+    if "work history" in answer_key("From", question, "x", 1):
+        failures.append("a standalone question was numbered into a block: %r"
+                        % question)
+
+total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

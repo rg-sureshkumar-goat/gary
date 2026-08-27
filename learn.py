@@ -57,6 +57,9 @@ def harvest(frame):
         label = formfill.normalise(label_for(frame, element))
         if not label:
             continue
+        ident_raw = identity_of(frame, element)
+        if formfill.is_page_furniture(label, ident_raw):
+            continue
         if kind == "password" or formfill.is_credential(label):
             skipped.append(label)
             continue
@@ -71,8 +74,11 @@ def harvest(frame):
                                           "--", "choose", "choose one"):
             continue
 
+        # A dropdown's label picks up its own selection; strip it, or the key
+        # changes with the answer and two entries stop matching.
+        label = formfill.strip_value(label, value)
         section = formfill.normalise(section_for(frame, element))
-        ident = identity_of(frame, element)
+        ident = ident_raw
 
         # Repeated blocks: an application carries two education entries and two
         # jobs whose fields are labelled identically. DOM order is visual

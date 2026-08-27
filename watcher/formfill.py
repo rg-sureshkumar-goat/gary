@@ -89,6 +89,50 @@ def is_auth_form(labels, has_password=False):
     return bool(AUTH_SIGNALS.search(joined))
 
 
+# Generated ids carry no meaning and change between sessions, so they make a
+# useless and unstable key suffix.
+_OPAQUE_ID = re.compile(r"^[0-9a-f]{12,}$|[0-9a-f]{16,}", re.I)
+
+# Page furniture rather than form fields.
+_NOT_A_FIELD = re.compile(
+    r"utilitymenu|menubutton|navigation|breadcrumb|languageselector|"
+    r"searchbox|search[-_]?field|cookie|skip[-_]?to", re.I)
+
+
+def usable_identity(identity):
+    """Whether a field id is meaningful enough to key on."""
+    text = str(identity or "").strip()
+    if not text or _OPAQUE_ID.search(text):
+        return ""
+    return text
+
+
+def is_page_furniture(label, identity=""):
+    """Menus, language pickers and search boxes are not application questions."""
+    return bool(_NOT_A_FIELD.search("%s %s" % (identity or "", label or "")))
+
+
+def strip_value(label, value):
+    """Remove a selected option that has been appended to its own question.
+
+    Workday joins a dropdown's question and its current selection through
+    aria-labelledby, so "Degree" reads as "Degree Bachelors" once answered --
+    and the key then changes with the answer, which stops two entries from
+    being recognised as the same question.
+    """
+    text = normalise(label)
+    val = " ".join(str(value or "").split())
+    if not val or len(val) > 60:
+        return text
+    if text.lower().endswith(" " + val.lower()):
+        trimmed = text[: -len(val)].strip(" :-,")
+        if trimmed:
+            return trimmed
+    if text.lower() == val.lower():
+        return text
+    return text
+
+
 def normalise(label):
     text = re.sub(r"[\*∗]", " ", str(label or ""))
     # "(required)" and a bare trailing "Required" both appear; strip either, or
@@ -211,14 +255,16 @@ def answer_key(section, question, identity="", entry=0):
     q = normalise(question).lower().rstrip("?").strip()
     if not q:
         return ""
-    if is_reusable_question(question) and not entry:
+    # A question specific enough to stand alone is never part of a repeated
+    # block -- numbering it drags unrelated fields into "work history 1".
+    if is_reusable_question(question):
         return q
     parts = []
     block = block_of(section, identity, question)
     if block:
         parts.append("%s %d" % (block, entry) if entry else block)
     parts.append(q)
-    ident = re.sub(r"[^a-z0-9]+", "", str(identity or "").lower())
+    ident = re.sub(r"[^a-z0-9]+", "", usable_identity(identity).lower())
     if ident and ident != re.sub(r"[^a-z0-9]+", "", q):
         parts.append(ident)
     return " :: ".join(parts)

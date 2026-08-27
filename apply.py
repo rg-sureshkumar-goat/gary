@@ -291,6 +291,8 @@ def fill(page, profile, dry_run=False):
         label = formfill.normalise(label_for(frame, element))
         section = formfill.normalise(section_for(frame, element))
         ident = identity_of(frame, element)
+        if formfill.is_page_furniture(label, ident):
+            continue
         base = formfill.answer_key(section, label, ident)
         seen_counts[base] = seen_counts.get(base, 0) + 1
         block = formfill.block_of(section, ident, label)
