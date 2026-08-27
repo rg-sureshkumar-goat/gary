@@ -407,11 +407,21 @@ def choose_option(label, options, profile, section="", identity="", entry=0):
     return None
 
 
+# Phone-country pickers append a dial code: "United States +1". It defeats a
+# token comparison against "United States of America".
+_DIAL_CODE = re.compile(r"\s*\+\d{1,4}\s*$")
+
+
 def _match_option(wanted, lowered):
     """Match one value against a dropdown's options, or None."""
     target = wanted.strip().lower()
     if not target:
         return None
+    lowered = dict(lowered)
+    for text, original in list(lowered.items()):
+        bare = _DIAL_CODE.sub("", text).strip()
+        if bare and bare not in lowered:
+            lowered[bare] = original
 
     if target in lowered:
         return lowered[target]

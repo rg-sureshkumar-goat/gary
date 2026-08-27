@@ -446,6 +446,27 @@ Which education entry is the graduate one is decided by **what the degree
 says**, not the order the form listed them in -- some forms put the master's
 first, some the bachelor's.
 
+### Which office to apply to
+
+Office-preference questions follow their own rule, because a guess here routes
+an application to a location the role was never open in:
+
+1. If several locations can be chosen, choose **every one the role is open in**.
+2. If only one can be chosen, take the company's **US headquarters** -- but only
+   when the role is actually open there.
+3. Otherwise leave it blank.
+
+```bash
+.venv/bin/python apply.py "<url>" --company "Lincoln International" \
+  --locations "Chicago, IL; New York, NY; Los Angeles, CA"
+```
+
+`headquarters.json` holds the US head office for ~90 employers; add more as you
+meet them, and an employer that isn't listed simply leaves the question blank.
+
+Cities are compared on the city alone, since a dropdown says "Chicago, IL"
+where a posting says "Chicago - 550 Van Buren".
+
 ### When the dropdown doesn't offer your answer
 
 Some values are never on the list. A major like *Arts and Entertainment

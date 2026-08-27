@@ -24,9 +24,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
+from watcher import location as location_lib  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 PROFILE = os.path.join(ROOT, "profile.json")
+HEADQUARTERS = os.path.join(ROOT, "headquarters.json")
 
 # Anything that would send the form. Located so it can be pointed out to you --
 # and never clicked.
@@ -162,6 +164,103 @@ def controls(frame):
     return frame.query_selector_all(CONTROL_SELECTOR)
 
 
+def close_combobox(frame):
+    try:
+        frame.page.keyboard.press("Escape")
+    except Exception:
+        pass
+
+
+def combobox_options(frame, element):
+    """Open a typeahead combobox and read what it offers.
+
+    Greenhouse and Workday render most dropdowns this way: an <input> whose
+    options do not exist in the DOM until it is opened. Clicking the control
+    is necessary to see them -- it selects a value, it never submits anything.
+    """
+    try:
+        # Close anything still open from the previous control, or its listbox
+        # is the one we end up reading.
+        close_combobox(frame)
+        frame.wait_for_timeout(200)
+        element.click()
+        frame.wait_for_timeout(800)
+        # Scope to the listbox this control owns. A page-wide [role=option]
+        # query returns whichever list happens to be in the DOM -- on this
+        # form the country list came back for the office question.
+        options = frame.evaluate("""el => {
+            const id = el.getAttribute('aria-controls') ||
+                       el.getAttribute('aria-owns');
+            let root = id ? document.getElementById(id) : null;
+            if (!root) {
+                // Prefer a listbox near this control; a page-wide search finds
+                // whichever dropdown was opened last.
+                let scope = el;
+                for (let hop = 0; hop < 6 && scope; hop++) {
+                    scope = scope.parentElement;
+                    if (!scope) break;
+                    const near = Array.from(scope.querySelectorAll('[role=listbox]'))
+                        .filter(b => b.offsetParent !== null);
+                    if (near.length) { root = near[0]; break; }
+                }
+            }
+            if (!root) {
+                const boxes = Array.from(
+                    document.querySelectorAll('[role=listbox]'))
+                    .filter(b => b.offsetParent !== null);
+                root = boxes.length ? boxes[boxes.length - 1] : null;
+            }
+            if (!root) return [];
+            const seen = new Set();
+            return Array.from(root.querySelectorAll(
+                    '[role=option], [class*=option], [id*=option], li'))
+                .map(o => (o.innerText || '').trim())
+                .filter(t => t && !seen.has(t) && seen.add(t))
+                .slice(0, 400);
+        }""", element)
+        return [o for o in options if o]
+    except Exception:
+        return []
+
+
+def choose_from_combobox(frame, element, wanted):
+    """Pick a named option from an open combobox. True if it was selected."""
+    try:
+        return bool(frame.evaluate("""([el, wanted]) => {
+            const id = el.getAttribute('aria-controls') ||
+                       el.getAttribute('aria-owns');
+            let root = id ? document.getElementById(id) : null;
+            if (!root) {
+                let scope = el;
+                for (let hop = 0; hop < 6 && scope; hop++) {
+                    scope = scope.parentElement;
+                    if (!scope) break;
+                    const near = Array.from(scope.querySelectorAll('[role=listbox]'))
+                        .filter(b => b.offsetParent !== null);
+                    if (near.length) { root = near[0]; break; }
+                }
+            }
+            if (!root) {
+                const boxes = Array.from(
+                    document.querySelectorAll('[role=listbox]'))
+                    .filter(b => b.offsetParent !== null);
+                root = boxes.length ? boxes[boxes.length - 1] : null;
+            }
+            if (!root) return false;
+            for (const o of root.querySelectorAll(
+                    '[role=option], [class*=option], [id*=option], li')) {
+                const t = (o.innerText || '').trim();
+                if (t && t.toLowerCase() === String(wanted).trim().toLowerCase()) {
+                    o.click();
+                    return true;
+                }
+            }
+            return false;
+        }""", [element, wanted]))
+    except Exception:
+        return False
+
+
 def widget_value(frame, element):
     """What a control currently holds, native or custom."""
     try:
@@ -263,7 +362,8 @@ def looks_like_login(frame):
     return formfill.is_auth_form(labels + [heading])
 
 
-def fill(page, profile, dry_run=False):
+def fill(page, profile, dry_run=False, open_locations=None, company="",
+         hq_table=None):
     filled, skipped, credentials = [], [], []
     frames = form_frames(page)
     if not frames:
@@ -271,6 +371,7 @@ def fill(page, profile, dry_run=False):
 
     frame = frames[0]
     seen_counts = {}
+    file_slots = 0
     if looks_like_login(frame):
         print("\nThis is a sign-in or account-creation form, so nothing was "
               "filled.\nSign in yourself, then re-run on the application form.")
@@ -307,7 +408,16 @@ def fill(page, profile, dry_run=False):
             continue
 
         if kind == "file":
-            which = "cover_letter" if "cover" in label.lower() else "resume"
+            file_slots += 1
+            # Greenhouse labels both file inputs "Attach"; the first is the
+            # resume and the second the cover letter. Sending the resume twice
+            # looks careless to an employer.
+            if "cover" in label.lower():
+                which = "cover_letter"
+            elif "resume" in label.lower() or "cv" in label.lower():
+                which = "resume"
+            else:
+                which = "resume" if file_slots == 1 else "cover_letter"
             path = os.path.expanduser(str(profile.get(which) or ""))
             if path and os.path.exists(path):
                 if not dry_run:
@@ -320,6 +430,25 @@ def fill(page, profile, dry_run=False):
         if tag == "select":
             options = element.evaluate(
                 "el => Array.from(el.options).map(o => o.textContent.trim())")
+
+            # "Which office are you interested in?" follows its own rule:
+            # every open location if several may be chosen, otherwise the US
+            # headquarters when the role is open there, otherwise blank.
+            if location_lib.is_location_question(label):
+                multiple = bool(element.evaluate("el => el.multiple"))
+                picks = location_lib.answer(options, open_locations, company,
+                                            hq_table, multiple)
+                if picks:
+                    if not dry_run:
+                        if multiple:
+                            element.select_option(label=picks)
+                        else:
+                            element.select_option(label=picks[0])
+                    filled.append((label, ", ".join(picks)))
+                else:
+                    skipped.append((label, "no location Gary can be sure of "
+                                           "-- choose it yourself"))
+                continue
             choice = formfill.choose_option(label, options, profile, section,
                                             ident, entry)
             if choice:
@@ -328,6 +457,29 @@ def fill(page, profile, dry_run=False):
                 filled.append((label, choice))
             else:
                 skipped.append((label, "no confident match -- pick it yourself"))
+            continue
+
+        # A typeahead combobox: options only exist once it is opened.
+        is_combo = (element.get_attribute("role") == "combobox"
+                    or element.get_attribute("aria-haspopup") in ("true", "listbox"))
+        if is_combo and tag != "select":
+            options = combobox_options(frame, element)
+            if location_lib.is_location_question(label):
+                picks = location_lib.answer(options, open_locations, company,
+                                            hq_table, multiple=False)
+                choice = picks[0] if picks else None
+                reason = "no location Gary can be sure of -- choose it yourself"
+            else:
+                choice = formfill.choose_option(label, options, profile,
+                                                section, ident, entry)
+                reason = "no confident match -- pick it yourself"
+            if choice and not dry_run and choose_from_combobox(frame, element, choice):
+                filled.append((label, choice))
+            elif choice and dry_run:
+                filled.append((label, choice))
+            else:
+                close_combobox(frame)
+                skipped.append((label, reason))
             continue
 
         value = formfill.value_for(label, profile, section, ident, entry)
@@ -382,6 +534,13 @@ def main(argv=None):
     parser.add_argument("--profile", default=PROFILE)
     parser.add_argument("--dry-run", action="store_true",
                         help="report what would be filled, change nothing")
+    parser.add_argument("--locations",
+                        help="where the role is open, e.g. "
+                             "\"Chicago, IL; New York, NY\". Used to answer "
+                             "office-preference questions.")
+    parser.add_argument("--company", default="",
+                        help="the employer, for looking up their US "
+                             "headquarters when only one office may be chosen")
     parser.add_argument("--wait-ms", type=int, default=6000)
     parser.add_argument("--session", default=os.path.join(ROOT, ".browser-session"),
                         help="directory holding the browser profile, so a "
@@ -415,7 +574,14 @@ def main(argv=None):
             print("No form fields found. The application may open behind an "
                   "'Apply' button -- click through to it, then re-run on that "
                   "page.")
-        filled, skipped, credentials = fill(page, profile, args.dry_run)
+        hq_table = {}
+        if os.path.exists(HEADQUARTERS):
+            with open(HEADQUARTERS) as fh:
+                hq_table = json.load(fh)
+        open_locations = location_lib.split_locations(args.locations or "")
+        filled, skipped, credentials = fill(page, profile, args.dry_run,
+                                            open_locations, args.company,
+                                            hq_table)
         report(filled, skipped, credentials, page,
                frames[0] if frames else None)
 
