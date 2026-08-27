@@ -39,6 +39,7 @@ def harvest(frame):
     key, and your answer is stored as typed.
     """
     answers, skipped = {}, []
+    seen_counts = {}
 
     for element in controls(frame):
         try:
@@ -62,14 +63,27 @@ def harvest(frame):
         if kind == "file":
             continue
 
-        value = " ".join(str(widget_value(frame, element) or "").split())
+        raw = str(widget_value(frame, element) or "")
+        # Only trim the ends. A work-history description is reused verbatim on
+        # every application, so its line breaks and bullets must survive.
+        value = raw.strip()
         if not value or value.lower() in ("select...", "select", "select one",
                                           "--", "choose", "choose one"):
             continue
 
         section = formfill.normalise(section_for(frame, element))
         ident = identity_of(frame, element)
-        answers[formfill.answer_key(section, label, ident)] = value
+
+        # Repeated blocks: an application carries two education entries and two
+        # jobs whose fields are labelled identically. DOM order is visual
+        # order, so the nth time a field recurs it belongs to the nth entry.
+        base = formfill.answer_key(section, label, ident)
+        seen_counts[base] = seen_counts.get(base, 0) + 1
+        block = formfill.block_of(section, ident, label)
+        entry = seen_counts[base] if block in ("education", "work history") else 0
+        key = formfill.answer_key(section, label, ident, entry)
+
+        answers[key] = formfill.as_today_token(value)
 
     return answers, skipped
 

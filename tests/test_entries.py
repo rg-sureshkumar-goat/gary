@@ -1,0 +1,111 @@
+"""Repeated entries, verbatim descriptions, defaults, and today's date.
+
+Every application carries two education entries and two jobs whose fields are
+labelled identically. Keeping them apart, and reusing the descriptions exactly
+as typed, is the difference between a usable pre-fill and a scrambled one.
+
+Run with:  python3 -m tests.test_entries
+"""
+import datetime
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from watcher.formfill import (  # noqa: E402
+    answer_key, block_of, default_for, as_today_token, expand_tokens, value_for)
+
+failures = []
+TODAY = datetime.date(2026, 8, 27)
+
+# --- telling education from work history ------------------------------------ #
+for section, ident, label, expected in [
+    ("From", "degree", "Degree", "education"),
+    ("From", "school", "School or University", "education"),
+    ("From", "gpa", "Overall Result (GPA)", "education"),
+    ("From", "company", "Company", "work history"),
+    ("From", "jobTitle", "Job Title", "work history"),
+    ("From", "roleDescription", "Role Description", "work history"),
+]:
+    got = block_of(section, ident, label)
+    if got != expected:
+        failures.append("%-24s -> %r, expected %r" % (label, got, expected))
+
+# --- two entries must never collide ----------------------------------------- #
+if answer_key("From", "Degree", "degree", 1) == answer_key("From", "Degree", "degree", 2):
+    failures.append("education 1 and 2 share a key")
+if answer_key("From", "Company", "company", 1) == answer_key("From", "Company", "company", 2):
+    failures.append("work history 1 and 2 share a key")
+if answer_key("From", "Degree", "degree", 1) != "education 1 :: degree":
+    failures.append("unexpected education key: %r"
+                    % answer_key("From", "Degree", "degree", 1))
+if answer_key("From", "Company", "company", 2) != "work history 2 :: company":
+    failures.append("unexpected work key: %r"
+                    % answer_key("From", "Company", "company", 2))
+
+# --- descriptions are reused exactly as typed ------------------------------- #
+DESCRIPTION = "- Tracked $15K+ cash inflow\n- Built a DCF model\n  * sensitivity"
+PROFILE = {"answers": {
+    "work history 1 :: role description": DESCRIPTION,
+    "work history 2 :: role description": "- Second role\n- Another line",
+}}
+got = value_for("Role Description", PROFILE, "From", "roleDescription", 1)
+if got != DESCRIPTION:
+    failures.append("description was altered: %r" % got)
+if "\n" not in got or "  * sensitivity" not in got:
+    failures.append("line breaks or indentation were lost")
+second = value_for("Role Description", PROFILE, "From", "roleDescription", 2)
+if second == got:
+    failures.append("both jobs returned the same description")
+if second != "- Second role\n- Another line":
+    failures.append("second description wrong: %r" % second)
+
+# --- "have you worked here before" defaults to No --------------------------- #
+FOR_DEFAULT_NO = [
+    "Have you previously been employed with Houlihan Lokey?",
+    "Have you ever worked for this company?",
+    "Are you a former employee?",
+    "Have you previously worked at our firm?",
+    "Previous employment with Citi?",
+]
+for label in FOR_DEFAULT_NO:
+    if default_for(label) != "No":
+        failures.append("should default to No: %r -> %r" % (label, default_for(label)))
+    if value_for(label, {}) != "No":
+        failures.append("default not applied when nothing is recorded: %r" % label)
+
+# Unrelated questions get no invented default.
+for label in ["Are you willing to relocate?", "Which office interests you?",
+              "Are you legally authorized to work in the United States?"]:
+    if default_for(label) is not None:
+        failures.append("invented a default for %r" % label)
+
+# A recorded answer beats the default, so a real prior employer is respected.
+if value_for("Have you previously worked for this company?",
+             {"answers": {"have you previously worked for this company": "Yes"}}) != "Yes":
+    failures.append("the default overrode a recorded answer")
+
+# --- today's date is worked out at fill time -------------------------------- #
+stored = as_today_token(TODAY.strftime("%m/%d/%Y"), TODAY)
+if not str(stored).startswith("{today}"):
+    failures.append("today's date was stored literally: %r" % stored)
+if expand_tokens(stored, datetime.date(2027, 1, 5)) != "01/05/2027":
+    failures.append("stored date did not follow the day it is filled: %r"
+                    % expand_tokens(stored, datetime.date(2027, 1, 5)))
+# The recorded format is kept.
+iso = as_today_token(TODAY.strftime("%Y-%m-%d"), TODAY)
+if expand_tokens(iso, datetime.date(2027, 1, 5)) != "2027-01-05":
+    failures.append("the recorded date format was not preserved")
+# A date that is not today is a real answer -- a graduation year, say.
+if as_today_token("05/01/2025", TODAY) != "05/01/2025":
+    failures.append("a genuine past date was turned into a token")
+if as_today_token("Manifesta Film", TODAY) != "Manifesta Film":
+    failures.append("ordinary text was mangled by date detection")
+
+total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5
+if failures:
+    print("FAILED %d of %d checks:" % (len(failures), total))
+    for f in failures:
+        print("   " + f)
+    sys.exit(1)
+print("All %d checks passed." % total)

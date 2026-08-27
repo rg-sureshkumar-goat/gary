@@ -270,6 +270,7 @@ def fill(page, profile, dry_run=False):
         return filled, skipped, credentials
 
     frame = frames[0]
+    seen_counts = {}
     if looks_like_login(frame):
         print("\nThis is a sign-in or account-creation form, so nothing was "
               "filled.\nSign in yourself, then re-run on the application form.")
@@ -290,6 +291,10 @@ def fill(page, profile, dry_run=False):
         label = formfill.normalise(label_for(frame, element))
         section = formfill.normalise(section_for(frame, element))
         ident = identity_of(frame, element)
+        base = formfill.answer_key(section, label, ident)
+        seen_counts[base] = seen_counts.get(base, 0) + 1
+        block = formfill.block_of(section, ident, label)
+        entry = seen_counts[base] if block in ("education", "work history") else 0
 
         # A password field is never filled, whatever it is labelled.
         if kind == "password" or formfill.is_credential(label):
@@ -310,7 +315,8 @@ def fill(page, profile, dry_run=False):
         if tag == "select":
             options = element.evaluate(
                 "el => Array.from(el.options).map(o => o.textContent.trim())")
-            choice = formfill.choose_option(label, options, profile, section, ident)
+            choice = formfill.choose_option(label, options, profile, section,
+                                            ident, entry)
             if choice:
                 if not dry_run:
                     element.select_option(label=choice)
@@ -319,7 +325,7 @@ def fill(page, profile, dry_run=False):
                 skipped.append((label, "no confident match -- pick it yourself"))
             continue
 
-        value = formfill.value_for(label, profile, section, ident)
+        value = formfill.value_for(label, profile, section, ident, entry)
         if value:
             if not dry_run:
                 element.fill(value)

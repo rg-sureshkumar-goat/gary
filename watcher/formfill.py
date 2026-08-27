@@ -175,7 +175,32 @@ def prior_degree_key(label, key):
     return key
 
 
-def answer_key(section, question, identity=""):
+# Which repeated block a field belongs to, inferred from the section heading
+# and the field's own id. Workday labels an education date and a job date
+# identically ("From"), so the block has to be worked out from context.
+_EDUCATION = re.compile(r"educat|school|universit|college|degree|gpa|"
+                        r"grade\s*point|major|field\s+of\s+study", re.I)
+_WORK = re.compile(r"work|employ|experien|company|employer|job\s*title|"
+                   r"role|position|responsib", re.I)
+
+
+def block_of(section, identity, question):
+    """"education", "work history", or the section as given."""
+    hay = " ".join([str(section or ""), str(identity or ""), str(question or "")])
+    if _EDUCATION.search(hay):
+        return "education"
+    if _WORK.search(hay):
+        return "work history"
+    return normalise(section).lower().strip()
+
+
+def answer_key(section, question, identity="", entry=0):
+    """Key for one recorded answer.
+
+    `entry` numbers repeated blocks: an application carries two education
+    entries and two jobs, and their fields are labelled identically. Numbering
+    them keeps the first job's description from overwriting the second's.
+    """
     """How a recorded answer is stored.
 
     A specific question stands on its own. A generic one is scoped by the
@@ -186,12 +211,12 @@ def answer_key(section, question, identity=""):
     q = normalise(question).lower().rstrip("?").strip()
     if not q:
         return ""
-    if is_reusable_question(question):
+    if is_reusable_question(question) and not entry:
         return q
     parts = []
-    sect = normalise(section).lower().strip()
-    if sect:
-        parts.append(sect)
+    block = block_of(section, identity, question)
+    if block:
+        parts.append("%s %d" % (block, entry) if entry else block)
     parts.append(q)
     ident = re.sub(r"[^a-z0-9]+", "", str(identity or "").lower())
     if ident and ident != re.sub(r"[^a-z0-9]+", "", q):
@@ -199,7 +224,7 @@ def answer_key(section, question, identity=""):
     return " :: ".join(parts)
 
 
-def custom_answer(label, profile, section="", identity=""):
+def custom_answer(label, profile, section="", identity="", entry=0):
     """An answer you gave to this exact question before.
 
     Answers are recorded verbatim against the question text rather than mapped
@@ -208,7 +233,7 @@ def custom_answer(label, profile, section="", identity=""):
     """
     answers = dict(profile.get("answers") or {})
     answers.update(profile.get("custom_answers") or {})   # older files
-    key = answer_key(section, label, identity)
+    key = answer_key(section, label, identity, entry)
     if key in answers:
         return answers[key]
     # Older files stored the same answer without the field id.
@@ -219,10 +244,20 @@ def custom_answer(label, profile, section="", identity=""):
     plain = normalise(label).lower().rstrip("?").strip()
     if is_reusable_question(label) and plain in answers:
         return answers[plain]
+    # Answers recorded before keys carried an inferred block were scoped by
+    # the raw section heading ("from :: degree"). Without these fallbacks,
+    # changing the key scheme silently orphans an entire profile.
+    sect = normalise(section).lower().strip()
+    if sect:
+        legacy = "%s :: %s" % (sect, plain)
+        if legacy in answers:
+            return answers[legacy]
+    if plain in answers:
+        return answers[plain]
     return None
 
 
-def value_for(label, profile, section="", identity=""):
+def value_for(label, profile, section="", identity="", entry=0):
     """The value to type into this field, or None to leave it alone.
 
     A verbatim answer to this exact question wins over any canonical field:
@@ -231,12 +266,13 @@ def value_for(label, profile, section="", identity=""):
     """
     if is_credential(label):
         return None
-    saved = custom_answer(label, profile, section, identity)
+    saved = custom_answer(label, profile, section, identity, entry)
     if saved not in (None, ""):
-        return str(saved)
+        return str(expand_tokens(saved))
     key = key_for(label)
     if key is None:
-        return None
+        # Nothing recorded: fall back to a safe default where one applies.
+        return default_for(label)
     key = prior_degree_key(label, key)
     value = profile.get(key)
     if value in (None, ""):
@@ -252,13 +288,13 @@ def _tokens(text):
     return set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
 
 
-def choose_option(label, options, profile, section="", identity=""):
+def choose_option(label, options, profile, section="", identity="", entry=0):
     """Pick the dropdown option matching your saved answer.
 
     Returns None when nothing clearly matches. Guessing here is how a form ends
     up claiming the wrong graduation year or visa status.
     """
-    wanted = value_for(label, profile, section, identity)
+    wanted = value_for(label, profile, section, identity, entry)
     if wanted is None or not options:
         return None
 
@@ -290,3 +326,74 @@ def choose_option(label, options, profile, section="", identity=""):
         if score > best_score:
             best, best_score = original, score
     return best if best_score >= 0.5 else None
+
+
+# Questions with a sensible default when nothing has been recorded.
+DEFAULT_ANSWERS = (
+    (re.compile(r"previously\s+(?:been\s+)?(?:employed|worked)|"
+                r"(?:worked|employed)\s+(?:for|at|with)\s+(?:this|our|the)\s+"
+                r"(?:company|firm|organi[sz]ation)|former\s+employee|"
+                r"current\s+or\s+former\s+employee|previous\s+employment\s+with",
+                re.I), "No"),
+)
+
+
+def default_for(label):
+    """A safe default for a question you have not answered before."""
+    text = normalise(label)
+    for pattern, answer in DEFAULT_ANSWERS:
+        if pattern.search(text):
+            return answer
+    return None
+
+
+# A date captured while recording is the day you recorded it, not the day the
+# application is sent. It is stored as this token and worked out at fill time.
+TODAY_TOKEN = "{today}"
+
+_DATE_FORMATS = [
+    ("%m/%d/%Y", re.compile(r"^\d{2}/\d{2}/\d{4}$")),
+    ("%m/%d/%y", re.compile(r"^\d{2}/\d{2}/\d{2}$")),
+    ("%Y-%m-%d", re.compile(r"^\d{4}-\d{2}-\d{2}$")),
+    ("%d/%m/%Y", None),
+    ("%B %d, %Y", re.compile(r"^[A-Za-z]+ \d{1,2}, \d{4}$")),
+    ("%d %B %Y", re.compile(r"^\d{1,2} [A-Za-z]+ \d{4}$")),
+    ("%m-%d-%Y", re.compile(r"^\d{2}-\d{2}-\d{4}$")),
+]
+
+
+def as_today_token(value, today=None):
+    """If a captured value is today's date, store the token instead.
+
+    Signature dates must be the day the application is submitted. Replaying the
+    day it was recorded would put a stale, wrong date on every application.
+    """
+    import datetime
+    today = today or datetime.date.today()
+    text = str(value or "").strip()
+    if not text:
+        return value
+    for fmt, pattern in _DATE_FORMATS:
+        if pattern is not None and not pattern.match(text):
+            continue
+        try:
+            parsed = datetime.datetime.strptime(text, fmt).date()
+        except ValueError:
+            continue
+        if parsed == today:
+            return "%s|%s" % (TODAY_TOKEN, fmt)
+    return value
+
+
+def expand_tokens(value, today=None):
+    """Turn a stored token back into a real value at fill time."""
+    import datetime
+    text = str(value or "")
+    if not text.startswith(TODAY_TOKEN):
+        return value
+    today = today or datetime.date.today()
+    fmt = text.split("|", 1)[1] if "|" in text else "%m/%d/%Y"
+    try:
+        return today.strftime(fmt)
+    except ValueError:
+        return today.strftime("%m/%d/%Y")

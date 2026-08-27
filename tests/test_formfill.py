@@ -247,9 +247,11 @@ if answer_key("Education", "Year") == answer_key("Work Experience", "Year"):
 if answer_key("Education", "Which office interests you?") != "which office interests you":
     failures.append("a specific question should not be scoped to a section")
 
+# Section names are normalised to a canonical block, so "Work Experience"
+# and "Employment History" both key as "work history".
 SCOPED = {"answers": {
     "education :: year": "2026",
-    "work experience :: year": "2024",
+    "work history :: year": "2024",
     "which lincoln office are you interested in": "Chicago",
     "degree": "Master of Science",
 }}
