@@ -269,9 +269,31 @@ if value_for("Degree", VERBATIM_WINS) != "Bachelor of Business Administration":
 if value_for("Password", {"answers": {"password": "x"}}) is not None:
     failures.append("a recorded credential would have been filled")
 
+# On a real Workday form both an education entry and a job entry sat under a
+# date label reading "From", so scoping by section alone still collided. The
+# field's own id keeps them apart.
+if answer_key("From", "Year", "educationDateFrom") == \
+        answer_key("From", "Year", "jobDateFrom"):
+    failures.append("education and job dates still share a key")
+if answer_key("From", "Degree", "degree") == \
+        answer_key("From", "Company", "company"):
+    failures.append("degree and company collapsed together")
+# A field id that merely repeats the label adds nothing.
+if answer_key("Education", "Degree", "degree") != "education :: degree":
+    failures.append("a redundant field id should not bloat the key: %r"
+                    % answer_key("Education", "Degree", "degree"))
+# Specific questions stay unscoped, so they match on any employer's form.
+if answer_key("Anything", "Are you willing to relocate?", "abc") != \
+        "are you willing to relocate":
+    failures.append("a specific question should ignore section and id")
+# An answer saved before field ids existed must still be found.
+OLD = {"answers": {"from :: year": "2024"}}
+if value_for("Year", OLD, "From", "jobDateFrom") != "2024":
+    failures.append("an older recorded answer was not found")
+
 total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4 \
         + len(AUTH_FORMS) + len(APPLICATION_FORMS) + 1 \
-        + len(NOT_REUSABLE) + len(REUSABLE) + 2 + 7
+        + len(NOT_REUSABLE) + len(REUSABLE) + 2 + 7 + 5
 
 # --- label tidying ----------------------------------------------------------- #
 if normalise("  First   Name * (required) ") != "First Name":

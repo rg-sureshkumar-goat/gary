@@ -175,23 +175,31 @@ def prior_degree_key(label, key):
     return key
 
 
-def answer_key(section, question):
+def answer_key(section, question, identity=""):
     """How a recorded answer is stored.
 
-    Generic questions are scoped to the section they appeared under, because
-    "Year" beneath Education and "Year" beneath Work Experience are different
-    questions that happen to share a word.
+    A specific question stands on its own. A generic one is scoped by the
+    section it sits under and by the field's own id, because "Year" under
+    Education and "Year" under Work Experience are different questions sharing
+    a word -- and on some forms even the section heading is just "From".
     """
     q = normalise(question).lower().rstrip("?").strip()
     if not q:
         return ""
     if is_reusable_question(question):
         return q
+    parts = []
     sect = normalise(section).lower().strip()
-    return ("%s :: %s" % (sect, q)) if sect else q
+    if sect:
+        parts.append(sect)
+    parts.append(q)
+    ident = re.sub(r"[^a-z0-9]+", "", str(identity or "").lower())
+    if ident and ident != re.sub(r"[^a-z0-9]+", "", q):
+        parts.append(ident)
+    return " :: ".join(parts)
 
 
-def custom_answer(label, profile, section=""):
+def custom_answer(label, profile, section="", identity=""):
     """An answer you gave to this exact question before.
 
     Answers are recorded verbatim against the question text rather than mapped
@@ -200,9 +208,13 @@ def custom_answer(label, profile, section=""):
     """
     answers = dict(profile.get("answers") or {})
     answers.update(profile.get("custom_answers") or {})   # older files
-    key = answer_key(section, label)
+    key = answer_key(section, label, identity)
     if key in answers:
         return answers[key]
+    # Older files stored the same answer without the field id.
+    without_id = answer_key(section, label)
+    if without_id in answers:
+        return answers[without_id]
     # A specific question matches wherever it appears, section or not.
     plain = normalise(label).lower().rstrip("?").strip()
     if is_reusable_question(label) and plain in answers:
@@ -210,7 +222,7 @@ def custom_answer(label, profile, section=""):
     return None
 
 
-def value_for(label, profile, section=""):
+def value_for(label, profile, section="", identity=""):
     """The value to type into this field, or None to leave it alone.
 
     A verbatim answer to this exact question wins over any canonical field:
@@ -219,7 +231,7 @@ def value_for(label, profile, section=""):
     """
     if is_credential(label):
         return None
-    saved = custom_answer(label, profile, section)
+    saved = custom_answer(label, profile, section, identity)
     if saved not in (None, ""):
         return str(saved)
     key = key_for(label)
@@ -240,13 +252,13 @@ def _tokens(text):
     return set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
 
 
-def choose_option(label, options, profile, section=""):
+def choose_option(label, options, profile, section="", identity=""):
     """Pick the dropdown option matching your saved answer.
 
     Returns None when nothing clearly matches. Guessing here is how a form ends
     up claiming the wrong graduation year or visa status.
     """
-    wanted = value_for(label, profile, section)
+    wanted = value_for(label, profile, section, identity)
     if wanted is None or not options:
         return None
 

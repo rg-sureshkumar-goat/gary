@@ -76,27 +76,68 @@ def load_profile(path):
 
 
 def label_for(page, element):
-    """The visible question text for a form control."""
+    """The visible question text for a form control.
+
+    Order matters. The container fallback is last and deliberately narrow: on
+    Workday it will happily return the heading of a neighbouring question, and
+    a label attached to the wrong field is worse than no label at all.
+    """
     try:
         return page.evaluate("""el => {
-            const byFor = el.id && document.querySelector(`label[for="${el.id}"]`);
-            if (byFor) return byFor.innerText;
-            const wrap = el.closest('label');
-            if (wrap) return wrap.innerText;
-            const aria = el.getAttribute('aria-label');
+            const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+
+            // aria-labelledby may list several ids; Workday uses that to join
+            // a question to its option, and taking only the first loses half.
+            const ids = el.getAttribute('aria-labelledby');
+            if (ids) {
+                const parts = ids.split(/\s+/)
+                    .map(id => document.getElementById(id))
+                    .filter(Boolean)
+                    .map(n => clean(n.innerText || n.textContent));
+                const joined = clean(parts.join(' '));
+                if (joined) return joined;
+            }
+
+            const aria = clean(el.getAttribute('aria-label'));
             if (aria) return aria;
-            const labelled = el.getAttribute('aria-labelledby');
-            if (labelled) {
-                const t = document.getElementById(labelled);
-                if (t) return t.innerText;
+
+            if (el.id) {
+                const byFor = document.querySelector(
+                    `label[for="${CSS.escape(el.id)}"]`);
+                if (byFor) return clean(byFor.innerText);
             }
+
+            const wrap = el.closest('label');
+            if (wrap) return clean(wrap.innerText);
+
+            // Only accept a container label when that container holds this one
+            // field -- otherwise it belongs to a sibling question.
             const group = el.closest('div,fieldset,section');
-            if (group) {
+            if (group &&
+                group.querySelectorAll('input,select,textarea').length === 1) {
                 const lab = group.querySelector('label,legend');
-                if (lab) return lab.innerText;
+                if (lab) return clean(lab.innerText);
             }
-            return el.getAttribute('placeholder') || el.getAttribute('name') || '';
+
+            return clean(el.getAttribute('placeholder')) ||
+                   clean(el.getAttribute('data-automation-id')) ||
+                   clean(el.getAttribute('name')) || '';
         }""", element)
+    except Exception:
+        return ""
+
+
+def identity_of(frame, element):
+    """A stable per-field id, so two fields can never share a key.
+
+    Workday labels its controls with descriptive data-automation-id values
+    ("school", "degree", "jobTitle"), which distinguish an education entry from
+    a job entry even when both show a date labelled "From".
+    """
+    try:
+        return frame.evaluate(
+            "el => el.getAttribute('data-automation-id') || "
+            "el.getAttribute('name') || el.id || ''", element) or ""
     except Exception:
         return ""
 
@@ -175,14 +216,18 @@ def section_for(frame, element):
     """
     try:
         return frame.evaluate("""el => {
+            // "From", "To" and "Date" head a date range, not a section. Taking
+            // one collapses an education entry and a job entry together.
+            const GENERIC = /^(from|to|date|start|end|dates?)\b/i;
             let node = el;
-            for (let hop = 0; hop < 8 && node; hop++) {
+            for (let hop = 0; hop < 10 && node; hop++) {
                 node = node.parentElement;
                 if (!node) break;
-                const head = node.querySelector(
+                const heads = node.querySelectorAll(
                     'h1,h2,h3,h4,legend,[role=heading]');
-                if (head && head.innerText && head.innerText.trim()) {
-                    return head.innerText.trim().slice(0, 60);
+                for (const head of heads) {
+                    const text = (head.innerText || '').replace(/\s+/g,' ').trim();
+                    if (text && !GENERIC.test(text)) return text.slice(0, 60);
                 }
             }
             return '';
@@ -244,6 +289,7 @@ def fill(page, profile, dry_run=False):
 
         label = formfill.normalise(label_for(frame, element))
         section = formfill.normalise(section_for(frame, element))
+        ident = identity_of(frame, element)
 
         # A password field is never filled, whatever it is labelled.
         if kind == "password" or formfill.is_credential(label):
@@ -264,7 +310,7 @@ def fill(page, profile, dry_run=False):
         if tag == "select":
             options = element.evaluate(
                 "el => Array.from(el.options).map(o => o.textContent.trim())")
-            choice = formfill.choose_option(label, options, profile, section)
+            choice = formfill.choose_option(label, options, profile, section, ident)
             if choice:
                 if not dry_run:
                     element.select_option(label=choice)
@@ -273,7 +319,7 @@ def fill(page, profile, dry_run=False):
                 skipped.append((label, "no confident match -- pick it yourself"))
             continue
 
-        value = formfill.value_for(label, profile, section)
+        value = formfill.value_for(label, profile, section, ident)
         if value:
             if not dry_run:
                 element.fill(value)

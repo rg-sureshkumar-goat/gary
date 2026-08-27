@@ -24,8 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
-from apply import (form_frames, label_for, section_for, controls,  # noqa: E402
-                   widget_value, looks_like_login, open_browser,
+from apply import (form_frames, label_for, section_for, identity_of,  # noqa: E402
+                   controls, widget_value, looks_like_login, open_browser,
                    close_browser, PROFILE, ROOT)
 
 
@@ -68,7 +68,8 @@ def harvest(frame):
             continue
 
         section = formfill.normalise(section_for(frame, element))
-        answers[formfill.answer_key(section, label)] = value
+        ident = identity_of(frame, element)
+        answers[formfill.answer_key(section, label, ident)] = value
 
     return answers, skipped
 
