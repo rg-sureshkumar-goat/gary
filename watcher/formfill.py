@@ -311,10 +311,26 @@ def custom_answer(label, profile, section="", identity="", entry=0):
     key = answer_key(section, label, identity, entry)
     if key in answers:
         return answers[key]
-    # Older files stored the same answer without the field id.
-    without_id = answer_key(section, label)
-    if without_id in answers:
-        return answers[without_id]
+
+    # The same question at a different employer carries a different field id,
+    # so an answer recorded at one Workday tenant would never be found at
+    # another. Compare on block, entry and question, ignoring the id.
+    def without_identity(k):
+        parts = [p.strip() for p in str(k).split("::")]
+        if len(parts) >= 3:
+            parts = parts[:2]
+        return " :: ".join(parts)
+
+    wanted = without_identity(answer_key(section, label, identity, entry))
+    for stored, value in answers.items():
+        if without_identity(stored) == wanted:
+            return value
+
+    # Older files stored the same answer without the field id or entry number.
+    for candidate in (answer_key(section, label, "", entry),
+                      answer_key(section, label)):
+        if candidate in answers:
+            return answers[candidate]
     # A specific question matches wherever it appears, section or not.
     plain = normalise(label).lower().rstrip("?").strip()
     if is_reusable_question(label) and plain in answers:

@@ -60,6 +60,35 @@ if second == got:
 if second != "- Second role\n- Another line":
     failures.append("second description wrong: %r" % second)
 
+# --- the same question at a different employer ------------------------------- #
+# Answers are keyed partly by the field's id, which differs between Workday
+# tenants. An answer recorded at one employer must still be found at the next,
+# or every application after the first fills nothing.
+RECORDED_AT_A = {"answers": {
+    "work history 1 :: role description :: workexperienceroledescription": DESCRIPTION,
+    "work history 2 :: role description :: workexperienceroledescription": "second job",
+    "work history 1 :: company :: companyname": "Austin Film Festival",
+    "work history 2 :: company :: companyname": "Manifesta Film",
+    "education 1 :: degree :: degreedropdown": "Masters",
+}}
+LOOKED_UP_AT_B = [
+    ("Role Description", "jobDescription", 1, DESCRIPTION),
+    ("Role Description", "jobDescription", 2, "second job"),
+    ("Company", "employerName", 1, "Austin Film Festival"),
+    ("Company", "employerName", 2, "Manifesta Film"),
+    ("Degree", "degreeSelect", 1, "Masters"),
+]
+for label, ident, entry, expected in LOOKED_UP_AT_B:
+    got = value_for(label, RECORDED_AT_A, "Work Experience", ident, entry)
+    if got != expected:
+        failures.append("%s entry %d at another employer -> %r, expected %r"
+                        % (label, entry, str(got)[:30], str(expected)[:30]))
+
+# Entries must still not bleed into one another.
+if value_for("Company", RECORDED_AT_A, "Work Experience", "employerName", 1) == \
+        value_for("Company", RECORDED_AT_A, "Work Experience", "employerName", 2):
+    failures.append("ignoring the field id merged the two work entries")
+
 # --- "have you worked here before" defaults to No --------------------------- #
 FOR_DEFAULT_NO = [
     "Have you previously been employed with Houlihan Lokey?",
@@ -242,7 +271,7 @@ if value_for("Day", {}, "Date") != str(datetime.date.today().day):
     failures.append("split signature date not filled from today")
 
 total = 6 + 4 + 4 + len(FOR_DEFAULT_NO) * 2 + 3 + 1 + 5 + 5 + 7 + 4 + 2 \
-        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2 + len(NOT_PRIOR_EMPLOYMENT)
+        + 5 + 9 + 3 + 4 + 1 + 7 + len(UNDERGRAD_NO) + 2 + len(NOT_PRIOR_EMPLOYMENT) + len(LOOKED_UP_AT_B) + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

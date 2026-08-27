@@ -425,27 +425,35 @@ def add_buttons(frame, block):
 
     Workday builds these sections empty: until Add is pressed there are no
     fields at all, which is why a page can look unfillable.
+
+    The buttons carry data-automation-id="add-button" and are labelled only
+    "Add", so which section each belongs to has to come from the surrounding
+    text. Looking for a heading element does not work -- Workday renders those
+    section titles as plain divs.
     """
-    words = {"work history": r"work|experience|employment",
-             "education": r"education|school|degree"}.get(block, block)
+    words = {"work history": r"work\s*experience|employment|work\s*history",
+             "education": r"education|school|degree|university"}.get(block, block)
     try:
         return frame.evaluate("""([words]) => {
             const re = new RegExp(words, 'i');
+            const all = Array.from(document.querySelectorAll(
+                'button,[role=button],a[role=button]'));
             const out = [];
-            const buttons = document.querySelectorAll(
-                'button, [role=button], a[role=button]');
-            buttons.forEach((b, i) => {
+            all.forEach((b, i) => {
+                const id = b.getAttribute('data-automation-id') || '';
                 const text = ((b.innerText || '') + ' ' +
                               (b.getAttribute('aria-label') || '')).trim();
-                if (!/^\s*add\b/i.test(text)) return;
-                // Either the button names the section, or it sits under it.
+                const isAdd = /add-button/i.test(id) || /^\s*add\b/i.test(text);
+                if (!isAdd) return;
                 if (re.test(text)) { out.push(i); return; }
+                // Climb, reading the whole container's text rather than
+                // looking for a heading tag.
                 let node = b;
-                for (let hop = 0; hop < 8 && node; hop++) {
+                for (let hop = 0; hop < 7 && node; hop++) {
                     node = node.parentElement;
                     if (!node) break;
-                    const head = node.querySelector('h1,h2,h3,h4,legend,[role=heading]');
-                    if (head && re.test(head.innerText || '')) { out.push(i); return; }
+                    const t = (node.innerText || '').slice(0, 400);
+                    if (re.test(t)) { out.push(i); return; }
                 }
             });
             return out;
@@ -801,6 +809,7 @@ def main(argv=None):
             print("\nSign in and click Apply. Each page is filled as you reach")
             print("it -- check every field, and submit it yourself.")
             print("Close the window when you're done.\n")
+            reported_buttons = set()
             while True:
                 try:
                     current = ctx.pages[-1] if ctx.pages else None
@@ -815,6 +824,65 @@ def main(argv=None):
                         f, sk, cr = fill(current, profile, args.dry_run,
                                          open_locations, args.company,
                                          hq_table)
+                        if not f:
+                            # Nothing to fill usually means the section is
+                            # still collapsed behind an Add control. Report
+                            # what buttons exist so the right one can be
+                            # matched.
+                            # Workday keeps one URL for the whole
+                            # application, so keying this on the URL reports
+                            # the job advert once and never the pages that
+                            # follow. Key it on what is actually on screen.
+                            try:
+                                here = tuple(sorted(
+                                    formfill.normalise(label_for(frames[0], el))
+                                    for el in controls(frames[0])))
+                                heads = frames[0].evaluate(
+                                    "() => Array.from(document.querySelectorAll("
+                                    "'h1,h2,h3')).slice(0,6)"
+                                    ".map(h => (h.innerText||'').trim()).join(' | ')")
+                                here = (here, heads[:120])
+                            except Exception:
+                                here = (current.url,)
+                            if here not in reported_buttons:
+                                reported_buttons.add(here)
+                                try:
+                                    buttons = frames[0].evaluate("""() =>
+                                        Array.from(document.querySelectorAll(
+                                          'button,[role=button],a[role=button]'))
+                                        .map(b => ((b.innerText||'').trim() + ' | ' +
+                                                   (b.getAttribute('aria-label')||'') + ' | ' +
+                                                   (b.getAttribute('data-automation-id')||'')))
+                                        .filter(t => t.replace(/[| ]/g,''))
+                                        .slice(0, 40)""")
+                                    print("--- no fields filled ---")
+                                    print("   tabs open : %d" % len(ctx.pages))
+                                    print("   url       : %s" % current.url[:100])
+                                    try:
+                                        print("   headings  : %s" % frames[0].evaluate(
+                                            "() => Array.from(document.querySelectorAll("
+                                            "'h1,h2,h3')).slice(0,6)"
+                                            ".map(h => (h.innerText||'').trim())"
+                                            ".filter(Boolean).join(' | ')")[:150])
+                                    except Exception:
+                                        pass
+                                    print("   frames    : %d" % len(current.frames))
+                                    for fr in current.frames:
+                                        try:
+                                            n = len(fr.query_selector_all(CONTROL_SELECTOR))
+                                            vis = len([e for e in
+                                                       fr.query_selector_all(CONTROL_SELECTOR)
+                                                       if e.is_visible()])
+                                        except Exception:
+                                            n, vis = -1, -1
+                                        print("     frame %-58s controls=%-4s visible=%s"
+                                              % ((fr.url or "(main)")[:58], n, vis))
+                                    print("   chosen frame controls: %d"
+                                          % len(controls(frames[0])))
+                                    for b in buttons:
+                                        print("   button: %s" % b[:90])
+                                except Exception as exc:
+                                    print("   (could not list buttons: %s)" % type(exc).__name__)
                         if f:
                             print("--- filled %d ---" % len(f))
                             for lab, val in f:
