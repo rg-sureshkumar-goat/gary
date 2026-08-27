@@ -67,6 +67,28 @@ FIELD_PATTERNS = [
 _COMPILED = [(key, re.compile(pat, re.I)) for key, pat in FIELD_PATTERNS]
 
 
+# Wording that marks a form as authentication rather than an application.
+AUTH_SIGNALS = re.compile(
+    r"sign\s*[- ]?in|sign\s*[- ]?up|log\s*[- ]?in|log\s*[- ]?on|"
+    r"create\s+(?:an\s+)?account|forgot\s+(?:your\s+)?password|"
+    r"remember\s+me|reset\s+(?:your\s+)?password|new\s+password|"
+    r"verify\s+your\s+email|two[- ]factor|verification\s+code", re.I)
+
+
+def is_auth_form(labels, has_password=False):
+    """Is this a sign-in or account-creation form?
+
+    The guarantee the user asked for is stronger than skipping fields labelled
+    "password": a login form is left *entirely* alone, email box included. So
+    the presence of any password field condemns the whole form, and the usual
+    sign-in wording does too.
+    """
+    if has_password:
+        return True
+    joined = " | ".join(normalise(l) for l in labels if l)
+    return bool(AUTH_SIGNALS.search(joined))
+
+
 def normalise(label):
     text = re.sub(r"[\*∗]", " ", str(label or ""))
     text = re.sub(r"\(required\)|\(optional\)", " ", text, flags=re.I)

@@ -166,6 +166,33 @@ def form_frames(page):
     return [f for f, _ in frames]
 
 
+def looks_like_login(frame):
+    """Whether this form is a sign-in or account-creation form.
+
+    Gary never authenticates anywhere. If a form carries a password field, or
+    reads like a sign-in, nothing on it is filled -- not the email, not the
+    name, nothing. Signing in is yours to do by hand.
+    """
+    try:
+        if frame.query_selector_all("input[type=password]"):
+            return True
+    except Exception:
+        return True                     # unreadable: assume the worst
+    labels = []
+    for element in controls(frame):
+        try:
+            labels.append(label_for(frame, element))
+        except Exception:
+            continue
+    try:
+        heading = frame.evaluate(
+            "() => Array.from(document.querySelectorAll('h1,h2,h3,button'))"
+            ".slice(0, 40).map(e => e.innerText).join(' | ')")
+    except Exception:
+        heading = ""
+    return formfill.is_auth_form(labels + [heading])
+
+
 def fill(page, profile, dry_run=False):
     filled, skipped, credentials = [], [], []
     frames = form_frames(page)
@@ -173,6 +200,11 @@ def fill(page, profile, dry_run=False):
         return filled, skipped, credentials
 
     frame = frames[0]
+    if looks_like_login(frame):
+        print("\nThis is a sign-in or account-creation form, so nothing was "
+              "filled.\nSign in yourself, then re-run on the application form.")
+        return filled, skipped, credentials
+
     for element in controls(frame):
         try:
             if not element.is_visible() or not element.is_enabled():

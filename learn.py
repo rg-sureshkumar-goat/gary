@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
 from apply import (form_frames, label_for, controls, widget_value,  # noqa: E402
-                   open_browser, close_browser, PROFILE, ROOT)
+                   looks_like_login, open_browser, close_browser, PROFILE, ROOT)
 
 
 def harvest(frame):
@@ -129,6 +129,9 @@ def main(argv=None):
             frames = form_frames(current)
             if not frames:
                 print("   no form fields visible on this page")
+                continue
+            if looks_like_login(frames[0]):
+                print("   that's a sign-in page -- nothing read from it")
                 continue
             page_learned, page_custom, page_skipped = harvest(frames[0])
             learned.update(page_learned)

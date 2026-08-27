@@ -161,12 +161,49 @@ if value_for("Describe a time you led a team", WITH_CUSTOM) is not None:
 if value_for("Password", dict(MS_STUDENT, custom_answers={"password": "x"})) is not None:
     failures.append("a saved credential would have been filled")
 
+# --- Gary must never sign in anywhere --------------------------------------- #
+# The rule is stronger than skipping password fields: a login form is left
+# entirely alone, email box included.
+from watcher.formfill import is_auth_form  # noqa: E402
+
+AUTH_FORMS = [
+    (["Email Address", "Password"], True, "a password field condemns the form"),
+    (["Email Address"], True, "an unlabelled password field still counts"),
+    (["Email", "Remember me", "Forgot your password?"], False, "sign-in wording"),
+    (["Email Address", "Create Account"], False, "account creation"),
+    (["Username", "Sign In"], False, "sign in button"),
+    (["Email", "Verification Code"], False, "two-factor step"),
+    (["New Password", "Confirm New Password"], False, "password reset"),
+]
+for labels, has_pw, why in AUTH_FORMS:
+    if not is_auth_form(labels, has_password=has_pw):
+        failures.append("login form not recognised (%s): %r" % (why, labels))
+
+# A real application form must still be filled.
+APPLICATION_FORMS = [
+    ["First Name", "Last Name", "Email", "Phone", "Resume/CV"],
+    ["Preferred First Name", "Please select your university.", "Cumulative GPA"],
+    ["Email Address", "How did you hear about this opportunity?"],
+]
+for labels in APPLICATION_FORMS:
+    if is_auth_form(labels):
+        failures.append("an application form was mistaken for a login: %r" % labels)
+
+# Even with a saved answer, nothing on a login form should be fillable: the
+# refusal happens at the form level, before any field is considered.
+LOGIN_PROFILE = {"email": "ada@example.com",
+                 "custom_answers": {"username": "ada"}}
+if not is_auth_form(["Email Address", "Password"], has_password=True):
+    failures.append("the form-level login check failed")
+
+total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4 \
+        + len(AUTH_FORMS) + len(APPLICATION_FORMS) + 1
+
 # --- label tidying ----------------------------------------------------------- #
 if normalise("  First   Name * (required) ") != "First Name":
     failures.append("normalise left decoration in: %r"
                     % normalise("  First   Name * (required) "))
 
-total = 11 * 3 + len(CASES) + 3 + 1 + 7 + 1 + len(REAL_FORM) + 3 + 4
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

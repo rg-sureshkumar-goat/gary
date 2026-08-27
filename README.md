@@ -372,10 +372,18 @@ You read the form over and submit it yourself.
 
 **Two things it will not do.**
 
-It will not enter passwords or create accounts. Password fields are skipped on
-sight, whatever they are labelled, and so are SSN, card and bank fields. Sites
-like Workday and Oracle require an account before you can apply -- log in
-yourself, then run this on the form that follows.
+**It never signs in anywhere.** The rule is stronger than skipping fields
+labelled "password": if a form contains a password field at all, or reads like
+a sign-in, the whole form is refused -- the email box included. Neither script
+clicks anything, ever, so no Sign In or Create Account button is pressed
+either. Verified against live pages: Citi's Workday sign-in (4 fields, one of
+them a password) fills nothing, while Lincoln International's application form
+(24 fields, no password) fills normally.
+
+Sites like Workday require an account before you can apply. You sign in by hand
+in the window that opens; the session is kept in `.browser-session/` so you
+only do it once per employer. Your credentials are never typed, stored, or read
+back -- and `profile.json` should never contain any.
 
 It will not click Submit. An application goes to a real employer under your
 name, and a wrong graduation year or GPA is a misrepresentation you would be
