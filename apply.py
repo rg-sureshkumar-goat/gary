@@ -501,6 +501,41 @@ def add_buttons(frame, block):
         return []
 
 
+# Workday lays My Experience out in a fixed order, so when the section titles
+# cannot be read -- collapsed sections report no text at all in some states --
+# the Add buttons can be taken positionally instead.
+SECTION_ORDER = ("work history", "education")
+
+
+def add_buttons_by_order(frame, block):
+    """Fall back to the Add buttons' position on the page.
+
+    Title matching has proved unreliable across Workday's page states: the
+    same section is visible in one state and absent in another. The layout
+    order, though, is stable -- Work Experience then Education.
+    """
+    try:
+        indexes = frame.evaluate("""() => {
+            const out = [];
+            Array.from(document.querySelectorAll(
+                'button,[role=button],a[role=button]')).forEach((b, i) => {
+                const id = b.getAttribute('data-automation-id') || '';
+                const text = ((b.innerText || b.textContent || '') + ' ' +
+                              (b.getAttribute('aria-label') || '')).trim();
+                if (/add-button/i.test(id) || /^\s*add\b/i.test(text)) out.push(i);
+            });
+            return out;
+        }""")
+    except Exception:
+        return []
+    if not indexes:
+        return []
+    position = SECTION_ORDER.index(block) if block in SECTION_ORDER else None
+    if position is None or position >= len(indexes):
+        return []
+    return [indexes[position]]
+
+
 def entries_present(frame, block):
     """How many entries of a block are already on the page.
 
@@ -552,6 +587,8 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
             if present >= wanted:
                 break
             indexes = add_buttons(frame, block)
+            if not indexes:
+                indexes = add_buttons_by_order(frame, block)
             if not indexes:
                 break
             if dry_run:
