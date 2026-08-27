@@ -132,6 +132,11 @@ def main(argv=None):
                              "scrambled profile is replaced rather than merged "
                              "into. Contact details you typed by hand are kept.")
     parser.add_argument("--wait-ms", type=int, default=5000)
+    parser.add_argument("--watch", action="store_true",
+                        help="no terminal prompts: fill the form in the window, "
+                             "then close it. Every page is read as you go, and "
+                             "your answers are saved when the window closes.")
+    parser.add_argument("--poll-seconds", type=int, default=4)
     args = parser.parse_args(argv)
 
     profile = {}
@@ -161,34 +166,65 @@ def main(argv=None):
         page.goto(args.url, wait_until="domcontentloaded", timeout=60000)
         page.wait_for_timeout(args.wait_ms)
 
-        print("\nFill the form in as you normally would. Don't submit it.")
-        print("Workday spreads an application over several pages -- press Enter")
-        print("here after each one, then move on. Type 'done' when finished.")
-
         recorded, skipped = {}, []
         pages_read = 0
-        while True:
-            try:
-                answer = input("\n[Enter] read this page, or 'done': ").strip().lower()
-            except (EOFError, KeyboardInterrupt):
-                answer = "done"
-            if answer.startswith("d") or answer.startswith("q"):
-                break
 
-            current = ctx.pages[-1] if ctx.pages else page
-            frames = form_frames(current)
-            if not frames:
-                print("   no form fields visible on this page")
-                continue
-            if looks_like_login(frames[0]):
-                print("   that's a sign-in page -- nothing read from it")
-                continue
-            page_answers, page_skipped = harvest(frames[0])
-            recorded.update(page_answers)
-            skipped.extend(page_skipped)
-            pages_read += 1
-            print("   recorded %d answer(s) from this page (%d in total)"
-                  % (len(page_answers), len(recorded)))
+        if args.watch:
+            print("\nFill the form in the window as you normally would.")
+            print("Every page is read as you go -- move through the whole")
+            print("application, then CLOSE THE WINDOW to save. Don't submit.")
+            print("(Watching; nothing is typed for you.)\n")
+            last_signature = None
+            while True:
+                try:
+                    current = ctx.pages[-1] if ctx.pages else None
+                    if current is None or current.is_closed():
+                        break
+                    frames = form_frames(current)
+                    if frames and not looks_like_login(frames[0]):
+                        page_answers, page_skipped = harvest(frames[0])
+                        if page_answers:
+                            # Only report when the page actually changed.
+                            signature = tuple(sorted(page_answers))
+                            recorded.update(page_answers)
+                            skipped.extend(page_skipped)
+                            if signature != last_signature:
+                                pages_read += 1
+                                print("   read %d answer(s); %d recorded so far"
+                                      % (len(page_answers), len(recorded)))
+                                last_signature = signature
+                    current.wait_for_timeout(args.poll_seconds * 1000)
+                except KeyboardInterrupt:
+                    break
+                except Exception:
+                    # The window was closed, which is how you finish.
+                    break
+            print("\nWindow closed.")
+        else:
+            print("\nFill the form in as you normally would. Don't submit it.")
+            print("Workday spreads an application over several pages -- press Enter")
+            print("here after each one, then move on. Type 'done' when finished.")
+            while True:
+                try:
+                    answer = input("\n[Enter] read this page, or 'done': ").strip().lower()
+                except (EOFError, KeyboardInterrupt):
+                    answer = "done"
+                if answer.startswith("d") or answer.startswith("q"):
+                    break
+                current = ctx.pages[-1] if ctx.pages else page
+                frames = form_frames(current)
+                if not frames:
+                    print("   no form fields visible on this page")
+                    continue
+                if looks_like_login(frames[0]):
+                    print("   that's a sign-in page -- nothing read from it")
+                    continue
+                page_answers, page_skipped = harvest(frames[0])
+                recorded.update(page_answers)
+                skipped.extend(page_skipped)
+                pages_read += 1
+                print("   recorded %d answer(s) from this page (%d in total)"
+                      % (len(page_answers), len(recorded)))
 
         close_browser(browser, ctx)
         if not pages_read:
@@ -221,14 +257,15 @@ def main(argv=None):
         print("\nEverything already matches what was saved.")
         return 0
 
-    print("\nSave to %s? [y/N] " % os.path.basename(args.profile), end="")
-    try:
-        if not input().strip().lower().startswith("y"):
-            print("Nothing saved.")
+    if not args.watch:
+        print("\nSave to %s? [y/N] " % os.path.basename(args.profile), end="")
+        try:
+            if not input().strip().lower().startswith("y"):
+                print("Nothing saved.")
+                return 0
+        except (EOFError, KeyboardInterrupt):
+            print("\nNothing saved.")
             return 0
-    except (EOFError, KeyboardInterrupt):
-        print("\nNothing saved.")
-        return 0
 
     tmp = args.profile + ".tmp"
     with open(tmp, "w") as fh:

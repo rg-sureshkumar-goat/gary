@@ -446,6 +446,21 @@ Which education entry is the graduate one is decided by **what the degree
 says**, not the order the form listed them in -- some forms put the master's
 first, some the bachelor's.
 
+### When the dropdown doesn't offer your answer
+
+Some values are never on the list. A major like *Arts and Entertainment
+Technologies* rarely appears on a Workday dropdown, and the field can't be
+typed into. Say in advance what to try instead, in order:
+
+```bash
+python3 profile.py --fallback undergrad_major="Other,Art"
+```
+
+Gary tries your real answer first, then each fallback in turn, and leaves the
+field blank if none is offered -- it still won't pick something arbitrary.
+Fallbacks can be attached to a canonical field, as above, or to an exact
+question for employer-specific wording.
+
 **It leaves fields blank rather than guessing.** If a dropdown has no clear
 match it is skipped and listed in the report. So *"Is your cumulative GPA above
 a 3.5?"* is left alone even though your profile has a GPA, because a number

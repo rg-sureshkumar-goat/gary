@@ -88,6 +88,11 @@ def main(argv=None):
                              "Repeatable.")
     parser.add_argument("--clear", action="append", default=[], metavar="KEY",
                         help="empty a field. Repeatable.")
+    parser.add_argument("--fallback", action="append", default=[],
+                        metavar="KEY=A,B", dest="fallbacks",
+                        help="what to try when a dropdown has no option "
+                             "matching your answer, in order. e.g. "
+                             "--fallback undergrad_major='Other,Art'")
     parser.add_argument("--derive", action="store_true",
                         help="work out general facts from recorded answers, so "
                              "other employers' wordings match")
@@ -121,6 +126,20 @@ def main(argv=None):
         if key in profile:
             changes.append((key, profile.get(key), ""))
             profile[key] = ""
+
+    for pair in args.fallbacks:
+        if "=" not in pair:
+            print("--fallback needs KEY=A,B, got %r" % pair)
+            return 1
+        key, listed = pair.split("=", 1)
+        key = key.strip()
+        values = [v.strip() for v in listed.split(",") if v.strip()]
+        table = profile.setdefault("fallbacks", {})
+        changes.append(("fallback %s" % key, table.get(key), values))
+        if values:
+            table[key] = values
+        else:
+            table.pop(key, None)
 
     if changes:
         for key, was, now in changes:
@@ -178,9 +197,16 @@ def main(argv=None):
     else:
         print("     none yet -- run learn.py on an application")
 
+    table = profile.get("fallbacks") or {}
+    if table:
+        print("\nIf a dropdown has no option matching your answer, try")
+        print("  " + "-" * 52)
+        for key in sorted(table):
+            print("     %-24s %s" % (key, " -> ".join(table[key])))
+
     extra = [k for k in profile
              if k not in {f for _, fields in GROUPS for f, _ in fields}
-             and k not in ("custom_answers", "answers")
+             and k not in ("custom_answers", "answers", "fallbacks")
              and not k.startswith("_")]
     if extra:
         print("\nOther keys in the file: %s" % ", ".join(sorted(extra)))

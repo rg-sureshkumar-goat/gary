@@ -359,6 +359,32 @@ def _tokens(text):
     return set(re.findall(r"[a-z0-9]+", str(text or "").lower()))
 
 
+def fallbacks_for(label, profile, section="", identity="", entry=0):
+    """Alternatives to try when a dropdown has no option matching your answer.
+
+    Some values simply are not offered: a major like "Arts and Entertainment
+    Technologies" rarely appears on a Workday list, and the field cannot be
+    typed into. Rather than leaving it blank or picking something arbitrary,
+    you say in advance what to fall back to, in order.
+    """
+    table = profile.get("fallbacks") or {}
+    out = []
+    # By the exact question, for employer-specific wording.
+    for candidate in (answer_key(section, label, identity, entry),
+                      normalise(label).lower().rstrip("?").strip()):
+        for value in table.get(candidate) or []:
+            if value not in out:
+                out.append(value)
+    # By the canonical field the question maps to.
+    key = key_for(label)
+    if key:
+        key = prior_degree_key(label, key)
+        for value in table.get(key) or []:
+            if value not in out:
+                out.append(value)
+    return out
+
+
 def choose_option(label, options, profile, section="", identity="", entry=0):
     """Pick the dropdown option matching your saved answer.
 
@@ -366,11 +392,26 @@ def choose_option(label, options, profile, section="", identity="", entry=0):
     up claiming the wrong graduation year or visa status.
     """
     wanted = value_for(label, profile, section, identity, entry)
-    if wanted is None or not options:
+    if not options:
         return None
 
     lowered = {str(o).strip().lower(): o for o in options if str(o).strip()}
+
+    # Try your answer first, then whatever you said to fall back to.
+    candidates = [wanted] if wanted is not None else []
+    candidates += fallbacks_for(label, profile, section, identity, entry)
+    for candidate in candidates:
+        picked = _match_option(str(candidate), lowered)
+        if picked is not None:
+            return picked
+    return None
+
+
+def _match_option(wanted, lowered):
+    """Match one value against a dropdown's options, or None."""
     target = wanted.strip().lower()
+    if not target:
+        return None
 
     if target in lowered:
         return lowered[target]
@@ -382,7 +423,7 @@ def choose_option(label, options, profile, section="", identity="", entry=0):
                 return original
 
     # Otherwise require a decisive token overlap rather than a loose guess.
-    want_tokens = _tokens(wanted)
+    want_tokens = _tokens(target)
     if not want_tokens:
         return None
     best, best_score = None, 0.0
