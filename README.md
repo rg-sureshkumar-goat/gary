@@ -423,6 +423,29 @@ differently -- but your name, university and graduation year are the same
 everywhere. Employer-specific questions are stored against the question text,
 so identical wording elsewhere gets the same answer.
 
+### From your answers to facts that transfer
+
+Recorded answers only match the wording they were recorded from, and employers
+word things differently. Houlihan asks *"will you now or in the future require
+Houlihan Lokey to file a petition"*; Lincoln asks *"will you now or in the
+future require sponsorship"*. Same question, no match.
+
+So after learning, the answers are distilled into general facts -- `gpa`,
+`undergrad_gpa`, `sponsorship` -- that apply to any wording. `learn.py` does it
+automatically; run it over an existing profile with:
+
+```bash
+python3 profile.py --derive
+```
+
+On a real profile this took a Greenhouse form from 6 fields filled to 8,
+answering the sponsorship question and the undergraduate GPA from a Workday
+recording made at a different employer.
+
+Which education entry is the graduate one is decided by **what the degree
+says**, not the order the form listed them in -- some forms put the master's
+first, some the bachelor's.
+
 **It leaves fields blank rather than guessing.** If a dropdown has no clear
 match it is skipped and listed in the report. So *"Is your cumulative GPA above
 a 3.5?"* is left alone even though your profile has a GPA, because a number

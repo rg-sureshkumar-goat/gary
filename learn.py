@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill  # noqa: E402
+from watcher import derive as derive_lib  # noqa: E402
 from apply import (form_frames, label_for, section_for, identity_of,  # noqa: E402
                    controls, widget_value, looks_like_login, open_browser,
                    close_browser, PROFILE, ROOT)
@@ -234,7 +235,21 @@ def main(argv=None):
         json.dump(profile, fh, indent=2, sort_keys=True)
         fh.write("\n")
     os.replace(tmp, args.profile)
-    print("Saved %d answer(s). Review them with:  python3 profile.py" % len(changed))
+    print("Saved %d answer(s)." % len(changed))
+
+    # Recorded answers only match the wording they were recorded from. Distil
+    # them into general facts so other employers' phrasings match too.
+    derived = derive_lib.derive(profile)
+    if derived:
+        with open(tmp, "w") as fh:
+            json.dump(profile, fh, indent=2, sort_keys=True)
+            fh.write("\n")
+        os.replace(tmp, args.profile)
+        print("\nAlso worked out %d general fact(s) so other employers' "
+              "wordings match:" % len(derived))
+        for key, value in derived:
+            print("   %-24s %s" % (key, str(value)[:40]))
+    print("\nReview everything with:  python3 profile.py")
     return 0
 
 

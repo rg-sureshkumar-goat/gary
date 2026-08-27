@@ -88,6 +88,9 @@ def main(argv=None):
                              "Repeatable.")
     parser.add_argument("--clear", action="append", default=[], metavar="KEY",
                         help="empty a field. Repeatable.")
+    parser.add_argument("--derive", action="store_true",
+                        help="work out general facts from recorded answers, so "
+                             "other employers' wordings match")
     args = parser.parse_args(argv)
 
     if not os.path.exists(args.profile):
@@ -128,6 +131,23 @@ def main(argv=None):
             fh.write("\n")
         os.replace(tmp, args.profile)
         print("Saved %d change(s).\n" % len(changes))
+
+    if args.derive:
+        sys.path.insert(0, ROOT)
+        from watcher.derive import derive as run_derive
+        found = run_derive(profile)
+        if found:
+            tmp = args.profile + ".tmp"
+            with open(tmp, "w") as fh:
+                json.dump(profile, fh, indent=2, sort_keys=True)
+                fh.write("\n")
+            os.replace(tmp, args.profile)
+            print("Worked out %d field(s) from your recorded answers:" % len(found))
+            for key, value in found:
+                print("   %-24s %s" % (key, str(value)[:40]))
+            print()
+        else:
+            print("Nothing new to work out.\n")
 
     known = missing = 0
     for title, fields in GROUPS:
