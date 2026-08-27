@@ -420,44 +420,63 @@ def entries_wanted(profile, block):
     return highest
 
 
+# The sections a Workday experience page is divided into.
+SECTION_TITLES = (r"work\s*experience", r"education", r"certification",
+                  r"language", r"skill", r"resume|cv", r"websites?",
+                  r"social\s*network", r"application\s*question")
+
+
 def add_buttons(frame, block):
     """The "Add" controls belonging to a section, e.g. Work Experience.
 
     Workday builds these sections empty: until Add is pressed there are no
     fields at all, which is why a page can look unfillable.
 
-    The buttons carry data-automation-id="add-button" and are labelled only
-    "Add", so which section each belongs to has to come from the surrounding
-    text. Looking for a heading element does not work -- Workday renders those
-    section titles as plain divs.
+    Every Add button is labelled just "Add", so the section has to come from
+    the page. Testing whether an ancestor's text mentions the section does not
+    work -- climb far enough and the container holds the whole page, so every
+    button matches every section and the last one wins. Instead each button is
+    paired with the nearest section title *before* it in document order.
     """
     words = {"work history": r"work\s*experience|employment|work\s*history",
-             "education": r"education|school|degree|university"}.get(block, block)
+             "education": r"education|school|degree"}.get(block, block)
     try:
-        return frame.evaluate("""([words]) => {
-            const re = new RegExp(words, 'i');
+        return frame.evaluate("""([words, titles]) => {
+            const want = new RegExp(words, 'i');
+            const titleRe = new RegExp('^(' + titles.join('|') + ')\\\\b', 'i');
+
             const all = Array.from(document.querySelectorAll(
                 'button,[role=button],a[role=button]'));
+
+            // Short standalone labels that name a section.
+            const headings = Array.from(document.querySelectorAll(
+                'h1,h2,h3,h4,h5,legend,label,div,span,p'))
+                .filter(e => {
+                    const t = (e.innerText || '').trim();
+                    return t && t.length < 40 && titleRe.test(t) &&
+                           e.children.length === 0;
+                });
+
             const out = [];
             all.forEach((b, i) => {
                 const id = b.getAttribute('data-automation-id') || '';
                 const text = ((b.innerText || '') + ' ' +
                               (b.getAttribute('aria-label') || '')).trim();
-                const isAdd = /add-button/i.test(id) || /^\s*add\b/i.test(text);
-                if (!isAdd) return;
-                if (re.test(text)) { out.push(i); return; }
-                // Climb, reading the whole container's text rather than
-                // looking for a heading tag.
-                let node = b;
-                for (let hop = 0; hop < 7 && node; hop++) {
-                    node = node.parentElement;
-                    if (!node) break;
-                    const t = (node.innerText || '').slice(0, 400);
-                    if (re.test(t)) { out.push(i); return; }
+                if (!/add-button/i.test(id) && !/^\\s*add\\b/i.test(text)) return;
+                if (want.test(text)) { out.push(i); return; }
+
+                // The nearest section title appearing before this button.
+                let owner = null;
+                for (const h of headings) {
+                    const pos = h.compareDocumentPosition(b);
+                    if (pos & Node.DOCUMENT_POSITION_FOLLOWING) owner = h;
+                }
+                if (owner && want.test((owner.innerText || '').trim())) {
+                    out.push(i);
                 }
             });
             return out;
-        }""", [words])
+        }""", [words, list(SECTION_TITLES)])
     except Exception:
         return []
 
@@ -510,7 +529,7 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
                     const b = document.querySelectorAll(
                         'button,[role=button],a[role=button]')[i];
                     if (b) b.click();
-                }""", [indexes[-1]])
+                }""", [indexes[0]])
                 frame.wait_for_timeout(1400)
                 created.append((block, "pressed Add"))
             except Exception:
