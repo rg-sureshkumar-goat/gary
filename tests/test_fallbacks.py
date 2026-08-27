@@ -63,12 +63,41 @@ if chain != ["Other", "Art"]:
 if fallbacks_for("Phone", PROFILE):
     failures.append("fallbacks appeared for an unrelated field")
 
+# --- phone device type ------------------------------------------------------- #
+# Employers word this every way, and the answer is always the same kind of
+# thing. The label must not be mistaken for the phone-number field.
+from watcher.formfill import key_for  # noqa: E402
+
+if key_for("Phone Device Type") != "phone_type":
+    failures.append("phone device type mapped to %r" % key_for("Phone Device Type"))
+if key_for("Phone Number") != "phone":
+    failures.append("phone number was captured by the device-type pattern")
+if key_for("Mobile Phone") != "phone":
+    failures.append("a phone-number label was captured by device type")
+
+PHONE = {"phone_type": "Mobile",
+         "fallbacks": {"phone_type": ["Mobile Phone", "Cell Phone", "Cell",
+                                      "Cellular", "Mobile Device"]}}
+for options, expected in [
+    (["Home", "Mobile", "Work"], "Mobile"),
+    (["Home Phone", "Mobile Phone", "Work Phone"], "Mobile Phone"),
+    (["Home", "Cell", "Work"], "Cell"),
+    (["Landline", "Cellular", "Office"], "Cellular"),
+    (["Landline", "Mobile Device", "Fax"], "Mobile Device"),
+    # Nothing resembling a mobile: blank, not an arbitrary pick.
+    (["Landline", "Fax", "Pager"], None),
+]:
+    got = choose_option("Phone Device Type", options, PHONE)
+    if got != expected:
+        failures.append("phone type from %r -> %r, expected %r"
+                        % (options, got, expected))
+
 # Yes/no matching still works alongside fallbacks.
 sponsor = {"sponsorship": "No"}
 if choose_option("Will you require sponsorship?", ["Yes", "No"], sponsor) != "No":
     failures.append("yes/no matching regressed")
 
-total = len(CASES) + 1 + 2 + 1 + 2 + 1
+total = len(CASES) + 1 + 2 + 1 + 2 + 1 + 3 + 6
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

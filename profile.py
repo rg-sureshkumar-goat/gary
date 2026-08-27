@@ -28,6 +28,7 @@ GROUPS = [
         ("full_name", "Full name"),
         ("email", "Email"),
         ("phone", "Phone"),
+        ("phone_type", "Phone device type"),
         ("linkedin", "LinkedIn"),
         ("website", "Website / portfolio"),
     ]),

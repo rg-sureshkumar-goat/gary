@@ -28,6 +28,8 @@ FIELD_PATTERNS = [
     ("last_name",   r"\blast\s*name\b|\bsurname\b|\bfamily\s*name\b"),
     ("full_name",   r"\bfull\s*name\b|^name$|legal\s+name"),
     ("email",       r"\be-?mail\b"),
+    ("phone_type",  r"phone\s+device\s+type|\bdevice\s+type\b|phone\s+type|"
+                    r"type\s+of\s+phone"),
     ("phone",       r"\bphone\b|\bmobile\b|\btelephone\b|\bcell\b"),
     ("linkedin",    r"linked\s*in"),
     ("github",      r"git\s*hub"),
