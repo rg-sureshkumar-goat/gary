@@ -483,7 +483,7 @@ def add_buttons(frame, block):
                 // once, which is what broke this.
                 let node = b.parentElement;
                 for (let hop = 0; hop < 10 && node; hop++) {
-                    const t = (node.innerText || '').trim();
+                    const t = (node.innerText || node.textContent || '').trim();
                     if (t) {
                         const head = t.split('\\n')[0].trim();
                         if (want.test(head)) { out.push(i); return; }
@@ -535,7 +535,7 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
             const re = new RegExp('^(' + titles.join('|') + ')\\\\b', 'i');
             return Array.from(document.querySelectorAll(
                 'h1,h2,h3,h4,h5,legend,label,div,span,p'))
-                .map(e => (e.innerText || '').trim())
+                .map(e => ((e.innerText || e.textContent || '')).trim())
                 .filter(t => t && t.length < 40 && re.test(t))
                 .slice(0, 10);
         }""", [list(SECTION_TITLES)])
@@ -819,7 +819,14 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             value = formfill.value_for(label, profile, section, ident, entry)
         if value:
             if not dry_run:
-                element.fill(value)
+                try:
+                    element.fill(value)
+                except Exception as exc:
+                    # A button-style dropdown cannot be typed into. Say so
+                    # rather than letting it abort the whole pass silently.
+                    skipped.append((label, "could not type into this control "
+                                           "(%s)" % type(exc).__name__))
+                    continue
                 try:
                     if not (widget_value(frame, element) or "").strip():
                         _UNREADABLE_FILLED.add(field_key)
