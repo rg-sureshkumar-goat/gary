@@ -438,6 +438,13 @@ def value_for(label, profile, section="", identity="", entry=0):
                     and value.strip().lower() not in _YES_NO_VALUES):
                 return value
 
+    # Nothing recorded and no field to read. What is already known may still
+    # settle it -- "are you over 18?" follows from dates already given.
+    from . import infer
+    worked_out, _why = infer.answer(label, profile)
+    if worked_out is not None:
+        return worked_out
+
     # Last resort. This has to sit after the canonical lookup, not instead of
     # it: a question can map to a field and still have a sensible default when
     # that field holds nothing usable for it.

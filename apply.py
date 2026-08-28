@@ -24,8 +24,10 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
-from watcher import formfill  # noqa: E402
+from watcher import formfill
+from watcher import infer  # noqa: E402
 from watcher import location as location_lib  # noqa: E402
+from watcher import pay  # noqa: E402
 from watcher import names as names_lib  # noqa: E402
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -643,6 +645,22 @@ def type_whole_date(frame, group, month, day, year):
         keyboard.type(digits, delay=40)
         frame.wait_for_timeout(100)
     return True
+
+
+def note_inference(label, profile, value):
+    """Say when an answer was worked out rather than read off.
+
+    The candidate signs for the application, so anything derived has to be
+    visible to them before they submit rather than after.
+    """
+    try:
+        worked_out, why = infer.answer(label, profile)
+    except Exception:
+        return value
+    if worked_out is None or str(worked_out).strip().lower() != \
+            str(value).strip().lower():
+        return value
+    return "%s   (worked out: %s)" % (value, why)
 
 
 def field_question(frame, element):
@@ -1722,7 +1740,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                                 section, ident, entry)
                 reason = "no confident match -- pick it yourself"
             if choice and not dry_run and choose_from_combobox(frame, element, choice):
-                filled.append((label, choice))
+                filled.append((label,
+                               note_inference(label, profile, choice)))
                 # If it still reads as empty, remember it as done.
                 try:
                     if not (widget_value(frame, element) or "").strip():
@@ -1730,7 +1749,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 except Exception:
                     _UNREADABLE_FILLED.add(field_key)
             elif choice and dry_run:
-                filled.append((label, choice))
+                filled.append((label,
+                               note_inference(label, profile, choice)))
             else:
                 close_combobox(frame)
                 # Say what was on offer. Guessing at an employer's wording is
@@ -1796,7 +1816,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     choice = formfill.choose_option(label, options, profile,
                                                     section, ident, entry)
                     if choice and choose_from_combobox(frame, element, choice):
-                        filled.append((label, choice))
+                        filled.append((label,
+                                       note_inference(label, profile, choice)))
                         _UNREADABLE_FILLED.add(field_key)
                     else:
                         close_combobox(frame)
@@ -1815,7 +1836,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         _UNREADABLE_FILLED.add(field_key)
                 except Exception:
                     _UNREADABLE_FILLED.add(field_key)
-            filled.append((label, value))
+            filled.append((label, note_inference(label, profile, value)))
         elif label:
             skipped.append((label, "not in your profile"))
 
@@ -1939,6 +1960,23 @@ def main(argv=None):
         if os.path.exists(HEADQUARTERS):
             with open(HEADQUARTERS) as fh:
                 hq_table = json.load(fh)
+        # Read the pay the posting advertises before the description is left
+        # behind: the application asks for a salary expectation several pages
+        # later, when this page is long gone.
+        try:
+            page.wait_for_timeout(1500)
+            described = page.evaluate("() => document.body.innerText || ''")
+            wanted, why = pay.desired(described)
+            if wanted:
+                profile["desired_salary"] = wanted
+                profile["desired_salary_reason"] = why
+                print("   advertised pay: asking %s (%s)" % (wanted, why))
+            else:
+                print("   advertised pay: none found -- a salary question will "
+                      "be left for you")
+        except Exception:
+            pass
+
         open_locations = location_lib.split_locations(args.locations or "")
 
         if args.watch:

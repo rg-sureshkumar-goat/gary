@@ -1,0 +1,109 @@
+"""Answering from what is known, and refusing to invent.
+
+Every application asks something new, and the details already given are
+usually enough. The line that matters is between deriving an answer from a
+fact the candidate provided and inventing one they never gave: they certify
+the application is true when they submit it, so a confident guess is worse
+than a blank they can fill in seconds.
+"""
+
+import datetime
+import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from watcher import infer
+
+TODAY = datetime.date(2026, 8, 28)
+
+PROFILE = {
+    "work_authorization": "Yes",
+    "sponsorship": "No",
+    "education_2_start": "08/2024",
+    "education_1_start": "07/2026",
+    "work_1_end": "04/2026",
+    "work_2_end": "12/2025",
+}
+
+DERIVED = [
+    ("Are you 18 years of age or older?", "Yes"),
+    ("Are you legally authorized to work in the United States?", "Yes"),
+    ("Do you now or will you at any point in the future require sponsorship "
+     "to work in the United States?", "No"),
+    ("Regardless of whether you require immigration sponsorship, do you have "
+     "any reason to believe that your basis for employment authorization in "
+     "the U.S. will change within the next 1-3 years?", "No"),
+    ("Do you have another job(s) that you plan to continue if you become "
+     "employed by Ecolab?", "No"),
+    # Prior dealings with an employer default to no, as the candidate asked.
+    ("Have you ever participated in the recruitment process with Ecolab or "
+     "any of its subsidiaries?", "No"),
+    ("Have you previously applied to this company?", "No"),
+]
+
+# Facts the candidate has never given. Nothing on file implies them.
+REFUSED = [
+    # No pay advertised, so the calculation has no input.
+    "What's your desired annual salary expectation? (Please express in gross "
+    "amount in USD)",
+    # The details of prior contact are the candidate's, even though whether
+    # there was any defaults to no.
+    "When did you previously apply, and for which role?",
+    "Why do you want to work here?",
+    "Who referred you to this position?",
+    "Describe a time you led a team.",
+]
+
+failures = []
+
+for question, wanted in DERIVED:
+    got, why = infer.answer(question, PROFILE, today=TODAY)
+    if got != wanted:
+        failures.append("%r answered %r, wanted %r" % (question[:40], got, wanted))
+    elif not why:
+        failures.append("%r gave no reason; the candidate signs for it"
+                        % question[:40])
+
+for question in REFUSED:
+    got, _ = infer.answer(question, PROFILE, today=TODAY)
+    if got is not None:
+        failures.append("invented an answer to %r: %r" % (question[:40], got))
+
+# A threshold nothing on file settles.
+got, _ = infer.answer("Are you 21 years of age or older?", PROFILE, today=TODAY)
+if got is not None:
+    failures.append("claimed an age it cannot know: %r" % got)
+
+# A job still running means the question cannot be answered from dates.
+current = dict(PROFILE, work_1_end="12/2027")
+got, _ = infer.answer("Do you have another job(s) that you plan to continue?",
+                      current, today=TODAY)
+if got is not None:
+    failures.append("said no other job while one is still running")
+
+# Nothing known at all: no answer, not a guess.
+got, _ = infer.answer("Are you 18 years of age or older?", {}, today=TODAY)
+if got is not None:
+    failures.append("claimed an age with nothing on file")
+
+# A salary is asked for once the posting's advertised pay has been read, and
+# is entered with a dollar sign, as the candidate asked.
+paid = dict(PROFILE, desired_salary="$49,920",
+            desired_salary_reason="24/hour x 40 hours x 52 weeks")
+got, why = infer.answer("What's your desired annual salary expectation?",
+                        paid, today=TODAY)
+if got != "$49,920":
+    failures.append("the salary was %r, wanted '$49,920'" % got)
+if got and not got.startswith("$"):
+    failures.append("the salary was entered without a dollar sign")
+if not why:
+    failures.append("the salary gave no reason; the candidate signs for it")
+
+total = len(DERIVED) + len(REFUSED) + 3 + 3
+if failures:
+    print("FAILED %d of %d checks:" % (len(failures), total))
+    for f in failures:
+        print("   " + f)
+    sys.exit(1)
+print("All %d checks passed." % total)
