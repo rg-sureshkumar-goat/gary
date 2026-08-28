@@ -21,6 +21,19 @@ import sys
 import apply
 
 
+def inert(html):
+    """The saved markup with its scripts removed.
+
+    A snapshot is a React application's rendered output. Loaded back, its
+    scripts run again, find none of the state they expect, and empty the page
+    -- so the form vanishes and the replay sees nothing. Stripping them leaves
+    the markup exactly as it was captured.
+    """
+    html = re.sub(r"(?is)<script\b.*?</script\s*>", "", html)
+    html = re.sub(r"(?is)<link\b[^>]*rel=[\"']?preload[^>]*>", "", html)
+    return html
+
+
 def frames_in(path):
     """The saved frames, in the order they were captured."""
     with open(path, encoding="utf-8") as handle:
@@ -43,7 +56,7 @@ def replay(path, playwright, show_controls=False, profile_path="profile.json"):
         for number, (url, html) in enumerate(frames_in(path)):
             scratch = "%s.frame%d.html" % (path, number)
             with open(scratch, "w", encoding="utf-8") as handle:
-                handle.write(html)
+                handle.write(inert(html))
             written.append(scratch)
             page.goto("file://" + os.path.abspath(scratch))
             print("\n=== frame %d (%s) ===" % (number, url or "top"))

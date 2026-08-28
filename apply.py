@@ -365,10 +365,15 @@ def button_state(frame, element):
     """A dropdown button's stable question and its current selection.
 
     Workday puts both into one accessible name: once "Degree" is answered the
-    button reads "Degree M.S". Taken at face value the question changes with
-    the answer, so the field looks new on every pass -- it is re-answered
-    forever, and two entries asking the same thing count as different
-    questions. Splitting the name against the question text recovers both.
+    button reads "Degree M.S", and "State" becomes "State Texas Required".
+    Taken at face value the question changes with the answer, so the field
+    looks new on every pass -- it is re-answered forever, and two entries
+    asking the same thing count as different questions.
+
+    The button's own text is the answer, so the question is what remains of
+    the accessible name once the answer and any "Required" hint are taken off
+    the end. Where the button has no text, the question is matched against the
+    field's own naming instead.
     """
     try:
         got = frame.evaluate("""el => {
@@ -376,6 +381,15 @@ def button_state(frame, element):
             const full = clean(el.getAttribute('aria-label')) ||
                          clean(el.innerText);
             if (!full) return null;
+            let rest = full.replace(/\s*required\s*$/i, '');
+            const shown = clean(el.innerText);
+
+            // The answer is on the end of the name; what precedes it is the
+            // question.
+            if (shown && rest.toLowerCase().endsWith(shown.toLowerCase())) {
+                const question = clean(rest.slice(0, rest.length - shown.length));
+                if (question) return {question: question, value: shown};
+            }
 
             const names = [];
             const field = el.closest('[data-automation-id^=formField-]');
@@ -384,8 +398,10 @@ def button_state(frame, element):
                     .replace(/^formField-/, '');
                 names.push(clean(id.replace(/[-_]+/g, ' ')
                     .replace(/([a-z])([A-Z])/g, '$1 $2')));
-                const lab = field.querySelector('label');
-                if (lab) names.push(clean(lab.innerText));
+                for (const lab of field.querySelectorAll(
+                        'label, [id$=label], [class*=label]')) {
+                    names.push(clean(lab.innerText));
+                }
             }
             if (el.id) {
                 const byFor = document.querySelector(
@@ -398,17 +414,14 @@ def button_state(frame, element):
                 prev = prev.previousElementSibling;
             }
 
-            // The question is whichever candidate the name actually begins
-            // with; the rest of the name is the answer.
             let best = '';
             for (const n of names) {
                 if (!n || n.length > 60) continue;
-                if (full.toLowerCase().startsWith(n.toLowerCase()) &&
+                if (rest.toLowerCase().startsWith(n.toLowerCase()) &&
                         n.length > best.length) best = n;
             }
-            if (!best) return {question: full, value: ''};
-            return {question: best,
-                    value: clean(full.slice(best.length))};
+            if (!best) return {question: rest, value: shown};
+            return {question: best, value: clean(rest.slice(best.length)) || shown};
         }""", element)
     except Exception:
         return None
@@ -417,10 +430,6 @@ def button_state(frame, element):
     value = str(got.get("value") or "")
     if value.lower() in ("select one", "select", "required", ""):
         value = ""
-    # "Degree Required" is a validation hint, not an answer.
-    for tail in (" required", " select one"):
-        if value.lower().endswith(tail):
-            value = value[: -len(tail)].strip()
     return {"question": str(got.get("question") or ""), "value": value}
 
 
@@ -811,6 +820,11 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
     return created
 
 
+# Touch this file to stop Gary filling without ending the session; the
+# browser stays open, because closing it loses a part-finished application.
+PAUSE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                          ".gary-pause")
+
 SNAPSHOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             "snapshots")
 _SNAPPED = {}
@@ -1148,7 +1162,10 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 continue
         except Exception:
             pass
-        field_key = "%s|%s|%s|%s" % (page.url, label, ident, entry)
+        # Key on the field's own identity where it has one. A dropdown's
+        # label changes as it is answered, and a key built from that is a new
+        # key each pass -- which quietly resets every limit below.
+        field_key = "%s|%s|%s" % (page.url, ident or label, entry)
         # Some controls never report their value back. Once one has been
         # answered, trust that rather than re-answering it every pass.
         if field_key in _UNREADABLE_FILLED:
@@ -1355,13 +1372,27 @@ def main(argv=None):
             print("\nSign in and click Apply. Each page is filled as you reach")
             print("it -- check every field, and submit it yourself.")
             print("Close the window when you're done.\n")
+            print("To make Gary stop touching the form without closing this")
+            print("window, create the file %s" % PAUSE_FILE)
+            print("and delete it to resume.\n")
             reported_buttons = set()
             mishaps = 0
+            paused = False
             while True:
                 try:
                     current = ctx.pages[-1] if ctx.pages else None
                     if current is None or current.is_closed():
                         break
+                    if os.path.exists(PAUSE_FILE):
+                        if not paused:
+                            paused = True
+                            print("\nPaused -- the window is yours. Delete "
+                                  "%s to resume." % PAUSE_FILE)
+                        current.wait_for_timeout(1500)
+                        continue
+                    if paused:
+                        paused = False
+                        print("\nResumed.")
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
                         f, sk, cr = fill(current, profile, args.dry_run,
