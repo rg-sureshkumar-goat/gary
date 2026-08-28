@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-28T02:15:53Z",
+ "last_run": "2026-08-28T21:53:11Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 27,
-  "new": 3,
-  "postings": 17757,
-  "sites": 214
+  "matching": 34,
+  "new": 5,
+  "postings": 25033,
+  "sites": 82
  },
  "recommended": {},
  "reminders_sent": [],
@@ -17,6 +17,10 @@
   "ashby:sereact:8ebf2a77-6006-416a-beb1-88f9bacd8fe3",
   "greenhouse:appian:8088498",
   "greenhouse:aqr:8161563",
+  "greenhouse:charlesriverassociates:8120300",
+  "greenhouse:charlesriverassociates:8120616",
+  "greenhouse:charlesriverassociates:8128811",
+  "greenhouse:charlesriverassociates:8160288",
   "greenhouse:drweng:7992670",
   "greenhouse:drweng:7993004",
   "greenhouse:genscript:5169014007",
@@ -71,6 +75,7 @@
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466",
   "workday:att:/job/Dallas-Texas/Finance-Development-Program---Internship_R-119471",
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563",
+  "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738-1",
   "workday:bristolmyerssquibb:/job/Princeton---NJ---US/XMLNAME-2027-Summer-Intern--Finance---Accounting-Leadership-Accelerator_R1605465",
   "workday:caci:/job/Oklahoma-City-OK-US/Finance---Accounting-Shared-Service-Center-Intern---Summer-2027_330407",
@@ -1959,6 +1964,22 @@
    "f": "2026-08-27",
    "l": "2026-08-28"
   },
+  "greenhouse:charlesriverassociates:8120300": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "greenhouse:charlesriverassociates:8120616": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "greenhouse:charlesriverassociates:8128811": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "greenhouse:charlesriverassociates:8160288": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "greenhouse:drweng:7992670": {
    "f": "2026-07-13",
    "l": "2026-08-28"
@@ -2189,6 +2210,10 @@
   },
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563": {
    "f": "2026-08-25",
+   "l": "2026-08-28"
+  },
+  "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1": {
+   "f": "2026-08-28",
    "l": "2026-08-28"
   },
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738-1": {
