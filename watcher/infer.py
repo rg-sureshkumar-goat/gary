@@ -30,6 +30,20 @@ _AUTHORISED = re.compile(r"legally\s+authori[sz]ed|authori[sz]ed\s+to\s+work|"
 _SPONSORSHIP = re.compile(r"sponsorship|visa\s+petition|immigration-related", re.I)
 _BASIS_CHANGES = re.compile(r"basis\s+for\s+employment\s+authori[sz]ation.*"
                             r"change|authori[sz]ation.*will\s+change", re.I)
+# When a degree is expected. Which degree is being asked about matters: the
+# bachelor's and the master's finish a year apart.
+_GRADUATION = re.compile(r"graduat|completion\s+date|finish.{0,20}degree", re.I)
+_UNDERGRAD_ASKED = re.compile(r"bachelor|undergraduate|\bb\.?[sa]\.?\b", re.I)
+_GRADUATE_ASKED = re.compile(r"master|graduate\s+degree|\bm\.?[sba]\.?\b|"
+                             r"doctorate|phd", re.I)
+
+# A date is being asked for, rather than a fact about a degree.
+_WHEN = re.compile(r"\bwhen\b|\bmonth\b|\byear\b|\bdate\b|expect(?:ed|ing)|"
+                   r"anticipat", re.I)
+
+_MONTHS = ("January", "February", "March", "April", "May", "June", "July",
+           "August", "September", "October", "November", "December")
+
 _ANOTHER_JOB = re.compile(r"another\s+job|other\s+employment|"
                           r"outside\s+employment|plan\s+to\s+continue", re.I)
 
@@ -62,12 +76,47 @@ def _year(value):
     return int(found.group(0)) if found else None
 
 
+def _spell_date(value):
+    """A stored date as "May 2027", which is how these lists are written."""
+    text = str(value or "").strip()
+    if not text:
+        return None
+    year = _year(text)
+    if not year:
+        return None
+    month = re.match(r"\s*(\d{1,2})\s*[/-]", text)
+    if month:
+        number = int(month.group(1))
+    else:
+        named = re.search(r"[A-Za-z]{3,}", text)
+        if not named:
+            return str(year)
+        wanted = named.group(0).lower()[:3]
+        number = next((i + 1 for i, name in enumerate(_MONTHS)
+                       if name.lower().startswith(wanted)), 0)
+    if not 1 <= number <= 12:
+        return str(year)
+    return "%s %d" % (_MONTHS[number - 1], year)
+
+
 def _is_no(value):
     return str(value or "").strip().lower() in ("no", "n", "false")
 
 
 def _is_yes(value):
     return str(value or "").strip().lower() in ("yes", "y", "true")
+
+
+def asks_when_a_degree_ends(label):
+    """Is this asking for the date a degree finishes, rather than its name?
+
+    "Graduate with your bachelor's degree" maps to the degree field, which
+    would answer "Bachelors" -- the name of the degree, to a question asking
+    when it ends.
+    """
+    question = formfill.normalise(label).strip().rstrip("?").lower()
+    return bool(_GRADUATION.search(question) and _WHEN.search(question)
+                and not formfill.expects_yes_no(question))
 
 
 def answer(label, profile, today=None):
@@ -110,6 +159,26 @@ def answer(label, profile, today=None):
                        if y] or [0])
         if started and today.year - started >= 1:
             return "Yes", ("at university since %d, so over 18" % started)
+        return None, None
+
+    # When a degree is expected, taken from the entry for that degree. Only
+    # where a date is actually being asked for: "graduat" also sits inside
+    # "undergraduate", so "have you completed your undergraduate degree?" --
+    # a yes or no -- was being answered with a month.
+    if asks_when_a_degree_ends(question):
+        if _UNDERGRAD_ASKED.search(question):
+            source, which = (profile.get("education_2_end")
+                             or profile.get("undergrad_graduation"),
+                             "your bachelor's")
+        elif _GRADUATE_ASKED.search(question):
+            source, which = (profile.get("education_1_end")
+                             or profile.get("graduation"), "your master's")
+        else:
+            source, which = (profile.get("graduation")
+                             or profile.get("education_1_end"), "your degree")
+        spelled = _spell_date(source)
+        if spelled:
+            return spelled, "the end date you gave for %s (%s)" % (which, source)
         return None, None
 
     if _BASIS_CHANGES.search(question):

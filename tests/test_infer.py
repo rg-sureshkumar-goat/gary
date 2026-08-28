@@ -18,6 +18,9 @@ from watcher import infer
 TODAY = datetime.date(2026, 8, 28)
 
 PROFILE = {
+    "education_1_end": "05/2028",
+    "education_2_end": "05/2027",
+    "graduation": "05/31/2028",
     "work_authorization": "Yes",
     "sponsorship": "No",
     "education_2_start": "08/2024",
@@ -40,6 +43,11 @@ DERIVED = [
     ("Have you ever participated in the recruitment process with Ecolab or "
      "any of its subsidiaries?", "No"),
     ("Have you previously applied to this company?", "No"),
+    # Which degree is asked about matters: they finish a year apart, and the
+    # lists these are chosen from are written as a month and a year.
+    ("Select the month and year you are expecting to graduate with your "
+     "bachelor's degree.", "May 2027"),
+    ("When do you expect to graduate with your master's degree?", "May 2028"),
 ]
 
 # Facts the candidate has never given. Nothing on file implies them.
@@ -69,6 +77,19 @@ for question in REFUSED:
     got, _ = infer.answer(question, PROFILE, today=TODAY)
     if got is not None:
         failures.append("invented an answer to %r: %r" % (question[:40], got))
+
+# "graduat" sits inside "undergraduate", so a yes-or-no question about having
+# finished a degree was being answered with a month. A date must actually be
+# asked for.
+from watcher.formfill import value_for
+
+if value_for("Have you completed your undergraduate degree?", PROFILE) != "No":
+    failures.append("a yes/no question about a degree was answered with a date")
+if value_for("What is your degree?", dict(PROFILE, degree="Masters")) != "Masters":
+    failures.append("asking which degree no longer answers with the degree")
+if value_for("Select the month and year you are expecting to graduate with "
+             "your bachelor's degree.", PROFILE) != "May 2027":
+    failures.append("asking when a degree ends answered with its name")
 
 # A threshold nothing on file settles.
 got, _ = infer.answer("Are you 21 years of age or older?", PROFILE, today=TODAY)
@@ -100,7 +121,7 @@ if got and not got.startswith("$"):
 if not why:
     failures.append("the salary gave no reason; the candidate signs for it")
 
-total = len(DERIVED) + len(REFUSED) + 3 + 3
+total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

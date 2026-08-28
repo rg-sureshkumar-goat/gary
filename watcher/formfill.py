@@ -421,6 +421,15 @@ def value_for(label, profile, section="", identity="", entry=0):
     if part is not None:
         return part
 
+    # A question asking when a degree finishes is about a date. The canonical
+    # field would answer with the degree's name instead, so it is settled
+    # before the field is consulted rather than after.
+    from . import infer
+    if infer.asks_when_a_degree_ends(label):
+        when, _why = infer.answer(label, profile)
+        if when is not None:
+            return when
+
     key = key_for(label)
     if key is not None:
         key = prior_degree_key(label, key)
