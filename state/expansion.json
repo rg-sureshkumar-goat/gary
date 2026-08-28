@@ -9775,7 +9775,72 @@
       "last": "2026-08-26",
       "result": "added",
       "ats": "greenhouse"
+    },
+    "Realm": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "American Institutes for Research": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Bland AI": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "GrayMatter Robotics": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Maxinsights": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Lightcast": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "lever"
+    },
+    "TELUS Digital": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Customers Bank": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "workday"
+    },
+    "AnaVation": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "lever"
+    },
+    "Elk Valley Resources": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "lever"
+    },
+    "Air Products": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Commerce Bank": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Johnson Electric": {
+      "last": "2026-08-28",
+      "result": "added",
+      "ats": "workday"
     }
   },
-  "last_run": "2026-08-26"
+  "last_run": "2026-08-28"
 }
