@@ -813,7 +813,11 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
 
 SNAPSHOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                             "snapshots")
-_SNAPPED = set()
+_SNAPPED = {}
+# Three passes at a page, spaced out, is enough to catch it empty, part
+# answered and finished, without filling the disk with near-identical copies.
+SNAPSHOT_LIMIT = 3
+SNAPSHOT_GAP = 40
 
 
 def snapshot_page(page, frames):
@@ -839,11 +843,21 @@ def snapshot_page(page, frames):
         name = re.sub(r"[^a-z0-9]+", "-",
                       ("%s %s" % (page.url.split("?")[0][-60:],
                                   heading)).lower()).strip("-")[:90]
-        if not name or name in _SNAPPED:
+        if not name:
             return None
-        _SNAPPED.add(name)
+        # Capture a page more than once. The first sight of it is the empty
+        # form, and what a control looks like *after* it has been answered is
+        # often the interesting part -- a Workday dropdown only reveals how it
+        # reports a selection once it holds one.
+        import time
+        taken, last = _SNAPPED.get(name, (0, 0.0))
+        now = time.time()
+        if taken >= SNAPSHOT_LIMIT or (taken and now - last < SNAPSHOT_GAP):
+            return None
+        _SNAPPED[name] = (taken + 1, now)
         os.makedirs(SNAPSHOT_DIR, exist_ok=True)
-        path = os.path.join(SNAPSHOT_DIR, name + ".html")
+        path = os.path.join(SNAPSHOT_DIR,
+                            "%s-%d.html" % (name, taken + 1))
         parts = ["<!-- %s -->" % page.url]
         for index, frame in enumerate(frames):
             try:
