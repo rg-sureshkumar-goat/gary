@@ -536,25 +536,40 @@ def add_buttons_by_order(frame, block):
     return [indexes[position]]
 
 
+# Fields that only ever belong to one kind of entry. Counting by the section
+# heading instead is unreliable: on this page the education fields were read as
+# sitting under "Work Experience", so work history looked full and its Add
+# button was never pressed.
+BLOCK_FIELDS = {
+    "work history": re.compile(
+        r"\bcompany\b|\bemployer\b|\bjob\s*title\b|\bposition\s*title\b|"
+        r"\brole\s*description\b|\bcurrently\s+work\s+here\b", re.I),
+    "education": re.compile(
+        r"\bschool\b|\buniversity\b|\bdegree\b|\bfield\s+of\s+study\b|"
+        r"\boverall\s+result\b|\bgpa\b", re.I),
+}
+
+
 def entries_present(frame, block):
     """How many entries of a block are already on the page.
 
-    Counted as the most times any one field repeats: an education block with
-    School, Field of Study and GPA showing twice is two entries, not six.
-    Counting fields instead is what made this press Add on every pass.
+    Counted from fields that belong to this kind of entry and nothing else,
+    and as the most times any one of them repeats: two "Company" boxes mean
+    two jobs, however many other fields surround them.
     """
+    pattern = BLOCK_FIELDS.get(block)
+    if pattern is None:
+        return 0
     counts = {}
     for element in controls(frame):
         try:
             label = formfill.normalise(label_for(frame, element))
-            section = formfill.normalise(section_for(frame, element))
             ident = identity_of(frame, element)
         except Exception:
             continue
-        if formfill.block_of(section, ident, label) != block:
+        if not pattern.search("%s %s" % (label, ident)):
             continue
-        key = formfill.answer_key(section, label,
-                                  formfill.base_identity(ident))
+        key = formfill.normalise(label).lower() or ident.lower()
         counts[key] = counts.get(key, 0) + 1
     return max(counts.values()) if counts else 0
 
