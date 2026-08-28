@@ -584,11 +584,31 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
             continue
         for _ in range(wanted):
             present = entries_present(frame, block)
+            by_title = add_buttons(frame, block)
+            by_order = add_buttons_by_order(frame, block) if not by_title else []
+            if log:
+                log("   [%s] wanted=%d present=%d byTitle=%s byOrder=%s"
+                    % (block, wanted, present, by_title, by_order))
+                if not by_title and not by_order:
+                    # Neither method found a button. Show what is on the page
+                    # at this exact moment rather than inferring.
+                    try:
+                        seen = frame.evaluate("""() =>
+                            Array.from(document.querySelectorAll(
+                                'button,[role=button],a[role=button]'))
+                            .map(b => ((b.innerText || b.textContent || '').trim()
+                                       + ' ~ ' + (b.getAttribute('aria-label')||'')
+                                       + ' ~ ' + (b.getAttribute('data-automation-id')||'')))
+                            .slice(0, 30)""")
+                        log("      buttons visible to this frame: %d" % len(seen))
+                        for b in seen:
+                            log("        %s" % b[:88])
+                    except Exception as exc:
+                        log("      (button query failed: %s: %s)"
+                            % (type(exc).__name__, str(exc)[:80]))
             if present >= wanted:
                 break
-            indexes = add_buttons(frame, block)
-            if not indexes:
-                indexes = add_buttons_by_order(frame, block)
+            indexes = by_title or by_order
             if not indexes:
                 break
             if dry_run:
@@ -952,6 +972,31 @@ def main(argv=None):
         browser, ctx = open_browser(p, headless, None if args.no_session
                                     else args.session)
         ctx.add_init_script(STEALTH)
+        # Mark this window, so there is never any doubt which one Gary is
+        # filling. Several rounds were lost to working in a different window
+        # from the one being watched.
+        ctx.add_init_script("""
+            (() => {
+              const show = () => {
+                if (document.getElementById('gary-banner')) return;
+                if (!document.body) return;
+                const bar = document.createElement('div');
+                bar.id = 'gary-banner';
+                bar.textContent = 'GARY IS FILLING THIS WINDOW';
+                bar.style.cssText = [
+                  'position:fixed', 'top:0', 'left:0', 'right:0',
+                  'z-index:2147483647', 'background:#1d4ed8', 'color:#fff',
+                  'font:600 12px/28px system-ui,sans-serif',
+                  'text-align:center', 'letter-spacing:.08em',
+                  'pointer-events:none'].join(';');
+                document.body.appendChild(bar);
+              };
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', show);
+              } else { show(); }
+              setInterval(show, 2000);
+            })();
+        """)
         page = ctx.pages[0] if ctx.pages else ctx.new_page()
         print("opening %s" % args.url)
         page.goto(args.url, wait_until="domcontentloaded", timeout=60000)
