@@ -696,11 +696,16 @@ def date_part_of(label, section, profile):
     settled = custom_answer(section, profile) or _by_key(section, profile)
     if not settled:
         return None
-    month, year = _split_date(str(settled))
-    day = None
-    match = re.search(r"\b(\d{1,2})\b[/-](\d{1,2})\b[/-](\d{2,4})", str(settled))
-    if match:
-        day = match.group(2)
+    # A whole date first: splitting "05/31/2028" as month and year reads the
+    # day as the year and loses both.
+    whole = re.search(r"\b(\d{1,2})[/-](\d{1,2})[/-](\d{2,4})\b", str(settled))
+    if whole:
+        month, day, year = (whole.group(1).lstrip("0") or "0",
+                            whole.group(2).lstrip("0") or "0",
+                            whole.group(3))
+    else:
+        month, year = _split_date(str(settled))
+        day = None
     if text in ("day", "dd"):
         return day
     if text in ("month", "mm"):
