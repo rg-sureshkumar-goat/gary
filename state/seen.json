@@ -1,12 +1,18 @@
 {
- "broken": {},
- "last_run": "2026-08-28T21:56:42Z",
+ "broken": {
+  "Advance Auto Parts": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "Rakuten International": "HTTP 429",
+  "Relativity": "HTTP 429",
+  "Rockwell Automation": "HTTP 429"
+ },
+ "last_run": "2026-08-28T22:02:30Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 5,
+  "matching": 26,
   "new": 0,
-  "postings": 21,
-  "sites": 1
+  "postings": 17111,
+  "sites": 212
  },
  "recommended": {},
  "reminders_sent": [],
@@ -51,6 +57,7 @@
   "smartrecruiters:AveryDennison:744000140069569",
   "smartrecruiters:AveryDennison:744000144151824",
   "smartrecruiters:BoschGroup:744000144612115",
+  "smartrecruiters:Continental:744000146251819",
   "smartrecruiters:EVERSANA1:744000146017939",
   "smartrecruiters:Eurofins:743999767858594",
   "smartrecruiters:JobsForHumanity:744000016293876",
@@ -119,18 +126,22 @@
   "workday:disney:/job/Celebration-FL-USA/Marketing-Strategy-Intern--Walt-Disney-World-Resort--Spring-2027_10159113-1",
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474",
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474-2",
+  "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569",
+  "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-2",
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260",
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865",
+  "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Accounting-Program-Intern_JR2817",
   "workday:fanniemae:/job/Washington-DC/Campus---Finance-Program-Intern_JR2819-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Markets-Track-_JR2823-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Quantitative-Research-Track-_JR2872",
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543",
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
+  "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
@@ -144,8 +155,13 @@
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167",
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167-2",
   "workday:humana:/job/Louisville-KY/Finance---Accounting-Rotational-Internship-Program---September-2026_R-426435",
+  "workday:huntington:/job/Columbus-OH/Summer-2027-Accounting-Internship_R0075371",
+  "workday:huntington:/job/Columbus-OH/Summer-2027-Commercial-Banking-Internship_R0075257",
+  "workday:huntington:/job/Columbus-OH/Summer-2027-Finance-and-Strategy-Internship_R0075368",
   "workday:huron:/job/Chicago---550-Van-Buren/Consulting-Intern---Summer-2027--Chicago--Spring-2028-Graduates-_JR-0016241",
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309",
+  "workday:igsenergy:/job/Ohio-Remote/Solar-Finance-Intern--Summer-2027-_R6304",
+  "workday:igsenergy:/job/Ohio-Remote/Strategy-Intern--Summer-2027-_R6300",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--Capital-Markets-_R-15094",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--Capital-Markets-_R-15094-1",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--IFI-Investment-Grade-_R-15093",
@@ -195,6 +211,8 @@
   "workday:magna:/job/Aurora-Ontario-CA/Jr-Financial-Analyst--Co-op-_R00240559",
   "workday:magna:/job/Milton-Ontario-CA/Finance-Co-op-Student_R00258630",
   "workday:magna:/job/Muncie-Indiana-US/Finance-Intern_R00258645",
+  "workday:manulife:/job/Boston-Massachusetts/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Boston--MA-_JR26081869",
+  "workday:manulife:/job/Tempe-Arizona/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Tempe--AZ-_JR26081868",
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1",
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078",
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558",
@@ -204,6 +222,7 @@
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Financial-Services-Internship_100076",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Nationwide-Financial-Actuarial-Internship_099735",
   "workday:nationwide:/job/Ohio---Columbus-Metro/XMLNAME-2027-Controllership-Winter-Spring-Co-op_099978",
+  "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855",
@@ -236,7 +255,13 @@
   "workday:polaris:/job/Medina-MN-USA/Finance-Internship---Summer-2027_R30415",
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2027-Global-Investment-Banking-Internship---Frankfurt_R-0000182048",
   "workday:rbc:/job/Fort-Collins-Colorado-United-States-of-America/Financial-Solutions-Intern_R-0000081516",
+  "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008",
+  "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008-1",
   "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2024-Capital-Markets--Cash-Management-Summer-Analyst_R-0000063505-1",
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213",
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213-1",
+  "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214",
+  "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Financial-Services-Consulting-Intern_JR120926",
@@ -372,6 +397,7 @@
   "Analytical Mechanics Associates",
   "Anduril",
   "Anglian Water",
+  "Anheuser-Busch",
   "Ankura Consulting Group",
   "Anomali",
   "Anthropic",
@@ -1015,6 +1041,7 @@
   "Human Computer Lab",
   "HumanSignal",
   "Humana",
+  "Huntington Bancshares",
   "Huron Consulting",
   "ICF",
   "IDEX",
@@ -2105,6 +2132,10 @@
    "f": "2026-08-20",
    "l": "2026-08-28"
   },
+  "smartrecruiters:Continental:744000146251819": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "smartrecruiters:EVERSANA1:744000146017939": {
    "f": "2026-08-27",
    "l": "2026-08-28"
@@ -2393,6 +2424,14 @@
    "f": "2026-08-25",
    "l": "2026-08-28"
   },
+  "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569-1": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138": {
    "f": "2026-08-25",
    "l": "2026-08-28"
@@ -2417,6 +2456,10 @@
    "f": "2026-08-19",
    "l": "2026-08-28"
   },
+  "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "workday:fanniemae:/job/Washington-DC/Campus---Accounting-Program-Intern_JR2817": {
    "f": "2026-08-25",
    "l": "2026-08-28"
@@ -2439,6 +2482,10 @@
   },
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560": {
    "f": "2026-08-24",
+   "l": "2026-08-28"
+  },
+  "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1": {
+   "f": "2026-08-28",
    "l": "2026-08-28"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
@@ -2493,12 +2540,32 @@
    "f": "2026-08-25",
    "l": "2026-08-28"
   },
+  "workday:huntington:/job/Columbus-OH/Summer-2027-Accounting-Internship_R0075371": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:huntington:/job/Columbus-OH/Summer-2027-Commercial-Banking-Internship_R0075257": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:huntington:/job/Columbus-OH/Summer-2027-Finance-and-Strategy-Internship_R0075368": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "workday:huron:/job/Chicago---550-Van-Buren/Consulting-Intern---Summer-2027--Chicago--Spring-2028-Graduates-_JR-0016241": {
    "f": "2026-08-25",
    "l": "2026-08-28"
   },
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309": {
    "f": "2026-08-25",
+   "l": "2026-08-28"
+  },
+  "workday:igsenergy:/job/Ohio-Remote/Solar-Finance-Intern--Summer-2027-_R6304": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:igsenergy:/job/Ohio-Remote/Strategy-Intern--Summer-2027-_R6300": {
+   "f": "2026-08-28",
    "l": "2026-08-28"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--Capital-Markets-_R-15094": {
@@ -2701,6 +2768,14 @@
    "f": "2026-08-27",
    "l": "2026-08-28"
   },
+  "workday:manulife:/job/Boston-Massachusetts/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Boston--MA-_JR26081869": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:manulife:/job/Tempe-Arizona/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Tempe--AZ-_JR26081868": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1": {
    "f": "2026-08-24",
    "l": "2026-08-28"
@@ -2739,6 +2814,10 @@
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/XMLNAME-2027-Controllership-Winter-Spring-Co-op_099978": {
    "f": "2026-08-25",
+   "l": "2026-08-28"
+  },
+  "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056": {
+   "f": "2026-08-28",
    "l": "2026-08-28"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
@@ -2869,8 +2948,32 @@
    "f": "2026-08-25",
    "l": "2026-08-28"
   },
+  "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008-1": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
   "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2024-Capital-Markets--Cash-Management-Summer-Analyst_R-0000063505-1": {
    "f": "2026-08-25",
+   "l": "2026-08-28"
+  },
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213-1": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1": {
+   "f": "2026-08-28",
    "l": "2026-08-28"
   },
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668": {
