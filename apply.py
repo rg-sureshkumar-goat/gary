@@ -1139,6 +1139,10 @@ AFFIRMATIVE = re.compile(r"^(yes|y|i\s+(agree|certify|consent|acknowledg|"
                          r"confirm|do)|agree|accept|true)\b", re.I)
 
 
+# Answers that mean "tick this box".
+_TICKED = ("yes", "true", "y", "on", "checked", "1")
+
+
 def radio_groups(frame):
     """The radio questions on the page, as {question: [(label, element)]}.
 
@@ -1283,9 +1287,14 @@ def fill_choices(frame, profile, dry_run, filled, skipped):
         except Exception:
             continue
         labels = [formfill.normalise(label_for(frame, m)) for m in members]
-        # Any option carrying its own recorded answer is handled below, one
-        # box at a time -- that is how a "select all that apply" list works.
-        if any(formfill.value_for(text, profile, "", "", 0) for text in labels):
+        # An option carrying its own answer is ticked below, one box at a
+        # time -- that is how "select all that apply" works. Only an answer
+        # meaning "tick me" counts: every option of a disability question
+        # contains the word disability, so each resolved to the answer for the
+        # question as a whole, and the group was left to a path that could
+        # only ever tick a box whose answer was yes.
+        if any(str(formfill.value_for(text, profile, "", "", 0) or "")
+               .strip().lower() in _TICKED for text in labels):
             continue
         question = formfill.normalise(field_question(frame, members[0]))
         for text in labels:
@@ -1328,8 +1337,7 @@ def fill_choices(frame, profile, dry_run, filled, skipped):
             wanted = formfill.value_for(label, profile, "", "", 0)
             if wanted is None:
                 continue
-            if str(wanted).strip().lower() not in ("yes", "true", "y", "on",
-                                                   "checked", "1"):
+            if str(wanted).strip().lower() not in _TICKED:
                 continue
             if not dry_run:
                 element.check()

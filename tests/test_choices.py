@@ -133,9 +133,31 @@ with sync_playwright() as playwright:
     if page.is_checked("#t2"):
         failures.append("a tool the candidate did not name was ticked")
 
+    # Every option of a disability question contains the word "disability",
+    # so each one resolved to the answer for the question as a whole. Gary
+    # took that to mean the boxes carried their own answers, handed the group
+    # to a path that only ticks a box whose answer is yes, and ticked nothing.
+    page.set_content("""
+      <div data-automation-id="formField-disabilityStatus">
+        <div>Please check one of the boxes below:</div>
+        <label><input type="checkbox" id="d0"> Yes, I have a disability, or have had one in the past</label>
+        <label><input type="checkbox" id="d1"> No, I do not have a disability and have not had one in the past</label>
+        <label><input type="checkbox" id="d2"> I do not want to answer</label>
+      </div>
+    """)
+    said = "No, I do not have a disability and have not had one in the past"
+    apply.fill_choices(page, {"disability": said,
+                              "custom_answers": {
+                                  "please check one of the boxes below": said}},
+                       False, [], [])
+    if not page.is_checked("#d1"):
+        failures.append("the disability question was left unanswered")
+    if page.is_checked("#d0") or page.is_checked("#d2"):
+        failures.append("the wrong disability box was ticked")
+
     browser.close()
 
-total = 3 + 3 + 1 + 3 + 4
+total = 3 + 3 + 1 + 3 + 4 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
