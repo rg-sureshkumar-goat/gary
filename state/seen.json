@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-28T21:53:11Z",
+ "last_run": "2026-08-28T21:53:57Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 5,
-  "postings": 25033,
-  "sites": 82
+  "matching": 9,
+  "new": 1,
+  "postings": 24724,
+  "sites": 196
  },
  "recommended": {},
  "reminders_sent": [],
@@ -75,6 +75,7 @@
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466",
   "workday:att:/job/Dallas-Texas/Finance-Development-Program---Internship_R-119471",
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563",
+  "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225",
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738-1",
   "workday:bristolmyerssquibb:/job/Princeton---NJ---US/XMLNAME-2027-Summer-Intern--Finance---Accounting-Leadership-Accelerator_R1605465",
@@ -2210,6 +2211,10 @@
   },
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563": {
    "f": "2026-08-25",
+   "l": "2026-08-28"
+  },
+  "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225": {
+   "f": "2026-08-28",
    "l": "2026-08-28"
   },
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1": {
