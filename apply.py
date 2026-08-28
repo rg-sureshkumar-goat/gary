@@ -521,6 +521,70 @@ def form_frames(page):
     return [f for f, _ in frames]
 
 
+def whole_date_group(frame, element):
+    """The Month/Day/Year inputs this one belongs to, if it is a full date.
+
+    Workday builds a date as three spin controls in one wrapper that advance
+    focus as digits arrive. Filling them one at a time makes each entry push
+    the next along, so a month of "5" ends up as a year of 2005. A full date
+    has to be typed as one sequence, the way a person enters it.
+
+    Only groups with a day are treated this way. The Month/Year pairs on
+    education and work entries fill correctly one at a time, and are left as
+    they are.
+    """
+    try:
+        return frame.evaluate("""el => {
+            // Only a date section belongs to a date. Workday wraps the whole
+            // questionnaire in a role=group, so accepting any group made
+            // every control on the page look like part of the date.
+            const own = (el.getAttribute('data-automation-id') || '') + ' ' +
+                        (el.getAttribute('aria-label') || '');
+            if (!/dateSection|^\s*(Month|Day|Year)\s*$/i.test(own) &&
+                !/^(Month|Day|Year)$/i.test(
+                    (el.getAttribute('aria-label') || '').trim())) {
+                return null;
+            }
+            const wrap = el.closest('[data-automation-id=dateInputWrapper]');
+            if (!wrap) return null;
+            const part = name => {
+                const found = wrap.querySelector(
+                    `[data-automation-id=dateSection${name}-input],` +
+                    `input[aria-label="${name}"]`);
+                return found ? found.id || '' : '';
+            };
+            const day = part('Day');
+            if (!day) return null;   // month and year only: filled singly
+            return {month: part('Month'), day: day, year: part('Year')};
+        }""", element)
+    except Exception:
+        return None
+
+
+def type_whole_date(frame, group, month, day, year):
+    """Type a date into a Workday date group, section by section."""
+    order = (("month", month), ("day", day), ("year", year))
+    for name, value in order:
+        if not value:
+            return False
+    for name, value in order:
+        box = frame.query_selector("#%s" % group[name]) if group.get(name) else None
+        if box is None:
+            return False
+        try:
+            box.click()
+        except Exception:
+            pass
+        digits = str(value)
+        if name in ("month", "day"):
+            digits = digits.zfill(2)
+        frame.evaluate("id => document.getElementById(id).focus()", group[name])
+        for digit in digits:
+            frame.keyboard.type(digit)
+        frame.wait_for_timeout(120)
+    return True
+
+
 def field_question(frame, element):
     """The question in the block of markup this control belongs to.
 
@@ -1447,6 +1511,31 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                 % which.replace("_", " ")))
             continue
 
+        # A full date is typed as one sequence, or its sections push each
+        # other along and the month lands in the year.
+        group = whole_date_group(frame, element)
+        if group:
+            done_key = "date|%s" % group.get("year", "")
+            if done_key in _UNREADABLE_FILLED:
+                continue
+            asks = formfill.normalise(field_question(frame, element)) or section
+            parts = {name: formfill.value_for(name.capitalize(), profile,
+                                              asks, ident, entry)
+                     for name in ("month", "day", "year")}
+            if all(parts.values()):
+                if _WRITES.get(done_key, 0) >= MAX_WRITES:
+                    continue
+                _WRITES[done_key] = _WRITES.get(done_key, 0) + 1
+                if dry_run or type_whole_date(frame, group, parts["month"],
+                                              parts["day"], parts["year"]):
+                    filled.append((asks[:60] or label,
+                        "%s/%s/%s" % (parts["month"], parts["day"],
+                                      parts["year"])))
+                    _UNREADABLE_FILLED.add(done_key)
+                continue
+            if not any(parts.values()):
+                continue
+
         # Everything below this point can write to the form, so the limits
         # apply from here. They used to sit further down, past the branch that
         # handles Workday's dropdowns -- which is every dropdown on the page,
@@ -1482,7 +1571,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 multiple = bool(element.evaluate("el => el.multiple"))
                 picks = ([stated] if stated else
                          location_lib.answer(options, open_locations, company,
-                                             hq_table, multiple))
+                                             hq_table, multiple,
+                                             question=label))
                 if picks:
                     if not dry_run:
                         if multiple:
@@ -1520,7 +1610,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 stated = formfill.choose_option(label, options, profile,
                                                 section, ident, entry)
                 picks = location_lib.answer(options, open_locations, company,
-                                            hq_table, multiple=False)
+                                            hq_table, multiple=False,
+                                            question=label)
                 choice = stated or (picks[0] if picks else None)
                 reason = "no location Gary can be sure of -- choose it yourself"
             else:
