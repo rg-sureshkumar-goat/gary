@@ -1,11 +1,11 @@
 {
  "broken": {},
- "last_run": "2026-08-27T13:01:20Z",
+ "last_run": "2026-08-28T00:52:20Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 22,
-  "new": 1,
-  "postings": 24577,
+  "matching": 31,
+  "new": 7,
+  "postings": 24960,
   "sites": 82
  },
  "recommended": {},
@@ -16,6 +16,7 @@
   "ashby:riveron:1b0521bf-047a-4406-9e95-a117033c9c69",
   "ashby:sereact:8ebf2a77-6006-416a-beb1-88f9bacd8fe3",
   "greenhouse:appian:8088498",
+  "greenhouse:aqr:8161563",
   "greenhouse:drweng:7992670",
   "greenhouse:drweng:7993004",
   "greenhouse:genscript:5169014007",
@@ -26,6 +27,11 @@
   "greenhouse:silananotechnologies:8157153",
   "greenhouse:verainstituteofjustice:4712591005",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2027/360314",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2028/362041",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Summer-2027/363235",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444",
@@ -176,6 +182,7 @@
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003",
   "workday:mosaic:/job/US---Tampa-FL-Lithia-area/Accounting---Finance-Co-Op-Intern---Summer-2027_64569",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Controllership-Internship_099980",
+  "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Financial-Services-Internship_100076",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Nationwide-Financial-Actuarial-Internship_099735",
   "workday:nationwide:/job/Ohio---Columbus-Metro/XMLNAME-2027-Controllership-Winter-Spring-Co-op_099978",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705",
@@ -1894,7 +1901,7 @@
  "seen": {
   "amazon:10435673": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "amazon:10492198": {
    "f": "2026-08-25",
@@ -1916,6 +1923,10 @@
    "f": "2026-08-25",
    "l": "2026-08-26"
   },
+  "greenhouse:aqr:8161563": {
+   "f": "2026-08-27",
+   "l": "2026-08-28"
+  },
   "greenhouse:drweng:7992670": {
    "f": "2026-07-13",
    "l": "2026-08-26"
@@ -1930,7 +1941,7 @@
   },
   "greenhouse:lincolninternational:8106841": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "greenhouse:lucidmotors:5185317007": {
    "f": "2026-08-25",
@@ -1954,7 +1965,27 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2027/360314": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2028/362041": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Summer-2027/363235": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265": {
    "f": "2026-08-25",
@@ -1962,7 +1993,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268": {
    "f": "2026-08-25",
-   "l": "2026-08-26"
+   "l": "2026-08-28"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444": {
    "f": "2026-08-26",
@@ -1970,7 +2001,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
-   "l": "2026-08-26"
+   "l": "2026-08-28"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/360517": {
    "f": "2026-08-25",
@@ -1978,7 +2009,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270": {
    "f": "2026-08-26",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606": {
    "f": "2026-08-25",
@@ -1998,11 +2029,11 @@
   },
   "oracle:jpmc:210773978": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "oracle:jpmc:210774074": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "smartrecruiters:AristaNetworks:744000128256979": {
    "f": "2026-05-25",
@@ -2066,7 +2097,7 @@
   },
   "smartrecruiters:abbvie:3743990014471696": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "smartrecruiters:abbvie:3743990014562976": {
    "f": "2026-08-25",
@@ -2098,7 +2129,7 @@
   },
   "workday:athene:/job/El-Segundo-California/XMLNAME-2026-Summer-Associate--Treasury---Business-Management_R253683": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466": {
    "f": "2026-08-25",
@@ -2118,7 +2149,7 @@
   },
   "workday:bristolmyerssquibb:/job/Princeton---NJ---US/XMLNAME-2027-Summer-Intern--Finance---Accounting-Leadership-Accelerator_R1605465": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:caci:/job/Oklahoma-City-OK-US/Finance---Accounting-Shared-Service-Center-Intern---Summer-2027_330407": {
    "f": "2026-08-25",
@@ -2162,7 +2193,7 @@
   },
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:cigna:/job/Bloomfield-CT/MBA-Finance-Leadership-Development-Program-Intern_26009131": {
    "f": "2026-08-25",
@@ -2170,15 +2201,15 @@
   },
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:citi:/job/Houston-Texas-United-States/Banking---Commercial-Banking--Summer-Analyst--Houston---US--2027_25926681": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:citi:/job/Houston-Texas-United-States/Banking---Corporate-Banking--Summer-Analyst--Houston---US--2027_25926650": {
    "f": "2026-08-26",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:clr:/job/Oklahoma-City-OK/Accounting---Finance-Intern--Summer-2027-_R02590-1": {
    "f": "2026-08-26",
@@ -2350,7 +2381,7 @@
   },
   "workday:hl:/job/Los-Angeles-CA-USA/Corporate-Development-Intern--Summer-2027-_R3354": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167": {
    "f": "2026-08-25",
@@ -2366,7 +2397,7 @@
   },
   "workday:huron:/job/Chicago---550-Van-Buren/Consulting-Intern---Summer-2027--Chicago--Spring-2028-Graduates-_JR-0016241": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309": {
    "f": "2026-08-25",
@@ -2574,7 +2605,7 @@
   },
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:mosaic:/job/US---Tampa-FL-Lithia-area/Accounting---Finance-Co-Op-Intern---Summer-2027_64569": {
    "f": "2026-08-25",
@@ -2582,15 +2613,19 @@
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Controllership-Internship_099980": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
+  },
+  "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Financial-Services-Internship_100076": {
+   "f": "2026-08-28",
+   "l": "2026-08-28"
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Nationwide-Financial-Actuarial-Internship_099735": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/XMLNAME-2027-Controllership-Winter-Spring-Co-op_099978": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
    "f": "2026-08-25",
@@ -2658,7 +2693,7 @@
   },
   "workday:pnc:/job/CA---San-Francisco-94105/XMLNAME-2027-M-A-Summer-Associate--SF-_R231583": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:pnc:/job/IL---Chicago-60606/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--West-_R230912-1": {
    "f": "2026-08-05",
@@ -2674,7 +2709,7 @@
   },
   "workday:pnc:/job/MA---Boston-02110/XMLNAME-2027-M-A-Summer-Associate--Boston-_R231649": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Asset-Management-Group-Undergraduate-Intern_R230880-1": {
    "f": "2026-08-07",
@@ -2758,7 +2793,7 @@
   },
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574": {
    "f": "2026-08-25",
-   "l": "2026-08-27"
+   "l": "2026-08-28"
   },
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804": {
    "f": "2026-08-25",
