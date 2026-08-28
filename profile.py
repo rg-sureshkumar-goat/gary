@@ -61,6 +61,10 @@ GROUPS = [
         ("start_date", "Available from"),
         ("referral", "How you heard about the role"),
     ]),
+    ("Documents", [
+        ("transcript", "Transcript (PDF path)"),
+        ("writing_sample", "Writing sample (PDF path)"),
+    ]),
     ("How Gary should behave", [
         ("accept_agreements",
          "Tick \"I agree\" and \"I certify\" boxes (Yes/No)"),

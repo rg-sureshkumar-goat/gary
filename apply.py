@@ -1327,8 +1327,16 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             # "Degree M.S" is the question and the answer in one string. Keep
             # only the question, so the field keeps its identity once answered.
             state = button_state(frame, element)
-            if state and state.get("question"):
-                label = formfill.normalise(state["question"])
+            question = formfill.normalise((state or {}).get("question") or "")
+            if question and not STATUS_TEXT.match(question):
+                label = question
+            elif STATUS_TEXT.match(label or ""):
+                # Some dropdowns are called nothing but "Select One" -- the
+                # whole of Workday's application-questions page is like this,
+                # with the question sitting beside the control rather than
+                # attached to it. Taking the placeholder as the question left
+                # every one of them unanswerable.
+                label = formfill.normalise(section_for(frame, element)) or label
         section = formfill.normalise(section_for(frame, element))
         ident = identity_of(frame, element)
         if formfill.is_page_furniture(label, ident):
@@ -1384,10 +1392,20 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             # Greenhouse labels both file inputs "Attach"; the first is the
             # resume and the second the cover letter. Sending the resume twice
             # looks careless to an employer.
-            if "cover" in label.lower():
+            # What the employer asked for. A page may want a transcript or a
+            # writing sample, and sending the resume because it is the file to
+            # hand answers a question nobody asked.
+            asked = "%s %s" % (label.lower(),
+                               formfill.normalise(
+                                   section_for(frame, element)).lower())
+            if "transcript" in asked:
+                which = "transcript"
+            elif "cover" in asked:
                 which = "cover_letter"
-            elif "resume" in label.lower() or "cv" in label.lower():
+            elif "resume" in asked or "cv" in asked or "curriculum" in asked:
                 which = "resume"
+            elif "writing sample" in asked:
+                which = "writing_sample"
             else:
                 which = "resume" if file_slots == 1 else "cover_letter"
             path = os.path.expanduser(str(profile.get(which) or ""))
@@ -1402,6 +1420,10 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 filled.append((label or which, os.path.basename(path)))
             elif path:
                 skipped.append((label or which, "file not found: %s" % path))
+            else:
+                skipped.append((label or which,
+                                "no %s in your profile -- attach it yourself"
+                                % which.replace("_", " ")))
             continue
 
         # Everything below this point can write to the form, so the limits
@@ -1431,9 +1453,15 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             # every open location if several may be chosen, otherwise the US
             # headquarters when the role is open there, otherwise blank.
             if location_lib.is_location_question(label):
+                # What you said about this particular question wins over the
+                # general rule: the rule exists for offices you have not
+                # spoken about, not to overrule the ones you have.
+                stated = formfill.choose_option(label, options, profile,
+                                                section, ident, entry)
                 multiple = bool(element.evaluate("el => el.multiple"))
-                picks = location_lib.answer(options, open_locations, company,
-                                            hq_table, multiple)
+                picks = ([stated] if stated else
+                         location_lib.answer(options, open_locations, company,
+                                             hq_table, multiple))
                 if picks:
                     if not dry_run:
                         if multiple:
@@ -1468,9 +1496,11 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 _mark_answered(field_key)
             options = combobox_options(frame, element)
             if location_lib.is_location_question(label):
+                stated = formfill.choose_option(label, options, profile,
+                                                section, ident, entry)
                 picks = location_lib.answer(options, open_locations, company,
                                             hq_table, multiple=False)
-                choice = picks[0] if picks else None
+                choice = stated or (picks[0] if picks else None)
                 reason = "no location Gary can be sure of -- choose it yourself"
             else:
                 choice = formfill.choose_option(label, options, profile,

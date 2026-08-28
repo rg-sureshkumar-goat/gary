@@ -371,6 +371,23 @@ def custom_answer(label, profile, section="", identity="", entry=0):
             return answers[legacy]
     if plain in answers:
         return answers[plain]
+
+    # A phrase recorded once, matched wherever an employer's wording contains
+    # it. The same question is asked in wildly different words -- "non-compete"
+    # turns up inside a sentence three lines long -- so an answer tied to one
+    # exact sentence is an answer that works at one employer and nowhere else.
+    # The longest phrase wins, so a more specific note beats a general one.
+    best = None
+    haystack = " %s " % plain
+    for stored, value in answers.items():
+        phrase = normalise(str(stored)).lower().rstrip("?").strip()
+        if len(phrase) < 10 or "::" in phrase:
+            continue
+        if (" %s " % phrase) in haystack or phrase in plain:
+            if best is None or len(phrase) > len(best[0]):
+                best = (phrase, value)
+    if best:
+        return best[1]
     return None
 
 
