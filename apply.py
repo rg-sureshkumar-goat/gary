@@ -94,6 +94,9 @@ def load_profile(path):
 
 
 # Text a widget shows about itself rather than the question being asked.
+# Fields whose placement has been wrong often enough to be worth narrating.
+TRACE = re.compile(r"^(month|year|degree|field of study)\b", re.I)
+
 STATUS_TEXT = re.compile(
     r"^\d*\s*items?\s+selected$|^select\s+one$|^select$|^choose$|"
     r"^search$|^required$|^\s*$", re.I)
@@ -358,6 +361,69 @@ def commit_typeahead(frame, element, wanted):
         return None
 
 
+def button_state(frame, element):
+    """A dropdown button's stable question and its current selection.
+
+    Workday puts both into one accessible name: once "Degree" is answered the
+    button reads "Degree M.S". Taken at face value the question changes with
+    the answer, so the field looks new on every pass -- it is re-answered
+    forever, and two entries asking the same thing count as different
+    questions. Splitting the name against the question text recovers both.
+    """
+    try:
+        got = frame.evaluate("""el => {
+            const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+            const full = clean(el.getAttribute('aria-label')) ||
+                         clean(el.innerText);
+            if (!full) return null;
+
+            const names = [];
+            const field = el.closest('[data-automation-id^=formField-]');
+            if (field) {
+                const id = field.getAttribute('data-automation-id')
+                    .replace(/^formField-/, '');
+                names.push(clean(id.replace(/[-_]+/g, ' ')
+                    .replace(/([a-z])([A-Z])/g, '$1 $2')));
+                const lab = field.querySelector('label');
+                if (lab) names.push(clean(lab.innerText));
+            }
+            if (el.id) {
+                const byFor = document.querySelector(
+                    `label[for="${CSS.escape(el.id)}"]`);
+                if (byFor) names.push(clean(byFor.innerText));
+            }
+            let prev = el.previousElementSibling;
+            for (let n = 0; n < 3 && prev; n++) {
+                names.push(clean(prev.innerText));
+                prev = prev.previousElementSibling;
+            }
+
+            // The question is whichever candidate the name actually begins
+            // with; the rest of the name is the answer.
+            let best = '';
+            for (const n of names) {
+                if (!n || n.length > 60) continue;
+                if (full.toLowerCase().startsWith(n.toLowerCase()) &&
+                        n.length > best.length) best = n;
+            }
+            if (!best) return {question: full, value: ''};
+            return {question: best,
+                    value: clean(full.slice(best.length))};
+        }""", element)
+    except Exception:
+        return None
+    if not got:
+        return None
+    value = str(got.get("value") or "")
+    if value.lower() in ("select one", "select", "required", ""):
+        value = ""
+    # "Degree Required" is a validation hint, not an answer.
+    for tail in (" required", " select one"):
+        if value.lower().endswith(tail):
+            value = value[: -len(tail)].strip()
+    return {"question": str(got.get("question") or ""), "value": value}
+
+
 def widget_value(frame, element):
     """What a control currently holds, native or custom."""
     try:
@@ -367,9 +433,13 @@ def widget_value(frame, element):
                 "el => el.selectedOptions.length ? "
                 "el.selectedOptions[0].textContent.trim() : ''")
         if tag == "button":
-            # A Workday dropdown shows its selection as the button's text.
+            # A Workday dropdown shows its selection as the button's text, or
+            # only inside its accessible name.
             text = (element.inner_text() or "").strip()
-            return "" if text.lower() in ("select one", "select", "") else text
+            if text.lower() not in ("select one", "select", ""):
+                return text
+            state = button_state(frame, element)
+            return (state or {}).get("value", "")
 
         value = (element.input_value() or "").strip()
         if value:
@@ -744,6 +814,12 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
 _RECENTLY_FILLED = {}
 _UNREADABLE_FILLED = set()
 _LISTED_PAGES = set()
+_WRITES = {}
+_GAVE_UP = set()
+# Two attempts is enough for any field: one to answer it, one if the page
+# rebuilt the control underneath. Beyond that something is wrong, and
+# rewriting it forever churns the form under the user's hands.
+MAX_WRITES = 2
 
 
 def _too_soon(key, seconds=25):
@@ -857,6 +933,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         if STATUS_TEXT.match(label or ""):
             # The widget described itself; look to its heading instead.
             label = formfill.normalise(section_for(frame, element)) or label
+        if tag == "button":
+            # "Degree M.S" is the question and the answer in one string. Keep
+            # only the question, so the field keeps its identity once answered.
+            state = button_state(frame, element)
+            if state and state.get("question"):
+                label = formfill.normalise(state["question"])
         section = formfill.normalise(section_for(frame, element))
         ident = identity_of(frame, element)
         if formfill.is_page_furniture(label, ident):
@@ -877,6 +959,20 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         seen_counts[counter] = seen_counts.get(counter, 0) + 1
         entry = (seen_counts[counter]
                  if block in ("education", "work history") else 0)
+
+        if TRACE.match(label or ""):
+            try:
+                current = widget_value(frame, element)
+            except Exception:
+                current = "?"
+            print("   trace %-15s sec=%-18s block=%-13s entry=%s "
+                  "holds=%-10s dated=%-8s generic=%s"
+                  % (label[:15], repr(section)[:18], repr(block)[:13], entry,
+                     repr(current)[:10],
+                     repr(formfill.entry_date(label, section, profile,
+                                              block, entry))[:8],
+                     repr(formfill.value_for(label, profile, section,
+                                             ident, entry))[:12]))
 
         # A password field is never filled, whatever it is labelled.
         if kind == "password" or formfill.is_credential(label):
@@ -993,6 +1089,13 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         # answered, trust that rather than re-answering it every pass.
         if field_key in _UNREADABLE_FILLED:
             continue
+        if field_key in _GAVE_UP:
+            continue
+        if _WRITES.get(field_key, 0) >= MAX_WRITES:
+            _GAVE_UP.add(field_key)
+            skipped.append((label, "left alone after %d attempts -- it did "
+                                  "not hold the answer" % MAX_WRITES))
+            continue
         if _too_soon(field_key):
             continue
 
@@ -1003,6 +1106,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             value = formfill.value_for(label, profile, section, ident, entry)
         if value:
             if not dry_run:
+                _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
                 try:
                     element.fill(value)
                     # If a list appeared, the typing was only a search and the
