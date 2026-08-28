@@ -307,6 +307,57 @@ def choose_from_combobox(frame, element, wanted):
         return False
 
 
+def commit_typeahead(frame, element, wanted):
+    """Settle a search box that is really a dropdown.
+
+    Workday's Field of Study and School boxes accept typing, but the text is
+    only a query: unless one of the offered options is clicked, the box empties
+    the moment it loses focus. Typing the answer therefore looks like success
+    and leaves the field blank. Returns the option actually chosen, or "".
+    """
+    try:
+        frame.wait_for_timeout(700)
+        return frame.evaluate("""([el, wanted]) => {
+            const id = el.getAttribute('aria-controls') ||
+                       el.getAttribute('aria-owns');
+            let root = id ? document.getElementById(id) : null;
+            if (!root) {
+                let scope = el;
+                for (let hop = 0; hop < 6 && scope; hop++) {
+                    scope = scope.parentElement;
+                    if (!scope) break;
+                    const near = Array.from(
+                        scope.querySelectorAll('[role=listbox]'))
+                        .filter(b => b.offsetParent !== null);
+                    if (near.length) { root = near[0]; break; }
+                }
+            }
+            if (!root) return null;
+            const options = Array.from(root.querySelectorAll(
+                '[role=option], [class*=option], [id*=option], li'))
+                .filter(o => o.offsetParent !== null &&
+                             (o.innerText || '').trim());
+            if (!options.length) return null;
+            const want = String(wanted).trim().toLowerCase();
+            const text = o => (o.innerText || '').trim();
+            let pick = options.find(o => text(o).toLowerCase() === want);
+            if (!pick) {
+                pick = options.find(o => text(o).toLowerCase().startsWith(want));
+            }
+            if (!pick) {
+                pick = options.find(o => want.startsWith(
+                    text(o).toLowerCase()));
+            }
+            // Anything else on the list is a different answer, not this one.
+            if (!pick) return '';
+            const chosen = text(pick);
+            pick.click();
+            return chosen;
+        }""", [element, wanted])
+    except Exception:
+        return None
+
+
 def widget_value(frame, element):
     """What a control currently holds, native or custom."""
     try:
@@ -792,7 +843,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         except Exception:
             continue
 
-        if kind in ("hidden", "submit", "button", "checkbox", "radio"):
+        if tag == "button":
+            # CONTROL_SELECTOR only admits buttons that carry a popup or a
+            # "Select One" label, so reaching here means a dropdown, whatever
+            # its type attribute says.
+            pass
+        elif kind in ("hidden", "submit", "button", "checkbox", "radio"):
             continue
 
         label = formfill.normalise(label_for(frame, element))
@@ -809,13 +865,18 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         # workExperience6/7 look like two different questions.
         base = formfill.answer_key(section, label,
                                    formfill.base_identity(ident))
-        seen_counts[base] = seen_counts.get(base, 0) + 1
         block = formfill.block_of(section, ident, label)
         if block not in ("education", "work history"):
             # A bare "Month"/"Year" cannot be placed from its own label; ask
             # the entry container what it sits among.
             block = block_of_element(frame, element) or block
-        entry = seen_counts[base] if block in ("education", "work history") else 0
+        # Count within the block, not across the page. "From Year" belongs to
+        # all four entries; counting them together made education 1 the third
+        # sighting and sent it looking for education_3_start.
+        counter = (block, base)
+        seen_counts[counter] = seen_counts.get(counter, 0) + 1
+        entry = (seen_counts[counter]
+                 if block in ("education", "work history") else 0)
 
         # A password field is never filled, whatever it is labelled.
         if kind == "password" or formfill.is_credential(label):
@@ -944,6 +1005,30 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             if not dry_run:
                 try:
                     element.fill(value)
+                    # If a list appeared, the typing was only a search and the
+                    # answer is not recorded until an option is clicked.
+                    chosen = commit_typeahead(frame, element, value)
+                    if chosen:
+                        value = chosen
+                    elif chosen == "":
+                        # A list appeared and did not hold the answer, so try
+                        # what you said to fall back to. None of this applies
+                        # to an ordinary text box, which offers no list.
+                        for spare in formfill.fallbacks_for(
+                                label, profile, section, ident, entry):
+                            element.fill(spare)
+                            chosen = commit_typeahead(frame, element, spare)
+                            if chosen:
+                                value = chosen
+                                break
+                        else:
+                            # Leaving the query text behind would look filled
+                            # and submit blank.
+                            element.fill("")
+                            close_combobox(frame)
+                            skipped.append(
+                                (label, "offered no option matching %r" % value))
+                            continue
                 except Exception:
                     # Not a text box after all -- Workday styles several
                     # dropdowns as plain buttons with no role and no
