@@ -81,9 +81,28 @@ with sync_playwright() as playwright:
     if any(q in answers for q, _ in filled_again):
         failures.append("an already-answered question was answered again")
 
+    # With the candidate's authorisation, agreements are answered -- and
+    # still reported, so they see each one before submitting.
+    page.set_content(PAGE)
+    allowed = dict(PROFILE, accept_agreements="Yes")
+    filled_agreed, skipped_agreed = [], []
+    apply.fill_choices(page, allowed, False, filled_agreed, skipped_agreed)
+    agreed = {q: a for q, a in filled_agreed}
+
+    certification = [q for q in agreed if "certify" in q.lower()]
+    if not certification:
+        failures.append("the certification was not answered when authorised")
+    elif not agreed[certification[0]].lower().startswith("yes"):
+        failures.append("the certification was answered %r, wanted yes"
+                        % agreed[certification[0]])
+    if not page.is_checked("#terms"):
+        failures.append("the terms were not agreed when authorised")
+    if not any("agree to the terms" in q.lower() for q in agreed):
+        failures.append("agreeing to the terms was not reported back")
+
     browser.close()
 
-total = 3 + 3 + 1
+total = 3 + 3 + 1 + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

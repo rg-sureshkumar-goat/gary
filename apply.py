@@ -1022,6 +1022,11 @@ CONSENT = re.compile(
     r"\bconsent\b|\bcertif|\backnowledg|\battest", re.I)
 
 
+# Which answer to a question of agreement means yes.
+AFFIRMATIVE = re.compile(r"^(yes|y|i\s+(agree|certify|consent|acknowledg|"
+                         r"confirm|do)|agree|accept|true)\b", re.I)
+
+
 def radio_groups(frame):
     """The radio questions on the page, as {question: [(label, element)]}.
 
@@ -1068,10 +1073,14 @@ def radio_groups(frame):
 def fill_choices(frame, profile, dry_run, filled, skipped):
     """Answer the radio questions and tick the factual checkboxes.
 
-    Left alone: anything worded as your own assertion -- agreeing to terms,
-    certifying the truth of the form. Those are yours to make, and a tick you
-    did not put there is not consent.
+    Anything worded as your own assertion -- agreeing to terms, certifying
+    the form is true -- is answered only when your profile says to, and is
+    always listed in what was filled so you see it before submitting. You sign
+    in and press submit yourself, so the assertion is still yours at the moment
+    it counts.
     """
+    agree = str(profile.get("accept_agreements") or "").strip().lower() in (
+        "yes", "true", "y", "1", "on")
     for question, members in radio_groups(frame).items():
         options = [answer for answer, _ in members if answer]
         if not options:
@@ -1087,8 +1096,31 @@ def fill_choices(frame, profile, dry_run, filled, skipped):
         if already:
             continue
         if CONSENT.search(question or ""):
-            skipped.append((question, "an assertion of yours -- answer it "
-                                           "yourself"))
+            if not agree:
+                skipped.append((question, "an assertion of yours -- answer it "
+                                          "yourself"))
+                continue
+            affirmative = None
+            for option in options:
+                if AFFIRMATIVE.match(option.strip()):
+                    affirmative = option
+                    break
+            if affirmative is None:
+                skipped.append((question, "cannot tell which answer agrees"))
+                continue
+            for answer, element in members:
+                if answer != affirmative:
+                    continue
+                if not dry_run:
+                    try:
+                        element.check()
+                    except Exception:
+                        try:
+                            element.click()
+                        except Exception:
+                            break
+                filled.append((question, affirmative + "  (your agreement)"))
+                break
             continue
         choice = formfill.choose_option(question, options, profile,
                                         question, "", 0)
@@ -1120,8 +1152,13 @@ def fill_choices(frame, profile, dry_run, filled, skipped):
             if not label or names_lib.is_preferred_toggle(label):
                 continue
             if CONSENT.search(label):
-                skipped.append((label, "an assertion of yours -- tick it "
-                                            "yourself"))
+                if not agree:
+                    skipped.append((label, "an assertion of yours -- tick it "
+                                           "yourself"))
+                    continue
+                if not dry_run:
+                    element.check()
+                filled.append((label, "ticked  (your agreement)"))
                 continue
             wanted = formfill.value_for(label, profile, "", "", 0)
             if wanted is None:
