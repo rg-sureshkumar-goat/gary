@@ -410,6 +410,12 @@ def value_for(label, profile, section="", identity="", entry=0):
     if dated is not None:
         return dated
 
+    # A date belonging to the candidate -- graduation, availability -- comes
+    # from what they told Gary, not from today's calendar.
+    owned = date_part_of(label, section, profile)
+    if owned is not None:
+        return owned
+
     # A signature date is worked out now, never replayed.
     part = date_part_today(label, section)
     if part is not None:
@@ -666,6 +672,54 @@ _DATE_PART = re.compile(r"^(day|month|year|mm|dd|yyyy|yy)$", re.I)
 _SIGNATURE_SECTION = re.compile(
     r"date|sign|today|acknowledg|certif|declaration|submit", re.I)
 
+# Dates that belong to the candidate rather than to the act of signing. The
+# pattern above matches the bare word "date", so "What is the expected date of
+# your graduation?" was read as a signature and filled with today.
+_NOT_TODAY = re.compile(
+    r"graduat|birth|\bdob\b|start\s+date|available|availability|"
+    r"expected|anticipated|complet|expir|issue", re.I)
+
+
+def date_part_of(label, section, profile):
+    """One piece of a date the candidate owns, asked as separate boxes.
+
+    "What is the expected date of your graduation?" is put as Month, Day and
+    Year controls whose own labels say nothing. The question above them is
+    what identifies the date, and the answer comes from the profile rather
+    than from the calendar.
+    """
+    text = normalise(label).strip().rstrip(":").lower()
+    if not _DATE_PART.match(text):
+        return None
+    if not _NOT_TODAY.search(normalise(section)):
+        return None
+    settled = custom_answer(section, profile) or _by_key(section, profile)
+    if not settled:
+        return None
+    month, year = _split_date(str(settled))
+    day = None
+    match = re.search(r"\b(\d{1,2})\b[/-](\d{1,2})\b[/-](\d{2,4})", str(settled))
+    if match:
+        day = match.group(2)
+    if text in ("day", "dd"):
+        return day
+    if text in ("month", "mm"):
+        return month
+    if text in ("year", "yyyy"):
+        return year
+    if text == "yy" and year:
+        return year[-2:]
+    return None
+
+
+def _by_key(question, profile):
+    """The profile value a question maps to, without the yes/no handling."""
+    key = key_for(question)
+    if not key:
+        return None
+    value = profile.get(key)
+    return None if value in (None, "") else str(value)
+
 
 def date_part_today(label, section, today=None):
     """The right piece of today's date for a split date control.
@@ -678,7 +732,8 @@ def date_part_today(label, section, today=None):
     text = normalise(label).strip().rstrip(":").lower()
     if not _DATE_PART.match(text):
         return None
-    if not _SIGNATURE_SECTION.search(normalise(section)):
+    context = "%s %s" % (normalise(section), normalise(label))
+    if not _SIGNATURE_SECTION.search(context) or _NOT_TODAY.search(context):
         return None
     today = today or datetime.date.today()
     if text in ("day", "dd"):

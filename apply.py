@@ -521,6 +521,26 @@ def form_frames(page):
     return [f for f, _ in frames]
 
 
+def field_question(frame, element):
+    """The question in the block of markup this control belongs to.
+
+    Looking upward for a nearby heading finds whatever happens to be above,
+    which on a page of questions is the previous question -- Gary was told a
+    transcript upload was about relatives working at BRG, and sent a resume.
+    The field's own container is unambiguous.
+    """
+    try:
+        return frame.evaluate("""el => {
+            const field = el.closest('[data-automation-id^=formField-]') ||
+                          el.closest('fieldset');
+            if (!field) return '';
+            return (field.innerText || '').replace(/\s+/g, ' ').trim()
+                   .slice(0, 300);
+        }""", element) or ""
+    except Exception:
+        return ""
+
+
 def section_for(frame, element):
     """The heading a field sits under, e.g. "Education" or "My Experience".
 
@@ -541,7 +561,7 @@ def section_for(frame, element):
                     'h1,h2,h3,h4,legend,[role=heading]');
                 for (const head of heads) {
                     const text = (head.innerText || '').replace(/\s+/g,' ').trim();
-                    if (text && !GENERIC.test(text)) return text.slice(0, 60);
+                    if (text && !GENERIC.test(text)) return text.slice(0, 300);
                 }
             }
             return '';
@@ -1397,7 +1417,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             # hand answers a question nobody asked.
             asked = "%s %s" % (label.lower(),
                                formfill.normalise(
-                                   section_for(frame, element)).lower())
+                                   field_question(frame, element)
+                                   or section_for(frame, element)).lower())
             if "transcript" in asked:
                 which = "transcript"
             elif "cover" in asked:

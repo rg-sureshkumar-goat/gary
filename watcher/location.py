@@ -3,9 +3,12 @@
 The rule, in order:
 
   1. If several locations can be chosen, choose every one the role is open in.
-  2. If only one can be chosen, take the company's US headquarters -- but only
-     when the role is actually open there.
-  3. Otherwise leave it blank. A guess here can route an application to an
+  2. If the question asks for a fallback office, take an option that keeps
+     every office open. Naming the first choice again is not an answer.
+  3. If only one can be chosen, take the office the role is posted in, and
+     failing that the company's US headquarters -- but only when the role is
+     actually open there.
+  4. Otherwise leave it blank. A guess here can route an application to an
      office the role was never open in.
 
 Matching is on city, because a dropdown says "Chicago, IL" where a posting says
@@ -134,7 +137,31 @@ def headquarters_for(company, table):
     return best
 
 
-def answer(options, open_locations, company, table, multiple=False):
+# A question asking where else you would go, having already asked where you
+# want to go.
+_SECOND_CHOICE = re.compile(r"secondary|second\s+choice|alternat|"
+                            r"next\s+preference|other\s+office", re.I)
+
+# An option that keeps every office open rather than naming one.
+_ANY_OFFICE = re.compile(r"any\s+location|any\s+office|any\s+of\s+the|"
+                         r"no\s+preference|open\s+to\s+any|flexible", re.I)
+
+
+def second_choice(options):
+    """What to answer when asked for a fallback office.
+
+    Naming the office the role is posted in again is not an answer -- it is
+    the first choice repeated. An option that keeps everywhere open says the
+    true thing; failing that the question is left alone.
+    """
+    for option in options or []:
+        if _ANY_OFFICE.search(str(option)):
+            return option
+    return None
+
+
+def answer(options, open_locations, company, table, multiple=False,
+           question=""):
     """What to select for a location question.
 
     Returns a list: every open location when several may be chosen, a single
@@ -143,6 +170,9 @@ def answer(options, open_locations, company, table, multiple=False):
     """
     if multiple:
         return options_for(options, open_locations)
+    if _SECOND_CHOICE.search(str(question or "")):
+        alternative = second_choice(options)
+        return [alternative] if alternative else []
     single = pick_single(options, open_locations,
                          headquarters_for(company, table))
     return [single] if single else []
