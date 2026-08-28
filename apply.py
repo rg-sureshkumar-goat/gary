@@ -692,12 +692,14 @@ def read_advertised_pay(page, profile):
     return True
 
 
-def note_inference(label, profile, value):
+def note_inference(label, profile, value, reasoned=None):
     """Say when an answer was worked out rather than read off.
 
     The candidate signs for the application, so anything derived has to be
     visible to them before they submit rather than after.
     """
+    if reasoned and label in reasoned:
+        return "%s   (worked out: %s)" % (value, reasoned[label])
     try:
         worked_out, why = infer.answer(label, profile)
     except Exception:
@@ -1467,6 +1469,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
     frame = frames[0]
     seen_counts = {}
     entry_order = {}
+    reasoned = {}
     file_slots = 0
     step = step_of(frames) or page.url.split("?")[0]
 
@@ -1752,6 +1755,11 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 continue
             choice = formfill.choose_option(label, options, profile, section,
                                             ident, entry)
+            if choice is None:
+                choice, working = formfill.reasoned_option(label, options,
+                                                           profile)
+                if choice is not None:
+                    reasoned[label] = working
             if choice:
                 if not dry_run:
                     _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
@@ -1784,9 +1792,16 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 choice = formfill.choose_option(label, options, profile,
                                                 section, ident, entry)
                 reason = "no confident match -- pick it yourself"
+                if choice is None:
+                    # The field names are Gary's and the wording is the
+                    # employer's. Where they disagree, ask the list instead.
+                    choice, working = formfill.reasoned_option(
+                        label, options, profile)
+                    if choice is not None:
+                        reasoned[label] = working
             if choice and not dry_run and choose_from_combobox(frame, element, choice):
                 filled.append((label,
-                               note_inference(label, profile, choice)))
+                               note_inference(label, profile, choice, reasoned)))
                 # If it still reads as empty, remember it as done.
                 try:
                     if not (widget_value(frame, element) or "").strip():
@@ -1795,7 +1810,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     _UNREADABLE_FILLED.add(field_key)
             elif choice and dry_run:
                 filled.append((label,
-                               note_inference(label, profile, choice)))
+                               note_inference(label, profile, choice, reasoned)))
             else:
                 close_combobox(frame)
                 # Say what was on offer. Guessing at an employer's wording is
@@ -1862,7 +1877,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                                     section, ident, entry)
                     if choice and choose_from_combobox(frame, element, choice):
                         filled.append((label,
-                                       note_inference(label, profile, choice)))
+                                       note_inference(label, profile, choice, reasoned)))
                         _UNREADABLE_FILLED.add(field_key)
                     else:
                         close_combobox(frame)
@@ -1881,7 +1896,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         _UNREADABLE_FILLED.add(field_key)
                 except Exception:
                     _UNREADABLE_FILLED.add(field_key)
-            filled.append((label, note_inference(label, profile, value)))
+            filled.append((label, note_inference(label, profile, value, reasoned)))
         elif label:
             skipped.append((label, "not in your profile"))
 

@@ -62,7 +62,45 @@ for question in ("Ethnicity",
         failures.append("%r was answered %r, which is not a group"
                         % (question[:44], got))
 
-total = len(CASES) + 2
+# Gary should not depend on a field being named the way the employer words the
+# question. With the profile as it wrongly was -- "ethnicity" holding the
+# Hispanic answer -- the list itself still settles it: "Asian" is the one thing
+# on file that appears among the groups offered.
+from watcher.formfill import reasoned_option
+
+MISNAMED = {"race": "Asian", "ethnicity": "No", "gender": "Male",
+            "state": "Texas", "sponsorship": "No"}
+
+chosen, why = reasoned_option("Ethnicity", GROUPS, MISNAMED)
+if chosen != "Asian":
+    failures.append("reasoning from the list gave %r, wanted 'Asian'" % chosen)
+elif not why:
+    failures.append("a reasoned answer gave no working")
+
+chosen, _ = reasoned_option("Gender", ["Select One", "Male", "Female"],
+                            MISNAMED)
+if chosen != "Male":
+    failures.append("reasoning from the list gave %r for gender" % chosen)
+
+# Nothing known is on the list: leave it rather than guess.
+chosen, _ = reasoned_option("Preferred office",
+                            ["Boston", "Chicago", "New York"], MISNAMED)
+if chosen is not None:
+    failures.append("guessed %r from a list holding nothing known" % chosen)
+
+# A yes or no fits far too many questions to be evidence of anything.
+chosen, _ = reasoned_option("Some unfamiliar question", ["Yes", "No"],
+                            MISNAMED)
+if chosen is not None:
+    failures.append("treated a yes/no list as evidence: %r" % chosen)
+
+# Several facts on one list is genuine ambiguity, and the candidate's to
+# resolve.
+chosen, _ = reasoned_option("Pick one", ["Asian", "Male"], MISNAMED)
+if chosen is not None:
+    failures.append("chose %r where two known facts both fit" % chosen)
+
+total = len(CASES) + 2 + 5
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -525,6 +525,60 @@ def fallbacks_for(label, profile, section="", identity="", entry=0):  # noqa: C9
     return out
 
 
+# Facts about the candidate that could plausibly be an option on a list. Free
+# text -- an address, a job description -- never is.
+_FACT_FIELDS = (
+    "race", "ethnicity", "gender", "pronouns", "veteran", "disability",
+    "hispanic_or_latino", "degree", "undergrad_degree", "major",
+    "undergrad_major", "university", "undergrad_university", "state",
+    "country", "work_authorization", "sponsorship", "phone_type",
+    "referral", "start_date", "graduation", "undergrad_graduation",
+)
+
+
+def reasoned_option(label, options, profile):
+    """The one thing known about the candidate that fits this list.
+
+    Field names are Gary's, the wording is the employer's, and they do not
+    always agree: an answer stored under "ethnicity" meant Hispanic origin
+    while an employer's "Ethnicity" meant a racial category, so the lookup
+    produced "No" against a list of groups.
+
+    A value matching none of the options is evidence the wrong fact was
+    consulted, not that the question cannot be answered. So the list itself is
+    asked instead: which known fact is on it? Exactly one, or nothing -- where
+    several fit, the question is genuinely ambiguous and belongs to the
+    candidate.
+    """
+    if not options:
+        return None, None
+    lowered = {str(o).strip().lower(): o for o in options if str(o).strip()}
+    if not lowered:
+        return None, None
+
+    hits = {}
+    for field in _FACT_FIELDS:
+        value = profile.get(field)
+        if value in (None, "") or len(str(value)) > 60:
+            continue
+        picked = _match_option(str(value), lowered)
+        if picked is None:
+            continue
+        # A yes or no fits far too many questions to be evidence of anything.
+        if str(picked).strip().lower() in ("yes", "no"):
+            continue
+        hits.setdefault(str(picked), set()).add(field)
+
+    if len(hits) != 1:
+        return None, None
+    chosen, fields = next(iter(hits.items()))
+    for option in options:
+        if str(option) == chosen:
+            return option, ("the only thing you have told Gary that is on "
+                            "this list (%s)" % ", ".join(sorted(fields)))
+    return None, None
+
+
 def choose_option(label, options, profile, section="", identity="", entry=0):
     """Pick the dropdown option matching your saved answer.
 
