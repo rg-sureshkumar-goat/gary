@@ -811,6 +811,52 @@ def open_entry_sections(frame, profile, dry_run=False, log=None):
     return created
 
 
+SNAPSHOT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "snapshots")
+_SNAPPED = set()
+
+
+def snapshot_page(page, frames):
+    """Save each distinct page's real markup once, for offline work.
+
+    Diagnosing a form by asking someone to run it again and describe what they
+    saw is slow and wastes their time. With the actual markup on disk the same
+    faults can be reproduced and fixed against a test, and every remaining page
+    can be prepared without another live pass.
+
+    These files hold whatever has been typed into the form, so they stay on
+    this machine and out of the repository.
+    """
+    try:
+        heading = ""
+        for frame in frames:
+            try:
+                heading = frame.title() or ""
+            except Exception:
+                pass
+            if heading:
+                break
+        name = re.sub(r"[^a-z0-9]+", "-",
+                      ("%s %s" % (page.url.split("?")[0][-60:],
+                                  heading)).lower()).strip("-")[:90]
+        if not name or name in _SNAPPED:
+            return None
+        _SNAPPED.add(name)
+        os.makedirs(SNAPSHOT_DIR, exist_ok=True)
+        path = os.path.join(SNAPSHOT_DIR, name + ".html")
+        parts = ["<!-- %s -->" % page.url]
+        for index, frame in enumerate(frames):
+            try:
+                parts.append("<!-- frame %d: %s -->\n%s"
+                             % (index, frame.url, frame.content()))
+            except Exception as exc:
+                parts.append("<!-- frame %d unreadable: %s -->" % (index, exc))
+        with open(path, "w", encoding="utf-8") as handle:
+            handle.write("\n".join(parts))
+        return path
+    except Exception:
+        return None
+
 _RECENTLY_FILLED = {}
 _UNREADABLE_FILLED = set()
 _LISTED_PAGES = set()
@@ -852,6 +898,10 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
     # no fields on the page to fill.
     # One-time inventory of every control on the page, so a field that is
     # never filled can be told apart from one that is never seen.
+    saved = snapshot_page(page, frames)
+    if saved:
+        print("   page markup saved: %s" % saved)
+
     global _LISTED_PAGES
     try:
         sig = tuple(sorted(formfill.normalise(label_for(frame, el))

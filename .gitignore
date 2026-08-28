@@ -13,3 +13,6 @@ profile.json
 
 # Browser profile holding your signed-in sessions.
 .browser-session/
+
+# Saved page markup from live applications -- contains typed answers.
+snapshots/
