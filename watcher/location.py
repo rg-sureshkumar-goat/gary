@@ -81,9 +81,22 @@ def options_for(options, open_locations):
 def pick_single(options, open_locations, headquarters):
     """The one option to choose when only one is allowed.
 
-    The headquarters is only used when the role is genuinely open there --
+    The office the role is posted in comes first. Keying on the headquarters
+    alone left the question blank at most employers, because a posted role is
+    usually not at headquarters -- Berkeley Research Group offered Boston,
+    Chicago, Los Angeles and New York for a Boston role while being
+    headquartered in Emeryville, so nothing matched.
+
+    The headquarters is still used when the role is genuinely open there --
     otherwise the application would name an office it was never posted for.
     """
+    for posted in (open_locations or []):
+        city = city_of(posted)
+        if not city:
+            continue
+        for option in options or []:
+            if city_of(option) == city:
+                return option
     if not headquarters:
         return None
     hq = city_of(headquarters)

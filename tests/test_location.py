@@ -62,15 +62,24 @@ if options_for(OPTIONS, []) != []:
 # --- only one may be chosen: the US headquarters, if open there -------------- #
 if pick_single(OPTIONS, OPEN, "Chicago") != "Chicago":
     failures.append("did not take the headquarters when the role is open there")
-# Headquarters exists but the role is not open there: leave it blank.
-if pick_single(OPTIONS, ["New York, NY"], "Chicago") is not None:
+# Headquarters exists but the role is not open there: take the office the
+# role is actually posted in, which the candidate asked for after the
+# headquarters rule left Berkeley Research Group's question blank.
+if pick_single(OPTIONS, ["New York, NY"], "Chicago") != "New York":
+    failures.append("did not take the office the role is posted in")
+# The headquarters is never named for a role that is not open there, even
+# when the posted office is missing from the list.
+if pick_single(["Boston", "Chicago"], ["Austin, TX"], "Chicago") is not None:
     failures.append("chose a headquarters the role is not open in")
 # Headquarters is not on the dropdown at all.
 if pick_single(["Boston", "Austin"], OPEN, "Chicago") is not None:
     failures.append("chose an option that is not the headquarters")
-# No headquarters known: blank, never a guess.
-if pick_single(OPTIONS, OPEN, None) is not None:
-    failures.append("guessed an office with no headquarters known")
+# No headquarters known, but the role is posted somewhere on the list.
+if pick_single(OPTIONS, OPEN, None) != "Chicago":
+    failures.append("ignored the posted office when no headquarters is known")
+# Nothing known at all: blank, never a guess.
+if pick_single(OPTIONS, [], None) is not None:
+    failures.append("guessed an office with nothing to go on")
 
 # --- looking up the headquarters --------------------------------------------- #
 for company, expected in [("Lincoln International", "Chicago"),
@@ -89,12 +98,16 @@ if answer(OPTIONS, OPEN, "Lincoln International", HQ, multiple=True) != \
     failures.append("multi-select path wrong")
 if answer(OPTIONS, OPEN, "Lincoln International", HQ, multiple=False) != ["Chicago"]:
     failures.append("single-select path did not take the headquarters")
-if answer(OPTIONS, ["New York, NY"], "Lincoln International", HQ, multiple=False) != []:
-    failures.append("single-select should be blank when HQ is not open")
-if answer(OPTIONS, OPEN, "Unknown Employer", HQ, multiple=False) != []:
-    failures.append("single-select should be blank for an unknown employer")
+if answer(OPTIONS, ["New York, NY"], "Lincoln International", HQ,
+          multiple=False) != ["New York"]:
+    failures.append("single-select should take the office the role is in")
+if answer(OPTIONS, OPEN, "Unknown Employer", HQ, multiple=False) != ["Chicago"]:
+    failures.append("an unknown employer still has a posted office")
+# With nowhere known and no headquarters, it stays the candidate's to answer.
+if answer(OPTIONS, [], "Unknown Employer", HQ, multiple=False) != []:
+    failures.append("guessed an office with nothing to go on")
 
-total = 5 + 3 + 5 + 1 + 3 + 4 + 5 + 4
+total = 8 + 3 + 5 + 1 + 3 + 4 + 5 + 4
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
