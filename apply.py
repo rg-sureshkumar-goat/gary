@@ -647,6 +647,41 @@ def type_whole_date(frame, group, month, day, year):
     return True
 
 
+def read_advertised_pay(page, profile):
+    """Read the pay the posting advertises, expanding the description first.
+
+    Workday collapses a job description behind "Read More", so the page's text
+    holds none of it -- including the compensation line the salary question
+    later needs. The description is also gone by the time that question is
+    asked, several pages further in, so it is read while it is still there.
+    """
+    if profile.get("desired_salary"):
+        return True
+    try:
+        page.evaluate("""() => {
+            for (const b of document.querySelectorAll(
+                    'button,[role=button],a[role=button]')) {
+                const t = ((b.innerText || '') + ' ' +
+                           (b.getAttribute('data-automation-id') || ''))
+                          .toLowerCase();
+                if (/read\s*more|show\s*more|see\s*more|expand/.test(t)) {
+                    b.click();
+                }
+            }
+        }""")
+        page.wait_for_timeout(600)
+        described = page.evaluate("() => document.body.innerText || ''")
+    except Exception:
+        return False
+    wanted, why = pay.desired(described)
+    if not wanted:
+        return False
+    profile["desired_salary"] = wanted
+    profile["desired_salary_reason"] = why
+    print("   advertised pay: asking %s (%s)" % (wanted, why))
+    return True
+
+
 def note_inference(label, profile, value):
     """Say when an answer was worked out rather than read off.
 
@@ -1963,19 +1998,8 @@ def main(argv=None):
         # Read the pay the posting advertises before the description is left
         # behind: the application asks for a salary expectation several pages
         # later, when this page is long gone.
-        try:
-            page.wait_for_timeout(1500)
-            described = page.evaluate("() => document.body.innerText || ''")
-            wanted, why = pay.desired(described)
-            if wanted:
-                profile["desired_salary"] = wanted
-                profile["desired_salary_reason"] = why
-                print("   advertised pay: asking %s (%s)" % (wanted, why))
-            else:
-                print("   advertised pay: none found -- a salary question will "
-                      "be left for you")
-        except Exception:
-            pass
+        page.wait_for_timeout(1500)
+        read_advertised_pay(page, profile)
 
         open_locations = location_lib.split_locations(args.locations or "")
 
@@ -2006,6 +2030,10 @@ def main(argv=None):
                     if paused:
                         paused = False
                         print("\nResumed.")
+                    # The description may still be rendering, or collapsed.
+                    # Keep trying while the posting is on screen; once the
+                    # application begins it is gone for good.
+                    read_advertised_pay(current, profile)
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
                         # No ceiling on looking. A pass that fills nothing
