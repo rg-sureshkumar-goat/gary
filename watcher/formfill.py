@@ -257,6 +257,13 @@ def _entry_is_prior(profile, entry):
     for key, value in answers.items():
         if key.startswith(prefix) and "degree" in key:
             return bool(_UNDERGRAD_DEGREE.search(str(value)))
+    # No recorded answer under that wording: ask what this entry's degree
+    # resolves to. Without this the second entry keeps the master's chain, so
+    # an employer whose list does not say "Bachelors" outright falls back to
+    # M.S -- the entry ends up claiming the wrong degree entirely.
+    settled = value_for("Degree", profile, "", "", entry)
+    if settled:
+        return bool(_UNDERGRAD_DEGREE.search(str(settled)))
     return False
 
 
@@ -447,22 +454,35 @@ def fallbacks_for(label, profile, section="", identity="", entry=0):  # noqa: C9
     """
     table = profile.get("fallbacks") or {}
     out = []
-    # By the exact question, for employer-specific wording.
-    for candidate in (answer_key(section, label, identity, entry),
-                      normalise(label).lower().rstrip("?").strip()):
-        for value in table.get(candidate) or []:
-            if value not in out:
-                out.append(value)
-    # By the canonical field the question maps to.
+
+    # Which canonical field this question maps to, and whether this entry
+    # holds an earlier degree and so has a chain of its own.
     key = key_for(label)
     if key:
         key = prior_degree_key(label, key)
-        # An entry holding the earlier degree uses that degree's chain.
         if entry and key in _PRIOR_KEYS and _entry_is_prior(profile, entry):
             key = "undergrad_" + key
-        for value in table.get(key) or []:
+
+    def add(values):
+        for value in values or []:
             if value not in out:
                 out.append(value)
+
+    # The entry's own chain comes first, so a bachelor's entry never reaches
+    # for the master's alternatives.
+    if key:
+        add(table.get(key))
+
+    # Then by the exact question, for employer-specific wording. A chain named
+    # after the general field -- "degree" -- belongs to the later degree, and
+    # offering it to the earlier one is how an entry comes to claim an M.S.
+    superseded = (key[len("undergrad_"):]
+                  if key and key.startswith("undergrad_") else "")
+    for candidate in (answer_key(section, label, identity, entry),
+                      normalise(label).lower().rstrip("?").strip()):
+        if superseded and candidate == superseded:
+            continue
+        add(table.get(candidate))
     return out
 
 

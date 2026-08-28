@@ -936,27 +936,60 @@ _GAVE_UP = set()
 MAX_WRITES = 2
 
 
-# Two passes over one arrangement of a page: the first presses Add and fills
-# what is there, the second fills what appearing entries brought with them.
-PASSES_PER_SHAPE = 2
+# Three passes over one arrangement of a page: the first presses Add and fills
+# what is there, and the rest catch fields that Workday rebuilt underneath --
+# answering one date detaches the others, so they cannot all be reached at
+# once. Repetition is bounded by the per-field ceiling, not by this.
+PASSES_PER_SHAPE = 3
 
 
-def page_shape(page, frames):
+def step_of(frames):
+    """Which step of the application this is.
+
+    Workday keeps one address for the whole application, so the URL cannot
+    tell My Information from My Experience. The step's own name can.
+    """
+    for frame in frames:
+        try:
+            got = frame.evaluate(
+                "() => { const n = document.querySelector("
+                "'[data-automation-id^=applyFlow][data-automation-id$=Page]');"
+                " const h = Array.from(document.querySelectorAll('h1,h2,h3'))"
+                ".map(x => (x.innerText||'').trim()).filter(Boolean);"
+                " return ((n && n.getAttribute('data-automation-id')) || '')"
+                " + '/' + (h[h.length - 1] || ''); }")
+        except Exception:
+            continue
+        if got and got.strip("/"):
+            return got.strip()
+    return ""
+
+
+def page_shape(frames):
     """What the page is offering right now.
 
     Two readings that match mean nothing has changed -- no new entry, no new
-    step -- and there is nothing further to fill. Identities are used rather
-    than labels because a Workday dropdown's label absorbs its own answer, so
-    labels shift as the form is completed and every page would look new.
+    step -- and there is nothing further to fill.
+
+    An open dropdown is not a change to the page. Counting its options as
+    controls made answering one question look like a new arrangement, which
+    earned another pass, which answered it again: the form was rewritten under
+    the user's hands for as long as it stayed open.
     """
     marks = []
     for frame in frames:
-        for element in controls(frame):
-            try:
-                marks.append(identity_of(frame, element) or "?")
-            except Exception:
-                marks.append("?")
-    return (page.url.split("?")[0], tuple(sorted(marks)))
+        try:
+            marks.extend(frame.evaluate("""(selector) =>
+                Array.from(document.querySelectorAll(selector))
+                    .filter(el => !el.closest('[role=listbox]') &&
+                                  el.getAttribute('role') !== 'option')
+                    .map(el => (el.getAttribute('data-automation-id') ||
+                                el.getAttribute('name') ||
+                                el.getAttribute('id') || '?'))""",
+                CONTROL_SELECTOR))
+        except Exception:
+            marks.append("?")
+    return (step_of(frames), tuple(sorted(str(m) for m in marks)))
 
 
 def _too_soon(key, seconds=25):
@@ -985,6 +1018,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
     seen_counts = {}
     entry_order = {}
     file_slots = 0
+    step = step_of(frames) or page.url.split("?")[0]
 
     # Workday's repeated sections start empty. Press Add first, or there are
     # no fields on the page to fill.
@@ -1237,7 +1271,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         # Key on the field's own identity where it has one. A dropdown's
         # label changes as it is answered, and a key built from that is a new
         # key each pass -- which quietly resets every limit below.
-        field_key = "%s|%s|%s" % (page.url, ident or label, entry)
+        field_key = "%s|%s|%s" % (step, ident or label, entry)
         # Some controls never report their value back. Once one has been
         # answered, trust that rather than re-answering it every pass.
         if field_key in _UNREADABLE_FILLED:
@@ -1318,6 +1352,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         elif label:
             skipped.append((label, "not in your profile"))
 
+    if filled:
+        snapshot_page(page, frames)
     return filled, skipped, credentials
 
 
@@ -1473,7 +1509,7 @@ def main(argv=None):
                         # mistake in matching a field then turns into the
                         # thing being rewritten under the user's hands, which
                         # is far worse than the field being left alone.
-                        shape = page_shape(current, frames)
+                        shape = page_shape(frames)
                         done = passes.get(shape, 0)
                         if done >= PASSES_PER_SHAPE:
                             current.wait_for_timeout(1500)
