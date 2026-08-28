@@ -47,7 +47,8 @@ def frames_in(path):
     return out
 
 
-def replay(path, playwright, show_controls=False, profile_path="profile.json"):
+def replay(path, playwright, show_controls=False, profile_path="profile.json",
+           write=False):
     profile = apply.load_profile(profile_path)
     browser = playwright.chromium.launch(headless=True)
     page = browser.new_page()
@@ -71,8 +72,10 @@ def replay(path, playwright, show_controls=False, profile_path="profile.json"):
                         except Exception as exc:
                             print("   unreadable: %s" % exc)
                 continue
-            # dry_run so the saved page is only read, never typed into.
-            filled, skipped, _ = apply.fill(page, profile, dry_run=True)
+            # A dry run skips every line that writes, so it cannot show a
+            # fault in the writing itself. The page is a local copy: filling
+            # it for real reaches no employer.
+            filled, skipped, _ = apply.fill(page, profile, dry_run=not write)
             for label, value in filled:
                 print("   would fill  %-30s %s" % (label[:30], value))
             for label, why in skipped:
@@ -91,12 +94,18 @@ def main(argv=None):
     parser.add_argument("snapshot")
     parser.add_argument("--controls", action="store_true",
                         help="list every control instead of filling")
+    parser.add_argument("--write", action="store_true",
+                        help="actually fill the saved page, rather than only "
+                             "working out what would be filled. A dry run "
+                             "skips every line that writes, which is where "
+                             "the faults have been.")
     parser.add_argument("--profile", default="profile.json")
     args = parser.parse_args(argv)
 
     from playwright.sync_api import sync_playwright
     with sync_playwright() as playwright:
-        replay(args.snapshot, playwright, args.controls, args.profile)
+        replay(args.snapshot, playwright, args.controls, args.profile,
+               args.write)
     return 0
 
 

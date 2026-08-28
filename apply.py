@@ -578,9 +578,14 @@ def type_whole_date(frame, group, month, day, year):
         digits = str(value)
         if name in ("month", "day"):
             digits = digits.zfill(2)
-        frame.evaluate("id => document.getElementById(id).focus()", group[name])
-        for digit in digits:
-            frame.keyboard.type(digit)
+        # Typing goes through the control itself. A frame has no keyboard --
+        # that lives on the page -- and reaching for one threw, which aborted
+        # the whole pass and left every other field on the page untouched.
+        try:
+            box.type(digits, delay=60)
+        except Exception:
+            for digit in digits:
+                box.press(digit)
         frame.wait_for_timeout(120)
     return True
 
@@ -1000,6 +1005,9 @@ def snapshot_page(page, frames):
                       ("%s %s %s" % (page.url.split("?")[0][-40:],
                                      step, heading)).lower()).strip("-")[:90]
         if not name:
+            return None
+        # Nothing to learn from a blank page or a copy already on disk.
+        if page.url.startswith(("about:", "file://", "data:")):
             return None
         # Capture a page more than once. The first sight of it is the empty
         # form, and what a control looks like *after* it has been answered is
@@ -1891,9 +1899,22 @@ def main(argv=None):
                             or "target page" in text):
                         break
                     mishaps += 1
-                    if mishaps == 1 or mishaps % 20 == 0:
-                        print("   (page busy: %s -- still watching)"
-                              % type(exc).__name__)
+                    # A page mid-navigation is expected. A fault in Gary is
+                    # not, and calling it "page busy" hid a crash that stopped
+                    # a whole page from being filled -- it must be legible.
+                    transient = any(word in text for word in (
+                        "execution context", "navigat", "detach",
+                        "not attached", "no node found", "timeout"))
+                    if transient:
+                        if mishaps == 1 or mishaps % 20 == 0:
+                            print("   (page busy: %s -- still watching)"
+                                  % type(exc).__name__)
+                    else:
+                        import traceback
+                        print("\n   Gary hit a fault and skipped this pass:")
+                        print("   %s: %s" % (type(exc).__name__, exc))
+                        print("   " + traceback.format_exc().strip().replace(
+                            "\n", "\n   ")[:1500])
                     if mishaps > 200:
                         print("   too many errors in a row; stopping")
                         break
