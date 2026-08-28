@@ -61,6 +61,16 @@ GROUPS = [
         ("start_date", "Available from"),
         ("referral", "How you heard about the role"),
     ]),
+    ("Entry dates (month/year)", [
+        ("work_1_start", "Work 1 start"),
+        ("work_1_end", "Work 1 end"),
+        ("work_2_start", "Work 2 start"),
+        ("work_2_end", "Work 2 end"),
+        ("education_1_start", "Education 1 start"),
+        ("education_1_end", "Education 1 end"),
+        ("education_2_start", "Education 2 start"),
+        ("education_2_end", "Education 2 end"),
+    ]),
     ("Documents", [
         ("resume", "Resume"),
         ("cover_letter", "Cover letter"),

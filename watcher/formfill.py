@@ -379,6 +379,13 @@ def value_for(label, profile, section="", identity="", entry=0):
     saved = custom_answer(label, profile, section, identity, entry)
     if saved not in (None, ""):
         return str(expand_tokens(saved))
+    # A dated entry's own month/year, kept per entry because the boxes are
+    # labelled only "Month" and "Year".
+    dated = entry_date(label, section, profile,
+                       block_of(section, identity, label), entry)
+    if dated is not None:
+        return dated
+
     # A signature date is worked out now, never replayed.
     part = date_part_today(label, section)
     if part is not None:
@@ -646,3 +653,66 @@ def date_part_today(label, section, today=None):
     if text == "yy":
         return today.strftime("%y")
     return None
+
+
+# Dates on a repeated entry are asked as bare "Month" and "Year" boxes under a
+# "From" or "To" heading. Nothing in the label says which job or which degree
+# they belong to, so a recording cannot tell them apart -- which is how work
+# dates ended up in the education entries. They are stored explicitly instead.
+_FROM = re.compile(r"\bfrom\b|\bstart\b|\bbegan\b", re.I)
+_TO = re.compile(r"\bto\b|\bend\b|\bthrough\b|actual\s+or\s+expected|"
+                 r"expected\s+graduation|completion", re.I)
+_MONTH = re.compile(r"^month$|^mm$", re.I)
+_YEAR = re.compile(r"^year$|^yyyy$", re.I)
+
+_BLOCK_KEY = {"work history": "work", "education": "education"}
+
+
+def _split_date(value):
+    """"09/2024" or "May 2027" -> (month, year) as strings."""
+    text = " ".join(str(value or "").split())
+    if not text:
+        return None, None
+    m = re.match(r"^(\d{1,2})\s*[/-]\s*(\d{4})$", text)
+    if m:
+        return str(int(m.group(1))), m.group(2)
+    m = re.match(r"^([A-Za-z]+)\s+(\d{4})$", text)
+    if m:
+        months = {n.lower(): i for i, n in enumerate(
+            ["January", "February", "March", "April", "May", "June", "July",
+             "August", "September", "October", "November", "December"], 1)}
+        name = m.group(1).lower()[:3]
+        for full, num in months.items():
+            if full.startswith(name):
+                return str(num), m.group(2)
+        return None, m.group(2)
+    m = re.match(r"^(\d{4})$", text)
+    if m:
+        return None, m.group(1)
+    return None, None
+
+
+def entry_date(label, section, profile, block, entry):
+    """The month or year for a dated entry, or None if this isn't one."""
+    text = normalise(label).strip().rstrip(":")
+    wants_month = bool(_MONTH.match(text))
+    wants_year = bool(_YEAR.match(text))
+    if not (wants_month or wants_year):
+        return None
+    key_block = _BLOCK_KEY.get(block)
+    if not key_block or not entry:
+        return None
+
+    context = "%s %s" % (normalise(section), text)
+    if _TO.search(context):
+        which = "end"
+    elif _FROM.search(context):
+        which = "start"
+    else:
+        return None
+
+    stored = profile.get("%s_%d_%s" % (key_block, entry, which))
+    if stored in (None, ""):
+        return None
+    month, year = _split_date(stored)
+    return month if wants_month else year

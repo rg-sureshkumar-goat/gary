@@ -563,6 +563,38 @@ BLOCK_FIELDS = {
 }
 
 
+def block_of_element(frame, element):
+    """Which repeated section a control belongs to, judged by its neighbours.
+
+    A "Month" box under a "From" heading says nothing about whether it dates a
+    job or a degree. Its entry container does: the same box sits alongside
+    either Company and Job Title, or School and Degree.
+    """
+    try:
+        text = frame.evaluate("""el => {
+            let node = el;
+            for (let hop = 0; hop < 8 && node; hop++) {
+                node = node.parentElement;
+                if (!node) break;
+                const fields = node.querySelectorAll(
+                    'input,select,textarea,button[aria-label]');
+                if (fields.length >= 3) {
+                    return Array.from(fields).map(f =>
+                        (f.getAttribute('aria-label') || '') + ' ' +
+                        (f.getAttribute('data-automation-id') || '')
+                    ).join(' | ').slice(0, 600);
+                }
+            }
+            return '';
+        }""", element)
+    except Exception:
+        return ""
+    for block, pattern in BLOCK_FIELDS.items():
+        if pattern.search(text or ""):
+            return block
+    return ""
+
+
 def entries_present(frame, block):
     """How many entries of a block are already on the page.
 
@@ -779,6 +811,10 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                    formfill.base_identity(ident))
         seen_counts[base] = seen_counts.get(base, 0) + 1
         block = formfill.block_of(section, ident, label)
+        if block not in ("education", "work history"):
+            # A bare "Month"/"Year" cannot be placed from its own label; ask
+            # the entry container what it sits among.
+            block = block_of_element(frame, element) or block
         entry = seen_counts[base] if block in ("education", "work history") else 0
 
         # A password field is never filled, whatever it is labelled.
@@ -900,6 +936,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         value = names_lib.name_for(label, profile, all_labels, section, ident)
+        if value is None:
+            value = formfill.entry_date(label, section, profile, block, entry)
         if value is None:
             value = formfill.value_for(label, profile, section, ident, entry)
         if value:
