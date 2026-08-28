@@ -320,9 +320,31 @@ def commit_typeahead(frame, element, wanted):
     the moment it loses focus. Typing the answer therefore looks like success
     and leaves the field blank. Returns the option actually chosen, or "".
     """
+    global _LAST_OFFERED
+    seen = []
+    _LAST_OFFERED = seen
     try:
         frame.wait_for_timeout(700)
-        return frame.evaluate("""([el, wanted]) => {
+        first = _commit_once(frame, element, wanted, seen)
+        if first:
+            return first
+        # A list still arriving is indistinguishable from no list at all, and
+        # that is exactly when waiting helps -- returning early here meant the
+        # retry could never fire for the case it was written for.
+        frame.wait_for_timeout(900)
+        second = _commit_once(frame, element, wanted, seen)
+        if second:
+            return second
+        # "" only if a list was genuinely seen and held nothing matching.
+        return "" if "" in (first, second) else None
+    except Exception:
+        return None
+
+
+def _commit_once(frame, element, wanted, seen):
+    """One attempt at committing, recording what was on offer."""
+    try:
+        result = frame.evaluate("""([el, wanted]) => {
             // Is this a search box at all? Asked first, because the searches
             // below reach several levels up and will happily find a list
             // belonging to another question. An ordinary text field handed
@@ -389,13 +411,19 @@ def commit_typeahead(frame, element, wanted):
                                          want.includes(text(o).toLowerCase()));
             }
             // Anything else on the list is a different answer, not this one.
-            if (!pick) return '';
+            if (!pick) return {offered: options.map(text).slice(0, 40)};
             const chosen = text(pick);
             pick.click();
             return chosen;
         }""", [element, wanted])
     except Exception:
         return None
+    if isinstance(result, dict):
+        for option in result.get("offered") or []:
+            if option not in seen:
+                seen.append(option)
+        return ""
+    return result
 
 
 def button_state(frame, element):
@@ -1061,6 +1089,9 @@ def snapshot_page(page, frames):
         return path
     except Exception:
         return None
+
+# What a search box last put on offer, for saying so when nothing matched.
+_LAST_OFFERED = []
 
 _RECENTLY_FILLED = {}
 _UNREADABLE_FILLED = set()
@@ -1746,8 +1777,15 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                             # and submit blank.
                             element.fill("")
                             close_combobox(frame)
-                            skipped.append(
-                                (label, "offered no option matching %r" % value))
+                            why = "offered no option matching %r" % value
+                            if _LAST_OFFERED:
+                                why += " | offered: " + ", ".join(
+                                    str(o)[:28] for o in _LAST_OFFERED[:10])
+                                if len(_LAST_OFFERED) > 10:
+                                    why += ", ... (%d)" % len(_LAST_OFFERED)
+                            else:
+                                why += " | the list held nothing readable"
+                            skipped.append((label, why))
                             continue
                 except Exception:
                     # Not a text box after all -- Workday styles several

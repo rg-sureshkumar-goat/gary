@@ -118,9 +118,52 @@ with sync_playwright() as playwright:
     if apply.commit_typeahead(page, box, "Associate Producer") is not None:
         failures.append("a plain text box was treated as a search box")
 
+    # A list that arrives after a delay. Workday fetches its options, so the
+    # list is not there the moment typing stops -- and a list still arriving
+    # is indistinguishable from no list at all. Returning early on that made
+    # the retry useless for the one case it was written for.
+    def arriving(options, delay):
+        opts = "".join('<div role="option">%s</div>' % o for o in options)
+        return ("""
+          <div data-automation-id="formField-fieldOfStudy">
+            <div data-automation-id="multiSelectContainer"
+                 data-uxi-widget-type="multiselect">
+              <div data-automation-id="multiselectInputContainer">
+                <input id="late" type="text">
+              </div>
+            </div>
+          </div>
+          <div id="host" style="position:absolute"></div>
+          <script>
+            document.getElementById('late').addEventListener('input', () => {
+              setTimeout(() => {
+                document.getElementById('host').innerHTML =
+                  '<div data-automation-id="activeListContainer">%s</div>';
+              }, %d);
+            });
+          </script>
+        """ % (opts, delay))
+
+    page.set_content(arriving(["Finance", "Accounting"], 1100))
+    box = page.query_selector("#late")
+    box.fill("Finance")
+    if apply.commit_typeahead(page, box, "Finance") != "Finance":
+        failures.append("a list arriving late was treated as no list")
+
+    # When the answer really is absent, say what was on offer -- guessing at
+    # an employer's wording has cost more time here than anything else.
+    page.set_content(arriving(["Accounting", "Economics"], 100))
+    box = page.query_selector("#late")
+    box.fill("Arts and Entertainment Technologies")
+    if apply.commit_typeahead(page, box,
+                              "Arts and Entertainment Technologies") != "":
+        failures.append("a missing answer was not reported as missing")
+    if "Accounting" not in (apply._LAST_OFFERED or []):
+        failures.append("what the list offered was not recorded")
+
     browser.close()
 
-total = 7
+total = 7 + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
