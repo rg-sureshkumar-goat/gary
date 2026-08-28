@@ -331,6 +331,18 @@ def commit_typeahead(frame, element, wanted):
                     if (near.length) { root = near[0]; break; }
                 }
             }
+            // Workday's multiselect -- Field of Study among them -- renders
+            // its list at the far end of the document rather than beside the
+            // box, so no search upwards from the input can reach it. Looking
+            // page-wide is only safe because of the test below: an option is
+            // clicked only when it matches what was just typed, and a list
+            // left open by another question holds nothing of the sort.
+            if (!root) {
+                const open = Array.from(document.querySelectorAll(
+                    '[data-automation-id=activeListContainer], [role=listbox]'))
+                    .filter(b => b.offsetParent !== null);
+                root = open.length ? open[open.length - 1] : null;
+            }
             if (!root) return null;
             const options = Array.from(root.querySelectorAll(
                 '[role=option], [class*=option], [id*=option], li'))
@@ -346,6 +358,12 @@ def commit_typeahead(frame, element, wanted):
             if (!pick) {
                 pick = options.find(o => want.startsWith(
                     text(o).toLowerCase()));
+            }
+            if (!pick) {
+                // A near miss on wording -- "Finance" against "Finance,
+                // General" -- but never a list about something else.
+                pick = options.find(o => text(o).toLowerCase().includes(want) ||
+                                         want.includes(text(o).toLowerCase()));
             }
             // Anything else on the list is a different answer, not this one.
             if (!pick) return '';
@@ -1491,6 +1509,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
                 _mark_answered(field_key)
                 try:
+                    close_combobox(frame)
                     element.fill(value)
                     # If a list appeared, the typing was only a search and the
                     # answer is not recorded until an option is clicked.
