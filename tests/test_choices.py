@@ -100,9 +100,42 @@ with sync_playwright() as playwright:
     if not any("agree to the terms" in q.lower() for q in agreed):
         failures.append("agreeing to the terms was not reported back")
 
+    # A question answered by ticking one of several boxes. Asking each box
+    # whether it should be ticked gets no answer -- "Asian" says nothing about
+    # a box labelled "White" -- and race and ethnicity went unanswered.
+    page.set_content("""
+      <div data-automation-id="formField-ethnicity">
+        <div>What race or ethnicity do you most closely identify with?</div>
+        <label><input type="checkbox" id="r0"> Asian (United States of America)</label>
+        <label><input type="checkbox" id="r1"> White (United States of America)</label>
+        <label><input type="checkbox" id="r2"> I do not wish to answer. (United States of America)</label>
+      </div>
+      <div data-automation-id="formField-tools">
+        <div>Which software and tools are you proficient with?</div>
+        <label><input type="checkbox" id="t0"> Microsoft Excel (advanced)</label>
+        <label><input type="checkbox" id="t1"> Microsoft Word</label>
+        <label><input type="checkbox" id="t2"> Bloomberg Terminal</label>
+      </div>
+    """)
+    grouped = dict(PROFILE, race="Asian",
+                   custom_answers={"race or ethnicity": "Asian",
+                                   "microsoft excel": "Yes",
+                                   "microsoft word": "Yes"})
+    apply.fill_choices(page, grouped, False, [], [])
+
+    if not page.is_checked("#r0"):
+        failures.append("the race question was left unanswered")
+    if page.is_checked("#r1") or page.is_checked("#r2"):
+        failures.append("more than one race was ticked")
+    # A "select all that apply" list still takes every answer it has.
+    if not (page.is_checked("#t0") and page.is_checked("#t1")):
+        failures.append("a select-all-that-apply list lost its answers")
+    if page.is_checked("#t2"):
+        failures.append("a tool the candidate did not name was ticked")
+
     browser.close()
 
-total = 3 + 3 + 1 + 3
+total = 3 + 3 + 1 + 3 + 4
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

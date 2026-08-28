@@ -92,3 +92,26 @@ if failures:
         print("   " + f)
     sys.exit(1)
 print("All %d checks passed." % total)
+
+# --- a date already entered is never typed over --------------------------- #
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch(headless=True)
+    context = browser.new_context()
+    context.set_default_timeout(4000)
+    page = context.new_page()
+    page.set_content(
+        '<div data-automation-id="formField-grad">'
+        '<label>What is the expected date of your graduation?</label>' +
+        FULL + '</div>')
+    profile = {"graduation": "05/31/2028"}
+    apply.fill(page, profile, dry_run=False)
+    apply.fill(page, profile, dry_run=False)
+    after = (page.input_value("#m"), page.input_value("#d"),
+             page.input_value("#y"))
+    if after != ("05", "31", "2028"):
+        print("FAILED: typing twice gave %r; typing appends, so a date "
+              "already entered must be left alone" % (after,))
+        browser.close()
+        sys.exit(1)
+    browser.close()
+print("All 5 checks passed.")

@@ -1254,6 +1254,59 @@ def fill_choices(frame, profile, dry_run, filled, skipped):
             filled.append((question, choice))
             break
 
+    # A question answered by ticking one of several boxes. Asking each box
+    # whether it should be ticked gets no answer, because the answer belongs
+    # to the question -- "Asian" says nothing about a box labelled "White".
+    # This is how race and ethnicity are asked, and nothing was ever ticked.
+    groups = {}
+    for element in frame.query_selector_all("input[type=checkbox]"):
+        try:
+            if not element.is_visible() or not element.is_enabled():
+                continue
+            box = frame.evaluate("""el => {
+                const f = el.closest('[data-automation-id^=formField-]') ||
+                          el.closest('fieldset');
+                return f ? (f.getAttribute('data-automation-id') ||
+                            f.getAttribute('id') || 'group') : '';
+            }""", element)
+        except Exception:
+            continue
+        if box:
+            groups.setdefault(box, []).append(element)
+
+    for members in groups.values():
+        if len(members) < 2:
+            continue
+        try:
+            if any(m.is_checked() for m in members):
+                continue
+        except Exception:
+            continue
+        labels = [formfill.normalise(label_for(frame, m)) for m in members]
+        # Any option carrying its own recorded answer is handled below, one
+        # box at a time -- that is how a "select all that apply" list works.
+        if any(formfill.value_for(text, profile, "", "", 0) for text in labels):
+            continue
+        question = formfill.normalise(field_question(frame, members[0]))
+        for text in labels:
+            question = question.replace(text, " ")
+        question = " ".join(question.split())
+        if not question:
+            continue
+        choice = formfill.choose_option(question, labels, profile,
+                                        question, "", 0)
+        if choice is None:
+            skipped.append((question[:60], "no confident match among: " +
+                            ", ".join(o[:24] for o in labels[:4])))
+            continue
+        for text, member in zip(labels, members):
+            if text != choice:
+                continue
+            if not dry_run:
+                member.check()
+            filled.append((question[:60], choice))
+            break
+
     for element in frame.query_selector_all("input[type=checkbox]"):
         try:
             if not element.is_visible() or not element.is_enabled():
@@ -1501,6 +1554,17 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             done_key = "date|%s" % group.get("year", "")
             if done_key in _UNREADABLE_FILLED:
                 continue
+            # Typing appends. A date already entered -- by an earlier pass, an
+            # earlier session, or by hand -- becomes "20282028" if typed over.
+            try:
+                if frame.evaluate("""ids => ids.some(id => {
+                        const el = id && document.getElementById(id);
+                        return el && (el.value || '').trim() !== '';
+                    })""", [group.get(n) for n in ("month", "day", "year")]):
+                    _UNREADABLE_FILLED.add(done_key)
+                    continue
+            except Exception:
+                pass
             asks = formfill.normalise(field_question(frame, element)) or section
             parts = {name: formfill.value_for(name.capitalize(), profile,
                                               asks, ident, entry)

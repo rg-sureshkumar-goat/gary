@@ -550,6 +550,12 @@ def _match_option(wanted, lowered):
         undotted = re.sub(r"(?<=[a-z])\.(?=[a-z])", "", text).replace(".", "").strip()
         if undotted and undotted not in lowered:
             lowered[undotted] = original
+        # Workday's self-identification lists append the country to every
+        # option -- "Asian (United States of America)" -- which no stated
+        # answer will ever contain.
+        unqualified = re.sub(r"\s*\([^)]*\)\s*$", "", text).strip().rstrip(".")
+        if unqualified and unqualified not in lowered:
+            lowered[unqualified] = original
 
     if target in lowered:
         return lowered[target]
