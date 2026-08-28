@@ -992,6 +992,33 @@ def page_shape(frames):
     return (step_of(frames), tuple(sorted(str(m) for m in marks)))
 
 
+def mark_of(frame, element):
+    """A token that stays with this control for as long as it exists.
+
+    Every attempt to build a key out of what a field looks like has come apart
+    in the same way: a Workday dropdown's label absorbs its own answer, its
+    address changes within a step, its identity is sometimes absent. A key
+    that shifts is a new field every pass, and every limit meant to stop
+    repeated writing quietly resets.
+
+    Marking the element itself cannot drift. If Workday rebuilds the control
+    the mark goes with it, which is the one case where filling it again is the
+    right thing to do.
+    """
+    try:
+        return frame.evaluate("""el => {
+            let mark = el.getAttribute('data-gary-mark');
+            if (!mark) {
+                window.__garyMark = (window.__garyMark || 0) + 1;
+                mark = 'g' + window.__garyMark;
+                el.setAttribute('data-gary-mark', mark);
+            }
+            return mark;
+        }""", element) or ""
+    except Exception:
+        return ""
+
+
 def _too_soon(key, seconds=25):
     """Was this field answered a moment ago?
 
@@ -1273,7 +1300,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
         label = formfill.normalise(label_for(frame, element))
         _ident_early = identity_of(frame, element)
-        field_key = "%s|%s|%s" % (page.url, label, _ident_early)
+        field_key = mark_of(frame, element) or "%s|%s|%s" % (
+            page.url, label, _ident_early)
         if STATUS_TEXT.match(label or ""):
             # The widget described itself; look to its heading instead.
             label = formfill.normalise(section_for(frame, element)) or label
@@ -1358,6 +1386,25 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 skipped.append((label or which, "file not found: %s" % path))
             continue
 
+        # Everything below this point can write to the form, so the limits
+        # apply from here. They used to sit further down, past the branch that
+        # handles Workday's dropdowns -- which is every dropdown on the page,
+        # so nothing that mattered was ever bounded by them.
+        try:
+            if (widget_value(frame, element) or "").strip():
+                continue
+        except Exception:
+            pass
+        if field_key in _UNREADABLE_FILLED or field_key in _GAVE_UP:
+            continue
+        if _WRITES.get(field_key, 0) >= MAX_WRITES:
+            _GAVE_UP.add(field_key)
+            skipped.append((label, "left alone after %d attempts -- it did "
+                                   "not hold the answer" % MAX_WRITES))
+            continue
+        if _too_soon(field_key):
+            continue
+
         if tag == "select":
             options = element.evaluate(
                 "el => Array.from(el.options).map(o => o.textContent.trim())")
@@ -1384,6 +1431,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                             ident, entry)
             if choice:
                 if not dry_run:
+                    _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
+                    _mark_answered(field_key)
                     element.select_option(label=choice)
                 filled.append((label, choice))
             else:
@@ -1396,6 +1445,9 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     or element.get_attribute("aria-haspopup") in ("true", "listbox")
                     or (tag == "button" and "select one" in aria_label))
         if is_combo and tag != "select":
+            if not dry_run:
+                _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
+                _mark_answered(field_key)
             options = combobox_options(frame, element)
             if location_lib.is_location_question(label):
                 picks = location_lib.answer(options, open_locations, company,
@@ -1429,31 +1481,6 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         # Names follow their own rule, decided by the whole form.
-        # On a second pass over the same page -- Workday reveals State only
-        # once Country is set -- fill the blanks and leave everything else.
-        try:
-            if (widget_value(frame, element) or "").strip():
-                continue
-        except Exception:
-            pass
-        # Key on the field's own identity where it has one. A dropdown's
-        # label changes as it is answered, and a key built from that is a new
-        # key each pass -- which quietly resets every limit below.
-        field_key = "%s|%s|%s" % (step, ident or label, entry)
-        # Some controls never report their value back. Once one has been
-        # answered, trust that rather than re-answering it every pass.
-        if field_key in _UNREADABLE_FILLED:
-            continue
-        if field_key in _GAVE_UP:
-            continue
-        if _WRITES.get(field_key, 0) >= MAX_WRITES:
-            _GAVE_UP.add(field_key)
-            skipped.append((label, "left alone after %d attempts -- it did "
-                                  "not hold the answer" % MAX_WRITES))
-            continue
-        if _too_soon(field_key):
-            continue
-
         value = names_lib.name_for(label, profile, all_labels, section, ident)
         if value is None:
             value = formfill.entry_date(label, section, profile, block, entry)
