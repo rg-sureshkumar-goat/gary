@@ -222,12 +222,20 @@ def combobox_options(frame, element):
         # query returns whichever list happens to be in the DOM -- on this
         # form the country list came back for the office question.
         options = frame.evaluate("""el => {
+            // Workday sets aria-controls only once the control is expanded,
+            // so it has to be read after the click, not before. Without this
+            // the fallback picks whichever list happens to be open and
+            // returns another field's options.
             const id = el.getAttribute('aria-controls') ||
-                       el.getAttribute('aria-owns');
+                       el.getAttribute('aria-owns') ||
+                       (el.getAttribute('aria-expanded') === 'true' &&
+                        el.nextElementSibling &&
+                        el.nextElementSibling.id) || null;
             let root = id ? document.getElementById(id) : null;
             if (!root) {
                 // Prefer a listbox near this control; a page-wide search finds
-                // whichever dropdown was opened last.
+                // whichever dropdown was opened last. Only descend from an
+                // ancestor that actually contains this control.
                 let scope = el;
                 for (let hop = 0; hop < 6 && scope; hop++) {
                     scope = scope.parentElement;
@@ -251,7 +259,12 @@ def combobox_options(frame, element):
                 .filter(t => t && !seen.has(t) && seen.add(t))
                 .slice(0, 400);
         }""", element)
-        return [o for o in options if o]
+        options = [o for o in options if o]
+        if len(options) == 1:
+            # A one-item list is almost always another control's current
+            # selection caught by the fallback, not a real set of choices.
+            return []
+        return options
     except Exception:
         return []
 
