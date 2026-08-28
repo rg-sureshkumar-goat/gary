@@ -878,11 +878,28 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             if not dry_run:
                 try:
                     element.fill(value)
-                except Exception as exc:
-                    # A button-style dropdown cannot be typed into. Say so
-                    # rather than letting it abort the whole pass silently.
-                    skipped.append((label, "could not type into this control "
-                                           "(%s)" % type(exc).__name__))
+                except Exception:
+                    # Not a text box after all -- Workday styles several
+                    # dropdowns as plain buttons with no role and no
+                    # aria-haspopup, so they only reveal themselves by
+                    # refusing to be typed into. Treat it as a dropdown.
+                    options = combobox_options(frame, element)
+                    choice = formfill.choose_option(label, options, profile,
+                                                    section, ident, entry)
+                    if choice and choose_from_combobox(frame, element, choice):
+                        filled.append((label, choice))
+                        _UNREADABLE_FILLED.add(field_key)
+                    else:
+                        close_combobox(frame)
+                        why = "not a text field; "
+                        if options:
+                            why += "offered: " + ", ".join(
+                                str(o)[:24] for o in options[:6])
+                            if len(options) > 6:
+                                why += ", ... (%d)" % len(options)
+                        else:
+                            why += "no options readable"
+                        skipped.append((label, why))
                     continue
                 try:
                     if not (widget_value(frame, element) or "").strip():
