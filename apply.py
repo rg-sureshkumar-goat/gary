@@ -670,10 +670,20 @@ def read_advertised_pay(page, profile):
             }
         }""")
         page.wait_for_timeout(600)
-        described = page.evaluate("() => document.body.innerText || ''")
+        # innerText omits whatever is hidden, and a collapsed description is
+        # hidden -- which is exactly where the compensation line was. The
+        # underlying text is read too, and whichever names a rate is used.
+        described = page.evaluate("""() => [
+            document.body.innerText || '',
+            document.body.textContent || ''
+        ]""")
     except Exception:
         return False
-    wanted, why = pay.desired(described)
+    wanted, why = None, None
+    for text in described or []:
+        wanted, why = pay.desired(text)
+        if wanted:
+            break
     if not wanted:
         return False
     profile["desired_salary"] = wanted

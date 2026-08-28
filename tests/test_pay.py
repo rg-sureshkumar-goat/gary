@@ -49,7 +49,35 @@ for text in SILENT:
         failures.append("invented %r from a posting with no pay: %r"
                         % (got, text[:50]))
 
-total = len(CASES) + len(SILENT)
+# A description Workday has collapsed. innerText omits what is hidden, and
+# the compensation line was inside it, so the page appeared to advertise
+# nothing at all.
+import apply
+from playwright.sync_api import sync_playwright
+
+COLLAPSED = """
+  <h1>Undergrad Finance and Accounting Internship</h1>
+  <div style="display:none">
+    Annual or Hourly Compensation Range: 22 - 24 Many factors are considered.
+  </div>
+"""
+
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch(headless=True)
+    context = browser.new_context()
+    context.set_default_timeout(4000)
+    page = context.new_page()
+    page.set_content(COLLAPSED)
+    if "Compensation Range" in page.evaluate("() => document.body.innerText"):
+        failures.append("the fixture is not actually collapsed")
+    holder = {}
+    apply.read_advertised_pay(page, holder)
+    if holder.get("desired_salary") != "$49,920":
+        failures.append("a collapsed description gave %r, wanted '$49,920'"
+                        % holder.get("desired_salary"))
+    browser.close()
+
+total = len(CASES) + len(SILENT) + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
