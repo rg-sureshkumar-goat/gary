@@ -248,12 +248,10 @@ def combobox_options(frame, element):
                     if (near.length) { root = near[0]; break; }
                 }
             }
-            if (!root) {
-                const boxes = Array.from(
-                    document.querySelectorAll('[role=listbox]'))
-                    .filter(b => b.offsetParent !== null);
-                root = boxes.length ? boxes[boxes.length - 1] : null;
-            }
+            // No page-wide fallback. A listbox that this control does not
+            // own belongs to another question -- that is how the Country
+            // button came to be offered a list of dialling codes -- and
+            // picking from the wrong list is worse than picking nothing.
             if (!root) return [];
             const seen = new Set();
             return Array.from(root.querySelectorAll(
@@ -289,12 +287,10 @@ def choose_from_combobox(frame, element, wanted):
                     if (near.length) { root = near[0]; break; }
                 }
             }
-            if (!root) {
-                const boxes = Array.from(
-                    document.querySelectorAll('[role=listbox]'))
-                    .filter(b => b.offsetParent !== null);
-                root = boxes.length ? boxes[boxes.length - 1] : null;
-            }
+            // No page-wide fallback. A listbox that this control does not
+            // own belongs to another question -- that is how the Country
+            // button came to be offered a list of dialling codes -- and
+            // picking from the wrong list is worse than picking nothing.
             if (!root) return false;
             for (const o of root.querySelectorAll(
                     '[role=option], [class*=option], [id*=option], li')) {
@@ -694,35 +690,62 @@ BLOCK_FIELDS = {
 
 
 def block_of_element(frame, element):
-    """Which repeated section a control belongs to, judged by its neighbours.
+    """Which entry a control belongs to: ("education", <container key>), or None.
 
     A "Month" box under a "From" heading says nothing about whether it dates a
-    job or a degree. Its entry container does: the same box sits alongside
-    either Company and Job Title, or School and Degree.
+    job or a degree, and its own label says less. Workday, though, names the
+    container each repeated entry lives in -- workExperience-2, education-1 --
+    so the answer is overhead, in markup, rather than inferred from
+    neighbouring text. Those names carry a running sequence number rather than
+    an ordinal -- education-28 is not the twenty-eighth degree -- so the
+    container is returned as an opaque key and numbered by the order it
+    appears in.
     """
     try:
-        text = frame.evaluate("""el => {
+        got = frame.evaluate("""el => {
+            // The entry is the block of markup holding what identifies it: a
+            // job has a title and an employer, a degree a school. Date boxes
+            // sit in containers of their own that are named alike, so the
+            // nearest name that matches is a field, not an entry.
+            const WORK = '[data-automation-id*=jobTitle],' +
+                         '[data-automation-id*=company]';
+            const STUDY = '[data-automation-id*=school],' +
+                          '[data-automation-id*=degree],' +
+                          '[data-automation-id*=fieldOfStudy]';
             let node = el;
-            for (let hop = 0; hop < 8 && node; hop++) {
+            for (let hop = 0; hop < 12 && node; hop++) {
                 node = node.parentElement;
-                if (!node) break;
-                const fields = node.querySelectorAll(
-                    'input,select,textarea,button[aria-label]');
-                if (fields.length >= 3) {
-                    return Array.from(fields).map(f =>
-                        (f.getAttribute('aria-label') || '') + ' ' +
-                        (f.getAttribute('data-automation-id') || '')
-                    ).join(' | ').slice(0, 600);
+                if (!node || !node.querySelectorAll) break;
+                const work = node.querySelectorAll(WORK).length;
+                const study = node.querySelectorAll(STUDY).length;
+                // One such field means a container for that field alone. An
+                // entry holds several: a job has a title and an employer, a
+                // degree a school, a degree and a field of study.
+                if (work < 2 && study < 2) continue;
+                // Holding both kinds makes it the section, not an entry.
+                if (work >= 2 && study >= 2) return null;
+
+                // Two entries share one data-automation-id, so the position
+                // in the document is what tells them apart.
+                const path = [];
+                for (let n = node; n && n.parentElement; n = n.parentElement) {
+                    path.push(Array.prototype.indexOf.call(
+                        n.parentElement.children, n));
                 }
+                return {block: work >= 2 ? 'work' : 'education',
+                        key: (node.getAttribute('data-automation-id') || '') +
+                             ':' + path.join('-')};
             }
-            return '';
+            return null;
         }""", element)
     except Exception:
-        return ""
-    for block, pattern in BLOCK_FIELDS.items():
-        if pattern.search(text or ""):
-            return block
-    return ""
+        return None
+    if not got:
+        return None
+    word = str(got.get("block") or "").replace("_", " ").replace("-", " ")
+    block = ("work history" if "work" in word or "experience" in word
+             else "education")
+    return block, str(got.get("key") or "")
 
 
 def entries_present(frame, block):
@@ -854,9 +877,26 @@ def snapshot_page(page, frames):
                 pass
             if heading:
                 break
+        # Workday keeps one address for the whole application, so naming by
+        # URL gave every page the same name and only the first was ever kept.
+        # The step's own heading is what distinguishes them.
+        step = ""
+        for frame in frames:
+            try:
+                step = frame.evaluate(
+                    "() => { const n = document.querySelector("
+                    "'[data-automation-id^=applyFlow][data-automation-id$=Page]');"
+                    " const h = Array.from(document.querySelectorAll('h1,h2,h3'))"
+                    ".map(x => (x.innerText||'').trim()).filter(Boolean);"
+                    " return ((n && n.getAttribute('data-automation-id')) || '')"
+                    " + ' ' + (h[h.length - 1] || ''); }") or ""
+            except Exception:
+                step = ""
+            if step.strip():
+                break
         name = re.sub(r"[^a-z0-9]+", "-",
-                      ("%s %s" % (page.url.split("?")[0][-60:],
-                                  heading)).lower()).strip("-")[:90]
+                      ("%s %s %s" % (page.url.split("?")[0][-40:],
+                                     step, heading)).lower()).strip("-")[:90]
         if not name:
             return None
         # Capture a page more than once. The first sight of it is the empty
@@ -896,6 +936,29 @@ _GAVE_UP = set()
 MAX_WRITES = 2
 
 
+# Two passes over one arrangement of a page: the first presses Add and fills
+# what is there, the second fills what appearing entries brought with them.
+PASSES_PER_SHAPE = 2
+
+
+def page_shape(page, frames):
+    """What the page is offering right now.
+
+    Two readings that match mean nothing has changed -- no new entry, no new
+    step -- and there is nothing further to fill. Identities are used rather
+    than labels because a Workday dropdown's label absorbs its own answer, so
+    labels shift as the form is completed and every page would look new.
+    """
+    marks = []
+    for frame in frames:
+        for element in controls(frame):
+            try:
+                marks.append(identity_of(frame, element) or "?")
+            except Exception:
+                marks.append("?")
+    return (page.url.split("?")[0], tuple(sorted(marks)))
+
+
 def _too_soon(key, seconds=25):
     """Was this field answered a moment ago?
 
@@ -920,6 +983,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
     frame = frames[0]
     seen_counts = {}
+    entry_order = {}
     file_slots = 0
 
     # Workday's repeated sections start empty. Press Add first, or there are
@@ -1026,17 +1090,25 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         base = formfill.answer_key(section, label,
                                    formfill.base_identity(ident))
         block = formfill.block_of(section, ident, label)
+        # A bare "Month" or "Year" cannot be placed from its own label, and
+        # block_of falls back to returning the section -- "from", "to" -- which
+        # is not a block at all. The container Workday puts the entry in knows
+        # both which block it is and which entry.
+        placed = block_of_element(frame, element)
+        if placed:
+            block, container = placed
+            order = entry_order.setdefault(block, [])
+            if container not in order:
+                order.append(container)
+            entry = order.index(container) + 1
+        elif block in ("education", "work history"):
+            counter = (block, base)
+            seen_counts[counter] = seen_counts.get(counter, 0) + 1
+            entry = seen_counts[counter]
+        else:
+            entry = 0
         if block not in ("education", "work history"):
-            # A bare "Month"/"Year" cannot be placed from its own label; ask
-            # the entry container what it sits among.
-            block = block_of_element(frame, element) or block
-        # Count within the block, not across the page. "From Year" belongs to
-        # all four entries; counting them together made education 1 the third
-        # sighting and sent it looking for education_3_start.
-        counter = (block, base)
-        seen_counts[counter] = seen_counts.get(counter, 0) + 1
-        entry = (seen_counts[counter]
-                 if block in ("education", "work history") else 0)
+            block = formfill.block_of(section, ident, label)
 
         if TRACE.match(label or ""):
             try:
@@ -1376,6 +1448,7 @@ def main(argv=None):
             print("window, create the file %s" % PAUSE_FILE)
             print("and delete it to resume.\n")
             reported_buttons = set()
+            passes = {}
             mishaps = 0
             paused = False
             while True:
@@ -1395,6 +1468,17 @@ def main(argv=None):
                         print("\nResumed.")
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
+                        # Only work when the page has actually changed. A form
+                        # is filled once, not scrubbed over and over: any
+                        # mistake in matching a field then turns into the
+                        # thing being rewritten under the user's hands, which
+                        # is far worse than the field being left alone.
+                        shape = page_shape(current, frames)
+                        done = passes.get(shape, 0)
+                        if done >= PASSES_PER_SHAPE:
+                            current.wait_for_timeout(1500)
+                            continue
+                        passes[shape] = done + 1
                         f, sk, cr = fill(current, profile, args.dry_run,
                                          open_locations, args.company,
                                          hq_table)
