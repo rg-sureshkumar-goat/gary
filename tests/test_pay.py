@@ -77,7 +77,33 @@ with sync_playwright() as playwright:
                         % holder.get("desired_salary"))
     browser.close()
 
-total = len(CASES) + len(SILENT) + 2
+# Workday restores a part-finished application, so opening the job's address
+# can land straight in the form with the description never shown. The posting
+# is then read in a tab of its own, and that tab is closed again.
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch(headless=True)
+    context = browser.new_context()
+    context.set_default_timeout(4000)
+    with open("/tmp/gary-posting-fixture.html", "w") as handle:
+        handle.write("<h1>Internship</h1><div style='display:none'>Annual or "
+                     "Hourly Compensation Range: 22 - 24 Many factors.</div>")
+    here = context.new_page()
+    here.set_content("<h1>My Information</h1><input id='x'>")
+    holder = {}
+    if apply.read_advertised_pay(here, holder):
+        failures.append("found pay on a page that advertises none")
+    before = len(context.pages)
+    apply.pay_from_posting(context, "file:///tmp/gary-posting-fixture.html",
+                           holder)
+    if holder.get("desired_salary") != "$49,920":
+        failures.append("reading the posting separately gave %r"
+                        % holder.get("desired_salary"))
+    if len(context.pages) != before:
+        failures.append("the tab opened to read the posting was left behind")
+    browser.close()
+os.remove("/tmp/gary-posting-fixture.html")
+
+total = len(CASES) + len(SILENT) + 2 + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

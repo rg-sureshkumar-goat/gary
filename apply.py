@@ -647,6 +647,32 @@ def type_whole_date(frame, group, month, day, year):
     return True
 
 
+def pay_from_posting(ctx, url, profile):
+    """Read the advertised pay from the posting in a tab of its own.
+
+    Workday restores a part-finished application, so opening the job's address
+    can land straight in the form with the description never shown -- and the
+    salary question, several pages in, then has nothing to work from. A
+    separate tab reads the posting without disturbing the window being filled.
+    """
+    if profile.get("desired_salary") or not url:
+        return False
+    aside = None
+    try:
+        aside = ctx.new_page()
+        aside.goto(url, wait_until="domcontentloaded", timeout=30000)
+        aside.wait_for_timeout(2000)
+        return read_advertised_pay(aside, profile)
+    except Exception:
+        return False
+    finally:
+        if aside is not None:
+            try:
+                aside.close()
+            except Exception:
+                pass
+
+
 def read_advertised_pay(page, profile):
     """Read the pay the posting advertises, expanding the description first.
 
@@ -2024,7 +2050,9 @@ def main(argv=None):
         # behind: the application asks for a salary expectation several pages
         # later, when this page is long gone.
         page.wait_for_timeout(1500)
-        read_advertised_pay(page, profile)
+        if not read_advertised_pay(page, profile):
+            # Landed in a restored application rather than on the posting.
+            pay_from_posting(ctx, args.url, profile)
 
         open_locations = location_lib.split_locations(args.locations or "")
 
@@ -2058,7 +2086,8 @@ def main(argv=None):
                     # The description may still be rendering, or collapsed.
                     # Keep trying while the posting is on screen; once the
                     # application begins it is gone for good.
-                    read_advertised_pay(current, profile)
+                    if not read_advertised_pay(current, profile):
+                        pay_from_posting(ctx, args.url, profile)
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
                         # No ceiling on looking. A pass that fills nothing
