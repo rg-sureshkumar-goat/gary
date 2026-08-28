@@ -50,6 +50,11 @@ def open_browser(playwright, headless, session_dir):
             ctx = playwright.chromium.launch_persistent_context(
                 session_dir, headless=headless, args=LAUNCH_ARGS, user_agent=UA,
                 locale="en-US", viewport={"width": 1400, "height": 1000})
+            # No single action may block the pass. Workday hides controls
+            # behind display elements that never become actionable, and the
+            # default wait is thirty seconds each -- one such field stalled a
+            # whole page for minutes and looked like Gary had died.
+            ctx.set_default_timeout(4000)
             return None, ctx
         except Exception as exc:
             # A browser from an earlier run can outlive its Python process and
@@ -67,6 +72,7 @@ def open_browser(playwright, headless, session_dir):
     browser = playwright.chromium.launch(headless=headless, args=LAUNCH_ARGS)
     ctx = browser.new_context(user_agent=UA, locale="en-US",
                               viewport={"width": 1400, "height": 1000})
+    ctx.set_default_timeout(4000)
     return browser, ctx
 
 
@@ -565,28 +571,32 @@ def type_whole_date(frame, group, month, day, year):
     """Type a date into a Workday date group, section by section."""
     order = (("month", month), ("day", day), ("year", year))
     for name, value in order:
-        if not value:
+        if not value or not group.get(name):
             return False
+
+    # These inputs carry tabindex="-1" and sit behind a display element, so
+    # they never become "actionable": clicking or typing through the usual
+    # path waits its full timeout on every one and the pass stalls for
+    # minutes. Focus is set directly and the keys are sent to the page, which
+    # is what typing into a focused field actually means.
     for name, value in order:
-        box = frame.query_selector("#%s" % group[name]) if group.get(name) else None
-        if box is None:
-            return False
-        try:
-            box.click()
-        except Exception:
-            pass
         digits = str(value)
         if name in ("month", "day"):
             digits = digits.zfill(2)
-        # Typing goes through the control itself. A frame has no keyboard --
-        # that lives on the page -- and reaching for one threw, which aborted
-        # the whole pass and left every other field on the page untouched.
-        try:
-            box.type(digits, delay=60)
-        except Exception:
-            for digit in digits:
-                box.press(digit)
-        frame.wait_for_timeout(120)
+        focused = frame.evaluate("""id => {
+            const el = document.getElementById(id);
+            if (!el) return false;
+            el.focus();
+            return document.activeElement === el;
+        }""", group[name])
+        if not focused:
+            return False
+        # A Frame reaches its keyboard through the page; a Page has one.
+        keyboard = getattr(frame, "keyboard", None)
+        if keyboard is None:
+            keyboard = frame.page.keyboard
+        keyboard.type(digits, delay=40)
+        frame.wait_for_timeout(100)
     return True
 
 
