@@ -997,14 +997,143 @@ def _too_soon(key, seconds=25):
 
     Some controls cannot be read back reliably, and without this they are
     re-answered on every pass -- which reopens dropdowns under the user.
+
+    Only an answer counts. Stamping a field merely for being looked at meant
+    that anything unreachable on the first pass -- a date box Workday had just
+    rebuilt -- was then barred for the next twenty-five seconds, while the
+    passes meant to catch it ran a second and a half apart. The retries could
+    never do anything.
     """
     import time
-    now = time.time()
     last = _RECENTLY_FILLED.get(key, 0)
-    if now - last < seconds:
-        return True
-    _RECENTLY_FILLED[key] = now
-    return False
+    return (time.time() - last) < seconds
+
+
+def _mark_answered(key):
+    """Record that a field has just been answered."""
+    import time
+    _RECENTLY_FILLED[key] = time.time()
+
+
+# Wording that makes a tick an assertion by you rather than a fact about you.
+CONSENT = re.compile(
+    r"\bi\s+(agree|consent|certify|acknowledg|authoriz|confirm|declare)|"
+    r"terms\s+(and|&)\s+conditions|privacy\s+(policy|notice)|"
+    r"\bconsent\b|\bcertif|\backnowledg|\battest", re.I)
+
+
+def radio_groups(frame):
+    """The radio questions on the page, as {question: [(label, element)]}.
+
+    A radio is not a field with a value, it is one option among several, so it
+    cannot be answered on its own -- the question lives above the group and
+    the answer is which member to click.
+    """
+    groups = {}
+    for element in frame.query_selector_all("input[type=radio]"):
+        try:
+            if not element.is_visible() or not element.is_enabled():
+                continue
+            name = (element.get_attribute("name") or
+                    element.get_attribute("data-automation-id") or "")
+            question = frame.evaluate("""el => {
+                const clean = s => (s || '').replace(/\s+/g, ' ').trim();
+                const set = el.closest('fieldset');
+                if (set) {
+                    const legend = set.querySelector('legend');
+                    if (legend) return clean(legend.innerText);
+                }
+                const group = el.closest('[role=radiogroup], [role=group]');
+                if (group) {
+                    const by = group.getAttribute('aria-labelledby');
+                    if (by) {
+                        const node = document.getElementById(by);
+                        if (node) return clean(node.innerText);
+                    }
+                    const aria = group.getAttribute('aria-label');
+                    if (aria) return clean(aria);
+                }
+                return '';
+            }""", element)
+            question = formfill.normalise(question or "")
+            if not question:
+                question = formfill.normalise(section_for(frame, element))
+            answer = formfill.normalise(label_for(frame, element))
+            groups.setdefault(question or name, []).append((answer, element))
+        except Exception:
+            continue
+    return groups
+
+
+def fill_choices(frame, profile, dry_run, filled, skipped):
+    """Answer the radio questions and tick the factual checkboxes.
+
+    Left alone: anything worded as your own assertion -- agreeing to terms,
+    certifying the truth of the form. Those are yours to make, and a tick you
+    did not put there is not consent.
+    """
+    for question, members in radio_groups(frame).items():
+        options = [answer for answer, _ in members if answer]
+        if not options:
+            continue
+        already = False
+        for _, element in members:
+            try:
+                if element.is_checked():
+                    already = True
+                    break
+            except Exception:
+                pass
+        if already:
+            continue
+        if CONSENT.search(question or ""):
+            skipped.append((question, "an assertion of yours -- answer it "
+                                           "yourself"))
+            continue
+        choice = formfill.choose_option(question, options, profile,
+                                        question, "", 0)
+        if choice is None:
+            skipped.append((question, "no confident match among: " +
+                            ", ".join(o[:20] for o in options[:5])))
+            continue
+        for answer, element in members:
+            if answer != choice:
+                continue
+            if not dry_run:
+                try:
+                    element.check()
+                except Exception:
+                    try:
+                        element.click()
+                    except Exception:
+                        break
+            filled.append((question, choice))
+            break
+
+    for element in frame.query_selector_all("input[type=checkbox]"):
+        try:
+            if not element.is_visible() or not element.is_enabled():
+                continue
+            if element.is_checked():
+                continue
+            label = formfill.normalise(label_for(frame, element))
+            if not label or names_lib.is_preferred_toggle(label):
+                continue
+            if CONSENT.search(label):
+                skipped.append((label, "an assertion of yours -- tick it "
+                                            "yourself"))
+                continue
+            wanted = formfill.value_for(label, profile, "", "", 0)
+            if wanted is None:
+                continue
+            if str(wanted).strip().lower() not in ("yes", "true", "y", "on",
+                                                   "checked", "1"):
+                continue
+            if not dry_run:
+                element.check()
+            filled.append((label, "ticked"))
+        except Exception:
+            continue
 
 
 def fill(page, profile, dry_run=False, open_locations=None, company="",
@@ -1039,6 +1168,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 print("      %r" % (lab[:70] or "(no label)"))
     except Exception:
         pass
+
+    fill_choices(frame, profile, dry_run, filled, skipped)
 
     opened = open_entry_sections(frame, profile, dry_run, log=print)
     for block, what in opened:
@@ -1294,6 +1425,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         if value:
             if not dry_run:
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
+                _mark_answered(field_key)
                 try:
                     element.fill(value)
                     # If a list appeared, the typing was only a search and the
