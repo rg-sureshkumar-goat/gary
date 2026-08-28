@@ -323,12 +323,29 @@ def commit_typeahead(frame, element, wanted):
     try:
         frame.wait_for_timeout(700)
         return frame.evaluate("""([el, wanted]) => {
+            // Is this a search box at all? Asked first, because the searches
+            // below reach several levels up and will happily find a list
+            // belonging to another question. An ordinary text field handed
+            // such a list decided its answer was not on offer and cleared
+            // what it had just typed -- that emptied name and address.
+            const searchable =
+                el.getAttribute('role') === 'combobox' ||
+                el.getAttribute('aria-haspopup') ||
+                el.getAttribute('aria-autocomplete') ||
+                el.getAttribute('aria-controls') ||
+                el.getAttribute('aria-owns') ||
+                el.closest('[data-uxi-widget-type=multiselect],' +
+                           '[data-automation-id=multiSelectContainer],' +
+                           '[data-automation-id*=multiselect],' +
+                           '[data-automation-id*=promptSearch]');
+            if (!searchable) return null;
+
             const id = el.getAttribute('aria-controls') ||
                        el.getAttribute('aria-owns');
             let root = id ? document.getElementById(id) : null;
             if (!root) {
                 let scope = el;
-                for (let hop = 0; hop < 6 && scope; hop++) {
+                for (let hop = 0; hop < 3 && scope; hop++) {
                     scope = scope.parentElement;
                     if (!scope) break;
                     const near = Array.from(

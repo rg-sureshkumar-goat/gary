@@ -20,7 +20,11 @@ import apply
 PAGE = """
 <div data-automation-id="formField-fieldOfStudy">
   <label for="fos">Field of Study</label>
-  <input id="fos" type="text">
+  <div data-automation-id="multiSelectContainer" data-uxi-widget-type="multiselect">
+    <div data-automation-id="multiselectInputContainer">
+      <input id="fos" type="text">
+    </div>
+  </div>
 </div>
 <div style="position:absolute">
   <div data-automation-id="activeListContainer">
@@ -36,7 +40,11 @@ PAGE = """
 STALE = """
 <div data-automation-id="formField-fieldOfStudy">
   <label for="fos">Field of Study</label>
-  <input id="fos" type="text">
+  <div data-automation-id="multiSelectContainer" data-uxi-widget-type="multiselect">
+    <div data-automation-id="multiselectInputContainer">
+      <input id="fos" type="text">
+    </div>
+  </div>
 </div>
 <div style="position:absolute">
   <div data-automation-id="activeListContainer">
@@ -82,6 +90,27 @@ with sync_playwright() as playwright:
     if chosen:
         failures.append("picked %r from another question's list" % (chosen,))
 
+    # An ordinary text box while another question's list is open. This is
+    # what happened at a second employer: First Name and Address were handed
+    # a list they had nothing to do with, no option matched what was typed,
+    # and Gary cleared the field it had just filled correctly.
+    page.set_content("""
+      <label for="fn">First Name</label><input id="fn" type="text">
+      <div style="position:absolute">
+        <div data-automation-id="activeListContainer">
+          <div role="option">United States of America (+1)</div>
+          <div role="option">Canada (+1)</div>
+        </div>
+      </div>
+    """)
+    box = page.query_selector("#fn")
+    box.fill("Ramganesh")
+    if apply.commit_typeahead(page, box, "Ramganesh") is not None:
+        failures.append("a plain text field claimed another question's list")
+    if page.input_value("#fn") != "Ramganesh":
+        failures.append("a plain text field was cleared, holding %r"
+                        % page.input_value("#fn"))
+
     # An ordinary text box offers no list at all, and must be left as typed.
     page.set_content('<label for="t">Job Title</label><input id="t">')
     box = page.query_selector("#t")
@@ -91,7 +120,7 @@ with sync_playwright() as playwright:
 
     browser.close()
 
-total = 5
+total = 7
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
