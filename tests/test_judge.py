@@ -38,19 +38,37 @@ for kept in ("race", "gender"):
     if kept not in facts:
         failures.append("%r was withheld from the model" % kept)
 
-# With no credential, it declines rather than failing the pass.
+# Judgement runs on a model on this machine by default, and on the hosted
+# model only when a key is set. With neither, it declines rather than failing
+# the pass -- the field is simply left for the candidate.
 saved = {k: os.environ.pop(k, None)
          for k in ("ANTHROPIC_API_KEY", "ANTHROPIC_AUTH_TOKEN")}
+url = os.environ.get("GARY_LOCAL_URL")
 try:
+    if judge.hosted_available():
+        failures.append("claimed a hosted credential it does not have")
+    # Point the local backend at nothing, so neither is reachable.
+    os.environ["GARY_LOCAL_URL"] = "http://127.0.0.1:9"
+    judge.LOCAL_URL = "http://127.0.0.1:9"
     if judge.available():
-        failures.append("claimed to be available with no credential")
+        failures.append("claimed to be available with nothing to ask")
     got, _ = judge.decide("Ethnicity", ["Asian", "White"], PROFILE)
     if got is not None:
-        failures.append("answered %r with no credential" % got)
+        failures.append("answered %r with nothing to ask" % got)
 finally:
+    judge.LOCAL_URL = url or "http://127.0.0.1:11434"
+    if url is None:
+        os.environ.pop("GARY_LOCAL_URL", None)
+    else:
+        os.environ["GARY_LOCAL_URL"] = url
     for key, value in saved.items():
         if value is not None:
             os.environ[key] = value
+
+# Today's date is sent, so a degree ending in the future is not read as one
+# already held.
+if "today's date" not in judge._facts(PROFILE):
+    failures.append("the model is not told what today is")
 
 # Nothing to choose from is nothing to decide.
 if judge.decide("Ethnicity", [], PROFILE)[0] is not None:
@@ -66,7 +84,7 @@ if key == judge._key("Ethnicity", ["Asian", "Black"], judge._facts(PROFILE)):
 if key == judge._key("Gender", ["Asian", "White"], judge._facts(PROFILE)):
     failures.append("two different questions share one remembered answer")
 
-total = 4 + 2 + 2 + 2 + 2
+total = 4 + 3 + 1 + 2 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

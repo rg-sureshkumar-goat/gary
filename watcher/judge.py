@@ -23,8 +23,18 @@ import hashlib
 import json
 import os
 import re
+import urllib.error
+import urllib.request
 
-MODEL = "claude-opus-5"
+# Judgement runs on whatever is available, preferring what costs nothing.
+#
+# A model on this machine is the default: it is free, it needs no account, and
+# the candidate's details never leave the computer -- which for a file of
+# someone's address, race and disability status is the better arrangement
+# regardless of price. The hosted model is used only when a key is set.
+LOCAL_URL = os.environ.get("GARY_LOCAL_URL", "http://127.0.0.1:11434")
+LOCAL_MODEL = os.environ.get("GARY_LOCAL_MODEL", "qwen2.5:14b")
+HOSTED_MODEL = "claude-opus-5"
 
 # Facts that could never answer a dropdown, and should not be sent anywhere.
 _PRIVATE = re.compile(r"resume|cover_letter|transcript|writing_sample|"
@@ -34,8 +44,8 @@ CACHE = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
                      ".gary-cache", "judgements.json")
 
 
-def available():
-    """Is there both a client library and a credential to use it with?"""
+def hosted_available():
+    """A credential and a client library for the hosted model."""
     if not (os.environ.get("ANTHROPIC_API_KEY")
             or os.environ.get("ANTHROPIC_AUTH_TOKEN")):
         return False
@@ -46,9 +56,34 @@ def available():
     return True
 
 
+def local_available():
+    """A model server answering on this machine."""
+    try:
+        with urllib.request.urlopen("%s/api/tags" % LOCAL_URL, timeout=2) as r:
+            held = json.loads(r.read().decode("utf-8"))
+    except Exception:
+        return False
+    names = [str(m.get("name", "")) for m in held.get("models") or []]
+    if not names:
+        return False
+    # The named model, or anything if it is not installed under that name.
+    return LOCAL_MODEL in names or bool(names)
+
+
+def available():
+    """Can anything be asked at all?"""
+    return local_available() or hosted_available()
+
+
 def _facts(profile):
-    """What is known about the candidate, minus documents and secrets."""
-    out = {}
+    """What is known about the candidate, minus documents and secrets.
+
+    Today's date is included. Without it a model reads "education_1_end:
+    05/2028" as a degree already held, and answers "highest level of education
+    completed" with a master's the candidate will not have for two years.
+    """
+    import datetime
+    out = {"today's date": datetime.date.today().isoformat()}
     for key, value in sorted((profile or {}).items()):
         if not isinstance(value, str) or _PRIVATE.search(key):
             continue
@@ -117,6 +152,9 @@ Rules:
 - Placeholders such as "Select One" are never an answer.
 - Prefer an option that declines to answer only if the candidate's own facts
   say to decline.
+- Dates decide what has happened and what has not. A date after today has not
+  happened yet: a degree ending next year is in progress, not completed, and a
+  job ending next year is current, not past.
 - "reasoning" is one short sentence naming the fact you used."""
 
 SCHEMA = {
@@ -145,11 +183,21 @@ def decide(question, options, profile):
         chosen = held.get("choice")
         return (chosen if chosen in options else None), held.get("reasoning")
 
+    if local_available():
+        chosen, why = _ask_local(question, options, facts)
+        if chosen is not None or why is not None:
+            if chosen is not None and chosen not in options:
+                chosen, why = None, ("the model named an option that was not "
+                                     "on the list")
+            _remember(key, {"choice": chosen, "reasoning": why})
+            return chosen, (why or None)
+        return None, None
+
     try:
         import anthropic
         client = anthropic.Anthropic()
         response = client.messages.create(
-            model=MODEL,
+            model=HOSTED_MODEL,
             max_tokens=1024,
             thinking={"type": "adaptive"},
             output_config={"effort": "medium",
@@ -183,3 +231,43 @@ def decide(question, options, profile):
         why = "the model named an option that was not on the list"
     _remember(key, {"choice": chosen, "reasoning": why})
     return chosen, (why or None)
+
+
+def _ask_local(question, options, facts):
+    """Put the question to the model running on this machine.
+
+    Its reply is required to be JSON naming one of the options, and is checked
+    against the list afterwards either way -- a small model asked to choose
+    from a list will sometimes paraphrase, and a paraphrase is not a choice.
+    """
+    body = json.dumps({
+        "model": LOCAL_MODEL,
+        "stream": False,
+        "format": "json",
+        "options": {"temperature": 0},
+        "messages": [
+            {"role": "system",
+             "content": "You answer with JSON only, matching "
+                        '{"choice": <one of the options, copied exactly, or '
+                        'null>, "reasoning": "<one short sentence>"}.'},
+            {"role": "user", "content": PROMPT % (
+                json.dumps(facts, indent=2),
+                question,
+                "\n".join("- %s" % o for o in options),
+            )},
+        ],
+    }).encode("utf-8")
+    request = urllib.request.Request(
+        "%s/api/chat" % LOCAL_URL, data=body,
+        headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(request, timeout=90) as response:
+            held = json.loads(response.read().decode("utf-8"))
+        answer = json.loads(held["message"]["content"])
+    except Exception:
+        return None, None
+    chosen = answer.get("choice")
+    why = str(answer.get("reasoning") or "").strip()
+    if chosen is not None and not isinstance(chosen, str):
+        chosen = None
+    return chosen, (why or "judged from your profile")
