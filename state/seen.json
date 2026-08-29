@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-29T22:03:27Z",
+ "last_run": "2026-08-29T22:15:53Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
+  "matching": 19,
   "new": 0,
-  "postings": 24935,
-  "sites": 82
+  "postings": 24478,
+  "sites": 219
  },
  "recommended": {},
  "reminders_sent": [],
@@ -2681,7 +2681,7 @@
   },
   "workday:keybank:/job/Bellingham-WA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Bellingham--WA_R-41216": {
    "f": "2026-08-04",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:keybank:/job/Boise-ID/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Boise--ID_R-41218": {
    "f": "2026-08-04",
