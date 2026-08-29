@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill
 from watcher import infer  # noqa: E402
+from watcher import lists  # noqa: E402
 from watcher import location as location_lib  # noqa: E402
 from watcher import pay  # noqa: E402
 from watcher import names as names_lib  # noqa: E402
@@ -1779,8 +1780,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     skipped.append((label, "no location Gary can be sure of "
                                            "-- choose it yourself"))
                 continue
-            choice = formfill.choose_option(label, options, profile, section,
-                                            ident, entry)
+            choice, working = lists.answer(options, profile)
+            if choice is not None:
+                reasoned[label] = working
+            else:
+                choice = formfill.choose_option(label, options, profile,
+                                                section, ident, entry)
             if choice is None:
                 choice, working = formfill.reasoned_option(label, options,
                                                            profile)
@@ -1815,8 +1820,17 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 choice = stated or (picks[0] if picks else None)
                 reason = "no location Gary can be sure of -- choose it yourself"
             else:
-                choice = formfill.choose_option(label, options, profile,
-                                                section, ident, entry)
+                # What the list is asking is settled by the options before the
+                # wording is consulted. A list of racial categories wants the
+                # race on file whether it is headed "Ethnicity", "Race", or
+                # only "Select One" -- and answering it from a name that
+                # happens to match is how it came to say "Hispanic or Latino".
+                choice, working = lists.answer(options, profile)
+                if choice is not None:
+                    reasoned[label] = working
+                else:
+                    choice = formfill.choose_option(label, options, profile,
+                                                    section, ident, entry)
                 reason = "no confident match -- pick it yourself"
                 if choice is None:
                     # The field names are Gary's and the wording is the

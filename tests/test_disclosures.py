@@ -100,7 +100,43 @@ chosen, _ = reasoned_option("Pick one", ["Asian", "Male"], MISNAMED)
 if chosen is not None:
     failures.append("chose %r where two known facts both fit" % chosen)
 
-total = len(CASES) + 2 + 5
+# The same reasoning is not about race. Any list, however it is headed, is
+# answered by whichever thing known about the candidate is on it.
+GENERAL = {
+    "race": "Asian", "gender": "Male", "state": "Texas", "major": "Finance",
+    "university": "The University of Texas at Austin",
+    "undergrad_university": "The University of Texas at Austin",
+    "phone_type": "Mobile", "degree": "Masters",
+    "undergrad_degree": "Bachelors",
+    "address": "3105 Armidale Dr", "phone": "(817) 818-7051",
+}
+
+for options, wanted in (
+        (["Select One", "California", "New York", "Texas", "Florida"], "Texas"),
+        (["Select One", "Finance", "Biology", "History"], "Finance"),
+        (["Select One", "Home", "Mobile", "Work"], "Mobile"),
+        # An exact answer outranks a resemblance: "Texas" looks like "Texas
+        # A&M", which once made this list ambiguous and left it blank.
+        (["Select One", "The University of Texas at Austin", "Texas A&M",
+          "Rice University"], "The University of Texas at Austin")):
+    got, _ = reasoned_option("Select One", options, GENERAL)
+    if got != wanted:
+        failures.append("a bare list gave %r, wanted %r" % (got, wanted))
+
+# Two facts fitting equally is real ambiguity -- which degree depends on which
+# education entry, and that is decided elsewhere.
+got, _ = reasoned_option("Select One",
+                         ["Select One", "Masters", "Bachelors", "Doctorate"],
+                         GENERAL)
+if got is not None:
+    failures.append("chose %r where both degrees fit" % got)
+
+# Nothing known is on the list.
+got, _ = reasoned_option("Select One", ["Red", "Green", "Blue"], GENERAL)
+if got is not None:
+    failures.append("answered an unrelated list with %r" % got)
+
+total = len(CASES) + 2 + 5 + 6
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

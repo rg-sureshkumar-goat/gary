@@ -1,0 +1,90 @@
+"""Recognising what a dropdown is asking from the options it offers.
+
+The words an employer puts above a control are unreliable: the same question
+appears as "Ethnicity", as "What race or ethnicity do you most closely
+identify with?", and as nothing at all beyond "Select One". The options,
+though, say plainly what is being asked. A list holding Asian, White, Black or
+African American and Two or More Races is asking about race, whatever sits
+above it, and the only sensible answer is the race on file.
+
+Recognising the list carries more weight than matching the wording, because
+the wording is what misleads -- it is how an answer stored under one name came
+to be offered to a different question that happened to share it.
+"""
+
+import re
+
+# A kind of list, the vocabulary that identifies it, and the profile fields
+# that answer it, in order of preference.
+KINDS = (
+    ("race", (
+        r"american\s+indian", r"alaska\s+native", r"\basian\b",
+        r"black\s+or\s+african", r"african\s+american",
+        r"native\s+hawaiian", r"pacific\s+islander", r"two\s+or\s+more\s+races",
+        r"\bwhite\b", r"hispanic\s+or\s+latino",
+     ), ("race", "ethnicity")),
+    ("gender", (
+        r"^male$", r"^female$", r"non[\s-]?binary", r"gender\s+diverse",
+     ), ("gender",)),
+    ("veteran", (
+        r"protected\s+veteran", r"not\s+a\s+veteran", r"^veteran$",
+        r"armed\s+forces\s+service\s+medal", r"disabled\s+veteran",
+     ), ("veteran",)),
+    ("disability", (
+        r"have\s+a\s+disability", r"do\s+not\s+have\s+a\s+disability",
+        r"had\s+one\s+in\s+the\s+past",
+     ), ("disability",)),
+)
+
+# Present on nearly every list and identifying nothing.
+_FILLER = re.compile(r"^(select\s+one|select|choose|--|none|n/?a|"
+                     r"i\s+(do\s+not|don'?t)\s+(wish|want)\s+to\s+answer|"
+                     r"prefer\s+not\s+to\s+(say|answer)|decline\s+to\s+(self.)?"
+                     r"identify)\.?$", re.I)
+
+
+def _bare(option):
+    """An option without its trailing country qualifier."""
+    text = " ".join(str(option or "").split())
+    return re.sub(r"\s*\([^)]*\)\s*$", "", text).strip().rstrip(".")
+
+
+def kind_of(options):
+    """Which kind of list this is, or None.
+
+    Two matching options are required. One is a coincidence -- "White" appears
+    on plenty of lists that are not about race.
+    """
+    bare = [_bare(o) for o in options or []]
+    bare = [b for b in bare if b and not _FILLER.match(b)]
+    if len(bare) < 2:
+        return None
+    best, best_hits = None, 0
+    for name, vocabulary, _fields in KINDS:
+        hits = sum(1 for b in bare
+                   if any(re.search(word, b, re.I) for word in vocabulary))
+        if hits >= 2 and hits > best_hits:
+            best, best_hits = name, hits
+    return best
+
+
+def answer(options, profile):
+    """The fact that answers this list: (value, why) or (None, None)."""
+    kind = kind_of(options)
+    if not kind:
+        return None, None
+    fields = next(f for name, _v, f in KINDS if name == kind)
+    for field in fields:
+        value = profile.get(field)
+        if value in (None, ""):
+            continue
+        # The same matcher the rest of the form uses, so a fact stated one way
+        # still finds an option worded another: "I am not a Protected Veteran"
+        # against "I am not a veteran".
+        from . import formfill
+        lowered = {str(o).strip().lower(): o for o in options if str(o).strip()}
+        picked = formfill._match_option(str(value), lowered)
+        if picked is not None:
+            return picked, ("a list of %s options, answered from your %s"
+                            % (kind, field))
+    return None, None

@@ -525,15 +525,17 @@ def fallbacks_for(label, profile, section="", identity="", entry=0):  # noqa: C9
     return out
 
 
-# Facts about the candidate that could plausibly be an option on a list. Free
-# text -- an address, a job description -- never is.
-_FACT_FIELDS = (
-    "race", "ethnicity", "gender", "pronouns", "veteran", "disability",
-    "hispanic_or_latino", "degree", "undergrad_degree", "major",
-    "undergrad_major", "university", "undergrad_university", "state",
-    "country", "work_authorization", "sponsorship", "phone_type",
-    "referral", "start_date", "graduation", "undergrad_graduation",
-)
+# Everything known about the candidate is eligible to answer a list, rather
+# than a chosen few: the point is that Gary works out which of its facts fits
+# what is on offer, and a curated list would only be another set of names that
+# has to agree with an employer's.
+#
+# What is excluded is what could never be an option on a dropdown: free text,
+# file paths, and contact details, which would only ever match by accident.
+_NOT_AN_OPTION = re.compile(
+    r"resume|cover_letter|transcript|writing_sample|address|city|postal|"
+    r"zip|phone(?!_type)|email|linkedin|website|description|summary|"
+    r"salary_reason|_id$|password|token", re.I)
 
 
 def reasoned_option(label, options, profile):
@@ -557,9 +559,13 @@ def reasoned_option(label, options, profile):
         return None, None
 
     hits = {}
-    for field in _FACT_FIELDS:
-        value = profile.get(field)
-        if value in (None, "") or len(str(value)) > 60:
+    for field, value in sorted(profile.items()):
+        if not isinstance(value, str) or _NOT_AN_OPTION.search(field):
+            continue
+        value = value.strip()
+        # An option is a short phrase. Anything longer is prose, and prose
+        # matching a dropdown option is a coincidence.
+        if not value or len(value) > 70:
             continue
         picked = _match_option(str(value), lowered)
         if picked is None:
@@ -567,11 +573,23 @@ def reasoned_option(label, options, profile):
         # A yes or no fits far too many questions to be evidence of anything.
         if str(picked).strip().lower() in ("yes", "no"):
             continue
-        hits.setdefault(str(picked), set()).add(field)
+        # An exact answer outranks a resemblance. A state of "Texas" resembles
+        # "Texas A&M" on a list of universities, and treating that as equal to
+        # the university's own name made the list look ambiguous and left it
+        # blank.
+        bare_option = re.sub(r"\s*\([^)]*\)\s*$", "",
+                             str(picked)).strip().lower()
+        exact = bare_option == value.strip().lower()
+        hits.setdefault(str(picked), {"fields": set(), "exact": False})
+        hits[str(picked)]["fields"].add(field)
+        hits[str(picked)]["exact"] = hits[str(picked)]["exact"] or exact
 
+    precise = {k: v for k, v in hits.items() if v["exact"]}
+    hits = precise or hits
     if len(hits) != 1:
         return None, None
-    chosen, fields = next(iter(hits.items()))
+    chosen, found = next(iter(hits.items()))
+    fields = found["fields"]
     for option in options:
         if str(option) == chosen:
             return option, ("the only thing you have told Gary that is on "
