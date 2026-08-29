@@ -539,67 +539,55 @@ _NOT_AN_OPTION = re.compile(
 
 
 def reasoned_option(label, options, profile):
-    """The one thing known about the candidate that fits this list.
+    """The one thing known about the candidate that this list asserts.
 
-    Field names are Gary's, the wording is the employer's, and they do not
-    always agree: an answer stored under "ethnicity" meant Hispanic origin
-    while an employer's "Ethnicity" meant a racial category, so the lookup
-    produced "No" against a list of groups.
+    Field names are Gary's and the wording is the employer's, and they do not
+    always agree. So the list is read for what it says rather than matched
+    against what a field is called: which option asserts something already
+    known? An option asserts its head -- what it is about -- and its
+    qualifiers only narrow that, so a stored country matching the "(United
+    States of America)" on an option about Hispanic origin is not a reason to
+    call someone Hispanic.
 
-    A value matching none of the options is evidence the wrong fact was
-    consulted, not that the question cannot be answered. So the list itself is
-    asked instead: which known fact is on it? Exactly one, or nothing -- where
-    several fit, the question is genuinely ambiguous and belongs to the
-    candidate.
+    Exactly one, or nothing: where two known facts fit, the list is genuinely
+    ambiguous and belongs to the candidate.
     """
+    from . import options as option_reading
+
     if not options:
         return None, None
-    # Match against what each option actually names, never its qualifier: the
-    # country in "Hispanic or Latino (United States of America)" is not what
-    # the option is about, and matching a stored country against it answered a
-    # question about race with the wrong group entirely.
-    lowered = {}
-    for option in options:
-        bare = _unqualified(option).lower()
-        if bare and bare not in lowered:
-            lowered[bare] = option
-    if not lowered:
-        return None, None
 
-    hits = {}
+    found = {}
     for field, value in sorted(profile.items()):
         if not isinstance(value, str) or _NOT_AN_OPTION.search(field):
             continue
         value = value.strip()
-        # An option is a short phrase. Anything longer is prose, and prose
-        # matching a dropdown option is a coincidence.
+        # An option is a short phrase; prose matching one is a coincidence.
         if not value or len(value) > 70:
             continue
-        picked = _match_option(str(value), lowered)
+        # A yes or no fits far too many questions to be evidence of anything.
+        if value.lower() in ("yes", "no"):
+            continue
+        picked, _fact = option_reading.best(options, [value])
         if picked is None:
             continue
-        # A yes or no fits far too many questions to be evidence of anything.
-        if str(picked).strip().lower() in ("yes", "no"):
-            continue
-        # An exact answer outranks a resemblance. A state of "Texas" resembles
-        # "Texas A&M" on a list of universities, and treating that as equal to
-        # the university's own name made the list look ambiguous and left it
-        # blank.
-        exact = _unqualified(picked).lower() == value.strip().lower()
-        hits.setdefault(str(picked), {"fields": set(), "exact": False})
-        hits[str(picked)]["fields"].add(field)
-        hits[str(picked)]["exact"] = hits[str(picked)]["exact"] or exact
+        found.setdefault(str(picked), {"fields": set(),
+                                       "strength": 0})
+        found[str(picked)]["fields"].add(field)
+        found[str(picked)]["strength"] = max(
+            found[str(picked)]["strength"],
+            option_reading.asserts(picked, value))
 
-    precise = {k: v for k, v in hits.items() if v["exact"]}
-    hits = precise or hits
-    if len(hits) != 1:
+    # A plain statement of the answer outranks a passing mention of it.
+    strongest = max((v["strength"] for v in found.values()), default=0)
+    found = {k: v for k, v in found.items() if v["strength"] == strongest}
+    if len(found) != 1:
         return None, None
-    chosen, found = next(iter(hits.items()))
-    fields = found["fields"]
+    chosen, detail = next(iter(found.items()))
     for option in options:
         if str(option) == chosen:
-            return option, ("the only thing you have told Gary that is on "
-                            "this list (%s)" % ", ".join(sorted(fields)))
+            return option, ("the only thing you have told Gary that this list "
+                            "asserts (%s)" % ", ".join(sorted(detail["fields"])))
     return None, None
 
 

@@ -74,17 +74,25 @@ def answer(options, profile):
     if not kind:
         return None, None
     fields = next(f for name, _v, f in KINDS if name == kind)
+    from . import options as option_reading
+
+    known = [profile.get(f) for f in fields]
+    picked, _fact = option_reading.best(options, [k for k in known if k])
+    if picked is not None:
+        field = next(f for f in fields if profile.get(f))
+        return picked, ("a list of %s options, answered from your %s"
+                        % (kind, field))
+
+    # Stated one way, offered another: "I am not a Protected Veteran" against
+    # "I am not a veteran". Fall back to the matcher the rest of the form uses.
+    from . import formfill
+    lowered = {str(o).strip().lower(): o for o in options if str(o).strip()}
     for field in fields:
         value = profile.get(field)
         if value in (None, ""):
             continue
-        # The same matcher the rest of the form uses, so a fact stated one way
-        # still finds an option worded another: "I am not a Protected Veteran"
-        # against "I am not a veteran".
-        from . import formfill
-        lowered = {str(o).strip().lower(): o for o in options if str(o).strip()}
-        picked = formfill._match_option(str(value), lowered)
-        if picked is not None:
-            return picked, ("a list of %s options, answered from your %s"
-                            % (kind, field))
+        found = formfill._match_option(str(value), dict(lowered))
+        if found is not None:
+            return found, ("a list of %s options, answered from your %s"
+                           % (kind, field))
     return None, None
