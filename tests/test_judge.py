@@ -84,7 +84,19 @@ if key == judge._key("Ethnicity", ["Asian", "Black"], judge._facts(PROFILE)):
 if key == judge._key("Gender", ["Asian", "White"], judge._facts(PROFILE)):
     failures.append("two different questions share one remembered answer")
 
-total = 4 + 3 + 1 + 2 + 2
+# "None of the above" is a claim, not a way of saying nothing is known. A
+# model reaches for it when the facts are silent -- the 32B did, on a question
+# about being a first-generation or transfer student, where the profile says
+# neither way -- and no instruction reliably stopped it. It is refused here.
+for pretend in ("None of the above", "Neither of the above", "Not applicable",
+                "N/A", "none of these"):
+    if not judge._refuses(pretend):
+        failures.append("%r would be accepted from silence" % pretend)
+for real in ("Asian", "Male", "No", "Nonprofit experience", "Neither party"):
+    if judge._refuses(real):
+        failures.append("%r was refused, but it is a real answer" % real)
+
+total = 4 + 3 + 1 + 2 + 2 + 10
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

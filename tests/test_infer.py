@@ -91,6 +91,20 @@ if value_for("Select the month and year you are expecting to graduate with "
              "your bachelor's degree.", PROFILE) != "May 2027":
     failures.append("asking when a degree ends answered with its name")
 
+# What is finished as of today, by the calendar rather than by a model's
+# reading of it: a local model repeatedly called a degree ending next year
+# completed, and this is arithmetic, not judgement.
+got, _ = infer.answer("What is your highest level of education completed?",
+                      PROFILE, today=TODAY)
+if got != "High School":
+    failures.append("highest completed gave %r; no degree has finished by "
+                    "August 2026" % got)
+done = dict(PROFILE, education_2_end="05/2025")
+got, _ = infer.answer("What is your highest level of education completed?",
+                      done, today=TODAY)
+if got != "Bachelor":
+    failures.append("a bachelor's finished in 2025 gave %r" % got)
+
 # A threshold nothing on file settles.
 got, _ = infer.answer("Are you 21 years of age or older?", PROFILE, today=TODAY)
 if got is not None:
@@ -121,7 +135,7 @@ if got and not got.startswith("$"):
 if not why:
     failures.append("the salary gave no reason; the candidate signs for it")
 
-total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3
+total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

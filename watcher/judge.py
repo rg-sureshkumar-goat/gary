@@ -33,7 +33,10 @@ import urllib.request
 # someone's address, race and disability status is the better arrangement
 # regardless of price. The hosted model is used only when a key is set.
 LOCAL_URL = os.environ.get("GARY_LOCAL_URL", "http://127.0.0.1:11434")
-LOCAL_MODEL = os.environ.get("GARY_LOCAL_MODEL", "qwen2.5:14b")
+# Larger reasons better about the questions that reach this point, and the
+# machine has the memory for it. Override with GARY_LOCAL_MODEL; whatever is
+# installed is used if this one is not.
+LOCAL_MODEL = os.environ.get("GARY_LOCAL_MODEL", "qwen2.5:32b")
 HOSTED_MODEL = "claude-opus-5"
 
 # Facts that could never answer a dropdown, and should not be sent anywhere.
@@ -56,23 +59,55 @@ def hosted_available():
     return True
 
 
-def local_available():
-    """A model server answering on this machine."""
+def installed_model():
+    """The model to ask on this machine, or None if there is nothing to ask.
+
+    The preferred one if it is installed, otherwise the largest that is --
+    size is a fair proxy for how well it will reason about a question the
+    rules could not answer, and a missing name should not silently mean no
+    judgement at all.
+    """
     try:
         with urllib.request.urlopen("%s/api/tags" % LOCAL_URL, timeout=2) as r:
             held = json.loads(r.read().decode("utf-8"))
     except Exception:
-        return False
-    names = [str(m.get("name", "")) for m in held.get("models") or []]
-    if not names:
-        return False
-    # The named model, or anything if it is not installed under that name.
-    return LOCAL_MODEL in names or bool(names)
+        return None
+    models = held.get("models") or []
+    names = [str(m.get("name", "")) for m in models]
+    if LOCAL_MODEL in names:
+        return LOCAL_MODEL
+    if not models:
+        return None
+    biggest = max(models, key=lambda m: m.get("size") or 0)
+    return str(biggest.get("name")) or None
+
+
+def local_available():
+    """A model server answering on this machine, with something to ask."""
+    return installed_model() is not None
 
 
 def available():
     """Can anything be asked at all?"""
     return local_available() or hosted_available()
+
+
+# "None of the above" is a claim, not a way of saying nothing is known. A
+# model asked to choose from a list reaches for it when the facts are silent,
+# and no instruction reliably stops that -- so it is refused here instead.
+# Only the forms that mean "nothing here applies". "Neither party" and "None
+# of my degrees" are real answers, and refusing those would be its own error.
+_NOTHING_APPLIES = re.compile(
+    r"^(?:none|neither)$|"
+    r"^(?:none|neither)\s+of\s+(?:the\s+)?(?:above|these|them)$|"
+    r"^(?:none|neither)\s+(?:apply|applies)$|"
+    r"^not\s+applicable$|^n/?a$|^does\s+not\s+apply$", re.I)
+
+
+def _refuses(chosen):
+    """Is this an answer the model should not have reached from silence?"""
+    return bool(_NOTHING_APPLIES.match(str(chosen or "").strip()))
+
 
 
 def _facts(profile):
@@ -152,9 +187,16 @@ Rules:
 - Placeholders such as "Select One" are never an answer.
 - Prefer an option that declines to answer only if the candidate's own facts
   say to decline.
-- Dates decide what has happened and what has not. A date after today has not
-  happened yet: a degree ending next year is in progress, not completed, and a
-  job ending next year is current, not past.
+- Dates decide what has happened and what has not. Compare every date to
+  today's date above. A date after today has not happened yet: a degree ending
+  after today is in progress and has NOT been completed, whatever else is
+  known about it, and a job ending after today is still current. A question
+  asking what has been completed is asking what is finished as of today.
+- "None of the above", "Neither of the above" and "Not applicable" are claims
+  about the candidate, not ways of saying you do not know. Choose one only if
+  the facts positively establish it. If the facts are silent, choose null.
+- Silence is not evidence. Nothing in the facts saying a thing is false; it
+  only means it was not recorded, and null is the answer.
 - "reasoning" is one short sentence naming the fact you used."""
 
 SCHEMA = {
@@ -189,6 +231,9 @@ def decide(question, options, profile):
             if chosen is not None and chosen not in options:
                 chosen, why = None, ("the model named an option that was not "
                                      "on the list")
+            elif _refuses(chosen):
+                chosen, why = None, ("\"%s\" is a claim about you, and nothing "
+                                     "on file establishes it" % chosen)
             _remember(key, {"choice": chosen, "reasoning": why})
             return chosen, (why or None)
         return None, None
@@ -229,6 +274,10 @@ def decide(question, options, profile):
     if chosen is not None and chosen not in options:
         chosen = None
         why = "the model named an option that was not on the list"
+    elif _refuses(chosen):
+        why = ("\"%s\" is a claim about you, and nothing on file establishes "
+               "it" % chosen)
+        chosen = None
     _remember(key, {"choice": chosen, "reasoning": why})
     return chosen, (why or None)
 
@@ -241,7 +290,7 @@ def _ask_local(question, options, facts):
     from a list will sometimes paraphrase, and a paraphrase is not a choice.
     """
     body = json.dumps({
-        "model": LOCAL_MODEL,
+        "model": installed_model() or LOCAL_MODEL,
         "stream": False,
         "format": "json",
         "options": {"temperature": 0},

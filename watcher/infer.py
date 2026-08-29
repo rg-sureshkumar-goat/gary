@@ -41,6 +41,12 @@ _GRADUATE_ASKED = re.compile(r"master|graduate\s+degree|\bm\.?[sba]\.?\b|"
 _WHEN = re.compile(r"\bwhen\b|\bmonth\b|\byear\b|\bdate\b|expect(?:ed|ing)|"
                    r"anticipat", re.I)
 
+# "Highest level of education completed" -- what is finished as of today.
+_HIGHEST_COMPLETED = re.compile(
+    r"highest\s+(?:level\s+of\s+)?(?:education|degree)|"
+    r"(?:education|degree)\s+(?:level\s+)?completed|"
+    r"highest\s+.{0,20}\s+attained", re.I)
+
 _MONTHS = ("January", "February", "March", "April", "May", "June", "July",
            "August", "September", "October", "November", "December")
 
@@ -179,6 +185,33 @@ def answer(label, profile, today=None):
         spelled = _spell_date(source)
         if spelled:
             return spelled, "the end date you gave for %s (%s)" % (which, source)
+        return None, None
+
+    # The highest degree actually finished, by the calendar rather than by a
+    # model's reading of it. A local model repeatedly called a degree ending
+    # next year completed, and this is arithmetic, not judgement.
+    if _HIGHEST_COMPLETED.search(question):
+        finished = []
+        for entry, name in ((2, "bachelor"), (1, "master")):
+            end = profile.get("education_%d_end" % entry)
+            year, month = _year(end), None
+            match = re.match(r"\s*(\d{1,2})\s*[/-]", str(end or ""))
+            if match:
+                month = int(match.group(1))
+            if not year:
+                continue
+            if year < today.year or (year == today.year and month
+                                     and month <= today.month):
+                finished.append(name)
+        if "master" in finished:
+            return "Master", "your master's ended %s, which is past" % (
+                profile.get("education_1_end"))
+        if "bachelor" in finished:
+            return "Bachelor", "your bachelor's ended %s, which is past" % (
+                profile.get("education_2_end"))
+        if profile.get("education_2_start") or profile.get("education_1_start"):
+            return "High School", ("no degree of yours has finished yet, so "
+                                   "high school is the highest completed")
         return None, None
 
     if _BASIS_CHANGES.search(question):
