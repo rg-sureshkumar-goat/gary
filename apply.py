@@ -1826,8 +1826,30 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     if choice is not None:
                         reasoned[label] = working
             if choice and not dry_run and choose_from_combobox(frame, element, choice):
-                filled.append((label,
-                               note_inference(label, profile, choice, reasoned)))
+                print("   [dropdown] %s <- %r  from %d options: %s"
+                      % (label[:34], choice, len(options),
+                         ", ".join(str(o)[:22] for o in options[:6])))
+                # Verify the control kept what was chosen. A dropdown holding
+                # something else means the selection did not land where it was
+                # aimed, and a wrong answer that reports as right is worse than
+                # no answer at all.
+                settled = ""
+                try:
+                    settled = (widget_value(frame, element) or "").strip()
+                except Exception:
+                    pass
+                bare = re.sub(r"\s*\([^)]*\)\s*$", "", settled).strip().lower()
+                aimed = re.sub(r"\s*\([^)]*\)\s*$", "", str(choice)).strip().lower()
+                if settled and bare and aimed and bare != aimed:
+                    skipped.append((label, "holds %r after choosing %r -- left "
+                                           "for you to set" % (settled[:40],
+                                                               str(choice)[:40])))
+                    print("   [dropdown] MISMATCH %s: holds %r, chose %r"
+                          % (label[:30], settled[:40], str(choice)[:40]))
+                else:
+                    filled.append((label,
+                                   note_inference(label, profile, choice,
+                                                  reasoned)))
                 # If it still reads as empty, remember it as done.
                 try:
                     if not (widget_value(frame, element) or "").strip():
