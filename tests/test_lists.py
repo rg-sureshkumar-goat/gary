@@ -18,7 +18,7 @@ from watcher import lists
 PROFILE = {
     "race": "Asian",
     "gender": "Male",
-    "veteran": "I am not a Protected Veteran.",
+    "veteran": "I am not a veteran",
     "disability": "No, I do not have a disability and have not had one in the past",
     "hispanic_or_latino": "No",
     "state": "Texas",
@@ -59,6 +59,15 @@ CASES = [
     ("veteran", ["Select One", "I am not a veteran",
                  "I identify as one or more classifications of a protected "
                  "veteran"], "I am not a veteran"),
+    # An employer that distinguishes not-a-veteran from a-veteran-who-is-not-
+    # protected. A stored "I am not a Protected Veteran" is true of both, and
+    # matched the wrong one -- the fact has to say which.
+    ("veteran, finely divided",
+     ["Select One", "I do not wish to self-identify",
+      "I identify as one or more of the classifications of a protected veteran",
+      "I identify as a veteran, just not a protected veteran",
+      "I am not a veteran"],
+     "I am not a veteran"),
     ("disability", ["Yes, I have a disability, or have had one in the past",
                     "No, I do not have a disability and have not had one in "
                     "the past", "I do not want to answer"],
