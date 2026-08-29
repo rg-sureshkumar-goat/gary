@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-29T02:03:11Z",
+ "last_run": "2026-08-29T02:16:02Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
+  "matching": 18,
   "new": 0,
-  "postings": 25039,
-  "sites": 82
+  "postings": 24511,
+  "sites": 219
  },
  "recommended": {},
  "reminders_sent": [],
@@ -2004,11 +2004,11 @@
   },
   "greenhouse:drweng:7992670": {
    "f": "2026-07-13",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "greenhouse:drweng:7993004": {
    "f": "2026-07-13",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "greenhouse:genscript:5169014007": {
    "f": "2026-08-25",
@@ -2156,7 +2156,7 @@
   },
   "smartrecruiters:RRSGroup:744000133857769": {
    "f": "2026-06-24",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "smartrecruiters:TheWonderfulCompany:744000113566258": {
    "f": "2026-03-09",
@@ -2332,23 +2332,23 @@
   },
   "workday:conagrabrands:/job/Chicago-Illinois/FP-A-Internship---Finance-Modernization---Summer-2027_Req-039794": {
    "f": "2026-08-17",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:conagrabrands:/job/Chicago-Illinois/FP-A-Internship---Sales---Trade-Finance---Summer-2026_Req-039795": {
    "f": "2026-08-19",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:conagrabrands:/job/Chicago-Illinois/FP-A-Internship---Summer-2027_Req-039834": {
    "f": "2026-08-19",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:conagrabrands:/job/Omaha-Nebraska/Accounting-CCG-Internship---Summer-2027_Req-039792": {
    "f": "2026-08-17",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:conagrabrands:/job/Omaha-Nebraska/Supply-Chain-Finance-Internship---Summer-2026_Req-039798": {
    "f": "2026-08-17",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Summer-Internship-Program---Actuary_JR2600796": {
    "f": "2026-08-25",
@@ -2448,7 +2448,7 @@
   },
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865": {
    "f": "2026-08-19",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1": {
    "f": "2026-08-28",
@@ -2676,7 +2676,7 @@
   },
   "workday:keybank:/job/Albany-OR/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Albany--OR_R-41217": {
    "f": "2026-08-04",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:keybank:/job/Bellingham-WA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Bellingham--WA_R-41216": {
    "f": "2026-08-04",
@@ -2696,7 +2696,7 @@
   },
   "workday:keybank:/job/Brooklyn-OH/XMLNAME-2027-Summer-Key-Technology---Services--Security--Business---Strategy-Track-Internship--Cleveland_R-41390": {
    "f": "2026-08-17",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:keybank:/job/Chagrin-Falls-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Cleveland--OH_R-41224": {
    "f": "2026-08-04",
@@ -2708,7 +2708,7 @@
   },
   "workday:keybank:/job/Cleveland-OH/XMLNAME-2027-KeyBanc-Capital-Markets-Foreign-Exchange--FX--Summer-Analyst_R-41798": {
    "f": "2026-08-25",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:keybank:/job/Erie-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Erie--PA_R-41223": {
    "f": "2026-08-04",
@@ -2772,11 +2772,11 @@
   },
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1": {
    "f": "2026-08-24",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078": {
    "f": "2026-08-26",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:medline:/job/Northfield-Illinois/MBA-Intern--Finance---Summer-2027_R2615807": {
    "f": "2026-08-25",
@@ -2812,7 +2812,7 @@
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056": {
    "f": "2026-08-28",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
    "f": "2026-08-25",
@@ -2972,7 +2972,7 @@
   },
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668": {
    "f": "2026-08-12",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330": {
    "f": "2026-08-25",
@@ -3036,7 +3036,7 @@
   },
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247": {
    "f": "2026-08-26",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934": {
    "f": "2026-08-25",
@@ -3044,7 +3044,7 @@
   },
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899": {
    "f": "2026-08-28",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805": {
    "f": "2026-08-05",
