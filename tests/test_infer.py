@@ -43,6 +43,13 @@ DERIVED = [
     ("Have you ever participated in the recruitment process with Ecolab or "
      "any of its subsidiaries?", "No"),
     ("Have you previously applied to this company?", "No"),
+    # Willing to work where the job is, however the question is framed. A
+    # phrasing that names a city is the same question, not a new one.
+    ("Are you willing to relocate for this position?", "Yes"),
+    ("Are you able to work in-person at our Saint Paul office?", "Yes"),
+    ("Would you be able to relocate to Saint Paul, MN for the summer?", "Yes"),
+    ("Can you commute to our Chicago office daily?", "Yes"),
+    ("Are you open to working on-site?", "Yes"),
     # Which degree is asked about matters: they finish a year apart, and the
     # lists these are chosen from are written as a month and a year.
     ("Select the month and year you are expecting to graduate with your "
@@ -105,6 +112,16 @@ got, _ = infer.answer("What is your highest level of education completed?",
 if got != "Bachelor":
     failures.append("a bachelor's finished in 2025 gave %r" % got)
 
+# Legal authorisation shares some wording with the relocation question and is
+# a different thing: it turns on his authorisation, not his willingness.
+for question, wanted in (
+        ("Are you legally authorized to work in the United States?", "Yes"),
+        ("Are you eligible to work in the US without sponsorship?", "No")):
+    got, _ = infer.answer(question, PROFILE, today=TODAY)
+    if got != wanted:
+        failures.append("%r answered %r, wanted %r -- authorisation is not "
+                        "relocation" % (question[:44], got, wanted))
+
 # A threshold nothing on file settles.
 got, _ = infer.answer("Are you 21 years of age or older?", PROFILE, today=TODAY)
 if got is not None:
@@ -135,7 +152,7 @@ if got and not got.startswith("$"):
 if not why:
     failures.append("the salary gave no reason; the candidate signs for it")
 
-total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3 + 2
+total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3 + 2 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

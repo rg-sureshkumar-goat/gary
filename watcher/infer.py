@@ -50,6 +50,16 @@ _HIGHEST_COMPLETED = re.compile(
 _MONTHS = ("January", "February", "March", "April", "May", "June", "July",
            "August", "September", "October", "November", "December")
 
+_RELOCATE = re.compile(
+    r"relocat|willing\s+to\s+move|able\s+to\s+move|"
+    r"(?:able|willing|open)\s+to\s+work(?:ing)?\s+(?:in|at|from|on)\b|"
+    r"work(?:ing)?\s+(?:in[\s-]?person|on[\s-]?site|onsite|in\s+office)|"
+    r"commut|report\s+to\s+(?:the\s+)?office|based\s+in", re.I)
+
+# Legal authorisation is a different question that shares some wording.
+_AUTHORISATION = re.compile(r"authori[sz]|eligib|sponsor|visa|legally|"
+                            r"work\s+permit|right\s+to\s+work", re.I)
+
 _ANOTHER_JOB = re.compile(r"another\s+job|other\s+employment|"
                           r"outside\s+employment|plan\s+to\s+continue", re.I)
 
@@ -213,6 +223,12 @@ def answer(label, profile, today=None):
             return "High School", ("no degree of yours has finished yet, so "
                                    "high school is the highest completed")
         return None, None
+
+    # Willing to work where the job is. Asked many ways, and a phrasing that
+    # names a city -- "able to work in-person at our Saint Paul office" -- is
+    # the same question, not a new one.
+    if _RELOCATE.search(question) and not _AUTHORISATION.search(question):
+        return "Yes", "you are willing to work where the role is"
 
     if _BASIS_CHANGES.search(question):
         if _is_no(profile.get("sponsorship")) and _is_yes(
