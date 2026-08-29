@@ -110,15 +110,82 @@ def _refuses(chosen):
 
 
 
-def _facts(profile):
-    """What is known about the candidate, minus documents and secrets.
+def _worked_out(profile, today=None):
+    """Conclusions drawn from the dates, rather than the dates themselves.
 
-    Today's date is included. Without it a model reads "education_1_end:
-    05/2028" as a degree already held, and answers "highest level of education
-    completed" with a master's the candidate will not have for two years.
+    Every mistake the local model made was date arithmetic: a degree ending
+    next year read as one already completed, a class year misread, an
+    internship term guessed at. Telling it today's date did not fix that --
+    it compared dates correctly on one question and fumbled the next.
+
+    Python does not fumble arithmetic. So the sums are done here and the model
+    is handed what they mean, leaving it the judgement it is actually for.
     """
     import datetime
-    out = {"today's date": datetime.date.today().isoformat()}
+    today = today or datetime.date.today()
+
+    def when(value):
+        """A stored date as (year, month), or None."""
+        text = str(value or "")
+        year = re.search(r"(19|20)\d{2}", text)
+        if not year:
+            return None
+        month = re.match(r"\s*(\d{1,2})\s*[/-]", text)
+        return int(year.group(0)), int(month.group(1)) if month else 6
+
+    def past(value):
+        found = when(value)
+        if not found:
+            return None
+        return (found[0], found[1]) <= (today.year, today.month)
+
+    out = {"today's date": today.isoformat()}
+
+    started = [k for k in ("education_1_start", "education_2_start")
+               if past(profile.get(k))]
+    if past(profile.get("education_1_start")) and not past(
+            profile.get("education_1_end")):
+        out["currently studying"] = "a master's degree, in progress"
+    elif past(profile.get("education_2_start")) and not past(
+            profile.get("education_2_end")):
+        out["currently studying"] = "a bachelor's degree, in progress"
+    elif started:
+        out["currently studying"] = "no, studies are finished"
+
+    finished = []
+    if past(profile.get("education_2_end")):
+        finished.append("bachelor's")
+    if past(profile.get("education_1_end")):
+        finished.append("master's")
+    out["degrees completed so far"] = (", ".join(finished) if finished
+                                       else "none yet -- high school only")
+
+    months = 0
+    for entry in (1, 2):
+        begin = when(profile.get("work_%d_start" % entry))
+        end = when(profile.get("work_%d_end" % entry)) or (today.year,
+                                                           today.month)
+        if not begin:
+            continue
+        end = min(end, (today.year, today.month))
+        months = max(months, (end[0] - begin[0]) * 12 + (end[1] - begin[1]))
+    if months > 0:
+        out["work experience so far"] = "about %d month%s" % (
+            months, "" if months == 1 else "s")
+
+    graduating = when(profile.get("education_1_end")) or when(
+        profile.get("graduation"))
+    if graduating:
+        out["graduates finally in"] = "%d" % graduating[0]
+        # An internship is taken in the summer before graduating.
+        out["seeking an internship for"] = "summer %d" % (
+            graduating[0] - 1 if graduating[1] <= 8 else graduating[0])
+    return out
+
+
+def _facts(profile):
+    """What is known about the candidate, minus documents and secrets."""
+    out = _worked_out(profile)
     for key, value in sorted((profile or {}).items()):
         if not isinstance(value, str) or _PRIVATE.search(key):
             continue

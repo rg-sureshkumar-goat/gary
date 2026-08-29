@@ -65,10 +65,41 @@ finally:
         if value is not None:
             os.environ[key] = value
 
-# Today's date is sent, so a degree ending in the future is not read as one
-# already held.
-if "today's date" not in judge._facts(PROFILE):
+# Every mistake the local model made was date arithmetic -- a degree ending
+# next year read as completed, an internship term guessed at. Telling it the
+# date did not fix that, so the sums are done here and it is handed what they
+# mean. This is what took a measured six-question trial from three right to
+# six.
+import datetime
+
+DATED = {
+    "education_1_start": "07/2026", "education_1_end": "05/2028",
+    "education_2_start": "08/2024", "education_2_end": "05/2027",
+    "work_1_start": "09/2025", "work_1_end": "04/2026",
+}
+worked = judge._worked_out(DATED, today=datetime.date(2026, 8, 29))
+
+if "master" not in str(worked.get("currently studying", "")).lower():
+    failures.append("a master's begun in July 2026 is not reported as in "
+                    "progress: %r" % worked.get("currently studying"))
+if "none" not in str(worked.get("degrees completed so far", "")).lower():
+    failures.append("a degree ending in 2027 was counted as completed: %r"
+                    % worked.get("degrees completed so far"))
+if worked.get("seeking an internship for") != "summer 2027":
+    failures.append("the internship term was worked out as %r"
+                    % worked.get("seeking an internship for"))
+if "7 months" not in str(worked.get("work experience so far", "")):
+    failures.append("work experience came to %r"
+                    % worked.get("work experience so far"))
+if "today's date" not in judge._facts(DATED):
     failures.append("the model is not told what today is")
+
+# Once a degree is genuinely finished it counts.
+graduated = judge._worked_out(dict(DATED, education_2_end="05/2025"),
+                              today=datetime.date(2026, 8, 29))
+if "bachelor" not in str(graduated.get("degrees completed so far", "")).lower():
+    failures.append("a bachelor's finished in 2025 was not counted: %r"
+                    % graduated.get("degrees completed so far"))
 
 # Nothing to choose from is nothing to decide.
 if judge.decide("Ethnicity", [], PROFILE)[0] is not None:
@@ -96,7 +127,7 @@ for real in ("Asian", "Male", "No", "Nonprofit experience", "Neither party"):
     if judge._refuses(real):
         failures.append("%r was refused, but it is a real answer" % real)
 
-total = 4 + 3 + 1 + 2 + 2 + 10
+total = 4 + 3 + 6 + 2 + 2 + 10
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
