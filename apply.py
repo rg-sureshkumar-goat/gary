@@ -26,6 +26,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noqa: E402
 from watcher import formfill
 from watcher import infer  # noqa: E402
+from watcher import judge  # noqa: E402
 from watcher import lists  # noqa: E402
 from watcher import location as location_lib  # noqa: E402
 from watcher import pay  # noqa: E402
@@ -1791,6 +1792,11 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                                            profile)
                 if choice is not None:
                     reasoned[label] = working
+            if choice is None:
+                choice, working = judge.decide(label, options, profile)
+                if choice is not None:
+                    reasoned[label] = "%s (judged)" % (working or "judged from "
+                                                       "your profile")
             if choice:
                 if not dry_run:
                     _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
@@ -1839,6 +1845,15 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         label, options, profile)
                     if choice is not None:
                         reasoned[label] = working
+                if choice is None:
+                    # The rules have run out. Every employer writes at least
+                    # one question nobody anticipated, and that is what this
+                    # is for -- asked last, so it never overrides an answer
+                    # the rules were sure of.
+                    choice, working = judge.decide(label, options, profile)
+                    if choice is not None:
+                        reasoned[label] = "%s (judged)" % (working or "judged "
+                                                           "from your profile")
             if choice and not dry_run and choose_from_combobox(frame, element, choice):
                 print("   [dropdown] %s <- %r  from %d options: %s"
                       % (label[:34], choice, len(options),

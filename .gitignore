@@ -18,3 +18,4 @@ profile.json
 snapshots/
 .gary-pause
 snapshots/
+.gary-cache/
