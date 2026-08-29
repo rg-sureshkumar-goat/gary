@@ -105,9 +105,43 @@ with sync_playwright() as playwright:
     if any("first name" in k for k in kept):
         failures.append("learned from its own writing: %r" % kept)
 
+    # A field inside a repeated entry must not be learned globally. Its
+    # question does not say which entry it belongs to, so learning "Field of
+    # Study" from the bachelor's would answer the master's with it too -- which
+    # is what happened on the first real application this ran on.
+    page.set_content("""
+      <div data-automation-id="education-2">
+        <div data-automation-id="formField-school">
+          <label for="s">School or University</label><input id="s">
+        </div>
+        <div data-automation-id="formField-degree">
+          <label for="d">Degree</label><input id="d">
+        </div>
+        <div data-automation-id="formField-fieldOfStudy">
+          <label for="f">Field of Study</label><input id="f">
+        </div>
+      </div>
+      <div data-automation-id="formField-veteran">
+        <label for="v">Veteran Status</label><input id="v">
+      </div>
+    """)
+    apply._WROTE.clear()
+    entries = {}
+    for box, question in (("#f", "Field of Study"), ("#v", "Veteran Status")):
+        apply.note_written(apply.mark_of(page, page.query_selector(box)),
+                           question, "")
+    page.fill("#f", "Arts and Entertainment Technologies")
+    page.fill("#v", "I am not a veteran")
+    apply.learn_from_candidate(page, entries)
+    kept = entries.get("custom_answers", {})
+    if "field of study" in kept:
+        failures.append("learned an entry's field globally: %r" % kept)
+    if kept.get("veteran status") != "I am not a veteran":
+        failures.append("did not learn a question outside any entry: %r" % kept)
+
     browser.close()
 
-total = 8 + 5 + 4
+total = 8 + 5 + 4 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

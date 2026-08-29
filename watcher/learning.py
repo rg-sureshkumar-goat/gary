@@ -28,6 +28,22 @@ _SECRET = re.compile(r"password|passcode|pin\b|secret|token|ssn|social\s+"
                      r"code|date\s+of\s+birth|\bdob\b", re.I)
 
 
+# Questions asked once per repeated entry. The words are identical in every
+# entry -- "Field of Study" is the same question on the bachelor's and the
+# master's -- so an answer learned from one would be given for all of them.
+# These already have their own places in the profile.
+_PER_ENTRY = re.compile(
+    r"^(?:school|university|college|degree|field\s+of\s+study|major|"
+    r"overall\s+result|gpa|grade\s+point|company|employer|job\s+title|"
+    r"role\s+description|title|location|from|to|month|day|year|"
+    r"i\s+currently\s+work\s+here)\b", re.I)
+
+
+def belongs_to_an_entry(question):
+    """Is this a question a form asks once per job or per degree?"""
+    return bool(_PER_ENTRY.match(" ".join(str(question or "").split())))
+
+
 def worth_keeping(question, value):
     """Is this a candidate's answer that will help on another form?"""
     question = " ".join(str(question or "").split())
@@ -41,6 +57,8 @@ def worth_keeping(question, value):
     if _PLACEHOLDER.match(value) or _PLACEHOLDER.match(question):
         return False
     if _SECRET.search(question) or _SECRET.search(value):
+        return False
+    if belongs_to_an_entry(question):
         return False
     return True
 

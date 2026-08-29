@@ -760,6 +760,10 @@ def learn_from_candidate(frame, profile):
                 label_for(frame, element))
             if formfill.is_credential(question):
                 continue
+            # Which entry a field belongs to cannot be read off the page
+            # reliably enough to learn from -- asking the markup put a
+            # question outside every entry inside one. The questions a form
+            # repeats per entry are named instead, in learning.py.
             if learning.remember(profile, PROFILE_PATH, question, now,
                                  corrected=bool(seen["gary"])):
                 learned.append((question, now, bool(seen["gary"])))
