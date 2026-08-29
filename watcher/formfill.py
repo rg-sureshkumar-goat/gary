@@ -554,7 +554,15 @@ def reasoned_option(label, options, profile):
     """
     if not options:
         return None, None
-    lowered = {str(o).strip().lower(): o for o in options if str(o).strip()}
+    # Match against what each option actually names, never its qualifier: the
+    # country in "Hispanic or Latino (United States of America)" is not what
+    # the option is about, and matching a stored country against it answered a
+    # question about race with the wrong group entirely.
+    lowered = {}
+    for option in options:
+        bare = _unqualified(option).lower()
+        if bare and bare not in lowered:
+            lowered[bare] = option
     if not lowered:
         return None, None
 
@@ -577,9 +585,7 @@ def reasoned_option(label, options, profile):
         # "Texas A&M" on a list of universities, and treating that as equal to
         # the university's own name made the list look ambiguous and left it
         # blank.
-        bare_option = re.sub(r"\s*\([^)]*\)\s*$", "",
-                             str(picked)).strip().lower()
-        exact = bare_option == value.strip().lower()
+        exact = _unqualified(picked).lower() == value.strip().lower()
         hits.setdefault(str(picked), {"fields": set(), "exact": False})
         hits[str(picked)]["fields"].add(field)
         hits[str(picked)]["exact"] = hits[str(picked)]["exact"] or exact
@@ -624,6 +630,17 @@ def choose_option(label, options, profile, section="", identity="", entry=0):
 _DIAL_CODE = re.compile(r"\s*\+\d{1,4}\s*$")
 
 
+def _unqualified(text):
+    """An option with its trailing qualifiers removed, however many there are."""
+    stripped = " ".join(str(text or "").split())
+    while True:
+        shorter = re.sub(r"\s*\([^()]*\)\s*$", "", stripped).strip()
+        if shorter == stripped:
+            break
+        stripped = shorter
+    return stripped.rstrip(".").strip()
+
+
 def _match_option(wanted, lowered):
     """Match one value against a dropdown's options, or None."""
     target = wanted.strip().lower()
@@ -638,10 +655,11 @@ def _match_option(wanted, lowered):
         undotted = re.sub(r"(?<=[a-z])\.(?=[a-z])", "", text).replace(".", "").strip()
         if undotted and undotted not in lowered:
             lowered[undotted] = original
-        # Workday's self-identification lists append the country to every
-        # option -- "Asian (United States of America)" -- which no stated
-        # answer will ever contain.
-        unqualified = re.sub(r"\s*\([^)]*\)\s*$", "", text).strip().rstrip(".")
+        # Workday's self-identification lists qualify every option, sometimes
+        # twice over: "Asian (Not Hispanic or Latino) (United States of
+        # America)". No stated answer contains any of that, and stripping only
+        # the last bracket left the option still unmatchable.
+        unqualified = _unqualified(text)
         if unqualified and unqualified not in lowered:
             lowered[unqualified] = original
 

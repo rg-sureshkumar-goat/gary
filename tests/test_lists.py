@@ -33,7 +33,25 @@ RACE = ["Select One",
         "Two or More Races (United States of America)",
         "White (United States of America)"]
 
+# How Workday actually spells these: every option qualified, sometimes twice.
+# Stripping only the last bracket left "Asian (Not Hispanic or Latino) (United
+# States of America)" unmatchable, and a stored country then matched the
+# qualifier on "Hispanic or Latino (United States of America)" -- so a
+# question about race was answered with the wrong group.
+DOUBLY_QUALIFIED = [
+    "Select One",
+    "American Indian or Alaska Native (Not Hispanic or Latino) "
+    "(United States of America)",
+    "Asian (Not Hispanic or Latino) (United States of America)",
+    "Black or African American (Not Hispanic or Latino) "
+    "(United States of America)",
+    "Hispanic or Latino (United States of America)",
+    "I do not wish to self-identify (United States of America)",
+]
+
 CASES = [
+    ("doubly qualified race list", DOUBLY_QUALIFIED,
+     "Asian (Not Hispanic or Latino) (United States of America)"),
     ("race", RACE, "Asian (United States of America)"),
     ("race, plainly worded", ["Asian", "White", "Black or African American",
                               "Two or More Races"], "Asian"),
@@ -72,11 +90,24 @@ for options in UNRECOGNISED:
                         % (options[:3], got))
 
 # The specific failure this exists to prevent.
-got, _ = lists.answer(RACE, PROFILE)
-if got and "Hispanic" in str(got):
-    failures.append("a race list was answered with Hispanic or Latino")
+for options in (RACE, DOUBLY_QUALIFIED):
+    got, _ = lists.answer(options, PROFILE)
+    if str(got or "").startswith("Hispanic"):
+        failures.append("a race list was answered with Hispanic or Latino")
 
-total = len(CASES) + len(UNRECOGNISED) + 1
+# A country must never match the country named in an option's qualifier.
+from watcher.formfill import reasoned_option
+
+WITH_COUNTRY = dict(PROFILE, country="United States of America")
+got, _ = reasoned_option("Select One", DOUBLY_QUALIFIED, WITH_COUNTRY)
+# The right answer contains the words "Not Hispanic or Latino", so what is
+# checked is that the Hispanic option itself was not chosen.
+if str(got or "").startswith("Hispanic"):
+    failures.append("a stored country matched an option's qualifier: %r" % got)
+if got != "Asian (Not Hispanic or Latino) (United States of America)":
+    failures.append("reasoning gave %r on the doubly qualified list" % got)
+
+total = len(CASES) + len(UNRECOGNISED) + 1 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
