@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-29T00:33:13Z",
+ "last_run": "2026-08-29T00:45:54Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
+  "matching": 26,
   "new": 0,
-  "postings": 25043,
-  "sites": 82
+  "postings": 32327,
+  "sites": 202
  },
  "recommended": {},
  "reminders_sent": [],
@@ -2036,7 +2036,7 @@
   },
   "greenhouse:verainstituteofjustice:4712591005": {
    "f": "2026-07-07",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061": {
    "f": "2026-08-25",
@@ -2124,7 +2124,7 @@
   },
   "smartrecruiters:BoschGroup:744000144612115": {
    "f": "2026-08-20",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "smartrecruiters:Continental:744000146251819": {
    "f": "2026-08-28",
@@ -2160,19 +2160,19 @@
   },
   "smartrecruiters:TheWonderfulCompany:744000113566258": {
    "f": "2026-03-09",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "smartrecruiters:TheWonderfulCompany:744000113780016": {
    "f": "2026-03-10",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "smartrecruiters:TheWonderfulCompany:744000113780858": {
    "f": "2026-03-10",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "smartrecruiters:TheWonderfulCompany:744000113783769": {
    "f": "2026-03-10",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "smartrecruiters:Wabtec:3743990014653567": {
    "f": "2026-08-25",
@@ -2212,11 +2212,11 @@
   },
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1": {
    "f": "2026-08-07",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1": {
    "f": "2026-08-25",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203": {
    "f": "2026-08-26",
@@ -2472,11 +2472,11 @@
   },
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543": {
    "f": "2026-08-24",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560": {
    "f": "2026-08-24",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1": {
    "f": "2026-08-28",
@@ -2516,7 +2516,7 @@
   },
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929": {
    "f": "2026-08-26",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:hl:/job/Los-Angeles-CA-USA/Corporate-Development-Intern--Summer-2027-_R3354": {
    "f": "2026-08-25",
@@ -2864,23 +2864,23 @@
   },
   "workday:pimco:/job/New-York-NY-USA/XMLNAME-2027-Summer-Intern---Global-Wealth-Management--Strategic-Accounts-Analyst--US--_R106770": {
    "f": "2026-08-21",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Alternatives-Investment-Operations-Intern_R106782": {
    "f": "2026-08-25",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Consultant-Relations-Group-Analyst--US_R106741": {
    "f": "2026-08-18",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Finance---Accounting-Analyst_R106623": {
    "f": "2026-08-18",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Product-Strategy-Analyst--US_R106626": {
    "f": "2026-08-18",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/CA---San-Francisco-94105/XMLNAME-2027-M-A-Summer-Associate--SF-_R231583": {
    "f": "2026-08-25",
@@ -2888,15 +2888,15 @@
   },
   "workday:pnc:/job/IL---Chicago-60606/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--West-_R230912-1": {
    "f": "2026-08-05",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Business-Credit_R230898-1": {
    "f": "2026-08-03",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking---Financials-and-Diversified-Track_R230900-1": {
    "f": "2026-08-03",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/MA---Boston-02110/XMLNAME-2027-M-A-Summer-Associate--Boston-_R231649": {
    "f": "2026-08-25",
@@ -2904,31 +2904,31 @@
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Asset-Management-Group-Undergraduate-Intern_R230880-1": {
    "f": "2026-08-07",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--East-_R230901-1": {
    "f": "2026-08-05",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Real-Estate-Banking_R230915-1": {
    "f": "2026-08-03",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Treasury-Management_R230917-1": {
    "f": "2026-08-25",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Summer-2027-Intern---Capital-Markets_R218205-1": {
    "f": "2026-08-03",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate-Finance---Accounting-Undergraduate-Intern_R231489-1": {
    "f": "2026-08-07",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:pnc:/job/PNC-Center---Cleveland-OH001/Retail-Banking-Summer-Intern-Program---Financial-Wellness-Solutions_R230922-1": {
    "f": "2026-08-03",
-   "l": "2026-08-28"
+   "l": "2026-08-29"
   },
   "workday:polaris:/job/Medina-MN-USA/Finance-Internship---Summer-2027_R30415": {
    "f": "2026-08-25",
