@@ -27,6 +27,7 @@ from watcher.browser import LAUNCH_ARGS, STEALTH, UA, _require_playwright  # noq
 from watcher import formfill
 from watcher import infer  # noqa: E402
 from watcher import judge  # noqa: E402
+from watcher import learning  # noqa: E402
 from watcher import lists  # noqa: E402
 from watcher import location as location_lib  # noqa: E402
 from watcher import pay  # noqa: E402
@@ -718,6 +719,58 @@ def read_advertised_pay(page, profile):
     profile["desired_salary_reason"] = why
     print("   advertised pay: asking %s (%s)" % (wanted, why))
     return True
+
+
+# What Gary put in each field, and what question it was answering. Read back
+# on later passes: a value that differs is the candidate's, and worth keeping.
+_WROTE = {}
+PROFILE_PATH = None
+
+
+def note_written(mark, question, value):
+    """Remember what Gary put somewhere, so the candidate's edit stands out."""
+    if mark:
+        _WROTE[mark] = {"question": question or "",
+                        "gary": " ".join(str(value or "").split())}
+
+
+def learn_from_candidate(frame, profile):
+    """Keep what the candidate typed where Gary could not, or was wrong.
+
+    Gary leaves a field alone when nothing settles it, and the candidate fills
+    it in. That answer is worth keeping -- employers ask the same things in
+    different words, and a question answered by hand once should not need
+    answering again. A value differing from what Gary wrote is theirs; a value
+    matching it teaches nothing.
+    """
+    learned = []
+    for element in controls(frame):
+        try:
+            if not element.is_visible():
+                continue
+            mark = mark_of(frame, element)
+            seen = _WROTE.get(mark)
+            if not seen:
+                continue
+            now = (widget_value(frame, element) or "").strip()
+            if not now or now == seen["gary"]:
+                continue
+            question = seen["question"] or formfill.normalise(
+                field_question(frame, element)) or formfill.normalise(
+                label_for(frame, element))
+            if formfill.is_credential(question):
+                continue
+            if learning.remember(profile, PROFILE_PATH, question, now,
+                                 corrected=bool(seen["gary"])):
+                learned.append((question, now, bool(seen["gary"])))
+                seen["gary"] = now
+        except Exception:
+            continue
+    for question, value, corrected in learned:
+        print("   learned: %s = %r  (%s)"
+              % (question[:52], value[:40],
+                 "you corrected Gary" if corrected else "you filled it in"))
+    return learned
 
 
 def note_inference(label, profile, value, reasoned=None):
@@ -1742,6 +1795,9 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 continue
         except Exception:
             pass
+        # Watch it even when nothing is written: a field Gary leaves alone is
+        # exactly the one the candidate is about to answer by hand.
+        note_written(field_key, label, "")
         if field_key in _UNREADABLE_FILLED or field_key in _GAVE_UP:
             continue
         if _WRITES.get(field_key, 0) >= MAX_WRITES:
@@ -1802,6 +1858,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
                     _mark_answered(field_key)
                     element.select_option(label=choice)
+                note_written(field_key, label, choice)
                 filled.append((label, choice))
             else:
                 skipped.append((label, "no confident match -- pick it yourself"))
@@ -1876,6 +1933,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     print("   [dropdown] MISMATCH %s: holds %r, chose %r"
                           % (label[:30], settled[:40], str(choice)[:40]))
                 else:
+                    note_written(field_key, label, choice)
                     filled.append((label,
                                    note_inference(label, profile, choice,
                                                   reasoned)))
@@ -1973,6 +2031,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         _UNREADABLE_FILLED.add(field_key)
                 except Exception:
                     _UNREADABLE_FILLED.add(field_key)
+            note_written(field_key, label, value)
             filled.append((label, note_inference(label, profile, value, reasoned)))
         elif label:
             skipped.append((label, "not in your profile"))
@@ -2105,6 +2164,9 @@ def main(argv=None):
             # Landed in a restored application rather than on the posting.
             pay_from_posting(ctx, args.url, profile)
 
+        global PROFILE_PATH
+        PROFILE_PATH = args.profile
+
         open_locations = location_lib.split_locations(args.locations or "")
 
         if args.watch:
@@ -2141,6 +2203,7 @@ def main(argv=None):
                         pay_from_posting(ctx, args.url, profile)
                     frames = form_frames(current)
                     if frames and not looks_like_login(frames[0]):
+                        learn_from_candidate(frames[0], profile)
                         # No ceiling on looking. A pass that fills nothing
                         # costs nothing, and counting those spent the
                         # whole budget while the page was still settling
