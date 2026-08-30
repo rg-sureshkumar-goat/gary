@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-30T21:03:11Z",
+ "last_run": "2026-08-30T21:16:36Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
+  "matching": 45,
   "new": 0,
-  "postings": 24798,
-  "sites": 82
+  "postings": 23594,
+  "sites": 200
  },
  "recommended": {},
  "reminders_sent": [],
