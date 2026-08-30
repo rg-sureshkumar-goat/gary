@@ -113,3 +113,47 @@ def answer(options, profile):
             return found, ("a list of %s options, answered from your %s"
                            % (kind, field))
     return None, None
+
+
+# How the candidate heard about the role. Employers word their own site many
+# ways -- "Company Website", "Corporate Site", "Tencent Careers Page" -- and
+# what they have in common is the employer's name or a word meaning "us",
+# beside a word meaning a website.
+_OURS = r"(?:compan(?:y|ies)|corporate|organi[sz]ation|employer|our|internal)"
+# A word meaning a website. "Careers" is not one of them on its own -- a
+# career fair is not a website -- but careers beside one of these is.
+_A_SITE = r"(?:web\s*site|website|\bsite\b|\bpage\b|portal)"
+_CAREERS = r"careers?"
+_SOCIAL = re.compile(r"linked\s*in|social\s+media", re.I)
+
+
+def heard_about_us(options, company="", prefer_social=False):
+    """The option meaning the employer's own site, or their social media.
+
+    Gary knows which employer this is, so an option naming them beside a word
+    for a website is their site -- however this particular form phrases it.
+    That is a rule about employers in general rather than a list of the ways
+    one employer writes its name.
+    """
+    named = re.escape(str(company or "").strip()) if company else ""
+    ours = []
+    social = []
+    for option in options or []:
+        text = _bare(option)
+        if _FILLER.match(text):
+            continue
+        if _SOCIAL.search(text):
+            social.append(option)
+        site = re.search(_A_SITE, text, re.I)
+        careers = re.search(_CAREERS, text, re.I)
+        if not site and not (careers and re.search(_OURS, text, re.I)):
+            continue
+        if named and re.search(named, text, re.I):
+            ours.insert(0, option)          # names this employer: strongest
+        elif site and (careers or re.search(_OURS, text, re.I)):
+            ours.append(option)
+    if not prefer_social and ours:
+        return ours[0]
+    if social:
+        return social[0]
+    return ours[0] if ours else None

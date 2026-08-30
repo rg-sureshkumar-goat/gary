@@ -923,3 +923,15 @@ def entry_date(label, section, profile, block, entry):
         return None
     month, year = _split_date(stored)
     return month if wants_month else year
+
+
+# "How did you hear about us?", in the many ways employers ask it.
+_REFERRAL_QUESTION = re.compile(
+    r"how\s+did\s+you\s+(?:hear|find|learn)|where\s+did\s+you\s+(?:hear|find)|"
+    r"source\s+of\s+(?:application|referral)|referral\s+source|"
+    r"how\s+were\s+you\s+referred|hear\s+about\s+(?:us|this)", re.I)
+
+
+def is_referral_question(label):
+    """Is this asking how the candidate came across the role?"""
+    return bool(_REFERRAL_QUESTION.search(normalise(label)))

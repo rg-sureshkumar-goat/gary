@@ -217,6 +217,16 @@ def _facts(profile):
             break
     if answered:
         out["answers you have given before"] = answered
+
+    # An answer the candidate gave in one employer's words needs saying in
+    # general terms, or a model cannot see that "Tencent Careers Page" is the
+    # company's own site and answers a preference for "Company Website".
+    referral = str(profile.get("referral") or "")
+    if referral:
+        out["where they want to say they heard about the role"] = (
+            "%s -- meaning this employer's own careers page or website, "
+            "whatever it is called here; if no such option exists, LinkedIn "
+            "or social media; otherwise nothing" % referral)
     return out
 
 
@@ -264,8 +274,12 @@ The options offered, exactly as written:
 Choose the option that is right for this candidate, or choose nothing.
 
 Rules:
-- "choice" must be one of the options above, copied character for character,
-  or null.
+- "choice" is the NUMBER of the option you are choosing, or null. Do not
+  write the option out, and never answer with a value from the facts above --
+  the answer has to be one of the numbered options, even when it is worded
+  differently from what the candidate said. "Company Website" in the facts is
+  answered by whichever numbered option means the company's own site,
+  whatever this employer calls it.
 - Choose null unless the facts above settle it. Do not guess at anything the
   candidate has not told you: their opinions, their reasons for applying,
   their salary, a referral, or anything about their history that is not
@@ -294,7 +308,7 @@ Rules:
 SCHEMA = {
     "type": "object",
     "properties": {
-        "choice": {"type": ["string", "null"]},
+        "choice": {"type": ["integer", "null"]},
         "reasoning": {"type": "string"},
     },
     "required": ["choice", "reasoning"],
@@ -306,6 +320,44 @@ SCHEMA = {
 # otherwise imply one, so it has to be refused explicitly.
 _A_TITLE = re.compile(r"^(?:name\s+)?(?:prefix|title|salutation|honorific)\b",
                       re.I)
+
+
+def _numbered(chosen, options):
+    """The option a number refers to, or None."""
+    try:
+        index = int(str(chosen).strip())
+    except (TypeError, ValueError):
+        return None
+    if 1 <= index <= len(options):
+        return options[index - 1]
+    return None
+
+
+def _as_offered(chosen, options):
+    """The offered option a model's answer refers to, or None.
+
+    The answer must be something on the list -- that is what stops a model
+    inventing a value. But requiring the same characters throws away a right
+    answer over a capital letter or a stray space, which is what happened to
+    "Tencent Careers Page" on a real application.
+    """
+    if chosen is None:
+        return None
+    numbered = _numbered(chosen, options)
+    if numbered is not None:
+        return numbered
+    tidy = " ".join(str(chosen).split()).strip().lower()
+    if not tidy:
+        return None
+    for option in options:
+        if " ".join(str(option).split()).strip().lower() == tidy:
+            return option
+    # One option that contains the answer, or is contained by it. More than
+    # one and it is genuinely ambiguous, so nothing is chosen.
+    near = [o for o in options
+            if tidy in " ".join(str(o).split()).lower()
+            or " ".join(str(o).split()).lower() in tidy]
+    return near[0] if len(near) == 1 else None
 
 
 def decide(question, options, profile):
@@ -328,9 +380,12 @@ def decide(question, options, profile):
     if local_available():
         chosen, why = _ask_local(question, options, facts)
         if chosen is not None or why is not None:
-            if chosen is not None and chosen not in options:
+            matched = _as_offered(chosen, options)
+            if chosen is not None and matched is None:
                 chosen, why = None, ("the model named an option that was not "
                                      "on the list")
+            elif matched is not None:
+                chosen = matched
             elif _refuses(chosen):
                 chosen, why = None, ("\"%s\" is a claim about you, and nothing "
                                      "on file establishes it" % chosen)
@@ -350,7 +405,8 @@ def decide(question, options, profile):
             messages=[{"role": "user", "content": PROMPT % (
                 json.dumps(facts, indent=2),
                 question,
-                "\n".join("- %s" % o for o in options),
+                "\n".join("%d. %s" % (i + 1, o)
+                          for i, o in enumerate(options)),
             )}],
         )
     except Exception:
@@ -371,9 +427,12 @@ def decide(question, options, profile):
     chosen = answer.get("choice")
     why = str(answer.get("reasoning") or "").strip()
     # It must be an option that was actually offered, verbatim.
-    if chosen is not None and chosen not in options:
+    matched = _as_offered(chosen, options)
+    if chosen is not None and matched is None:
         chosen = None
         why = "the model named an option that was not on the list"
+    elif matched is not None:
+        chosen = matched
     elif _refuses(chosen):
         why = ("\"%s\" is a claim about you, and nothing on file establishes "
                "it" % chosen)
@@ -402,7 +461,8 @@ def _ask_local(question, options, facts):
             {"role": "user", "content": PROMPT % (
                 json.dumps(facts, indent=2),
                 question,
-                "\n".join("- %s" % o for o in options),
+                "\n".join("%d. %s" % (i + 1, o)
+                          for i, o in enumerate(options)),
             )},
         ],
     }).encode("utf-8")

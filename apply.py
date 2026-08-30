@@ -2262,7 +2262,17 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 # race on file whether it is headed "Ethnicity", "Race", or
                 # only "Select One" -- and answering it from a name that
                 # happens to match is how it came to say "Hispanic or Latino".
-                choice, working = lists.answer(options, profile)
+                # How they heard about the role is answered by what the
+                # employer calls its own site, which Gary can recognise
+                # because it knows which employer this is.
+                choice, working = None, None
+                if formfill.is_referral_question(label):
+                    choice = lists.heard_about_us(options, company)
+                    if choice is not None:
+                        working = ("this employer's own site, which is where "
+                                   "you say you heard about roles")
+                if choice is None:
+                    choice, working = lists.answer(options, profile)
                 if choice is not None:
                     reasoned[label] = working
                 else:
