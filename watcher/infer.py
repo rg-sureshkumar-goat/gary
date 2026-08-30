@@ -51,6 +51,10 @@ _MONTHS = ("January", "February", "March", "April", "May", "June", "July",
            "August", "September", "October", "November", "December")
 
 # A relative or family member employed by the company.
+# A title before a name: Mr., Ms., Dr. Left empty by the candidate's choice.
+_PREFIX = re.compile(r"^(?:prefix|title|salutation|honorific)\b|"
+                     r"^(?:name\s+)?prefix$", re.I)
+
 _RELATIVE = re.compile(
     r"\b(?:relative|relatives|family\s+member|family\s+members|immediate\s+"
     r"family|spouse|sibling|parent)\b", re.I)
@@ -163,6 +167,11 @@ def answer(label, profile, today=None):
     """
     question = formfill.normalise(label).strip().rstrip("?").lower()
     if not question or _NEVER.search(question):
+        return None, None
+
+    # A title is the candidate's to give or withhold, and he withholds it.
+    # Gender would imply one, which is exactly why this has to be stated.
+    if _PREFIX.match(question):
         return None, None
     today = today or datetime.date.today()
 

@@ -302,10 +302,18 @@ SCHEMA = {
 }
 
 
+# A title before a name. The candidate wants none, and a gender on file would
+# otherwise imply one, so it has to be refused explicitly.
+_A_TITLE = re.compile(r"^(?:name\s+)?(?:prefix|title|salutation|honorific)\b",
+                      re.I)
+
+
 def decide(question, options, profile):
     """The option a model judges right: (option, why) or (None, why-not)."""
     options = [str(o) for o in (options or []) if str(o).strip()]
     if not options or not question:
+        return None, None
+    if _A_TITLE.match(" ".join(str(question).split())):
         return None, None
     if not available():
         return None, None

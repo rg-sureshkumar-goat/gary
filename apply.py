@@ -1811,6 +1811,21 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
     for block, what in opened:
         filled.append(("Add %s" % block, what))
 
+    # Does this form ask for a preferred name anywhere? Workday ids every
+    # name field "legalName" regardless, so that id only distinguishes
+    # anything when there is a preferred name to distinguish it from.
+    preferred_on_form = False
+    try:
+        preferred_on_form = bool(frame.evaluate("""() => {
+            const marks = document.body.innerText || '';
+            if (/preferred\s+name/i.test(marks)) return true;
+            return !!document.querySelector(
+                '[id*=preferredName], [name*=preferredName],'
+                '[data-automation-id*=preferredName]');
+        }"""))
+    except Exception:
+        preferred_on_form = False
+
     # Read every label first. A plain "First Name" means the legal name on a
     # form that has a preferred-name field elsewhere, and the name you go by on
     # a form that hasn't -- so it cannot be answered field by field.
@@ -2121,6 +2136,15 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
                 _mark_answered(field_key)
             options = combobox_options(frame, element)
+            if tag == "button" and not dry_run:
+                # A button dropdown shows everything at once, so opening it and
+                # reading is the whole list -- no guessing at a query first.
+                # Reading it once from wherever a list happened to be open is
+                # what offered a "how did you hear about us" question a set of
+                # dialling codes.
+                seen = gather_options(frame, element, [])
+                if seen:
+                    options = list(seen)
 
             # A search box shows what it can before anything is typed: nothing
             # at all for Greenhouse's "Location (City)", the first page of an
@@ -2131,7 +2155,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                            ident, entry) if options else None
             if shown is None and tag != "button":
                 typed = names_lib.name_for(label, profile, all_labels,
-                                           section, ident)
+                                           section, ident,
+                                           preferred_on_form)
                 if typed is None:
                     typed = formfill.value_for(label, profile, section, ident,
                                                entry)
@@ -2297,7 +2322,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             continue
 
         # Names follow their own rule, decided by the whole form.
-        value = names_lib.name_for(label, profile, all_labels, section, ident)
+        value = names_lib.name_for(label, profile, all_labels, section, ident,
+                                   preferred_on_form)
         if value is None:
             value = formfill.entry_date(label, section, profile, block, entry)
         if value is None:

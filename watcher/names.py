@@ -72,7 +72,8 @@ def about_someone_else(label, section=""):
     return bool(_SOMEONE_ELSE.search("%s %s" % (label or "", section or "")))
 
 
-def name_for(label, profile, labels_on_form=(), section="", identity=""):
+def name_for(label, profile, labels_on_form=(), section="", identity="",
+             preferred_on_form=None):
     """The value for a name field, or None if this is not one.
 
     Three sources of evidence, most reliable first:
@@ -89,6 +90,14 @@ def name_for(label, profile, labels_on_form=(), section="", identity=""):
     only the ids and the headings telling them apart -- so reading the label
     alone puts the legal name in the preferred boxes.
     """
+    # Workday ids every name field legalName, whether or not the form asks
+    # for a legal name at all. So the id only distinguishes anything when a
+    # preferred name is also being asked for; on a form with one set of name
+    # boxes it says nothing, and the candidate wants the name he goes by.
+    if preferred_on_form is False:
+        identity = ""
+        section = re.sub(r"legal", " ", str(section or ""), flags=re.I)
+
     # A middle name is its own field, not the whole name. Every name box
     # contains the word "name", and answering this one as though it were
     # unqualified put the candidate's full legal name into it -- which on a

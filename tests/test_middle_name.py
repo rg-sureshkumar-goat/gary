@@ -44,7 +44,44 @@ if names_lib.name_for("First Name", WITHOUT) != "RG":
 if names_lib.name_for("Last Name", WITHOUT) != "Sureshkumar":
     failures.append("the last name stopped working")
 
-total = 3 + 2 + 2
+# Workday ids every name box "legalName" whether or not the form asks for a
+# legal name at all, so that id only distinguishes anything when a preferred
+# name is also on the form. On a form with one set of name boxes, the
+# candidate wants the name he goes by -- Tencent's form put his full legal
+# name in where RG belonged.
+ONE_SET = dict(WITHOUT)
+for label, ident, wanted in (
+        ("First Name", "name--legalName--firstName", "RG"),
+        ("Last Name", "name--legalName--lastName", "Sureshkumar")):
+    got = names_lib.name_for(label, ONE_SET, (), "", ident,
+                             preferred_on_form=False)
+    if got != wanted:
+        failures.append("one set of name boxes: %r gave %r, wanted %r"
+                        % (label, got, wanted))
+
+# Where a form asks for both, the distinction is real and is kept.
+for ident, wanted in (("legalNameSection_firstName", "Ramganesh"),
+                      ("preferredNameSection_firstName", "RG")):
+    got = names_lib.name_for("First Name", ONE_SET, (), "", ident,
+                             preferred_on_form=True)
+    if got != wanted:
+        failures.append("both asked for: %r gave %r, wanted %r"
+                        % (ident, got, wanted))
+
+# A title is left empty, however it is asked and whatever the gender says.
+from watcher import infer, lists
+from watcher.formfill import reasoned_option
+
+TITLED = {"gender": "Male", "first_name": "RG"}
+for label in ("Prefix", "Title", "Salutation"):
+    if infer.answer(label, TITLED)[0] is not None:
+        failures.append("%r was given a title" % label)
+if lists.answer(["Select One", "Mr.", "Ms.", "Dr."], TITLED)[0] is not None:
+    failures.append("a list of titles was answered")
+if reasoned_option("Prefix", ["Select One", "Mr.", "Ms."], TITLED)[0] is not None:
+    failures.append("a title was reasoned into place")
+
+total = 3 + 2 + 2 + 4 + 5
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

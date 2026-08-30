@@ -69,8 +69,21 @@ def kind_of(options):
     return best
 
 
+# A list of titles. The candidate wants none, and a gender on file would
+# otherwise pick one for him.
+_TITLES = re.compile(r"^(?:mr|mrs|ms|miss|mx|dr|prof|sir|madam)\.?$", re.I)
+
+
+def is_a_title_list(options):
+    """Is this list offering Mr., Ms., Dr. and the like?"""
+    seen = sum(1 for o in options or [] if _TITLES.match(_bare(o)))
+    return seen >= 2
+
+
 def answer(options, profile):
     """The fact that answers this list: (value, why) or (None, None)."""
+    if is_a_title_list(options):
+        return None, None
     kind = kind_of(options)
     if not kind:
         return None, None
