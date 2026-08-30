@@ -52,6 +52,24 @@ def is_preferred_toggle(label):
     return bool(PREFERRED_TOGGLE.search(str(label or "")))
 
 
+# A name that is not the candidate's. A form asks for plenty of them, and
+# every one contains the word "name" -- a relative who works at the company, a
+# reference, a supervisor, an emergency contact. Answering any of them with
+# the candidate's own name is worse than leaving them blank, because it reads
+# as an answer.
+_SOMEONE_ELSE = re.compile(
+    r"relative|family\s+member|spouse|sibling|\bparent\b|next\s+of\s+kin|"
+    r"emergency\s+contact|\breference\b|referred\s+by|referrer|"
+    r"supervisor|manager|employer\s+name|company\s+name|school\s+name|"
+    r"university\s+name|contact\s+name|guardian|beneficiary|"
+    r"person\s+who|their\s+name|his\s+name|her\s+name", re.I)
+
+
+def about_someone_else(label, section=""):
+    """Is this asking for a name other than the candidate's?"""
+    return bool(_SOMEONE_ELSE.search("%s %s" % (label or "", section or "")))
+
+
 def name_for(label, profile, labels_on_form=(), section="", identity=""):
     """The value for a name field, or None if this is not one.
 
@@ -69,6 +87,12 @@ def name_for(label, profile, labels_on_form=(), section="", identity=""):
     only the ids and the headings telling them apart -- so reading the label
     alone puts the legal name in the preferred boxes.
     """
+    # Somebody else's name is not the candidate's, however the field is
+    # labelled. A form asks for plenty of names that are not the candidate's,
+    # and answering one with their own reads as an answer rather than a gap.
+    if about_someone_else(label, section):
+        return None
+
     text = " ".join(str(label or "").split())
     if not text or not is_name_field(text):
         return None

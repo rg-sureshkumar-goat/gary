@@ -1976,6 +1976,23 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             value = formfill.entry_date(label, section, profile, block, entry)
         if value is None:
             value = formfill.value_for(label, profile, section, ident, entry)
+        # A required box asking who the relative is, on a form where the
+        # answer to the question above it is no. Only when the form insists:
+        # an unnecessary "N/A" is noise on a page a person will read.
+        if value is None and infer.name_of_relative(label):
+            try:
+                insists = bool(element.evaluate(
+                    """el => el.required ||
+                       el.getAttribute('aria-required') === 'true' ||
+                       !!el.closest('[data-automation-id^=formField-]'
+                       )?.querySelector('abbr[title=required], .required')"""))
+            except Exception:
+                insists = False
+            if insists:
+                value = "N/A"
+                reasoned[label] = ("required, and you have no relative to "
+                                   "name")
+
         if value:
             if not dry_run:
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1

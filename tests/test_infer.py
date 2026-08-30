@@ -43,6 +43,11 @@ DERIVED = [
     ("Have you ever participated in the recruitment process with Ecolab or "
      "any of its subsidiaries?", "No"),
     ("Have you previously applied to this company?", "No"),
+    # Relatives at the employer, asked of subsidiaries and competitors too.
+    ("Do you have any relatives employed by Fannie Mae?", "No"),
+    ("To your knowledge, do you have any relatives employed by Ecolab or any "
+     "of our subsidiaries, competitors, or suppliers?", "No"),
+    ("Is your spouse employed by the company?", "No"),
     # Willing to work where the job is, however the question is framed. A
     # phrasing that names a city is the same question, not a new one.
     ("Are you willing to relocate for this position?", "Yes"),
@@ -122,6 +127,33 @@ for question, wanted in (
         failures.append("%r answered %r, wanted %r -- authorisation is not "
                         "relocation" % (question[:44], got, wanted))
 
+# The follow-up asking who the relative is is not a yes or no, and is only
+# answered where the form insists -- an unnecessary "N/A" is noise on a page a
+# person will read.
+from watcher import names as names_lib
+
+for question in ("If you answered yes, list your family member's name(s)",
+                 "Please list the name of the relative"):
+    got, _ = infer.answer(question, PROFILE, today=TODAY)
+    if got is not None:
+        failures.append("answered the follow-up with %r" % got)
+    if not infer.name_of_relative(question):
+        failures.append("did not recognise %r as the follow-up" % question[:40])
+
+# A name that is not the candidate's is never answered with theirs. Every one
+# of these contains the word "name", which is how a relative's name box came
+# to hold "Sureshkumar".
+for question in ("If you answered yes, list your family member's name(s)",
+                 "Reference Name", "Emergency Contact Name",
+                 "Supervisor Name", "Name of the relative"):
+    if names_lib.name_for(question, {"first_name": "RG",
+                                     "last_name": "Sureshkumar"}) is not None:
+        failures.append("%r was answered with the candidate's own name"
+                        % question[:40])
+# The candidate's own name still works.
+if names_lib.name_for("First Name", {"first_name": "RG"}) != "RG":
+    failures.append("the candidate's own name field stopped working")
+
 # A threshold nothing on file settles.
 got, _ = infer.answer("Are you 21 years of age or older?", PROFILE, today=TODAY)
 if got is not None:
@@ -152,7 +184,7 @@ if got and not got.startswith("$"):
 if not why:
     failures.append("the salary gave no reason; the candidate signs for it")
 
-total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3 + 2 + 2
+total = len(DERIVED) + len(REFUSED) + 3 + 3 + 3 + 2 + 2 + 4 + 6
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -50,6 +50,26 @@ _HIGHEST_COMPLETED = re.compile(
 _MONTHS = ("January", "February", "March", "April", "May", "June", "July",
            "August", "September", "October", "November", "December")
 
+# A relative or family member employed by the company.
+_RELATIVE = re.compile(
+    r"\b(?:relative|relatives|family\s+member|family\s+members|immediate\s+"
+    r"family|spouse|sibling|parent)\b", re.I)
+
+# The follow-up asking who that person is, which is not a yes or no.
+_RELATIVE_NAME = re.compile(
+    r"list\s+(?:their|your|the)|name\s+of\s+(?:the\s+)?(?:relative|family)|"
+    r"who\s+(?:is|are)\s+(?:they|the)|if\s+(?:you\s+answered\s+)?yes|"
+    r"please\s+(?:list|name|specify|provide)", re.I)
+
+
+def name_of_relative(label):
+    """The follow-up naming a relative, which only needs answering if
+    the form insists. An unnecessary "N/A" is noise on a form a human reads.
+    """
+    question = formfill.normalise(label).strip().rstrip("?").lower()
+    return bool(_RELATIVE.search(question) and _RELATIVE_NAME.search(question))
+
+
 _RELOCATE = re.compile(
     r"relocat|willing\s+to\s+move|able\s+to\s+move|"
     r"(?:able|willing|open)\s+to\s+work(?:ing)?\s+(?:in|at|from|on)\b|"
@@ -229,6 +249,11 @@ def answer(label, profile, today=None):
     # the same question, not a new one.
     if _RELOCATE.search(question) and not _AUTHORISATION.search(question):
         return "Yes", "you are willing to work where the role is"
+
+    # A relative working at the employer. Asked of subsidiaries, competitors
+    # and suppliers too, which is the same question.
+    if _RELATIVE.search(question) and not _RELATIVE_NAME.search(question):
+        return "No", "your default answer about relatives at an employer"
 
     if _BASIS_CHANGES.search(question):
         if _is_no(profile.get("sponsorship")) and _is_yes(
