@@ -307,7 +307,15 @@ def choose_from_combobox(frame, element, wanted):
                     '[role=option], [class*=option], [id*=option], li')) {
                 const t = (o.innerText || '').trim();
                 if (t && t.toLowerCase() === String(wanted).trim().toLowerCase()) {
-                    o.click();
+                    // React menus commit on mousedown; a click alone leaves
+                    // them open with nothing chosen.
+                    for (const kind of ['pointerdown', 'mousedown', 'mouseup',
+                                        'click']) {
+                        o.dispatchEvent(new MouseEvent(kind, {
+                            bubbles: true, cancelable: true, view: window,
+                            button: 0,
+                        }));
+                    }
                     return true;
                 }
             }
@@ -315,6 +323,33 @@ def choose_from_combobox(frame, element, wanted):
         }""", [element, wanted]))
     except Exception:
         return False
+
+
+def shorter_queries(text):
+    """Progressively less of a name, for a search that found nothing.
+
+    A search matches the letters it is given. "The University of Texas at
+    Austin" finds nothing on a list that spells it "University of Texas -
+    Austin", and an empty list leaves nothing to choose between. Dropping the
+    article, then the tail, puts the candidates on the table so something can
+    be chosen at all.
+    """
+    words = [w for w in str(text or "").split() if w]
+    if len(words) < 2:
+        return []
+    out = []
+    if words[0].lower() in ("the", "a", "an"):
+        out.append(" ".join(words[1:]))
+    # The first distinctive words: enough to search on, short enough to match
+    # a differently written tail.
+    for keep in (3, 2):
+        if len(words) > keep:
+            trimmed = words[1:] if words[0].lower() in ("the", "a", "an") \
+                else words
+            candidate = " ".join(trimmed[:keep])
+            if candidate and candidate not in out:
+                out.append(candidate)
+    return [q for q in out if q.lower() != str(text).lower()]
 
 
 def choice_took(frame, element, chosen):
@@ -475,6 +510,20 @@ def _commit_once(frame, element, wanted, seen):
             if (!options.length) return null;
             const want = String(wanted).trim().toLowerCase();
             const text = o => (o.innerText || '').trim();
+
+            // Institutions and employers are written many ways: "The
+            // University of Texas at Austin", "University of Texas - Austin",
+            // "UT Austin". Comparing spellings fails on all but one of them,
+            // so what is compared is the words that identify the thing --
+            // articles, connectors and punctuation dropped.
+            const NOISE = new Set(['the', 'of', 'at', 'in', 'and', 'a', 'an',
+                                   'for', 'de', 'la']);
+            const words = t => String(t).toLowerCase()
+                .replace(/[^a-z0-9]+/g, ' ').split(' ')
+                .filter(w => w && !NOISE.has(w));
+            const wantWords = words(want);
+            const covers = (a, b) => b.length > 0 &&
+                b.every(w => a.includes(w));
             let pick = options.find(o => text(o).toLowerCase() === want);
             if (!pick) {
                 pick = options.find(o => text(o).toLowerCase().startsWith(want));
@@ -488,6 +537,19 @@ def _commit_once(frame, element, wanted, seen):
                 // General" -- but never a list about something else.
                 pick = options.find(o => text(o).toLowerCase().includes(want) ||
                                          want.includes(text(o).toLowerCase()));
+            }
+            if (!pick && wantWords.length) {
+                // Every identifying word present, however the option spells
+                // it. Exactly one option may qualify -- two would mean the
+                // words do not identify anything on this list.
+                const alike = options.filter(
+                    o => covers(words(text(o)), wantWords));
+                if (alike.length === 1) pick = alike[0];
+                else if (!alike.length) {
+                    const inside = options.filter(
+                        o => covers(wantWords, words(text(o))));
+                    if (inside.length === 1) pick = inside[0];
+                }
             }
             // Anything else on the list is a different answer, not this one.
             if (!pick) return {offered: options.map(text).slice(0, 40)};
@@ -2016,6 +2078,30 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         close_combobox(frame)
                         type_into(frame, element, str(typed))
                         chosen = commit_typeahead(frame, element, str(typed))
+
+                        # A search takes the words it is given literally. A
+                        # school written "University of Texas - Austin" is not
+                        # found by typing "The University of Texas at Austin",
+                        # and an empty list leaves nothing to reason about.
+                        # Shorter queries put the candidates on the table.
+                        for shorter in shorter_queries(str(typed)):
+                            if chosen:
+                                break
+                            type_into(frame, element, shorter)
+                            chosen = commit_typeahead(frame, element,
+                                                      str(typed))
+
+                        # Still nothing, but the list is no longer empty:
+                        # which of these is the candidate's? That is a
+                        # judgement, not a comparison of spellings.
+                        if not chosen and _LAST_OFFERED:
+                            picked, working = judge.decide(
+                                label, list(_LAST_OFFERED), profile)
+                            if picked and choose_from_combobox(frame, element,
+                                                               picked):
+                                chosen = picked
+                                reasoned[label] = "%s (judged)" % (
+                                    working or "judged from your profile")
                         if chosen and not choice_took(frame, element, chosen):
                             # Some widgets only answer the keyboard. Enter
                             # takes whichever option they have highlighted.
