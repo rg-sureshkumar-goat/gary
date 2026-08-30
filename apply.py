@@ -317,6 +317,38 @@ def choose_from_combobox(frame, element, wanted):
         return False
 
 
+def type_into(frame, element, text):
+    """Type into a control the way a person does.
+
+    Setting a value and firing an input event is enough for a plain box, and
+    nothing at all to a React widget: it keeps its own state, ignores the
+    write, and never opens its menu. Greenhouse's location and school fields
+    are these, and Gary typed into nothing, saw no list, and reported the
+    text as filled -- a false success, which is worse than a blank.
+
+    Keystrokes reach any control, because they are what a keyboard sends.
+    """
+    keyboard = getattr(frame, "keyboard", None)
+    if keyboard is None:
+        keyboard = frame.page.keyboard
+    try:
+        focused = frame.evaluate("""el => {
+            el.focus();
+            if ('value' in el) {
+                el.select && el.select();
+            }
+            return document.activeElement === el;
+        }""", element)
+        if not focused:
+            element.click(timeout=2000)
+        keyboard.press("Meta+A")
+        keyboard.press("Delete")
+        keyboard.type(str(text), delay=30)
+        return True
+    except Exception:
+        return False
+
+
 def commit_typeahead(frame, element, wanted):
     """Settle a search box that is really a dropdown.
 
@@ -1920,21 +1952,34 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 if typed and not dry_run:
                     try:
                         close_combobox(frame)
-                        element.fill(str(typed))
+                        type_into(frame, element, str(typed))
                         chosen = commit_typeahead(frame, element, str(typed))
                         if chosen:
                             note_written(field_key, label, chosen)
                             filled.append((label, chosen))
                             _UNREADABLE_FILLED.add(field_key)
                             continue
-                        if chosen is None:
-                            # No list appeared: an ordinary box after all, and
-                            # what was typed stands.
-                            note_written(field_key, label, str(typed))
-                            filled.append((label, str(typed)))
+                        # Nothing was picked. Whether a list appeared or not,
+                        # the control has to be read back: a widget that keeps
+                        # its own state discards what was typed, and reporting
+                        # it as filled is a false success.
+                        settled = ""
+                        try:
+                            settled = (widget_value(frame, element) or "").strip()
+                        except Exception:
+                            pass
+                        if settled:
+                            note_written(field_key, label, settled)
+                            filled.append((label, settled))
                             continue
-                        element.fill("")
+                        try:
+                            element.fill("")
+                        except Exception:
+                            pass
                         close_combobox(frame)
+                        skipped.append((label, "typing %r did not take -- fill "
+                                               "it yourself" % str(typed)[:30]))
+                        continue
                     except Exception:
                         pass
             if location_lib.is_location_question(label):

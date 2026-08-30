@@ -219,9 +219,48 @@ with sync_playwright() as playwright:
     if got != ["The University of Texas at Austin"]:
         failures.append("the school search was answered %r" % got)
 
+    # A widget that keeps its own state and undoes a written value, as
+    # react-select does. Greenhouse's location and school fields are these:
+    # Gary set the value, React put it back, the menu never opened, and it
+    # reported the text as filled. The page held nothing.
+    page.set_content("""
+      <label for="rs">Location (City)</label>
+      <input id="rs" role="combobox" aria-haspopup="true">
+      <div id="host" style="position:absolute"></div>
+      <script>
+        const box = document.getElementById('rs');
+        let real = '';
+        setInterval(() => { if (box.value !== real) box.value = real; }, 10);
+        box.addEventListener('keydown', e => {
+          if (e.key.length === 1) real += e.key;
+          if (e.key === 'Delete' || e.key === 'Backspace') real = '';
+          setTimeout(() => {
+            box.value = real;
+            document.getElementById('host').innerHTML = real.length < 3 ? '' :
+              '<div role="listbox"><div role="option">Pflugerville, TX</div>'
+              + '</div>';
+          }, 5);
+        });
+      </script>
+    """)
+    filled, left, _ = apply.fill(page, {"city": "Pflugerville"}, dry_run=False)
+    got = [value for label, value in filled if "ocation" in label]
+    if got != ["Pflugerville, TX"]:
+        failures.append("a state-keeping widget was answered %r" % got)
+
+    # And when typing genuinely does not take, it is reported rather than
+    # claimed. A false success is worse than a blank.
+    page.set_content("""
+      <label for="dead">Location (City)</label>
+      <input id="dead" role="combobox" aria-haspopup="true" readonly>
+    """)
+    filled, left, _ = apply.fill(page, {"city": "Pflugerville"}, dry_run=False)
+    if [v for l, v in filled if "ocation" in l]:
+        failures.append("claimed to fill a control that took nothing")
+
     browser.close()
 
-total = 7 + 3 + 1 + 1
+total = 7 + 3 + 1 + 1 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
