@@ -96,7 +96,8 @@ with sync_playwright() as playwright:
 
     # The candidate answers the question Gary left alone.
     page.fill("#a", "Summer 2027")
-    learned = apply.learn_from_candidate(page, grown)
+    apply.learn_from_candidate(page, grown)          # noticed, still settling
+    learned = apply.learn_from_candidate(page, grown)  # settled, kept
     if not learned:
         failures.append("did not learn the answer the candidate typed")
     kept = grown.get("custom_answers", {})
@@ -133,15 +134,45 @@ with sync_playwright() as playwright:
     page.fill("#f", "Arts and Entertainment Technologies")
     page.fill("#v", "I am not a veteran")
     apply.learn_from_candidate(page, entries)
+    apply.learn_from_candidate(page, entries)
     kept = entries.get("custom_answers", {})
     if "field of study" in kept:
         failures.append("learned an entry's field globally: %r" % kept)
     if kept.get("veteran status") != "I am not a veteran":
         failures.append("did not learn a question outside any entry: %r" % kept)
 
+    # A value is only an answer once it has stopped changing. Reading a field
+    # the moment it changes catches the first keystroke: on a real
+    # application Gary recorded "N" as the answer to a question the candidate
+    # was part way through answering.
+    page.set_content('<label for="t">List your family member\'s name</label>'
+                     '<input id="t">')
+    apply._WROTE.clear()
+    typing = {}
+    mark = apply.mark_of(page, page.query_selector("#t"))
+    apply.note_written(mark, "List your family member's name", "")
+
+    page.fill("#t", "J")
+    if apply.learn_from_candidate(page, typing):
+        failures.append("learned a value while it was still being typed")
+    page.fill("#t", "Jane Doe")
+    if apply.learn_from_candidate(page, typing):
+        failures.append("learned a value that had only just changed")
+    learned = apply.learn_from_candidate(page, typing)
+    if not learned:
+        failures.append("never learned the value once it had settled")
+    if typing.get("custom_answers", {}).get(
+            "list your family member's name") != "Jane Doe":
+        failures.append("settled on %r" % typing.get("custom_answers"))
+
+    # "N/A" is a way of declining a question, not an answer worth carrying to
+    # another employer.
+    if learning.worth_keeping("List your family member's name", "N/A"):
+        failures.append("would carry 'N/A' to another employer as an answer")
+
     browser.close()
 
-total = 8 + 5 + 4 + 2
+total = 8 + 5 + 4 + 2 + 5
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

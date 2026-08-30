@@ -754,6 +754,14 @@ def learn_from_candidate(frame, profile):
                 continue
             now = (widget_value(frame, element) or "").strip()
             if not now or now == seen["gary"]:
+                seen.pop("settling", None)
+                continue
+            # Wait for the typing to stop. Reading a field the moment it
+            # changes catches the first keystroke -- "N" of "N/A" -- and
+            # records a letter as the answer. A value is only the
+            # candidate's answer once it has stopped changing.
+            if seen.get("settling") != now:
+                seen["settling"] = now
                 continue
             question = seen["question"] or formfill.normalise(
                 field_question(frame, element)) or formfill.normalise(
