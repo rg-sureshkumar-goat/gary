@@ -72,9 +72,70 @@ with sync_playwright() as playwright:
         failures.append("chose %r where two options both fit" % got)
     page.close()
 
+    # Looking before choosing. The options are collected -- what the list shows
+    # unprompted, then what each query brings back -- and the decision is made
+    # over all of them. Guessing and checking made a wrong guess look like an
+    # absent answer, which is how a school went unanswered while the same school
+    # sat on the list under another spelling.
+    def a_list(options):
+        return ("""
+          <label for="school">School</label>
+          <input id="school" role="combobox" aria-haspopup="true">
+          <div id="host" style="position:absolute"></div><div id="chosen"></div>
+          <script>
+            const box = document.getElementById('school'); let real = '';
+            const ALL = %s;
+            const draw = () => {
+              const q = real.toLowerCase();
+              document.getElementById('host').innerHTML = '<div role="listbox">' +
+                ALL.filter(c => !q || c.toLowerCase().includes(q))
+                   .map(c => '<div role="option">'+c+'</div>').join('') + '</div>';
+            };
+            document.addEventListener('mousedown', e => {
+              const o = e.target.closest('[role=option]'); if (!o) return;
+              document.getElementById('chosen').textContent = o.textContent;
+              real=''; box.value=''; document.getElementById('host').innerHTML='';
+            });
+            box.addEventListener('click', draw);
+            box.addEventListener('keydown', e => {
+              if (e.key.length === 1) real += e.key;
+              if (e.key === 'Delete' || e.key === 'Backspace') real = '';
+              setTimeout(() => { box.value = real; draw(); }, 5);
+            });
+          </script>
+        """ % options)
+
+
+    PROFILE = {"university": WANTED, "undergrad_university": WANTED}
+
+    for name, options, expected in (
+            ("a dash where the profile has 'at'",
+             '["University of Texas - Austin","Texas A&M University"]',
+             "University of Texas - Austin"),
+            ("the profile's own spelling",
+             '["The University of Texas at Austin","Rice University"]',
+             "The University of Texas at Austin"),
+            ("a school that is simply absent",
+             '["Harvard University","Yale University"]', None)):
+        page = context.new_page()
+        page.set_content(a_list(options))
+        filled, left, _ = apply.fill(page, PROFILE, dry_run=False)
+        claimed = [v for l, v in filled if "chool" in l]
+        kept = page.inner_text("#chosen").strip()
+        if expected and kept != expected:
+            failures.append("%s: the page kept %r, wanted %r"
+                            % (name, kept or None, expected))
+        if not expected and kept:
+            failures.append("%s: chose %r from a list without it" % (name, kept))
+        # The invariant that outlives every widget: never claim what was not kept.
+        if bool(claimed) != bool(kept):
+            failures.append("%s: claimed %r while the page kept %r"
+                            % (name, claimed, kept or None))
+        page.close()
+
     browser.close()
 
-total = 2 + 3 + 1
+total = 2 + 3 + 1 + 6
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

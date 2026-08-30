@@ -29,6 +29,7 @@ from watcher import infer  # noqa: E402
 from watcher import judge  # noqa: E402
 from watcher import learning  # noqa: E402
 from watcher import lists  # noqa: E402
+from watcher import options as option_reading  # noqa: E402
 from watcher import location as location_lib  # noqa: E402
 from watcher import pay  # noqa: E402
 from watcher import names as names_lib  # noqa: E402
@@ -323,6 +324,67 @@ def choose_from_combobox(frame, element, wanted):
         }""", [element, wanted]))
     except Exception:
         return False
+
+
+def gather_options(frame, element, queries, cap=60):
+    """Everything the list will show, before deciding anything.
+
+    A search box is a list you cannot see all of. Guessing at an answer and
+    checking whether the search found it means a wrong guess looks exactly
+    like an absent answer -- which is how a school spelled "University of
+    Texas - Austin" went unanswered while the profile held the same school
+    under a different spelling.
+
+    So the options are collected first: what the list shows when opened, and
+    what each query brings back. Deciding happens afterwards, over everything
+    seen, and each option is remembered with the query that surfaced it so it
+    can be found again when the time comes to click it.
+    """
+    seen = {}
+
+    def collect(query):
+        try:
+            found = frame.evaluate("""el => {
+                const id = el.getAttribute('aria-controls') ||
+                           el.getAttribute('aria-owns');
+                let root = id ? document.getElementById(id) : null;
+                if (!root) {
+                    const open = Array.from(document.querySelectorAll(
+                        '[data-automation-id=activeListContainer],[role=listbox]'
+                    )).filter(b => b.offsetParent !== null);
+                    root = open.length ? open[open.length - 1] : null;
+                }
+                if (!root) return [];
+                return Array.from(root.querySelectorAll(
+                    '[role=option], [class*=option], li'))
+                    .filter(o => o.offsetParent !== null)
+                    .map(o => (o.innerText || '').trim())
+                    .filter(Boolean);
+            }""", element)
+        except Exception:
+            return
+        for text in found or []:
+            if text not in seen and len(seen) < cap:
+                seen[text] = query
+
+    # What it shows unprompted.
+    try:
+        element.click(timeout=2000)
+        frame.wait_for_timeout(500)
+    except Exception:
+        pass
+    collect(None)
+
+    for query in queries:
+        if not query:
+            continue
+        if not type_into(frame, element, query):
+            continue
+        frame.wait_for_timeout(700)
+        collect(query)
+        if len(seen) >= cap:
+            break
+    return seen
 
 
 def shorter_queries(text):
@@ -2076,59 +2138,63 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 if typed and not dry_run:
                     try:
                         close_combobox(frame)
-                        type_into(frame, element, str(typed))
-                        chosen = commit_typeahead(frame, element, str(typed))
+                        # Look before choosing. Collect what the list will
+                        # show -- unprompted, then for the name in full, then
+                        # for less of it -- and only then decide. Guessing and
+                        # checking makes a wrong guess look like an absent
+                        # answer, which is what left a school unanswered while
+                        # the same school sat on the list under another
+                        # spelling.
+                        offered = gather_options(
+                            frame, element,
+                            [str(typed)] + shorter_queries(str(typed)))
 
-                        # A search takes the words it is given literally. A
-                        # school written "University of Texas - Austin" is not
-                        # found by typing "The University of Texas at Austin",
-                        # and an empty list leaves nothing to reason about.
-                        # Shorter queries put the candidates on the table.
-                        for shorter in shorter_queries(str(typed)):
-                            if chosen:
-                                break
-                            type_into(frame, element, shorter)
-                            chosen = commit_typeahead(frame, element,
-                                                      str(typed))
+                        chosen, query = None, None
+                        if offered:
+                            texts = list(offered)
+                            picked, _fact = option_reading.best(texts, [str(typed)])
+                            if picked is None:
+                                picked = formfill.choose_option(
+                                    label, texts, profile, section, ident, entry)
+                            if picked is None:
+                                picked, working = judge.decide(label, texts,
+                                                               profile)
+                                if picked is not None:
+                                    reasoned[label] = "%s (judged)" % (
+                                        working or "judged from your profile")
+                            if picked is not None:
+                                chosen, query = picked, offered.get(picked)
 
-                        # Still nothing, but the list is no longer empty:
-                        # which of these is the candidate's? That is a
-                        # judgement, not a comparison of spellings.
-                        if not chosen and _LAST_OFFERED:
-                            picked, working = judge.decide(
-                                label, list(_LAST_OFFERED), profile)
-                            if picked and choose_from_combobox(frame, element,
-                                                               picked):
-                                chosen = picked
-                                reasoned[label] = "%s (judged)" % (
-                                    working or "judged from your profile")
-                        if chosen and not choice_took(frame, element, chosen):
-                            # Some widgets only answer the keyboard. Enter
-                            # takes whichever option they have highlighted.
-                            try:
-                                keys = getattr(frame, "keyboard", None) \
-                                    or frame.page.keyboard
-                                keys.press("Enter")
-                                frame.wait_for_timeout(300)
-                            except Exception:
-                                pass
+                        if chosen:
+                            # Bring the list back to where that option was.
+                            # An option seen before anything was typed is only
+                            # there again once the box is empty, and the last
+                            # query left it filtered to something else.
+                            if query:
+                                type_into(frame, element, query)
+                            else:
+                                type_into(frame, element, "")
+                                try:
+                                    element.click(timeout=2000)
+                                except Exception:
+                                    pass
+                            frame.wait_for_timeout(700)
+                            choose_from_combobox(frame, element, chosen)
+                            frame.wait_for_timeout(400)
+
                         if chosen and choice_took(frame, element, chosen):
                             note_written(field_key, label, chosen)
                             filled.append((label, chosen))
                             _UNREADABLE_FILLED.add(field_key)
                             continue
-                        # Nothing was picked. Whether a list appeared or not,
-                        # the control has to be read back: a widget that keeps
-                        # its own state discards what was typed, and reporting
-                        # it as filled is a false success.
+
+                        # Nothing committed. Say so rather than claim it: what
+                        # a search box holds is the query, not the answer.
                         settled = ""
                         try:
                             settled = (widget_value(frame, element) or "").strip()
                         except Exception:
                             pass
-                        # A search box holding the words that were typed into
-                        # it has committed nothing -- that is the query. Only
-                        # something the page kept counts.
                         if settled and not choice_took(frame, element, settled):
                             settled = ""
                         if settled:
@@ -2140,8 +2206,9 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         except Exception:
                             pass
                         close_combobox(frame)
-                        skipped.append((label, "typing %r did not take -- fill "
-                                               "it yourself" % str(typed)[:30]))
+                        skipped.append((label, "nothing on the list matched %r "
+                                               "-- fill it yourself"
+                                        % str(typed)[:30]))
                         continue
                     except Exception:
                         pass
