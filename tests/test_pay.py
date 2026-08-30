@@ -18,6 +18,12 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from watcher import pay
 
 CASES = [
+    # A number attached to a unit of time is a duration, not a rate. Fannie
+    # Mae's posting reads "This 10-week internship program ... offers a set
+    # hourly rate of $33", and the ten was taken as the wage.
+    ("This 10-week internship program, (June 7, 2027-August 13, 2027), "
+     "offers a set hourly rate of $33", "$68,640"),
+    ("Target Pay Range: $33 - $35 per hour", "$72,800"),
     ("Annual or Hourly Compensation Range: 22 - 24 Many factors are taken "
      "into consideration", "$49,920"),
     ("The hourly rate for this position is $25.00 per hour.", "$52,000"),
@@ -28,6 +34,10 @@ CASES = [
 
 # A posting with no pay in it. A company's revenue is not a wage.
 SILENT = [
+    # A placeholder of zero is not a wage.
+    "Requisition compensation: 0 to 0",
+    # A duration with no pay attached.
+    "A 12-month rotational program with competitive pay and mentorship.",
     "Building on a century of innovation, with annual sales of $15 billion "
     "and more than 48,000 associates, Ecolab delivers science-based "
     "solutions.",
