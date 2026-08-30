@@ -725,6 +725,7 @@ def read_advertised_pay(page, profile):
 # on later passes: a value that differs is the candidate's, and worth keeping.
 _WROTE = {}
 PROFILE_PATH = None
+COMPANY = ""
 
 
 def note_written(mark, question, value):
@@ -773,7 +774,8 @@ def learn_from_candidate(frame, profile):
             # question outside every entry inside one. The questions a form
             # repeats per entry are named instead, in learning.py.
             if learning.remember(profile, PROFILE_PATH, question, now,
-                                 corrected=bool(seen["gary"])):
+                                 corrected=bool(seen["gary"]),
+                                 company=COMPANY):
                 learned.append((question, now, bool(seen["gary"])))
                 seen["gary"] = now
         except Exception:
@@ -2193,8 +2195,9 @@ def main(argv=None):
             # Landed in a restored application rather than on the posting.
             pay_from_posting(ctx, args.url, profile)
 
-        global PROFILE_PATH
+        global PROFILE_PATH, COMPANY
         PROFILE_PATH = args.profile
+        COMPANY = args.company or ""
 
         open_locations = location_lib.split_locations(args.locations or "")
 

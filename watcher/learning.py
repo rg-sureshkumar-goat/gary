@@ -63,15 +63,70 @@ def worth_keeping(question, value):
     return True
 
 
-def key_for_question(question):
-    """The form a question is stored under, so other wordings still match it."""
+# Words that carry no meaning on their own and only make a key longer.
+_FILLER = frozenset((
+    "what", "is", "are", "was", "were", "your", "you", "the", "a", "an", "of",
+    "do", "does", "did", "have", "has", "had", "please", "provide", "enter",
+    "select", "indicate", "specify", "tell", "us", "to", "for", "in", "on",
+    "at", "if", "any", "this", "that", "and", "or", "with", "current",
+    "currently", "most", "recent", "his", "her", "their", "our", "my",
+))
+
+
+def key_for_question(question, company=""):
+    """The form a question is stored under."""
     text = " ".join(str(question or "").split()).lower()
-    text = re.sub(r"\s*\*+\s*$", "", text).strip().rstrip("?:.").strip()
-    # The employer's own name makes an answer useless everywhere else.
-    return text
+    # An employer's own name makes an answer useless at every other employer.
+    if company:
+        text = text.replace(str(company).lower(), " ")
+    text = re.sub(r"\s*\*+\s*$", "", text)
+    return " ".join(text.split()).strip().rstrip("?:.").strip()
 
 
-def remember(profile, path, question, value, corrected=False):
+def general_key(question, company=""):
+    """A shorter form of the question, so other wordings match it too.
+
+    An answer stored under the whole question answers only that question. The
+    candidate's GPA correction was kept under a hundred and eighty characters
+    of Fannie Mae's wording -- scale clause and all -- so "Cumulative GPA" at
+    the next employer matched nothing and the correction may as well not have
+    happened.
+
+    What generalises is the distinctive end of the question: "what is your
+    current (or most recent) cumulative gpa on a 4.0 scale?" is asking about a
+    cumulative GPA. Everything before that is filler shared with every other
+    question on the form.
+    """
+    text = key_for_question(question, company)
+    # Asides, trailing clauses and measurement notes belong to one employer's
+    # phrasing rather than to the question.
+    text = re.sub(r"\([^)]*\)", " ", text)
+    text = re.split(r"[?.;:]|,\s*(?:please|if|and|or)\b", text)[0]
+    text = re.sub(r"\b(?:on|using|against)\s+an?\s+[\d.]+\s*(?:point\s*)?"
+                  r"scale\b", " ", text)
+    text = re.sub(r"\b\d+(?:\.\d+)?%?\b", " ", text)
+
+    # Hyphens are kept: "t-shirt size" is written with one, and a key spelled
+    # without it is looked for inside a question that has it, and never found.
+    words = [w for w in re.split(r"[^a-z0-9'-]+", text) if w.strip("-")]
+    while words and words[0] in _FILLER:
+        words.pop(0)
+    while words and words[-1] in _FILLER:
+        words.pop()
+    if len(words) < 2:
+        return ""
+
+    # A contiguous run, because a stored phrase is looked for inside the next
+    # employer's question and a reshuffled one would never be found. The end
+    # of a question carries its subject more often than the beginning, which
+    # is where the shared scaffolding lives.
+    short = " ".join(words[-3:])
+    while len(short) < 10 and len(words) > len(short.split()):
+        short = " ".join(words[-(len(short.split()) + 1):])
+    return short if len(short) >= 10 else ""
+
+
+def remember(profile, path, question, value, corrected=False, company=""):
     """Record an answer in the profile on disk. True if anything changed.
 
     The profile holds the candidate's personal details and stays on their
@@ -79,16 +134,23 @@ def remember(profile, path, question, value, corrected=False):
     """
     if not worth_keeping(question, value):
         return False
-    key = key_for_question(question)
     value = " ".join(str(value).split())
+    # The whole question, so it is answered exactly; and a shorter form, so
+    # the same question worded differently at another employer is answered
+    # too. Storing only the first is why a correction stopped at one form.
+    keys = [k for k in (key_for_question(question, company),
+                        general_key(question, company)) if k]
+    if not keys:
+        return False
 
     answers = profile.setdefault("custom_answers", {})
-    if answers.get(key) == value:
+    if all(answers.get(k) == value for k in keys):
         return False
-    if key in answers and not corrected:
+    if any(k in answers for k in keys) and not corrected:
         # Already known and not contradicted: leave the earlier answer alone.
         return False
-    answers[key] = value
+    for k in keys:
+        answers[k] = value
 
     if not path:
         return True
@@ -97,7 +159,9 @@ def remember(profile, path, question, value, corrected=False):
             stored = json.load(handle)
     except Exception:
         stored = {}
-    stored.setdefault("custom_answers", {})[key] = value
+    held = stored.setdefault("custom_answers", {})
+    for k in keys:
+        held[k] = value
     try:
         temporary = "%s.writing" % path
         with open(temporary, "w", encoding="utf-8") as handle:

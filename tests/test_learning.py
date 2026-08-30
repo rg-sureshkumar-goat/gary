@@ -39,6 +39,31 @@ for question, value, keep in (
         failures.append("%r = %r: worth_keeping said %s" % (question[:34],
                                                             value[:20], got))
 
+# --- an answer has to outlive the question it was asked in ---------------- #
+# A correction kept under the whole question answers only that question. The
+# candidate's GPA correction was stored under a hundred and eighty characters
+# of one employer's wording, so "Cumulative GPA" at the next employer matched
+# nothing and the correction may as well not have happened.
+for question, company, elsewhere in (
+        ("What is your current (or most recent) cumulative GPA on a 4.0 "
+         "scale? If your institution uses a different grading scale, please "
+         "provide the equivalent", "", "Cumulative GPA"),
+        ("Do you have any relatives employed by Fannie Mae?", "Fannie Mae",
+         "Do you have any relatives employed by Ecolab?"),
+        ("Which term are you seeking an internship for?", "",
+         "What term are you seeking an internship for?"),
+        ("What is your t-shirt size?", "", "Please give your t-shirt size")):
+    short = learning.general_key(question, company)
+    if not short:
+        failures.append("no general form kept for %r" % question[:40])
+    elif short not in elsewhere.lower():
+        failures.append("%r would not answer %r" % (short, elsewhere[:40]))
+
+# An employer's name never belongs in a key that is meant to travel.
+if "fannie" in learning.general_key(
+        "Do you have any relatives employed by Fannie Mae?", "Fannie Mae"):
+    failures.append("the employer's name was kept in the general form")
+
 # --- writing to the profile ----------------------------------------------- #
 handle, path = tempfile.mkstemp(suffix=".json")
 os.close(handle)
@@ -172,7 +197,7 @@ with sync_playwright() as playwright:
 
     browser.close()
 
-total = 8 + 5 + 4 + 2 + 5
+total = 8 + 5 + 5 + 4 + 2 + 5
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
