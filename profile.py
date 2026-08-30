@@ -22,6 +22,7 @@ GROUPS = [
         ("last_name", "Last name (default)"),
         ("legal_first_name", "Legal first name"),
         ("legal_last_name", "Legal last name"),
+        ("middle_name", "Middle name (leave blank if none)"),
         ("preferred_first_name", "Preferred first name"),
         ("preferred_last_name", "Preferred last name"),
         ("preferred_name", "Preferred name (one box)"),

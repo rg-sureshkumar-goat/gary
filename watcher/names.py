@@ -57,6 +57,8 @@ def is_preferred_toggle(label):
 # reference, a supervisor, an emergency contact. Answering any of them with
 # the candidate's own name is worse than leaving them blank, because it reads
 # as an answer.
+_MIDDLE = re.compile(r"middle\s*(?:name|initial)|\bmi\b", re.I)
+
 _SOMEONE_ELSE = re.compile(
     r"relative|family\s+member|spouse|sibling|\bparent\b|next\s+of\s+kin|"
     r"emergency\s+contact|\breference\b|referred\s+by|referrer|"
@@ -87,6 +89,19 @@ def name_for(label, profile, labels_on_form=(), section="", identity=""):
     only the ids and the headings telling them apart -- so reading the label
     alone puts the legal name in the preferred boxes.
     """
+    # A middle name is its own field, not the whole name. Every name box
+    # contains the word "name", and answering this one as though it were
+    # unqualified put the candidate's full legal name into it -- which on a
+    # form that already asks for first and last reads as a mistake by them.
+    if _MIDDLE.search(str(label or "")):
+        held = profile.get("middle_name") or profile.get("middle_initial")
+        if not held:
+            return None
+        held = str(held).strip()
+        if re.search(r"initial", str(label), re.I) and held:
+            return held[0].upper()
+        return held
+
     # Somebody else's name is not the candidate's, however the field is
     # labelled. A form asks for plenty of names that are not the candidate's,
     # and answering one with their own reads as an answer rather than a gap.
