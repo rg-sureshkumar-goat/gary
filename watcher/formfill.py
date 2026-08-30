@@ -257,13 +257,19 @@ def _entry_is_prior(profile, entry):
     for key, value in answers.items():
         if key.startswith(prefix) and "degree" in key:
             return bool(_UNDERGRAD_DEGREE.search(str(value)))
-    # No recorded answer under that wording: ask what this entry's degree
-    # resolves to. Without this the second entry keeps the master's chain, so
-    # an employer whose list does not say "Bachelors" outright falls back to
-    # M.S -- the entry ends up claiming the wrong degree entirely.
-    settled = value_for("Degree", profile, "", "", entry)
-    if settled:
-        return bool(_UNDERGRAD_DEGREE.search(str(settled)))
+    # No recorded answer under that wording: read the entry's degree straight
+    # from the profile. Asking value_for would be circular -- it consults the
+    # fallback chain, which consults this -- and recursed until the stack ran
+    # out on any profile without recorded education answers.
+    #
+    # Without this the second entry keeps the master's chain, so an employer
+    # whose list does not say "Bachelors" outright falls back to M.S, and the
+    # entry claims a degree the candidate does not hold.
+    for key in ("education_%d_degree" % entry,
+                "undergrad_degree" if entry != 1 else "degree"):
+        settled = profile.get(key)
+        if settled:
+            return bool(_UNDERGRAD_DEGREE.search(str(settled)))
     return False
 
 

@@ -118,12 +118,27 @@ if value_for("Country Phone Code", NUMBER_ONLY) == "(817) 818-7051":
 if value_for("Phone Number", NUMBER_ONLY) != "(817) 818-7051":
     failures.append("the phone number no longer reaches the number field")
 
+# Working out which degree an entry holds must not ask value_for, which
+# consults the fallback chain, which asks this. That was circular, and
+# recursed until the stack ran out on any profile with no recorded education
+# answers -- the shape most profiles have before a form has been filled.
+bare = {"degree": "Masters", "undergrad_degree": "Bachelors",
+        "fallbacks": {"degree": ["M.S"], "undergrad_degree": ["B.S"]}}
+for entry, wanted in ((1, "M.S"), (2, "B.S")):
+    if choose_option("Degree", ["M.S", "B.S", "Ph.D"], bare, "From", "degree",
+                     entry) != wanted:
+        failures.append("entry %d picked the wrong degree from a bare profile"
+                        % entry)
+if choose_option("Degree", ["M.S", "B.S"], {"university": "UT"}, "From",
+                 "degree", 2) is not None:
+    failures.append("a profile with no degrees produced one anyway")
+
 # Yes/no matching still works alongside fallbacks.
 sponsor = {"sponsorship": "No"}
 if choose_option("Will you require sponsorship?", ["Yes", "No"], sponsor) != "No":
     failures.append("yes/no matching regressed")
 
-total = len(CASES) + 1 + 2 + 1 + 2 + 1 + 3 + 6 + len(PHONE_FIELDS) + 3
+total = len(CASES) + 1 + 2 + 1 + 2 + 1 + 3 + 6 + len(PHONE_FIELDS) + 3 + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

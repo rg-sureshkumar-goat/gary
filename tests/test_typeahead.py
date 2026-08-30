@@ -186,9 +186,42 @@ with sync_playwright() as playwright:
     if got != ["Pflugerville, TX, United States"]:
         failures.append("the location search was answered %r" % got)
 
+    # A search box that shows an alphabetical first page rather than nothing.
+    # Greenhouse's school list opens on "Aalborg University, Aalto
+    # University, Aarhus University", and Gary read that page, found no match
+    # and left the field blank while holding the school's name. What a search
+    # box shows before anything is typed is not its list.
+    page.set_content("""
+      <label for="school">School</label>
+      <input id="school" role="combobox" aria-haspopup="true">
+      <div id="host" style="position:absolute">
+        <div role="listbox">
+          <div role="option">Aalborg University</div>
+          <div role="option">Aalto University</div>
+        </div>
+      </div>
+      <script>
+        document.getElementById('school').addEventListener('input', e => {
+          const q = e.target.value.toLowerCase();
+          const all = ['Aalborg University',
+                       'The University of Texas at Austin'];
+          document.getElementById('host').innerHTML = '<div role="listbox">' +
+            all.filter(c => c.toLowerCase().includes(q))
+               .map(c => '<div role="option">' + c + '</div>').join('') +
+            '</div>';
+        });
+      </script>
+    """)
+    filled, _skipped, _ = apply.fill(
+        page, {"university": "The University of Texas at Austin"},
+        dry_run=False)
+    got = [value for label, value in filled if "chool" in label]
+    if got != ["The University of Texas at Austin"]:
+        failures.append("the school search was answered %r" % got)
+
     browser.close()
 
-total = 7 + 3 + 1
+total = 7 + 3 + 1 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

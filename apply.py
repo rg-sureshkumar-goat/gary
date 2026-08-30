@@ -1904,10 +1904,14 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 _mark_answered(field_key)
             options = combobox_options(frame, element)
 
-            # A search box offers nothing until something is typed into it.
-            # Greenhouse's "Location (City)" is one: Gary read an empty list,
-            # found no match in it, and left a field it had the answer to.
-            if not options and tag != "button":
+            # A search box shows what it can before anything is typed: nothing
+            # at all for Greenhouse's "Location (City)", the first page of an
+            # alphabet for its list of universities. Neither is the whole
+            # list, so finding no match in what is shown means very little --
+            # Gary left a school field blank while holding the school's name.
+            shown = formfill.choose_option(label, options, profile, section,
+                                           ident, entry) if options else None
+            if shown is None and tag != "button":
                 typed = names_lib.name_for(label, profile, all_labels,
                                            section, ident)
                 if typed is None:
