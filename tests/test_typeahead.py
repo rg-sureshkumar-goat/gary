@@ -258,9 +258,59 @@ with sync_playwright() as playwright:
     if [v for l, v in filled if "ocation" in l]:
         failures.append("claimed to fill a control that took nothing")
 
+    # A menu that commits on mousedown rather than click, as react-select
+    # does. A plain .click() left the menu open and nothing chosen, and the
+    # school was reported filled while the page held nothing.
+    #
+    # On its own page: these fixtures install timers to imitate a widget that
+    # keeps its own state, and several of them sharing one page interfere with
+    # each other in ways a real form never does.
+    page = browser.new_page()
+    page.set_content("""
+      <div><label for="sch">School</label>
+      <input id="sch" role="combobox" aria-haspopup="true">
+      <div id="chosen"></div></div>
+      <div id="host" style="position:absolute"></div>
+      <script>
+        const box = document.getElementById('sch');
+        let real = '';
+        setInterval(() => { if (box.value !== real) box.value = real; }, 10);
+        box.addEventListener('keydown', e => {
+          if (e.key.length === 1) real += e.key;
+          if (e.key === 'Delete' || e.key === 'Backspace') real = '';
+          setTimeout(() => {
+            box.value = real;
+            document.getElementById('host').innerHTML = real.length < 3 ? '' :
+              '<div role="listbox"><div role="option" id="opt">' +
+              'The University of Texas at Austin</div></div>';
+            const o = document.getElementById('opt');
+            if (o) o.addEventListener('mousedown', () => {
+              document.getElementById('chosen').textContent =
+                'The University of Texas at Austin';
+              real = ''; box.value = '';
+              document.getElementById('host').innerHTML = '';
+            });
+          }, 5);
+        });
+      </script>
+    """)
+    filled, _left, _ = apply.fill(
+        page, {"university": "The University of Texas at Austin"},
+        dry_run=False)
+    # The invariant that matters is not that every widget can be driven -- some
+    # cannot -- but that Gary never says it filled something the page did not
+    # keep. A blank it reports is a field the candidate will see; a blank it
+    # claims to have filled is one nobody looks at again.
+    claimed = [v for l, v in filled if "chool" in l]
+    kept = "Texas" in page.inner_text("#chosen")
+    if claimed and not kept:
+        failures.append("claimed %r while the page kept nothing" % claimed)
+    if not claimed and not any("chool" in l for l, _w in _left):
+        failures.append("neither filled the school nor reported it")
+
     browser.close()
 
-total = 7 + 3 + 1 + 1 + 2
+total = 7 + 3 + 1 + 1 + 2 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -317,6 +317,48 @@ def choose_from_combobox(frame, element, wanted):
         return False
 
 
+def choice_took(frame, element, chosen):
+    """Did the page actually keep what was chosen?
+
+    A widget that shows its selection as text rather than as an input value
+    cannot be asked through the input, and a click it ignored leaves no trace
+    there either. What settles it is whether the words appear anywhere in the
+    block the control belongs to.
+    """
+    try:
+        return bool(frame.evaluate("""([el, chosen]) => {
+            const wanted = String(chosen).trim().toLowerCase();
+            if (!wanted) return false;
+            // A search box holds the query, not the answer, and the query is
+            // usually the answer's own words -- so its value proves nothing.
+            // Reading it as a commitment is how a school was confirmed while
+            // the menu sat open and nothing had been chosen.
+            const searching = el.getAttribute('role') === 'combobox' ||
+                              el.getAttribute('aria-haspopup') ||
+                              el.getAttribute('aria-autocomplete');
+            if (!searching &&
+                (el.value || '').trim().toLowerCase() === wanted) return true;
+            let scope = el;
+            for (let hop = 0; hop < 5 && scope; hop++) {
+                scope = scope.parentElement;
+                if (!scope) break;
+                // An open menu contains the words too. Reading them back as a
+                // committed choice is how a school was confirmed filled while
+                // nothing had been chosen at all.
+                const copy = scope.cloneNode(true);
+                copy.querySelectorAll(
+                    '[role=listbox], [role=option], [class*=menu]'
+                ).forEach(n => n.remove());
+                const shown = (copy.innerText || copy.textContent || '')
+                    .trim().toLowerCase();
+                if (shown.includes(wanted)) return true;
+            }
+            return false;
+        }""", [element, chosen]))
+    except Exception:
+        return False
+
+
 def type_into(frame, element, text):
     """Type into a control the way a person does.
 
@@ -450,7 +492,15 @@ def _commit_once(frame, element, wanted, seen):
             // Anything else on the list is a different answer, not this one.
             if (!pick) return {offered: options.map(text).slice(0, 40)};
             const chosen = text(pick);
-            pick.click();
+            // React widgets commit on mousedown, not on click: a plain
+            // .click() leaves the menu open and nothing chosen, which is how
+            // a school was reported filled while the page stayed empty.
+            for (const kind of ['pointerdown', 'mousedown', 'mouseup',
+                                'click']) {
+                pick.dispatchEvent(new MouseEvent(kind, {
+                    bubbles: true, cancelable: true, view: window, button: 0,
+                }));
+            }
             return chosen;
         }""", [element, wanted])
     except Exception:
@@ -759,6 +809,9 @@ _WROTE = {}
 # Which documents have been attached in this session. A file input never
 # reports what it holds, so nothing on the page can be asked.
 _ATTACHED = set()
+# Marks are handed out from here, never from the page, so no two controls in a
+# session can share one.
+_NEXT_MARK = 0
 PROFILE_PATH = None
 COMPANY = ""
 
@@ -1311,16 +1364,21 @@ def mark_of(frame, element):
     the mark goes with it, which is the one case where filling it again is the
     right thing to do.
     """
+    global _NEXT_MARK
     try:
-        return frame.evaluate("""el => {
-            let mark = el.getAttribute('data-gary-mark');
-            if (!mark) {
-                window.__garyMark = (window.__garyMark || 0) + 1;
-                mark = 'g' + window.__garyMark;
-                el.setAttribute('data-gary-mark', mark);
-            }
-            return mark;
-        }""", element) or ""
+        held = frame.evaluate(
+            "el => el.getAttribute('data-gary-mark') || ''", element)
+        if held:
+            return held
+        # Numbered from here rather than from the page, because a page counter
+        # restarts on every load: the same mark then means one control on one
+        # page and a different control on the next, and a field inherits
+        # "already answered" from something it has nothing to do with.
+        _NEXT_MARK += 1
+        mark = "g%d" % _NEXT_MARK
+        frame.evaluate("([el, mark]) => el.setAttribute('data-gary-mark', mark)",
+                       [element, mark])
+        return mark
     except Exception:
         return ""
 
@@ -1690,8 +1748,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
 
         label = formfill.normalise(label_for(frame, element))
         _ident_early = identity_of(frame, element)
-        field_key = mark_of(frame, element) or "%s|%s|%s" % (
-            page.url, label, _ident_early)
+        # The mark is numbered from one on every page load, so the same mark
+        # on a later page is a different control. Keyed with the step it
+        # belongs to, a field cannot inherit "already answered" from whatever
+        # happened to be marked first somewhere else.
+        field_key = "%s|%s" % (step, mark_of(frame, element)
+                               or "%s|%s" % (label, _ident_early))
         if STATUS_TEXT.match(label or ""):
             # The widget described itself; look to its heading instead.
             label = formfill.normalise(section_for(frame, element)) or label
@@ -1954,7 +2016,17 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         close_combobox(frame)
                         type_into(frame, element, str(typed))
                         chosen = commit_typeahead(frame, element, str(typed))
-                        if chosen:
+                        if chosen and not choice_took(frame, element, chosen):
+                            # Some widgets only answer the keyboard. Enter
+                            # takes whichever option they have highlighted.
+                            try:
+                                keys = getattr(frame, "keyboard", None) \
+                                    or frame.page.keyboard
+                                keys.press("Enter")
+                                frame.wait_for_timeout(300)
+                            except Exception:
+                                pass
+                        if chosen and choice_took(frame, element, chosen):
                             note_written(field_key, label, chosen)
                             filled.append((label, chosen))
                             _UNREADABLE_FILLED.add(field_key)
@@ -1968,6 +2040,11 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                             settled = (widget_value(frame, element) or "").strip()
                         except Exception:
                             pass
+                        # A search box holding the words that were typed into
+                        # it has committed nothing -- that is the query. Only
+                        # something the page kept counts.
+                        if settled and not choice_took(frame, element, settled):
+                            settled = ""
                         if settled:
                             note_written(field_key, label, settled)
                             filled.append((label, settled))
