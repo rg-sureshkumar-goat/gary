@@ -1888,6 +1888,36 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
                 _mark_answered(field_key)
             options = combobox_options(frame, element)
+
+            # A search box offers nothing until something is typed into it.
+            # Greenhouse's "Location (City)" is one: Gary read an empty list,
+            # found no match in it, and left a field it had the answer to.
+            if not options and tag != "button":
+                typed = names_lib.name_for(label, profile, all_labels,
+                                           section, ident)
+                if typed is None:
+                    typed = formfill.value_for(label, profile, section, ident,
+                                               entry)
+                if typed and not dry_run:
+                    try:
+                        close_combobox(frame)
+                        element.fill(str(typed))
+                        chosen = commit_typeahead(frame, element, str(typed))
+                        if chosen:
+                            note_written(field_key, label, chosen)
+                            filled.append((label, chosen))
+                            _UNREADABLE_FILLED.add(field_key)
+                            continue
+                        if chosen is None:
+                            # No list appeared: an ordinary box after all, and
+                            # what was typed stands.
+                            note_written(field_key, label, str(typed))
+                            filled.append((label, str(typed)))
+                            continue
+                        element.fill("")
+                        close_combobox(frame)
+                    except Exception:
+                        pass
             if location_lib.is_location_question(label):
                 stated = formfill.choose_option(label, options, profile,
                                                 section, ident, entry)

@@ -161,9 +161,34 @@ with sync_playwright() as playwright:
     if "Accounting" not in (apply._LAST_OFFERED or []):
         failures.append("what the list offered was not recorded")
 
+    # A search box that offers nothing until something is typed into it.
+    # Greenhouse's "Location (City)" is one: Gary read an empty list, found no
+    # match in it, and left a field it had the answer to.
+    page.set_content("""
+      <label for="loc">Location (City)</label>
+      <input id="loc" role="combobox" aria-haspopup="true">
+      <div id="host" style="position:absolute"></div>
+      <script>
+        document.getElementById('loc').addEventListener('input', e => {
+          const q = e.target.value.toLowerCase();
+          document.getElementById('host').innerHTML = q.length < 3 ? '' :
+            '<div role="listbox">' +
+            ['Pflugerville, TX, United States', 'Phoenix, AZ, United States']
+              .filter(c => c.toLowerCase().startsWith(q))
+              .map(c => '<div role="option">' + c + '</div>').join('') +
+            '</div>';
+        });
+      </script>
+    """)
+    filled, skipped, _ = apply.fill(page, {"city": "Pflugerville"},
+                                    dry_run=False)
+    got = [value for label, value in filled if "ocation" in label]
+    if got != ["Pflugerville, TX, United States"]:
+        failures.append("the location search was answered %r" % got)
+
     browser.close()
 
-total = 7 + 3
+total = 7 + 3 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
