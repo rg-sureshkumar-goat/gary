@@ -220,6 +220,7 @@ def close_combobox(frame):
 
 
 def combobox_options(frame, element):
+    # Any list still open belongs to the previous control; see gather_options.
     """Open a typeahead combobox and read what it offers.
 
     Greenhouse and Workday render most dropdowns this way: an <input> whose
@@ -341,6 +342,16 @@ def gather_options(frame, element, queries, cap=60):
     can be found again when the time comes to click it.
     """
     seen = {}
+
+    # Whatever is still open belongs to the control before this one. Reading
+    # it as this control's options is how a prefix, a region and a "how did
+    # you hear about us" question were all offered the same list of dialling
+    # codes.
+    close_combobox(frame)
+    try:
+        frame.wait_for_timeout(200)
+    except Exception:
+        pass
 
     def collect(query):
         try:

@@ -32,7 +32,11 @@ FIELD_PATTERNS = [
                     r"type\s+of\s+phone"),
     # A dial-code picker, not a number field.
     ("phone_country_code",
-                    r"country\s+phone\s+code|phone\s+country\s+code|"
+                    # Employers word this many ways -- "Country Phone Code",
+                    # "Country/Region/Territory Phone Code", "Dialing Code".
+                    # What they share is a phone and a code, and the words
+                    # between them vary, so the pair is what is matched.
+                    r"phone[^.]{0,30}\bcode\b|\bcode\b[^.]{0,30}phone|"
                     r"\bcountry\s+code\b|dial(?:l?ing)?\s+code"),
     # An extension is its own thing and is usually blank.
     ("phone_extension",
