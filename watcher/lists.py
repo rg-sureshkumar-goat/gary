@@ -135,7 +135,18 @@ def heard_about_us(options, company="", prefer_social=False):
     That is a rule about employers in general rather than a list of the ways
     one employer writes its name.
     """
-    named = re.escape(str(company or "").strip()) if company else ""
+    # An employer writes its own name short: "Sila Website" for Sila
+    # Nanotechnologies. The distinctive first word identifies it as well as
+    # the whole name does, and better than the whole name matches.
+    words = [w for w in re.split(r"[^A-Za-z0-9]+", str(company or "")) if w]
+    parts = []
+    if words:
+        parts.append(re.escape(" ".join(words)))
+        lead = words[0]
+        if len(lead) >= 4 and lead.lower() not in (
+                "the", "group", "company", "corp", "inc", "global", "united"):
+            parts.append(re.escape(lead))
+    named = "|".join(parts)
     ours = []
     social = []
     for option in options or []:
