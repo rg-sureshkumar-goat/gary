@@ -26,6 +26,9 @@ employer's phrasing:
 
 import re
 
+# Words that join categories rather than narrowing one.
+_JOINING = frozenset(("or", "and", "of", "the", "a", "an", "either", "both"))
+
 _NEGATION = re.compile(r"\b(?:not|non|excluding|other\s+than|except)\b", re.I)
 _SPLIT = re.compile(r"[\s/,;|]+")
 _NOISE = frozenset((
@@ -78,9 +81,16 @@ def asserts(option, fact):
     joined = " ".join(head_terms)
     phrase = " ".join(fact_terms)
     if re.search(r"(?:^| )%s(?:$| )" % re.escape(phrase), joined):
+        before = joined.split(phrase)[0].split()
         # Unless the head itself denies it: "Not Hispanic or Latino".
-        before = joined.split(phrase)[0]
-        if _NEGATION.search(before.split()[-1] if before.split() else ""):
+        if before and _NEGATION.search(before[-1]):
+            return 0
+        # A word in front narrows the term: "East Asian" is a kind of Asian,
+        # not Asian itself, and someone who said Asian has not said which
+        # kind. Choosing one for them is inventing a fact about who they are.
+        # A term extended after itself is broader and still covers them --
+        # "Asian or Pacific Islander" includes an Asian candidate.
+        if before and before[-1] not in _JOINING:
             return 0
         return 1
     return 0

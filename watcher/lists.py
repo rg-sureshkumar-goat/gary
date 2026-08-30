@@ -18,11 +18,12 @@ import re
 # that answer it, in order of preference.
 KINDS = (
     ("race", (
+        r"south\s+asian", r"east\s+asian", r"southeast\s+asian",
         r"american\s+indian", r"alaska\s+native", r"\basian\b",
         r"black\s+or\s+african", r"african\s+american",
         r"native\s+hawaiian", r"pacific\s+islander", r"two\s+or\s+more\s+races",
         r"\bwhite\b", r"hispanic\s+or\s+latino",
-     ), ("race", "ethnicity")),
+     ), ("race_detail", "race", "ethnicity")),
     ("gender", (
         r"^male$", r"^female$", r"non[\s-]?binary", r"gender\s+diverse",
      ), ("gender",)),
@@ -92,7 +93,10 @@ def answer(options, profile):
         if value in (None, ""):
             continue
         found = formfill._match_option(str(value), dict(lowered))
-        if found is not None:
+        # The looser matcher will settle for a narrower category -- it read
+        # "Asian" onto "East Asian" -- so what it finds still has to be
+        # something the option actually asserts.
+        if found is not None and option_reading.asserts(found, value):
             return found, ("a list of %s options, answered from your %s"
                            % (kind, field))
     return None, None

@@ -17,6 +17,7 @@ from watcher import lists
 
 PROFILE = {
     "race": "Asian",
+    "race_detail": "South Asian",
     "gender": "Male",
     "veteran": "I am not a veteran",
     "disability": "No, I do not have a disability and have not had one in the past",
@@ -49,7 +50,15 @@ DOUBLY_QUALIFIED = [
     "I do not wish to self-identify (United States of America)",
 ]
 
+# A form that divides Asian into narrower categories. Answering one of those
+# from a profile that says only "Asian" is choosing an identity for the
+# candidate; the finer fact has to come from them.
+FINE = ["Black or of African descent", "East Asian", "South Asian",
+        "Southeast Asian", "Middle Eastern or North African",
+        "White or Caucasian", "I don't wish to answer"]
+
 CASES = [
+    ("a finely divided race list", FINE, "South Asian"),
     ("doubly qualified race list", DOUBLY_QUALIFIED,
      "Asian (Not Hispanic or Latino) (United States of America)"),
     ("race", RACE, "Asian (United States of America)"),
@@ -116,7 +125,20 @@ if str(got or "").startswith("Hispanic"):
 if got != "Asian (Not Hispanic or Latino) (United States of America)":
     failures.append("reasoning gave %r on the doubly qualified list" % got)
 
-total = len(CASES) + len(UNRECOGNISED) + 1 + 2
+# Without the finer fact the question is left alone rather than guessed at.
+from watcher import options as option_reading
+
+coarse_only = {k: v for k, v in PROFILE.items() if k != "race_detail"}
+got, _ = lists.answer(FINE, coarse_only)
+if got is not None:
+    failures.append("chose %r for a candidate who only said Asian" % got)
+# A word in front narrows a category; a term extended after itself does not.
+if option_reading.asserts("East Asian", "Asian"):
+    failures.append("'Asian' was taken to assert 'East Asian'")
+if not option_reading.asserts("Asian or Pacific Islander", "Asian"):
+    failures.append("'Asian' no longer answers 'Asian or Pacific Islander'")
+
+total = len(CASES) + len(UNRECOGNISED) + 1 + 2 + 3
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
