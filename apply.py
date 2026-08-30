@@ -724,6 +724,9 @@ def read_advertised_pay(page, profile):
 # What Gary put in each field, and what question it was answering. Read back
 # on later passes: a value that differs is the candidate's, and worth keeping.
 _WROTE = {}
+# Which documents have been attached in this session. A file input never
+# reports what it holds, so nothing on the page can be asked.
+_ATTACHED = set()
 PROFILE_PATH = None
 COMPANY = ""
 
@@ -1745,7 +1748,18 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
             elif "writing sample" in asked:
                 which = "writing_sample"
             else:
-                which = "resume" if file_slots == 1 else "cover_letter"
+                # Nothing in the wording says what this slot wants. Counting
+                # slots does not settle it either: Greenhouse reveals its
+                # cover-letter input only once Attach is clicked, so a later
+                # pass sees a single file field again and calls it the first.
+                # The resume goes in once and once only; a second unlabelled
+                # slot is the candidate's to fill.
+                which = "resume" if "resume" not in _ATTACHED else ""
+            if not which:
+                skipped.append((label or "attachment",
+                                "a second attachment, and nothing says what it "
+                                "should be -- attach it yourself"))
+                continue
             path = os.path.expanduser(str(profile.get(which) or ""))
             if path and os.path.exists(path):
                 if field_key in _UNREADABLE_FILLED:
@@ -1755,6 +1769,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     # A file input never reports its value back, so without
                     # this the resume is attached again every few seconds.
                     _UNREADABLE_FILLED.add(field_key)
+                    _ATTACHED.add(which)
                 filled.append((label or which, os.path.basename(path)))
             elif path:
                 skipped.append((label or which, "file not found: %s" % path))
