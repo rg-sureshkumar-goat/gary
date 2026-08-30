@@ -1995,6 +1995,17 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 reasoned[label] = ("required, and you have no relative to "
                                    "name")
 
+        # A box with nothing to choose from offers the rules nothing to match
+        # against, so they reach it least often -- which makes it where
+        # judgement earns its place. Asked last, so it never overrides an
+        # answer the rules or the profile were sure of.
+        if value is None and kind not in ("file",) and tag != "button":
+            worked_out, working = judge.decide_text(label, profile)
+            if worked_out:
+                value = worked_out
+                reasoned[label] = "%s (judged)" % (working or "judged from "
+                                                   "your profile")
+
         if value:
             if not dry_run:
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1

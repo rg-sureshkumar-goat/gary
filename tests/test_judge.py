@@ -144,7 +144,29 @@ for real in ("Asian", "Male", "No", "Nonprofit experience", "Neither party"):
     if judge._refuses(real):
         failures.append("%r was refused, but it is a real answer" % real)
 
-total = 4 + 3 + 6 + 2 + 2 + 10 + 2
+# An open text box has no options for the rules to match against, so it is
+# where judgement earns its place -- but two kinds of answer are never
+# reasoned into existence on a form the candidate signs.
+for question in ("Why do you want to work at Fannie Mae?",
+                 "Describe your greatest strength.",
+                 "Tell us about a time you led a team",
+                 "In your own words, what interests you about this role?"):
+    got, _ = judge.decide_text(question, PROFILE)
+    if got is not None:
+        failures.append("wrote prose on the candidate's behalf: %r" % got)
+
+# Naming a person. "Who referred you to this role?" was answered "Company
+# Website" -- the source they heard about the job from, offered as the name of
+# somebody who put them forward.
+for question in ("Who referred you to this role?",
+                 "Please provide the name of the person who referred you",
+                 "What is your supervisor's name?",
+                 "Emergency contact name"):
+    got, _ = judge.decide_text(question, PROFILE)
+    if got is not None:
+        failures.append("named a person nobody told Gary about: %r" % got)
+
+total = 4 + 3 + 6 + 2 + 2 + 10 + 2 + 8
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

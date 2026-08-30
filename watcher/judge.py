@@ -412,3 +412,139 @@ def _ask_local(question, options, facts):
     if chosen is not None and not isinstance(chosen, str):
         chosen = None
     return chosen, (why or "judged from your profile")
+
+
+TEXT_PROMPT = """You are filling in a job application on behalf of the \
+candidate described below. Answer one question.
+
+What is known about the candidate:
+%s
+
+The question on the form:
+%s
+
+Give the short answer that belongs in this box, or nothing.
+
+Rules:
+- "answer" is what should be typed into the field: a word, a number, a date, a
+  short phrase. Never a sentence of explanation, never more than about ten
+  words.
+- Choose null unless the facts above settle it. Do not guess at anything the
+  candidate has not told you.
+- Never write prose on their behalf: reasons for applying, descriptions of
+  themselves, cover letters, explanations of their interest, or anything a
+  person would recognise as written by someone else. Those are theirs to
+  write, and null is the answer.
+- Never invent a name, a referral, an employer, a salary they have not stated,
+  or anything about their history that is not listed.
+- Dates and durations above are already worked out. Use them as given.
+- "reasoning" is one short sentence naming the fact you used."""
+
+TEXT_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "answer": {"type": ["string", "null"]},
+        "reasoning": {"type": "string"},
+    },
+    "required": ["answer", "reasoning"],
+    "additionalProperties": False,
+}
+
+# Questions whose answer is the candidate's own writing. A model producing
+# these would be putting words in their mouth on a document they sign.
+_THEIRS_TO_WRITE = re.compile(
+    r"why\s+(?:do|are|would)|tell\s+us|describe|explain|in\s+your\s+own\s+"
+    r"words|what\s+(?:interests|excites|motivates)|cover\s+letter|"
+    r"essay|paragraph|\bstatement\b|elaborate|expand\s+on", re.I)
+
+# A person Gary has never been told about. "Who referred you to this role?"
+# was answered "Company Website" -- the source the candidate heard about the
+# job from, offered as the name of a person who put them forward. Naming
+# somebody on an application they sign is not a thing to be reasoned into.
+_A_PERSON = re.compile(
+    r"\bwho\b|referr(?:ed|er)\s+(?:you|by)|name\s+of\s+the\s+person|"
+    r"whom\s+|contact\s+name|reference\s+name|supervisor|manager'?s?\s+name|"
+    r"emergency\s+contact", re.I)
+
+
+def decide_text(question, profile):
+    """The short answer for a text box: (answer, why) or (None, why-not).
+
+    A box with no options offers nothing to match against, so the rules reach
+    it least often -- which makes it exactly where judgement earns its place.
+    What is refused is prose: an answer a person would recognise as written by
+    someone else has no business on a form the candidate signs.
+    """
+    question = " ".join(str(question or "").split())
+    if not question or len(question) < 8:
+        return None, None
+    if _THEIRS_TO_WRITE.search(question) or _A_PERSON.search(question):
+        return None, None
+    if not local_available() and not hosted_available():
+        return None, None
+
+    facts = _facts(profile)
+    key = _key("text:" + question, [], facts)
+    held = _remembered(key)
+    if held is not None:
+        return held.get("choice"), held.get("reasoning")
+
+    answer, why = _ask_text(question, facts)
+    if answer is not None:
+        answer = " ".join(str(answer).split())
+        # A short answer belongs in a box; a paragraph is prose by another
+        # name, whatever the question looked like.
+        if not answer or len(answer) > 80 or len(answer.split()) > 12:
+            answer, why = None, "the answer would have been prose"
+    _remember(key, {"choice": answer, "reasoning": why})
+    return answer, (why or None)
+
+
+def _ask_text(question, facts):
+    """Put an open question to whichever model is available."""
+    prompt = TEXT_PROMPT % (json.dumps(facts, indent=2), question)
+    if local_available():
+        body = json.dumps({
+            "model": installed_model() or LOCAL_MODEL,
+            "stream": False, "format": "json",
+            "options": {"temperature": 0},
+            "messages": [
+                {"role": "system",
+                 "content": "You answer with JSON only, matching "
+                            '{"answer": <text or null>, "reasoning": "<one '
+                            'short sentence>"}.'},
+                {"role": "user", "content": prompt},
+            ],
+        }).encode("utf-8")
+        request = urllib.request.Request(
+            "%s/api/chat" % LOCAL_URL, data=body,
+            headers={"Content-Type": "application/json"})
+        try:
+            with urllib.request.urlopen(request, timeout=90) as response:
+                held = json.loads(response.read().decode("utf-8"))
+            answer = json.loads(held["message"]["content"])
+        except Exception:
+            return None, None
+        return answer.get("answer"), str(answer.get("reasoning") or "").strip()
+
+    try:
+        import anthropic
+        client = anthropic.Anthropic()
+        response = client.messages.create(
+            model=HOSTED_MODEL, max_tokens=1024,
+            thinking={"type": "adaptive"},
+            output_config={"effort": "medium",
+                           "format": {"type": "json_schema",
+                                      "schema": TEXT_SCHEMA}},
+            messages=[{"role": "user", "content": prompt}],
+        )
+    except Exception:
+        return None, None
+    if getattr(response, "stop_reason", None) == "refusal":
+        return None, None
+    try:
+        text = next(b.text for b in response.content if b.type == "text")
+        answer = json.loads(text)
+    except Exception:
+        return None, None
+    return answer.get("answer"), str(answer.get("reasoning") or "").strip()
