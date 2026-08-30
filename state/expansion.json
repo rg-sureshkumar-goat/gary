@@ -9854,7 +9854,11 @@
       "last": "2026-08-29",
       "result": "added",
       "ats": "workday"
+    },
+    "Thea Energy": {
+      "last": "2026-08-30",
+      "result": "none"
     }
   },
-  "last_run": "2026-08-29"
+  "last_run": "2026-08-30"
 }
