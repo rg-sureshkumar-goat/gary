@@ -29,6 +29,23 @@ PROFILE = {
 
 failures = []
 
+# What the candidate has answered before is sent, not only the profile's own
+# fields. Without it the model cannot see that "do you have any relatives
+# employed here" was answered no, and so cannot tell that "does anyone in your
+# household work here" is the same question -- which is the whole reason for
+# asking a model rather than matching a pattern.
+WITH_HISTORY = dict(PROFILE, custom_answers={
+    "do you have any relatives employed at": "No",
+    "seeking an internship": "Summer 2027",
+    "password": "should never be sent",
+})
+sent = judge._facts(WITH_HISTORY)
+before = sent.get("answers you have given before") or {}
+if "do you have any relatives employed at" not in before:
+    failures.append("earlier answers were withheld from the model: %r" % before)
+if any("password" in k for k in before):
+    failures.append("a credential was sent to the model: %r" % before)
+
 # Documents, secrets and prose are never sent.
 facts = judge._facts(PROFILE)
 for leaked in ("resume", "transcript", "answers", "role_description"):
@@ -127,7 +144,7 @@ for real in ("Asian", "Male", "No", "Nonprofit experience", "Neither party"):
     if judge._refuses(real):
         failures.append("%r was refused, but it is a real answer" % real)
 
-total = 4 + 3 + 6 + 2 + 2 + 10
+total = 4 + 3 + 6 + 2 + 2 + 10 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -184,7 +184,14 @@ def _worked_out(profile, today=None):
 
 
 def _facts(profile):
-    """What is known about the candidate, minus documents and secrets."""
+    """What is known about the candidate, minus documents and secrets.
+
+    Answers the candidate has given on earlier applications are included, not
+    just the profile's own fields. Without them the model cannot see that "do
+    you have any relatives employed here" was answered no, and so cannot tell
+    that "does anyone in your household work here" is the same question. That
+    recognition is the whole reason for asking a model rather than a pattern.
+    """
     out = _worked_out(profile)
     for key, value in sorted((profile or {}).items()):
         if not isinstance(value, str) or _PRIVATE.search(key):
@@ -192,6 +199,24 @@ def _facts(profile):
         value = value.strip()
         if value and len(value) <= 120:
             out[key] = value
+
+    # What the candidate has answered before, phrased as they were asked. The
+    # shorter forms only, so the prompt stays small and reads as facts rather
+    # than a transcript.
+    answered = {}
+    for question, value in sorted((profile.get("custom_answers") or {}).items()):
+        if not isinstance(value, str):
+            continue
+        question, value = question.strip(), value.strip()
+        if not question or not value or len(question) > 70 or len(value) > 70:
+            continue
+        if _PRIVATE.search(question):
+            continue
+        answered[question] = value
+        if len(answered) >= 40:
+            break
+    if answered:
+        out["answers you have given before"] = answered
     return out
 
 
