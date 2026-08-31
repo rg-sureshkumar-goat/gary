@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T21:03:18Z",
+ "last_run": "2026-08-31T21:16:51Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 38,
-  "new": 0,
-  "postings": 24699,
-  "sites": 82
+  "matching": 46,
+  "new": 3,
+  "postings": 23553,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -311,6 +311,9 @@
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
+  "workday:rsm:/job/Chicago/Deal-Services-Financial-Due-Diligence-Consulting-Intern---Summer-2027_JR118064",
+  "workday:rsm:/job/Chicago/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR117155",
+  "workday:rsm:/job/Chicago/Technology-Risk-Consulting-Intern---Summer-2027_JR116271",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Financial-Services-Consulting-Intern_JR120926",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Process-Risk-and-Controls-Consulting-Intern_JR120925",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Technology-Risk-and-Controls-Consulting-Intern_JR120923",
@@ -3179,6 +3182,18 @@
   },
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330": {
    "f": "2026-08-25",
+   "l": "2026-08-31"
+  },
+  "workday:rsm:/job/Chicago/Deal-Services-Financial-Due-Diligence-Consulting-Intern---Summer-2027_JR118064": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:rsm:/job/Chicago/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR117155": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:rsm:/job/Chicago/Technology-Risk-Consulting-Intern---Summer-2027_JR116271": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Financial-Services-Consulting-Intern_JR120926": {
