@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T15:33:15Z",
+ "last_run": "2026-08-31T15:45:51Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 0,
-  "postings": 24369,
-  "sites": 82
+  "matching": 33,
+  "new": 7,
+  "postings": 17551,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -157,6 +157,7 @@
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260",
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865",
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1",
+  "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808",
   "workday:equifax:/job/USA-Missouri---St-Louis---Clayton/Finance-Intern_J00178739",
   "workday:fanniemae:/job/Washington-DC/Campus---Accounting-Program-Intern_JR2817",
   "workday:fanniemae:/job/Washington-DC/Campus---Finance-Program-Intern_JR2819-1",
@@ -251,8 +252,14 @@
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855",
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276",
   "workday:oneok:/job/Tulsa-OK/Accounting-Intern---Tulsa--OK_R8273",
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Accounting-Intern--Year-Round-_R49748",
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance-Intern---FP-A--Year-Round-_R49749-1",
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Strategic-Sourcing-Supply-Chain-Intern--Summer-2027-_R49756",
+  "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Finance-Intern--Summer-2027-_R49793",
+  "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Strategic-Sourcing-Intern--Summer-2027-_R49800",
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Rotation-Inten_R45303",
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824",
+  "workday:oshkoshcorporation:/job/Roy-Utah-United-States/Accounting-Intern--Summer-2027-_R49803",
   "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698",
   "workday:pg:/job/CINCINNATI-GENERAL-OFFICES/Finance---Accounting-Manager-Internship_R000157471",
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002218",
@@ -2530,6 +2537,10 @@
    "f": "2026-08-28",
    "l": "2026-08-31"
   },
+  "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:equifax:/job/USA-Missouri---St-Louis---Clayton/Finance-Intern_J00178739": {
    "f": "2026-08-30",
    "l": "2026-08-31"
@@ -2914,12 +2925,36 @@
    "f": "2026-08-25",
    "l": "2026-08-31"
   },
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Accounting-Intern--Year-Round-_R49748": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance-Intern---FP-A--Year-Round-_R49749-1": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Strategic-Sourcing-Supply-Chain-Intern--Summer-2027-_R49756": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Finance-Intern--Summer-2027-_R49793": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Strategic-Sourcing-Intern--Summer-2027-_R49800": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Rotation-Inten_R45303": {
    "f": "2026-08-25",
    "l": "2026-08-31"
   },
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824": {
    "f": "2026-08-28",
+   "l": "2026-08-31"
+  },
+  "workday:oshkoshcorporation:/job/Roy-Utah-United-States/Accounting-Intern--Summer-2027-_R49803": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698": {
