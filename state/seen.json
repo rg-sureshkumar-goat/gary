@@ -1,14 +1,46 @@
 {
- "broken": {},
- "last_run": "2026-08-31T13:03:52Z",
- "last_run_stats": {
-  "failed": 0,
-  "matching": 33,
-  "new": 0,
-  "postings": 24616,
-  "sites": 82
+ "broken": {
+  "Avnet": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429",
+  "Sierra Space": "HTTP 429",
+  "Signet Jewelers": "HTTP 429",
+  "Tencent": "HTTP 429",
+  "The New School": "HTTP 429",
+  "TruStage": "HTTP 429"
  },
- "recommended": {},
+ "last_run": "2026-08-31T13:13:53Z",
+ "last_run_stats": {
+  "failed": 13,
+  "matching": 24,
+  "new": 0,
+  "postings": 15715,
+  "sites": 212
+ },
+ "recommended": {
+  "amazon:10435673": "2026-08-31",
+  "ashby:Etched:a0a1671e-15d4-474c-8227-97fe16ade553": "2026-08-31",
+  "greenhouse:genscript:5169014007": "2026-08-31",
+  "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606": "2026-08-31",
+  "lever:crestoperations:a4e1fa07-80f5-4a7d-989e-b755a7ac7d7e": "2026-08-31",
+  "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24": "2026-08-31",
+  "smartrecruiters:AristaNetworks:744000128256979": "2026-08-31",
+  "smartrecruiters:Eurofins:743999767858594": "2026-08-31",
+  "smartrecruiters:JobsForHumanity:744000016293876": "2026-08-31",
+  "smartrecruiters:JobsForHumanity:744000047832045": "2026-08-31",
+  "smartrecruiters:JobsForHumanity:744000055878703": "2026-08-31",
+  "smartrecruiters:NorthwesternMutual:85751624": "2026-08-31",
+  "smartrecruiters:RRSGroup:744000133857769": "2026-08-31",
+  "smartrecruiters:TheWonderfulCompany:744000113566258": "2026-08-31",
+  "smartrecruiters:TheWonderfulCompany:744000113780016": "2026-08-31",
+  "smartrecruiters:TheWonderfulCompany:744000113780858": "2026-08-31",
+  "smartrecruiters:TheWonderfulCompany:744000113783769": "2026-08-31"
+ },
  "reminders_sent": [],
  "reported": [
   "amazon:10435673",
@@ -81,8 +113,10 @@
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738-1",
+  "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370",
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380",
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380-1",
+  "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ115372",
   "workday:bristolmyerssquibb:/job/Princeton---NJ---US/XMLNAME-2027-Summer-Intern--Finance---Accounting-Leadership-Accelerator_R1605465",
   "workday:caci:/job/Oklahoma-City-OK-US/Finance---Accounting-Shared-Service-Center-Intern---Summer-2027_330407",
   "workday:cadence:/job/AUSTIN/AI---Strategic-Marketing-Intern_R56045",
@@ -273,6 +307,7 @@
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126",
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044",
   "workday:stryker:/job/Portage-Michigan/Summer-2027-Internship---Finance---Michigan_R572445-1",
+  "workday:stryker:/job/San-Jose-California/Summer-2027-Internship---Finance---California_R572448",
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
@@ -2268,11 +2303,19 @@
    "f": "2026-08-25",
    "l": "2026-08-31"
   },
+  "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380": {
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380-1": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ115372": {
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
@@ -3045,6 +3088,10 @@
    "l": "2026-08-31"
   },
   "workday:stryker:/job/Portage-Michigan/Summer-2027-Internship---Finance---Michigan_R572445-1": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:stryker:/job/San-Jose-California/Summer-2027-Internship---Finance---California_R572448": {
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
