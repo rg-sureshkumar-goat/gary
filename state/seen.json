@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T20:18:42Z",
+ "last_run": "2026-08-31T20:33:16Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 21,
-  "sites": 1
+  "matching": 40,
+  "new": 3,
+  "postings": 24720,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -60,7 +60,10 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/364861",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2028/364863",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Global-Trade-Advisory-Summer-2027/364867",
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606",
   "lever:crestoperations:a4e1fa07-80f5-4a7d-989e-b755a7ac7d7e",
   "lever:crestoperations:b155c903-f65d-489b-8ea0-d959af22c481",
@@ -2147,8 +2150,20 @@
    "f": "2026-08-25",
    "l": "2026-08-25"
   },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/364861": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270": {
    "f": "2026-08-26",
+   "l": "2026-08-31"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2028/364863": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Global-Trade-Advisory-Summer-2027/364867": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606": {
