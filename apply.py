@@ -1045,8 +1045,15 @@ def pay_from_posting(ctx, url, profile):
     salary question, several pages in, then has nothing to work from. A
     separate tab reads the posting without disturbing the window being filled.
     """
+    global _POSTING_TRIES
     if profile.get("desired_salary") or not url:
         return False
+    # A posting that has not given up its pay in two attempts is not going to.
+    # Trying on every pass opens and closes a tab in front of the candidate
+    # every second and a half, which is worse than the missing figure.
+    if _POSTING_TRIES >= 2:
+        return False
+    _POSTING_TRIES += 1
     aside = None
     try:
         aside = ctx.new_page()
@@ -1117,6 +1124,8 @@ _ATTACHED = set()
 # Marks are handed out from here, never from the page, so no two controls in a
 # session can share one.
 _NEXT_MARK = 0
+# How many times the posting has been opened to look for the advertised pay.
+_POSTING_TRIES = 0
 PROFILE_PATH = None
 COMPANY = ""
 
