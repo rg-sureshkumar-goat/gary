@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T16:03:59Z",
+ "last_run": "2026-08-31T16:16:38Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 0,
-  "postings": 24655,
-  "sites": 82
+  "matching": 27,
+  "new": 3,
+  "postings": 21029,
+  "sites": 209
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -198,12 +198,14 @@
   "workday:jll:/job/Dallas-TX/Capital-Markets-Summer-2027-Internship---Dallas--TX_REQ530555",
   "workday:jll:/job/Denver-CO/Capital-Markets-Summer-2027-Internship---Denver--CO_REQ530239",
   "workday:jll:/job/Indianapolis-IN/Capital-Markets-Summer-2027-Internship---Indianapolis--IN_REQ530233",
+  "workday:jll:/job/Jacksonville-FL/Capital-Markets-Summer-2027-Internship---Jacksonville--FL_REQ532423",
   "workday:jll:/job/Los-Angeles-CA/Capital-Markets-Summer-2027-Internship---Century-City--LA_REQ530570",
   "workday:jll:/job/Miami-FL/Capital-Markets-Summer-2027-Internship---Miami--FL_REQ530237",
   "workday:jll:/job/Minneapolis-MN/Capital-Markets-Summer-2027-Internship---Minneapolis--MN_REQ530234",
   "workday:jll:/job/Morristown-NJ/Capital-Markets-Summer-2027-Internship---Morristown--NJ_REQ529778",
   "workday:jll:/job/New-York-NY/M-A-and-Corporate-Advisory-Summer-2027-Internship----Madison--NY_REQ530219",
   "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ530581",
+  "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ532428",
   "workday:jll:/job/Overland-Park-KS/Valuations-Advisory-Summer-2027-Internship---Houston--TX_REQ530574",
   "workday:jll:/job/Philadelphia-PA/Capital-Markets-Summer-2027-Internship---Philadelphia--PA_REQ530577",
   "workday:jll:/job/Phoenix-AZ/Capital-Markets-Summer-2027-Internship---Phoenix--AZ_REQ530583",
@@ -212,6 +214,7 @@
   "workday:jll:/job/Salt-Lake-City-UT/Capital-Markets-Analyst-Summer-2027-Internship---Salt-Lake-City--UT_REQ530571",
   "workday:jll:/job/San-Diego-CA/Capital-Markets-Summer-2027-Internship---San-Diego--CA_REQ530207-1",
   "workday:jll:/job/San-Francisco-CA/Capital-Markets-Summer-2027-Internship---San-Francisco--CA_REQ530240",
+  "workday:jll:/job/Tampa-FL/Capital-Markets-Summer-2027-Internship---Tampa--FL_REQ532419",
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230",
   "workday:keybank:/job/Albany-OR/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Albany--OR_R-41217",
   "workday:keybank:/job/Bellingham-WA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Bellingham--WA_R-41216",
@@ -2705,6 +2708,10 @@
    "f": "2026-08-24",
    "l": "2026-08-26"
   },
+  "workday:jll:/job/Jacksonville-FL/Capital-Markets-Summer-2027-Internship---Jacksonville--FL_REQ532423": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:jll:/job/Los-Angeles-CA/Capital-Markets-Summer-2027-Internship---Century-City--LA_REQ530570": {
    "f": "2026-08-24",
    "l": "2026-08-26"
@@ -2728,6 +2735,10 @@
   "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ530581": {
    "f": "2026-08-24",
    "l": "2026-08-26"
+  },
+  "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ532428": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
   },
   "workday:jll:/job/Overland-Park-KS/Valuations-Advisory-Summer-2027-Internship---Houston--TX_REQ530574": {
    "f": "2026-08-27",
@@ -2760,6 +2771,10 @@
   "workday:jll:/job/San-Francisco-CA/Capital-Markets-Summer-2027-Internship---San-Francisco--CA_REQ530240": {
    "f": "2026-08-24",
    "l": "2026-08-26"
+  },
+  "workday:jll:/job/Tampa-FL/Capital-Markets-Summer-2027-Internship---Tampa--FL_REQ532419": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
   },
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230": {
    "f": "2026-08-24",
