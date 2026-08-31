@@ -327,6 +327,138 @@ def choose_from_combobox(frame, element, wanted):
         return False
 
 
+def _looks_like_categories(options):
+    """Might these be groupings rather than answers?
+
+    A short list of broad words -- Social Media, Job Board, University -- is
+    usually a set of categories with the real options inside them. Opening
+    them costs a few seconds and is the only way to see what is there.
+    """
+    if not options or len(options) > 25:
+        return False
+    broad = re.compile(r"social|media|job\s*board|university|college|school|"
+                       r"event|advertis|referr|search|agency|other|internet|"
+                       r"online|print|career|website|network|source|campus",
+                       re.I)
+    named = [o for o in options if not STATUS_TEXT.match(str(o).strip())]
+    if not named:
+        return False
+    return sum(1 for o in named if broad.search(str(o))) >= max(
+        2, len(named) // 3)
+
+
+def nested_options(frame, element, cap=120):
+    """Everything a two-layer dropdown can offer: {option: category}.
+
+    Some lists hold categories rather than answers -- "Social Media" opens to
+    reveal LinkedIn. Reading the first layer sees only the category names, so
+    the answer looks absent when it is one click away.
+
+    Every category is opened in turn and what it holds is recorded against it,
+    so the choice can be made over everything the control offers rather than
+    guessed at from the top. The control is re-opened between categories,
+    because a list that has drilled into one is no longer showing the others.
+    """
+    def top_level():
+        try:
+            return frame.evaluate("""el => {
+                const id = el.getAttribute('aria-controls') ||
+                           el.getAttribute('aria-owns');
+                let root = id ? document.getElementById(id) : null;
+                if (!root) {
+                    const open = Array.from(document.querySelectorAll(
+                        '[data-automation-id=activeListContainer],[role=listbox]'
+                    )).filter(b => b.offsetParent !== null);
+                    root = open.length ? open[open.length - 1] : null;
+                }
+                if (!root) return [];
+                return Array.from(root.querySelectorAll(
+                    '[role=option], [class*=option], li'))
+                    .filter(o => o.offsetParent !== null)
+                    .map(o => (o.innerText || '').trim())
+                    .filter(Boolean);
+            }""", element) or []
+        except Exception:
+            return []
+
+    def open_control():
+        close_combobox(frame)
+        try:
+            frame.wait_for_timeout(150)
+            element.click(timeout=2000)
+            frame.wait_for_timeout(500)
+        except Exception:
+            pass
+
+    def open_named(text):
+        """Click the option with this text in the list on screen."""
+        try:
+            return bool(frame.evaluate("""([el, wanted]) => {
+                const open = Array.from(document.querySelectorAll(
+                    '[data-automation-id=activeListContainer],[role=listbox]'
+                )).filter(b => b.offsetParent !== null);
+                const root = open.length ? open[open.length - 1] : null;
+                if (!root) return false;
+                for (const o of root.querySelectorAll(
+                        '[role=option], [class*=option], li')) {
+                    if ((o.innerText || '').trim() !== wanted) continue;
+                    for (const kind of ['pointerdown', 'mousedown', 'mouseup',
+                                        'click']) {
+                        o.dispatchEvent(new MouseEvent(kind, {
+                            bubbles: true, cancelable: true, view: window,
+                            button: 0,
+                        }));
+                    }
+                    return true;
+                }
+                return false;
+            }""", [element, text]))
+        except Exception:
+            return False
+
+    open_control()
+    categories = top_level()
+    if not categories:
+        return {}
+
+    found = {}
+    for category in categories:
+        if len(found) >= cap:
+            break
+        open_control()
+        if not open_named(category):
+            continue
+        frame.wait_for_timeout(600)
+        inner = [t for t in top_level() if t and t != category]
+        # A category that opens shows different entries; one that simply
+        # answers shows the same list, or none, and is an answer itself.
+        if not inner or set(inner) == set(categories):
+            found.setdefault(category, None)
+            continue
+        for option in inner:
+            found.setdefault(option, category)
+    close_combobox(frame)
+    return found
+
+
+def pick_nested(frame, element, option, category):
+    """Choose an option that lives inside a category, and commit it."""
+    close_combobox(frame)
+    try:
+        frame.wait_for_timeout(150)
+        element.click(timeout=2000)
+        frame.wait_for_timeout(500)
+    except Exception:
+        return False
+    if category:
+        if not choose_from_combobox(frame, element, category):
+            return False
+        frame.wait_for_timeout(600)
+    ok = choose_from_combobox(frame, element, option)
+    frame.wait_for_timeout(400)
+    return ok
+
+
 def gather_options(frame, element, queries, cap=60):
     """Everything the list will show, before deciding anything.
 
@@ -2306,6 +2438,17 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 # employer calls its own site, which Gary can recognise
                 # because it knows which employer this is.
                 choice, working = None, None
+                # A list of categories rather than answers: open each one and
+                # collect what is inside before choosing anything.
+                inside = {}
+                if not dry_run and options and _looks_like_categories(options):
+                    inside = nested_options(frame, element)
+                    if inside:
+                        options = list(inside)
+                        print("   [dropdown] %s: %d options inside %d "
+                              "categories" % (label[:30], len(inside),
+                                              len(set(v for v in inside.values()
+                                                      if v))))
                 if formfill.is_referral_question(label):
                     choice = lists.heard_about_us(options, company)
                     if choice is not None:
@@ -2335,6 +2478,15 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                     if choice is not None:
                         reasoned[label] = "%s (judged)" % (working or "judged "
                                                            "from your profile")
+            if choice and not dry_run and inside.get(choice):
+                # It lives inside a category: go there first.
+                if pick_nested(frame, element, choice, inside[choice]):
+                    note_written(field_key, label, choice)
+                    filled.append((label,
+                                   note_inference(label, profile, choice,
+                                                  reasoned)))
+                    _UNREADABLE_FILLED.add(field_key)
+                    continue
             if choice and not dry_run and choose_from_combobox(frame, element, choice):
                 print("   [dropdown] %s <- %r  from %d options: %s"
                       % (label[:34], choice, len(options),
