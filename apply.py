@@ -441,9 +441,19 @@ def choice_took(frame, element, chosen):
             // usually the answer's own words -- so its value proves nothing.
             // Reading it as a commitment is how a school was confirmed while
             // the menu sat open and nothing had been chosen.
+            // Workday's multiselect input carries none of these marks, so
+            // the widget around it has to be asked as well -- otherwise the
+            // query typed into it is read back as a committed answer.
             const searching = el.getAttribute('role') === 'combobox' ||
                               el.getAttribute('aria-haspopup') ||
-                              el.getAttribute('aria-autocomplete');
+                              el.getAttribute('aria-autocomplete') ||
+                              el.closest([
+                                  '[data-uxi-widget-type=multiselect]',
+                                  '[data-uxi-widget-type=selectinput]',
+                                  '[data-automation-id=multiSelectContainer]',
+                                  '[data-automation-id*=multiselect]',
+                                  '[data-automation-id*=promptSearch]'
+                              ].join(','));
             if (!searching &&
                 (el.value || '').trim().toLowerCase() === wanted) return true;
             let scope = el;
@@ -2142,6 +2152,22 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         is_combo = (element.get_attribute("role") == "combobox"
                     or element.get_attribute("aria-haspopup") in ("true", "listbox")
                     or (tag == "button" and "select one" in aria_label))
+        if not is_combo and tag == "input":
+            # Workday's multiselect gives its input none of those marks, so
+            # "How Did You Hear About Us?" was handled as a plain text box:
+            # typed into rather than driven, and matched against whatever list
+            # happened to be open. What identifies it is the widget around it.
+            try:
+                is_combo = bool(element.evaluate(
+                    """el => !!el.closest([
+                        '[data-uxi-widget-type=multiselect]',
+                        '[data-uxi-widget-type=selectinput]',
+                        '[data-automation-id=multiSelectContainer]',
+                        '[data-automation-id*=multiselect]',
+                        '[data-automation-id*=promptSearch]'
+                    ].join(','))"""))
+            except Exception:
+                is_combo = False
         if is_combo and tag != "select":
             if not dry_run:
                 _WRITES[field_key] = _WRITES.get(field_key, 0) + 1
@@ -2188,7 +2214,21 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         chosen, query = None, None
                         if offered:
                             texts = list(offered)
-                            picked, _fact = option_reading.best(texts, [str(typed)])
+                            picked = None
+                            # How they heard about the role is answered by
+                            # what this employer calls its own site, which
+                            # Gary can recognise because it knows the
+                            # employer. The same rule as on a button
+                            # dropdown; this path had been missing it.
+                            if formfill.is_referral_question(label):
+                                picked = lists.heard_about_us(texts, company)
+                                if picked is not None:
+                                    reasoned[label] = (
+                                        "this employer's own site, or the "
+                                        "social network you named")
+                            if picked is None:
+                                picked, _fact = option_reading.best(
+                                    texts, [str(typed)])
                             if picked is None:
                                 picked = formfill.choose_option(
                                     label, texts, profile, section, ident, entry)
