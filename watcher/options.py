@@ -31,10 +31,13 @@ _JOINING = frozenset(("or", "and", "of", "the", "a", "an", "either", "both"))
 
 _NEGATION = re.compile(r"\b(?:not|non|excluding|other\s+than|except)\b", re.I)
 _SPLIT = re.compile(r"[\s/,;|]+")
+# Words that carry no meaning of their own. A country's name is not among
+# them: "United States" reduced to nothing here, so a dialling-code list full
+# of countries could not be answered with the candidate's own. The country
+# qualifier on an EEO option is stripped by reading the head instead.
 _NOISE = frozenset((
-    "the", "a", "an", "of", "or", "and", "in", "at", "to", "for", "is", "are",
-    "my", "your", "i", "am", "have", "has", "united", "states", "america",
-    "usa", "us",
+    "the", "of", "at", "in", "and", "a", "an", "for", "is", "are", "my",
+    "your", "i", "am", "have", "has",
 ))
 
 

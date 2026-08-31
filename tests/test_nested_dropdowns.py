@@ -117,9 +117,56 @@ with sync_playwright() as playwright:
         failures.append("rows that open were not recognised as categories")
     page.close()
 
+    # The same list built as Workday actually builds it: a selectinput
+    # multiselect, which takes a different path through the code. The
+    # exploration had been written into the other one only, so this question
+    # went unanswered on a real application while the answer sat one click
+    # inside a category.
+    page = context.new_page()
+    page.set_content("""
+      <div data-automation-id="formField-source">
+        <label for="q">How Did You Hear About Us?</label>
+        <div data-uxi-widget-type="selectinput"
+             data-automation-id="multiSelectContainer">
+          <div data-automation-id="multiselectInputContainer">
+            <input id="q"></div>
+        </div><div id="chosen"></div></div>
+      <div id="host"></div>
+      <script>
+        const TREE = {'Social Media':['LinkedIn','Facebook'],
+                      'Job Board':['Indeed'],'Other':[]};
+        let level = null;
+        const draw = () => {
+          const items = level ? TREE[level] : Object.keys(TREE);
+          document.getElementById('host').innerHTML = '<div role="listbox">' +
+            items.map(o => '<div role="option" aria-expanded="false">' + o +
+              (level ? '' : '<span class="chevron"></span>') + '</div>')
+              .join('') + '</div>';
+        };
+        const box = document.getElementById('q');
+        box.addEventListener('click', () => { level = null; draw(); });
+        box.addEventListener('keydown',
+          () => setTimeout(() => { level = null; draw(); }, 5));
+        document.addEventListener('mousedown', e => {
+          const o = e.target.closest('#host [role=option]'); if (!o) return;
+          const t = o.textContent.trim();
+          if (!level && TREE[t] && TREE[t].length) {
+            level = t; setTimeout(draw, 5); return;
+          }
+          document.getElementById('chosen').textContent = t;
+          document.getElementById('host').innerHTML = ''; level = null;
+        });
+      </script>
+    """)
+    apply.fill(page, PROFILE, dry_run=False, company="Tencent")
+    if page.inner_text("#chosen").strip() != "LinkedIn":
+        failures.append("a selectinput multiselect kept %r, wanted LinkedIn"
+                        % page.inner_text("#chosen").strip())
+    page.close()
+
     browser.close()
 
-total = 3 + 3 + 2
+total = 3 + 3 + 2 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:

@@ -2358,6 +2358,22 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                             frame, element,
                             [str(typed)] + shorter_queries(str(typed)))
 
+                        # The list may hold categories rather than answers.
+                        # This path had no idea: the exploration lived only in
+                        # the branch for button dropdowns, and Workday's
+                        # "How Did You Hear About Us?" does not take it.
+                        nested = {}
+                        if _looks_like_categories(frame, element):
+                            nested = nested_options(frame, element)
+                            if nested:
+                                offered = {option: None
+                                           for option in nested}
+                                print("   [dropdown] %s: %d options inside %d "
+                                      "categories"
+                                      % (label[:30], len(nested),
+                                         len(set(v for v in nested.values()
+                                                 if v))))
+
                         chosen, query = None, None
                         if offered:
                             texts = list(offered)
@@ -2387,6 +2403,18 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                                         working or "judged from your profile")
                             if picked is not None:
                                 chosen, query = picked, offered.get(picked)
+
+                        if chosen and nested.get(chosen):
+                            # It lives inside a category: go back into it.
+                            if pick_nested(frame, element, chosen,
+                                           nested[chosen]) and choice_took(
+                                               frame, element, chosen):
+                                note_written(field_key, label, chosen)
+                                filled.append((label,
+                                               note_inference(label, profile,
+                                                              chosen, reasoned)))
+                                _UNREADABLE_FILLED.add(field_key)
+                                continue
 
                         if chosen:
                             # Bring the list back to where that option was.
@@ -2429,9 +2457,12 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         except Exception:
                             pass
                         close_combobox(frame)
-                        skipped.append((label, "nothing on the list matched %r "
-                                               "-- fill it yourself"
-                                        % str(typed)[:30]))
+                        why = ("nothing on the list matched %r -- fill it "
+                               "yourself" % str(typed)[:30])
+                        if offered:
+                            why += " | offered: " + ", ".join(
+                                str(o)[:24] for o in list(offered)[:8])
+                        skipped.append((label, why))
                         continue
                     except Exception:
                         pass
