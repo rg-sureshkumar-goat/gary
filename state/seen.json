@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T02:33:08Z",
+ "last_run": "2026-08-31T02:45:51Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
+  "matching": 10,
   "new": 0,
-  "postings": 24748,
-  "sites": 82
+  "postings": 15494,
+  "sites": 185
  },
  "recommended": {},
  "reminders_sent": [],
@@ -1979,7 +1979,7 @@
   },
   "ashby:sereact:8ebf2a77-6006-416a-beb1-88f9bacd8fe3": {
    "f": "2026-08-06",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
@@ -2323,7 +2323,7 @@
   },
   "workday:clr:/job/Oklahoma-City-OK/Accounting---Finance-Intern--Summer-2027-_R02590-1": {
    "f": "2026-08-26",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:commercebank:/job/KS---Central-Kansas---Wichita---Wichita-Waterfront-67206/Intern---Commercial-Banking--Summer-2027-_38388": {
    "f": "2026-08-28",
@@ -2391,7 +2391,7 @@
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-Intern--Client-Accounting_R333462-1": {
    "f": "2026-08-20",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:dimensional:/job/Austin/Internship-in-Investment-Solutions--Undergraduate---Master-s-_2026-9041": {
    "f": "2026-08-28",
@@ -2507,7 +2507,7 @@
   },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
    "f": "2026-08-26",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1": {
    "f": "2026-08-25",
@@ -3003,27 +3003,27 @@
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-08-30"
+   "l": "2026-08-31"
   },
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689": {
    "f": "2026-08-25",
