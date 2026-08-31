@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T18:03:27Z",
+ "last_run": "2026-08-31T18:16:14Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 0,
-  "postings": 24673,
-  "sites": 82
+  "matching": 18,
+  "new": 1,
+  "postings": 24399,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -232,6 +232,7 @@
   "workday:keybank:/job/Cleveland-OH/XMLNAME-2027-KeyBanc-Capital-Markets-Foreign-Exchange--FX--Summer-Analyst_R-41798",
   "workday:keybank:/job/Erie-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Erie--PA_R-41223",
   "workday:keybank:/job/Goshen-IN/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Goshen--IN_R-41215",
+  "workday:keybank:/job/Portland-OR/XMLNAME-2027-Equity-Research-Summer-Analyst---Portland--OR_R-37708",
   "workday:keybank:/job/Pottstown-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Pottstown--PA_R-41222",
   "workday:keybank:/job/Toledo-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Toledo--OH_R-41225",
   "workday:keybank:/job/Vandalia-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Dayton--OH_R-41220",
@@ -2850,6 +2851,10 @@
   },
   "workday:keybank:/job/Goshen-IN/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Goshen--IN_R-41215": {
    "f": "2026-08-04",
+   "l": "2026-08-31"
+  },
+  "workday:keybank:/job/Portland-OR/XMLNAME-2027-Equity-Research-Summer-Analyst---Portland--OR_R-37708": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:keybank:/job/Pottstown-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Pottstown--PA_R-41222": {
