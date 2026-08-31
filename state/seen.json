@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T15:03:09Z",
+ "last_run": "2026-08-31T15:16:06Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 0,
-  "postings": 24349,
-  "sites": 82
+  "matching": 14,
+  "new": 2,
+  "postings": 18033,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -101,9 +101,11 @@
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738-1",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370",
+  "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370-1",
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380",
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380-1",
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ115372",
+  "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ115372-1",
   "workday:bristolmyerssquibb:/job/Princeton---NJ---US/XMLNAME-2027-Summer-Intern--Finance---Accounting-Leadership-Accelerator_R1605465",
   "workday:caci:/job/Oklahoma-City-OK-US/Finance---Accounting-Shared-Service-Center-Intern---Summer-2027_330407",
   "workday:cadence:/job/AUSTIN/AI---Strategic-Marketing-Intern_R56045",
@@ -2300,6 +2302,10 @@
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
+  "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370-1": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ112380": {
    "f": "2026-08-31",
    "l": "2026-08-31"
@@ -2309,6 +2315,10 @@
    "l": "2026-08-31"
   },
   "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ115372": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:bpinternational:/job/United-States-of-America---Texas---Houston/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Houston--TX_RQ115372-1": {
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
