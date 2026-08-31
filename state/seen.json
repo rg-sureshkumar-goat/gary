@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T16:33:15Z",
+ "last_run": "2026-08-31T16:46:04Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
-  "new": 0,
-  "postings": 24380,
-  "sites": 82
+  "matching": 32,
+  "new": 3,
+  "postings": 32042,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -169,6 +169,7 @@
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
+  "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1",
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1",
   "workday:heidelbergmaterials:/job/Irving-TX/Corporate-Controller-Intern_JR10018017",
@@ -311,8 +312,10 @@
   "workday:stryker:/job/San-Jose-California/Summer-2027-Internship---Finance---California_R572448",
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
+  "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101",
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Analyst---Global-Transaction-Banking--New-York-_R_1508073",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019",
@@ -2588,6 +2591,10 @@
    "f": "2026-08-20",
    "l": "2026-08-31"
   },
+  "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
    "f": "2026-08-26",
    "l": "2026-08-31"
@@ -3164,11 +3171,19 @@
    "f": "2026-08-25",
    "l": "2026-08-31"
   },
+  "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889": {
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Analyst---Global-Transaction-Banking--New-York-_R_1508073": {
    "f": "2026-08-31",
    "l": "2026-08-31"
   },
