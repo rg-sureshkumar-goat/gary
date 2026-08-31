@@ -340,7 +340,21 @@ def _holds_an_answer(options, wanted):
     return picked is not None
 
 
-def _looks_like_categories(frame, element):
+# Entries that are doors rather than answers. Workday opens a long prompt list
+# with "All" and "Partial List (First 500 Results)" -- clicking one reveals the
+# options. Read as answers they are nonsense, and a list of them looks like a
+# list holding nothing the candidate said.
+_A_DOORWAY = re.compile(
+    r"^all$|^partial\s+list|^first\s+\d+|^more\b|^search\s+results?$|"
+    r"^browse\b|^view\s+all$|^show\s+(?:all|more)$", re.I)
+
+
+def _doorways(options):
+    """The entries in this list that open into other entries."""
+    return [o for o in options or [] if _A_DOORWAY.match(str(o).strip())]
+
+
+def _looks_like_categories(frame, element, options=()):
     """Do this list's entries open into further entries?
 
     Not a question about the words. A list of universities is full of the word
@@ -351,6 +365,9 @@ def _looks_like_categories(frame, element):
     of its own, or carries the arrow a person would click. Reading that costs
     nothing and cannot select anything by accident.
     """
+    # A list whose entries are doorways is one, whatever the markup says.
+    if _doorways(options):
+        return True
     try:
         return bool(frame.evaluate("""el => {
             const open = Array.from(document.querySelectorAll(
@@ -375,6 +392,56 @@ def _looks_like_categories(frame, element):
         return False
 
 
+# What a list says while it is still producing itself. Read as answers these
+# are nonsense, and read as an empty list they say the answer is absent when
+# it has simply not arrived.
+_STILL_LOADING = re.compile(r"^no\s+items?\.?$|^loading|^searching|"
+                            r"^please\s+wait|^\.\.\.$|^-+$", re.I)
+
+
+def _read_open_list(frame, element):
+    """The options showing in whatever list this control has open."""
+    try:
+        return frame.evaluate("""el => {
+            const id = el.getAttribute('aria-controls') ||
+                       el.getAttribute('aria-owns');
+            let root = id ? document.getElementById(id) : null;
+            if (!root) {
+                const open = Array.from(document.querySelectorAll(
+                    '[data-automation-id=activeListContainer],[role=listbox]'
+                )).filter(b => b.offsetParent !== null);
+                root = open.length ? open[open.length - 1] : null;
+            }
+            if (!root) return [];
+            return Array.from(root.querySelectorAll(
+                '[role=option], [class*=option], li'))
+                .filter(o => o.offsetParent !== null)
+                .map(o => (o.innerText || '').trim())
+                .filter(Boolean);
+        }""", element) or []
+    except Exception:
+        return []
+
+
+def wait_for_list(frame, read, tries=4, pause=700):
+    """Read a list once it has finished producing itself.
+
+    A Workday prompt list arrives after the control opens, and until it does it
+    says "No Items." Taking that at face value concluded a school was not on a
+    list of every university -- the list simply had not been generated yet.
+    """
+    seen = []
+    for attempt in range(tries):
+        seen = [o for o in (read() or []) if not _STILL_LOADING.match(str(o).strip())]
+        if seen:
+            return seen
+        try:
+            frame.wait_for_timeout(pause)
+        except Exception:
+            break
+    return seen
+
+
 def nested_options(frame, element, cap=120):
     """Everything a two-layer dropdown can offer: {option: category}.
 
@@ -388,6 +455,9 @@ def nested_options(frame, element, cap=120):
     because a list that has drilled into one is no longer showing the others.
     """
     def top_level():
+        return _read_open_list(frame, element)
+
+    def _top_level_unused():
         try:
             return frame.evaluate("""el => {
                 const id = el.getAttribute('aria-controls') ||
@@ -445,12 +515,14 @@ def nested_options(frame, element, cap=120):
             return False
 
     open_control()
-    categories = top_level()
+    categories = wait_for_list(frame, top_level)
     if not categories:
         return {}
 
     found = {}
     for category in categories:
+        # A doorway leads somewhere; it is never itself the answer, so it is
+        # not recorded as one even when it opens onto nothing.
         if len(found) >= cap:
             break
         open_control()
@@ -461,7 +533,8 @@ def nested_options(frame, element, cap=120):
         # A category that opens shows different entries; one that simply
         # answers shows the same list, or none, and is an answer itself.
         if not inner or set(inner) == set(categories):
-            found.setdefault(category, None)
+            if not _A_DOORWAY.match(str(category).strip()):
+                found.setdefault(category, None)
             continue
         for option in inner:
             found.setdefault(option, category)
@@ -514,6 +587,13 @@ def gather_options(frame, element, queries, cap=60):
         pass
 
     def collect(query):
+        def read():
+            return _read_open_list(frame, element)
+        for text in wait_for_list(frame, read):
+            if text not in seen and len(seen) < cap:
+                seen[text] = query
+
+    def _unused(query):
         try:
             found = frame.evaluate("""el => {
                 const id = el.getAttribute('aria-controls') ||
@@ -2409,7 +2489,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         nested = {}
                         if not offered:
                             pass
-                        if _looks_like_categories(frame, element):
+                        if _looks_like_categories(frame, element,
+                                                   list(offered)):
                             nested = nested_options(frame, element)
                             if nested:
                                 offered = {option: None
@@ -2534,7 +2615,7 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 # collect what is inside before choosing anything.
                 inside = {}
                 if not dry_run and options and _looks_like_categories(
-                        frame, element):
+                        frame, element, options):
                     inside = nested_options(frame, element)
                     if inside:
                         options = list(inside)
