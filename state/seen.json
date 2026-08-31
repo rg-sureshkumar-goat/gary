@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T05:33:22Z",
+ "last_run": "2026-08-31T05:45:53Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
-  "new": 0,
-  "postings": 24628,
-  "sites": 82
+  "matching": 10,
+  "new": 1,
+  "postings": 24656,
+  "sites": 196
  },
  "recommended": {},
  "reminders_sent": [],
@@ -269,6 +269,7 @@
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086",
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126",
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044",
+  "workday:stryker:/job/Portage-Michigan/Summer-2027-Internship---Finance---Michigan_R572445-1",
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
@@ -3026,6 +3027,10 @@
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
+   "l": "2026-08-31"
+  },
+  "workday:stryker:/job/Portage-Michigan/Summer-2027-Internship---Finance---Michigan_R572445-1": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689": {
