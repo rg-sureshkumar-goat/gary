@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T20:33:16Z",
+ "last_run": "2026-08-31T20:45:55Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 40,
+  "matching": 35,
   "new": 3,
-  "postings": 24720,
-  "sites": 82
+  "postings": 32051,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -96,6 +96,8 @@
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern-Finance--Corporate--2027-_JR-2026-21959",
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1",
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1",
+  "workday:ameriprise:/job/Minneapolis-Minnesota/Finance-Internship_R26_3511",
+  "workday:ameriprise:/job/Minneapolis-Minnesota/Financial-Advisor-in-Training-Intern_R26_3498",
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203",
   "workday:athene:/job/El-Segundo-California/XMLNAME-2026-Summer-Associate--Treasury---Business-Management_R253683",
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466",
@@ -161,6 +163,7 @@
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-2",
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260",
+  "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365",
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865",
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1",
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808",
@@ -2306,6 +2309,14 @@
    "f": "2026-08-25",
    "l": "2026-08-31"
   },
+  "workday:ameriprise:/job/Minneapolis-Minnesota/Finance-Internship_R26_3511": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
+  "workday:ameriprise:/job/Minneapolis-Minnesota/Financial-Advisor-in-Training-Intern_R26_3498": {
+   "f": "2026-08-31",
+   "l": "2026-08-31"
+  },
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203": {
    "f": "2026-08-26",
    "l": "2026-08-31"
@@ -2568,6 +2579,10 @@
   },
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260": {
    "f": "2026-08-25",
+   "l": "2026-08-31"
+  },
+  "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865": {
