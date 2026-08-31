@@ -327,6 +327,19 @@ def choose_from_combobox(frame, element, wanted):
         return False
 
 
+def _holds_an_answer(options, wanted):
+    """Is what the list already shows enough to choose from?
+
+    If it is, there is no reason to type: a control that must be selected from
+    treats typing as a filter at best and discards it at worst. Only a list
+    too long to show itself needs a query.
+    """
+    if not options or not wanted:
+        return False
+    picked, _fact = option_reading.best(options, [str(wanted)])
+    return picked is not None
+
+
 def _looks_like_categories(frame, element):
     """Do this list's entries open into further entries?
 
@@ -2354,15 +2367,30 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                         # answer, which is what left a school unanswered while
                         # the same school sat on the list under another
                         # spelling.
-                        offered = gather_options(
-                            frame, element,
-                            [str(typed)] + shorter_queries(str(typed)))
+                        # Look before typing. On a control that must be
+                        # selected from rather than typed into, typing filters
+                        # or discards and commits nothing -- so what the list
+                        # shows when simply opened is tried first, and typing
+                        # is a last resort for lists too long to show
+                        # themselves.
+                        offered = gather_options(frame, element, [])
+                        if offered and not _holds_an_answer(
+                                list(offered), str(typed)):
+                            offered = gather_options(
+                                frame, element,
+                                [str(typed)] + shorter_queries(str(typed)))
+                        elif not offered:
+                            offered = gather_options(
+                                frame, element,
+                                [str(typed)] + shorter_queries(str(typed)))
 
                         # The list may hold categories rather than answers.
                         # This path had no idea: the exploration lived only in
                         # the branch for button dropdowns, and Workday's
                         # "How Did You Hear About Us?" does not take it.
                         nested = {}
+                        if not offered:
+                            pass
                         if _looks_like_categories(frame, element):
                             nested = nested_options(frame, element)
                             if nested:

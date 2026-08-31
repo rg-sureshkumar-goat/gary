@@ -164,9 +164,45 @@ with sync_playwright() as playwright:
                         % page.inner_text("#chosen").strip())
     page.close()
 
+    # A control that must be selected from rather than typed into. Gary typed
+    # at it and reported that nothing matched; the list held the answer all
+    # along. Looking comes first, and typing is a last resort for lists too
+    # long to show themselves.
+    page = context.new_page()
+    page.set_content("""
+      <div data-automation-id="formField-source">
+        <label for="q">How Did You Hear About Us?</label>
+        <div data-uxi-widget-type="selectinput"
+             data-automation-id="multiSelectContainer">
+          <div data-automation-id="multiselectInputContainer">
+            <input id="q" readonly></div>
+        </div><div id="chosen"></div></div>
+      <div id="host"></div>
+      <script>
+        const OPTS = ['Employee Referral','LinkedIn','Job Board'];
+        const box = document.getElementById('q');
+        const draw = () => {
+          document.getElementById('host').innerHTML = '<div role="listbox">' +
+            OPTS.map(o => '<div role="option">'+o+'</div>').join('') + '</div>';
+        };
+        box.addEventListener('click', draw);
+        document.addEventListener('mousedown', e => {
+          const o = e.target.closest('#host [role=option]'); if (!o) return;
+          document.getElementById('chosen').textContent =
+            o.textContent.trim();
+          document.getElementById('host').innerHTML = '';
+        });
+      </script>
+    """)
+    apply.fill(page, PROFILE, dry_run=False, company="Tencent")
+    if page.inner_text("#chosen").strip() != "LinkedIn":
+        failures.append("a control that cannot be typed into kept %r"
+                        % page.inner_text("#chosen").strip())
+    page.close()
+
     browser.close()
 
-total = 3 + 3 + 2 + 1
+total = 3 + 3 + 2 + 1 + 1
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
