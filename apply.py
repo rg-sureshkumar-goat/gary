@@ -327,24 +327,39 @@ def choose_from_combobox(frame, element, wanted):
         return False
 
 
-def _looks_like_categories(options):
-    """Might these be groupings rather than answers?
+def _looks_like_categories(frame, element):
+    """Do this list's entries open into further entries?
 
-    A short list of broad words -- Social Media, Job Board, University -- is
-    usually a set of categories with the real options inside them. Opening
-    them costs a few seconds and is the only way to see what is there.
+    Not a question about the words. A list of universities is full of the word
+    "University" and holds no categories at all -- guessing from wording made
+    Gary click through a list of schools and select the wrong one.
+
+    A row that opens says so in the markup: it is expandable, or owns a list
+    of its own, or carries the arrow a person would click. Reading that costs
+    nothing and cannot select anything by accident.
     """
-    if not options or len(options) > 25:
+    try:
+        return bool(frame.evaluate("""el => {
+            const open = Array.from(document.querySelectorAll(
+                '[data-automation-id=activeListContainer],[role=listbox]'
+            )).filter(b => b.offsetParent !== null);
+            const root = open.length ? open[open.length - 1] : null;
+            if (!root) return false;
+            const rows = Array.from(root.querySelectorAll(
+                '[role=option], [role=treeitem], [class*=option], li'));
+            if (!rows.length) return false;
+            const opens = rows.filter(o =>
+                o.getAttribute('role') === 'treeitem' ||
+                o.hasAttribute('aria-expanded') ||
+                o.hasAttribute('aria-owns') ||
+                o.getAttribute('aria-haspopup') ||
+                o.querySelector('[class*=chevron], [class*=caret],'
+                                + '[class*=arrow], [data-automation-id*=chevron]'
+                                + ', [data-automation-id*=promptCategory]'));
+            return opens.length >= Math.max(1, Math.floor(rows.length / 2));
+        }""", element))
+    except Exception:
         return False
-    broad = re.compile(r"social|media|job\s*board|university|college|school|"
-                       r"event|advertis|referr|search|agency|other|internet|"
-                       r"online|print|career|website|network|source|campus",
-                       re.I)
-    named = [o for o in options if not STATUS_TEXT.match(str(o).strip())]
-    if not named:
-        return False
-    return sum(1 for o in named if broad.search(str(o))) >= max(
-        2, len(named) // 3)
 
 
 def nested_options(frame, element, cap=120):
@@ -2441,7 +2456,8 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
                 # A list of categories rather than answers: open each one and
                 # collect what is inside before choosing anything.
                 inside = {}
-                if not dry_run and options and _looks_like_categories(options):
+                if not dry_run and options and _looks_like_categories(
+                        frame, element):
                     inside = nested_options(frame, element)
                     if inside:
                         options = list(inside)

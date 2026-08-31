@@ -29,15 +29,18 @@ def a_tree(tree):
         let level = null;
         const draw = () => {
           const items = level ? TREE[level] : Object.keys(TREE);
+          // A row that opens carries the arrow a person would click, which is
+          // how a category is told from an answer -- not by its wording.
           document.getElementById('host').innerHTML = '<div role="listbox">' +
-            items.map(o => '<div role="option">'+o+'</div>').join('') +
-            '</div>';
+            items.map(o => '<div role="option" aria-expanded="false">' + o +
+              (level ? '' : '<span class="chevron"></span>') + '</div>')
+              .join('') + '</div>';
         };
         document.getElementById('b').addEventListener('click',
           () => { level = null; draw(); });
         document.addEventListener('mousedown', e => {
           const o = e.target.closest('#host [role=option]'); if (!o) return;
-          const t = o.textContent;
+          const t = o.textContent.trim();
           if (!level && TREE[t] && TREE[t].length) {
             level = t; setTimeout(draw, 5); return;
           }
@@ -89,9 +92,34 @@ with sync_playwright() as playwright:
                             % (name, kept or None, wanted or None))
         page.close()
 
+    # A flat list must never be mistaken for categories. Guessing from wording
+    # did exactly that: a list of universities is full of the word
+    # "University", and Gary clicked through it and selected the wrong school.
+    page = context.new_page()
+    page.set_content(
+        '<button id="b" aria-haspopup="listbox" aria-label="School">'
+        'Select One</button>'
+        '<div><div role="listbox">'
+        '<div role="option">Aalborg University</div>'
+        '<div role="option">University of Texas - Austin</div>'
+        '<div role="option">Texas A&amp;M University</div>'
+        '</div></div>')
+    if apply._looks_like_categories(page, page.query_selector("#b")):
+        failures.append("a flat list of universities was read as categories")
+    page.close()
+
+    # And a list whose rows carry the arrow that opens them is.
+    page = context.new_page()
+    page.set_content(a_tree('{"Social Media":["LinkedIn"],"Job Board":["Indeed"]}'))
+    page.query_selector("#b").click()
+    page.wait_for_timeout(300)
+    if not apply._looks_like_categories(page, page.query_selector("#b")):
+        failures.append("rows that open were not recognised as categories")
+    page.close()
+
     browser.close()
 
-total = 3 + 3
+total = 3 + 3 + 2
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
