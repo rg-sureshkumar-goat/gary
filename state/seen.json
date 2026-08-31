@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T13:46:10Z",
+ "last_run": "2026-08-31T14:04:23Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 11,
-  "new": 0,
-  "postings": 24628,
-  "sites": 196
+  "matching": 34,
+  "new": 1,
+  "postings": 24348,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -59,6 +59,7 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270",
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606",
   "lever:crestoperations:a4e1fa07-80f5-4a7d-989e-b755a7ac7d7e",
@@ -2111,6 +2112,10 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
+   "l": "2026-08-31"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/360517": {
