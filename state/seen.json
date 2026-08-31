@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-08-31T17:03:14Z",
+ "last_run": "2026-08-31T17:17:07Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 35,
-  "new": 0,
-  "postings": 24397,
-  "sites": 82
+  "matching": 43,
+  "new": 1,
+  "postings": 23521,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -185,6 +185,7 @@
   "workday:huntington:/job/Columbus-OH/Summer-2027-Finance-and-Strategy-Internship_R0075368",
   "workday:huron:/job/Chicago---550-Van-Buren/Consulting-Intern---Summer-2027--Chicago--Spring-2028-Graduates-_JR-0016241",
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309",
+  "workday:igsenergy:/job/Ohio-Remote/Business-Analyst-Intern--Summer-2027-_R6298",
   "workday:igsenergy:/job/Ohio-Remote/Solar-Finance-Intern--Summer-2027-_R6304",
   "workday:igsenergy:/job/Ohio-Remote/Strategy-Intern--Summer-2027-_R6300",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--Capital-Markets-_R-15094",
@@ -2653,6 +2654,10 @@
   },
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309": {
    "f": "2026-08-25",
+   "l": "2026-08-31"
+  },
+  "workday:igsenergy:/job/Ohio-Remote/Business-Analyst-Intern--Summer-2027-_R6298": {
+   "f": "2026-08-31",
    "l": "2026-08-31"
   },
   "workday:igsenergy:/job/Ohio-Remote/Solar-Finance-Intern--Summer-2027-_R6304": {
