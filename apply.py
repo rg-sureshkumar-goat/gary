@@ -2009,9 +2009,18 @@ def fill(page, profile, dry_run=False, open_locations=None, company="",
         preferred_on_form = bool(frame.evaluate("""() => {
             const marks = document.body.innerText || '';
             if (/preferred\s+name/i.test(marks)) return true;
-            return !!document.querySelector(
-                '[id*=preferredName], [name*=preferredName],'
-                '[data-automation-id*=preferredName]');
+            // The checkbox that reveals the preferred-name fields counts
+            // too. Gary ticks it itself, and on the pass where it was still
+            // unticked the form looked like one with a single set of name
+            // boxes -- so the legal fields were filled with the name he goes
+            // by, and never corrected, because Gary does not overwrite.
+            return !!document.querySelector([
+                '[id*=preferredName]', '[name*=preferredName]',
+                '[data-automation-id*=preferredName]',
+                '[id*=preferredCheck]', '[name*=preferredCheck]',
+                '[data-automation-id*=preferredCheck]',
+                '[data-automation-id*=preferredNameCheck]'
+            ].join(','));
         }"""))
     except Exception:
         preferred_on_form = False

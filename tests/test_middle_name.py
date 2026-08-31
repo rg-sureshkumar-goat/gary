@@ -81,7 +81,58 @@ if lists.answer(["Select One", "Mr.", "Ms.", "Dr."], TITLED)[0] is not None:
 if reasoned_option("Prefix", ["Select One", "Mr.", "Ms."], TITLED)[0] is not None:
     failures.append("a title was reasoned into place")
 
-total = 3 + 2 + 2 + 4 + 5
+# Gary ticks the "I have a preferred name" box itself, and the fields behind
+# it appear only afterwards. On the pass before that, the form looks like one
+# with a single set of name boxes -- so the legal fields were filled with the
+# name he goes by and never corrected, because Gary does not overwrite. The
+# checkbox counts as the form asking for both.
+import apply
+from playwright.sync_api import sync_playwright
+
+REVEALS = """
+  <div><label for="a">First Name</label>
+    <input id="a" name="name--legalName--firstName"></div>
+  <div><label for="b">Last Name</label>
+    <input id="b" name="name--legalName--lastName"></div>
+  <label><input type="checkbox" id="name--preferredCheck">
+    I have a preferred name</label>
+  <div id="more"></div>
+  <script>
+    document.getElementById('name--preferredCheck')
+      .addEventListener('change', e => {
+        document.getElementById('more').innerHTML = e.target.checked ?
+          '<div><label for="c">First Name</label>' +
+          '<input id="c" name="name--preferredName--firstName"></div>' +
+          '<div><label for="d">Last Name</label>' +
+          '<input id="d" name="name--preferredName--lastName"></div>' : '';
+      });
+  </script>
+"""
+
+FULL = dict(WITHOUT, legal_first_name="Ramganesh",
+            legal_last_name="Sureshkumar Kamalanathan")
+
+with sync_playwright() as playwright:
+    browser = playwright.chromium.launch(headless=True)
+    context = browser.new_context()
+    context.set_default_timeout(4000)
+    page = context.new_page()
+    page.set_content(REVEALS)
+    for _pass in range(2):
+        apply.fill(page, FULL, dry_run=False)
+    if page.input_value("#a") != "Ramganesh":
+        failures.append("the legal first name is %r, wanted Ramganesh"
+                        % page.input_value("#a"))
+    if page.input_value("#b") != "Sureshkumar Kamalanathan":
+        failures.append("the legal last name is %r" % page.input_value("#b"))
+    if not page.query_selector("#c"):
+        failures.append("the preferred fields were never revealed")
+    elif page.input_value("#c") != "RG":
+        failures.append("the preferred first name is %r, wanted RG"
+                        % page.input_value("#c"))
+    browser.close()
+
+total = 3 + 2 + 2 + 4 + 5 + 4
 if failures:
     print("FAILED %d of %d checks:" % (len(failures), total))
     for f in failures:
