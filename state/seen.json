@@ -1,12 +1,19 @@
 {
- "broken": {},
- "last_run": "2026-09-01T18:38:50Z",
+ "broken": {
+  "Becton Dickinson": "HTTP 429",
+  "First American": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429",
+  "Signet Jewelers": "HTTP 429",
+  "Tencent": "HTTP 429"
+ },
+ "last_run": "2026-09-01T18:52:34Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 45,
+  "failed": 6,
+  "matching": 37,
   "new": 1,
-  "postings": 24910,
-  "sites": 82
+  "postings": 16729,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -107,6 +114,9 @@
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466",
   "workday:att:/job/Dallas-Texas/Finance-Development-Program---Internship_R-119471",
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563",
+  "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514",
+  "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500",
+  "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499",
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225",
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738",
@@ -190,6 +200,7 @@
   "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Retail-Banking-Intern_2026-01831-1",
   "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Harrisburg--PA_2026-01899",
   "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01901",
+  "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-IT-Asset-Management-Intern_2026-01959",
   "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-Retail-Banking-Intern_2026-01973",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Accounting-Intern_2026-01921",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Capital-Markets-Intern_2026-02010",
@@ -197,12 +208,14 @@
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Pittsburgh--PA_2026-01882",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Specialty-Finance_2026-01900",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Corporate-Finance-Intern_2026-01840",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-FNB-Advisory-Businesses--Wealth-Management--Private-Banking---Insurance-Intern_2026-01813-1",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Retail-Banking-Intern_2026-01955",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Small-Business-Banking-Intern---Pittsburgh--PA_2026-01824",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Treasury-Management-Intern_2026-02029",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Wholesale-Banking-Intern_2026-02038",
   "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01897",
   "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Raleigh--NC_2026-01892",
+  "workday:fnbcorp:/job/State-College-PA/Summer-2027-Retail-Banking-Intern_2026-02143",
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543",
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
@@ -372,12 +385,16 @@
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
   "workday:tcenergy:/job/Houston-Office-TC-Energy-Cente/Student-Intern--Accounting---Finance_JR-10743",
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362",
+  "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508760",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101",
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Commercial-Banking_R_1508612",
+  "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Treasury---Finance_R_1508609",
+  "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program-Digital-Banking---Payments_R_1508610",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Analyst---Global-Transaction-Banking--New-York-_R_1508073",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Graduate-Leadership-Internship-Program---Retail-Distribution_R_1508518-1",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
+  "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1",
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019",
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020",
@@ -855,6 +872,7 @@
   "Denver",
   "Desjardins Group",
   "Detroit Lions",
+  "Dev Technology Group",
   "DevRev",
   "Dexmate",
   "Dexterra Group",
@@ -2408,6 +2426,18 @@
    "f": "2026-08-25",
    "l": "2026-09-01"
   },
+  "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225": {
    "f": "2026-08-28",
    "l": "2026-09-01"
@@ -2744,6 +2774,10 @@
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
+  "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-IT-Asset-Management-Intern_2026-01959": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-Retail-Banking-Intern_2026-01973": {
    "f": "2026-09-01",
    "l": "2026-09-01"
@@ -2772,6 +2806,10 @@
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-FNB-Advisory-Businesses--Wealth-Management--Private-Banking---Insurance-Intern_2026-01813-1": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Retail-Banking-Intern_2026-01955": {
    "f": "2026-09-01",
    "l": "2026-09-01"
@@ -2793,6 +2831,10 @@
    "l": "2026-09-01"
   },
   "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Raleigh--NC_2026-01892": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/State-College-PA/Summer-2027-Retail-Banking-Intern_2026-02143": {
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
@@ -3480,6 +3522,10 @@
    "f": "2026-08-31",
    "l": "2026-09-01"
   },
+  "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508760": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889": {
    "f": "2026-08-31",
    "l": "2026-09-01"
@@ -3489,6 +3535,14 @@
    "l": "2026-09-01"
   },
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Commercial-Banking_R_1508612": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Treasury---Finance_R_1508609": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program-Digital-Banking---Payments_R_1508610": {
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
@@ -3502,6 +3556,10 @@
   },
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218": {
    "f": "2026-08-31",
+   "l": "2026-09-01"
+  },
+  "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804": {
