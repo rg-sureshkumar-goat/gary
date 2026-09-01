@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T20:36:13Z",
+ "last_run": "2026-09-01T20:47:46Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 44,
-  "new": 0,
-  "postings": 24954,
-  "sites": 82
+  "matching": 45,
+  "new": 5,
+  "postings": 32164,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -99,6 +99,7 @@
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern-Finance--Corporate--2027-_JR-2026-21959",
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1",
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1",
+  "workday:ameriprise:/job/Boston-Massachusetts/Asset-Management-Technology-Intern---Data-Enablement_R26_3538",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Finance-Internship_R26_3511",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Financial-Advisor-in-Training-Intern_R26_3498",
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
@@ -377,8 +378,11 @@
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
   "workday:tcenergy:/job/Houston-Office-TC-Energy-Cente/Student-Intern--Accounting---Finance_JR-10743",
+  "workday:td:/job/Boston-Massachusetts/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508800",
+  "workday:td:/job/Boston-Massachusetts/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508825",
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508760",
+  "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508852-1",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101",
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Commercial-Banking_R_1508612",
@@ -386,6 +390,7 @@
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program-Digital-Banking---Payments_R_1508610",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Analyst---Global-Transaction-Banking--New-York-_R_1508073",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Graduate-Leadership-Internship-Program---Retail-Distribution_R_1508518-1",
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508788",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1",
@@ -2388,6 +2393,10 @@
    "f": "2026-08-25",
    "l": "2026-09-01"
   },
+  "workday:ameriprise:/job/Boston-Massachusetts/Asset-Management-Technology-Intern---Data-Enablement_R26_3538": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:ameriprise:/job/Minneapolis-Minnesota/Finance-Internship_R26_3511": {
    "f": "2026-08-31",
    "l": "2026-09-01"
@@ -3512,11 +3521,23 @@
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
+  "workday:td:/job/Boston-Massachusetts/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508800": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:td:/job/Boston-Massachusetts/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508825": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362": {
    "f": "2026-08-31",
    "l": "2026-09-01"
   },
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508760": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508852-1": {
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
@@ -3545,6 +3566,10 @@
    "l": "2026-09-01"
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Graduate-Leadership-Internship-Program---Retail-Distribution_R_1508518-1": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508788": {
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
