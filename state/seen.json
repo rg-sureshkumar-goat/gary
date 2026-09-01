@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T06:06:12Z",
+ "last_run": "2026-09-01T06:28:36Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 43,
-  "new": 0,
-  "postings": 24649,
-  "sites": 82
+  "matching": 19,
+  "new": 1,
+  "postings": 24672,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -330,6 +330,7 @@
   "workday:stryker:/job/San-Jose-California/Summer-2027-Internship---Finance---California_R572448",
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
+  "workday:tcenergy:/job/Houston-Office-TC-Energy-Cente/Student-Intern--Accounting---Finance_JR-10743",
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101",
@@ -3261,6 +3262,10 @@
   },
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574": {
    "f": "2026-08-25",
+   "l": "2026-09-01"
+  },
+  "workday:tcenergy:/job/Houston-Office-TC-Energy-Cente/Student-Intern--Accounting---Finance_JR-10743": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362": {
