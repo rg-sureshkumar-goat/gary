@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T03:48:31Z",
+ "last_run": "2026-09-01T04:04:45Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 0,
-  "postings": 17537,
-  "sites": 212
+  "matching": 41,
+  "new": 1,
+  "postings": 24666,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -300,6 +300,7 @@
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate-Finance---Accounting-Undergraduate-Intern_R231489-1",
   "workday:pnc:/job/PNC-Center---Cleveland-OH001/Retail-Banking-Summer-Intern-Program---Financial-Wellness-Solutions_R230922-1",
   "workday:polaris:/job/Medina-MN-USA/Finance-Internship---Summer-2027_R30415",
+  "workday:pru:/job/Newark-NJ-USA/Prudential--2027-Corporate--Finance-Internship-Program--FIP-_R-124881",
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2027-Global-Investment-Banking-Internship---Frankfurt_R-0000182048",
   "workday:rbc:/job/Fort-Collins-Colorado-United-States-of-America/Financial-Solutions-Intern_R-0000081516",
   "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008",
@@ -3139,6 +3140,10 @@
   },
   "workday:polaris:/job/Medina-MN-USA/Finance-Internship---Summer-2027_R30415": {
    "f": "2026-08-25",
+   "l": "2026-09-01"
+  },
+  "workday:pru:/job/Newark-NJ-USA/Prudential--2027-Corporate--Finance-Internship-Program--FIP-_R-124881": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2027-Global-Investment-Banking-Internship---Frankfurt_R-0000182048": {
