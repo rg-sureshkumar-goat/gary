@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T13:05:28Z",
+ "last_run": "2026-09-01T13:23:44Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 38,
-  "new": 0,
-  "postings": 24395,
-  "sites": 82
+  "matching": 47,
+  "new": 2,
+  "postings": 23562,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -156,6 +156,8 @@
   "workday:disney:/job/Celebration-FL-USA/Marketing-Strategy-Intern--Walt-Disney-World-Resort--Spring-2027_10159113-1",
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474",
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474-2",
+  "workday:disney:/job/Glendale-CA-USA/Accounting---Finance-Rotation-Program-Internship--Summer-2027_10158819",
+  "workday:disney:/job/Glendale-CA-USA/Accounting---Finance-Rotation-Program-Internship--Summer-2027_10158819-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138",
@@ -2566,6 +2568,14 @@
   },
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474-2": {
    "f": "2026-08-25",
+   "l": "2026-09-01"
+  },
+  "workday:disney:/job/Glendale-CA-USA/Accounting---Finance-Rotation-Program-Internship--Summer-2027_10158819": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:disney:/job/Glendale-CA-USA/Accounting---Finance-Rotation-Program-Internship--Summer-2027_10158819-1": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569": {
