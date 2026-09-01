@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T14:38:30Z",
+ "last_run": "2026-09-01T14:53:07Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 40,
-  "new": 0,
-  "postings": 24363,
-  "sites": 82
+  "matching": 36,
+  "new": 22,
+  "postings": 15358,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -175,7 +175,29 @@
   "workday:fanniemae:/job/Washington-DC/Campus---Finance-Program-Intern_JR2819-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Markets-Track-_JR2823-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Quantitative-Research-Track-_JR2872",
+  "workday:fnbcorp:/job/Baltimore-MD/Summer-2027-Commercial-Credit-Banking-Intern---Baltimore--MD_2026-01898",
+  "workday:fnbcorp:/job/Burlington-NC/Summer-2027-Retail-Banking-Intern_2026-01858",
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Commercial-Credit-Banking-Intern---Charlotte--NC_2026-01893",
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01826",
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01827",
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01829",
+  "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Commercial-Credit-Banking-Intern---Cleveland--OH_2026-01890",
+  "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Retail-Banking-Intern_2026-01831-1",
+  "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Harrisburg--PA_2026-01899",
+  "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01901",
+  "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-Retail-Banking-Intern_2026-01973",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Accounting-Intern_2026-01921",
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Capital-Markets-Intern_2026-02010",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01896",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Pittsburgh--PA_2026-01882",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Specialty-Finance_2026-01900",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Corporate-Finance-Intern_2026-01840",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Retail-Banking-Intern_2026-01955",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Small-Business-Banking-Intern---Pittsburgh--PA_2026-01824",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Treasury-Management-Intern_2026-02029",
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Wholesale-Banking-Intern_2026-02038",
+  "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01897",
+  "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Raleigh--NC_2026-01892",
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543",
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
@@ -2647,7 +2669,95 @@
    "f": "2026-08-26",
    "l": "2026-09-01"
   },
+  "workday:fnbcorp:/job/Baltimore-MD/Summer-2027-Commercial-Credit-Banking-Intern---Baltimore--MD_2026-01898": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Burlington-NC/Summer-2027-Retail-Banking-Intern_2026-01858": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Commercial-Credit-Banking-Intern---Charlotte--NC_2026-01893": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01826": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01827": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01829": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Commercial-Credit-Banking-Intern---Cleveland--OH_2026-01890": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Retail-Banking-Intern_2026-01831-1": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Harrisburg--PA_2026-01899": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01901": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-Retail-Banking-Intern_2026-01973": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Accounting-Intern_2026-01921": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Capital-Markets-Intern_2026-02010": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01896": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Pittsburgh--PA_2026-01882": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Specialty-Finance_2026-01900": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Corporate-Finance-Intern_2026-01840": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Retail-Banking-Intern_2026-01955": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Small-Business-Banking-Intern---Pittsburgh--PA_2026-01824": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Treasury-Management-Intern_2026-02029": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Wholesale-Banking-Intern_2026-02038": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01897": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Raleigh--NC_2026-01892": {
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
