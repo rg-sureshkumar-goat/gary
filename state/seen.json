@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T15:04:29Z",
+ "last_run": "2026-09-01T15:41:00Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 40,
-  "new": 1,
-  "postings": 24435,
-  "sites": 82
+  "matching": 36,
+  "new": 3,
+  "postings": 17572,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -203,6 +203,7 @@
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
+  "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
@@ -339,6 +340,7 @@
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
+  "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
   "workday:rsm:/job/Chicago/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR119233",
   "workday:rsm:/job/Chicago/Deal-Services-Financial-Due-Diligence-Consulting-Intern---Summer-2027_JR118064",
@@ -370,6 +372,7 @@
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020",
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247",
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934",
+  "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157",
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899",
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805"
@@ -2782,6 +2785,10 @@
    "f": "2026-08-25",
    "l": "2026-09-01"
   },
+  "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779": {
    "f": "2026-08-24",
    "l": "2026-09-01"
@@ -3334,6 +3341,10 @@
    "f": "2026-08-12",
    "l": "2026-09-01"
   },
+  "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330": {
    "f": "2026-08-25",
    "l": "2026-09-01"
@@ -3457,6 +3468,10 @@
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934": {
    "f": "2026-08-25",
    "l": "2026-08-26"
+  },
+  "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
   },
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157": {
    "f": "2026-08-31",
