@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T13:23:44Z",
+ "last_run": "2026-09-01T13:37:11Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 47,
-  "new": 2,
-  "postings": 23562,
-  "sites": 200
+  "matching": 40,
+  "new": 1,
+  "postings": 24373,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -70,6 +70,7 @@
   "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24",
   "oracle:jpmc:210773978",
   "oracle:jpmc:210774074",
+  "oracle:jpmc:210784644",
   "smartrecruiters:AristaNetworks:744000128256979",
   "smartrecruiters:AveryDennison:744000140069569",
   "smartrecruiters:AveryDennison:744000144151824",
@@ -2208,6 +2209,10 @@
   },
   "oracle:jpmc:210774074": {
    "f": "2026-08-25",
+   "l": "2026-09-01"
+  },
+  "oracle:jpmc:210784644": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "smartrecruiters:AristaNetworks:744000128256979": {
