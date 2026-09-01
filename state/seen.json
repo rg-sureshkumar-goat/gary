@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T16:42:42Z",
+ "last_run": "2026-09-01T16:54:44Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 21,
-  "sites": 1
+  "matching": 37,
+  "new": 1,
+  "postings": 32061,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -365,6 +365,7 @@
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Consumer-Banking_R_1507889",
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101",
+  "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Commercial-Banking_R_1508612",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Analyst---Global-Transaction-Banking--New-York-_R_1508073",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Graduate-Leadership-Internship-Program---Retail-Distribution_R_1508518-1",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
@@ -3440,6 +3441,10 @@
   },
   "workday:td:/job/Mount-Laurel-New-Jersey/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508101": {
    "f": "2026-08-31",
+   "l": "2026-09-01"
+  },
+  "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Commercial-Banking_R_1508612": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Analyst---Global-Transaction-Banking--New-York-_R_1508073": {
