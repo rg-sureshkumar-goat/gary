@@ -9858,7 +9858,37 @@
     "Thea Energy": {
       "last": "2026-08-30",
       "result": "none"
+    },
+    "Pluralis Research": {
+      "last": "2026-09-01",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "K2 Space": {
+      "last": "2026-09-01",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "HP IQ": {
+      "last": "2026-09-01",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "NiSource": {
+      "last": "2026-09-01",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Verdantas": {
+      "last": "2026-09-01",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Machina Labs": {
+      "last": "2026-09-01",
+      "result": "added",
+      "ats": "lever"
     }
   },
-  "last_run": "2026-08-30"
+  "last_run": "2026-09-01"
 }
