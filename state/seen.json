@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T14:53:07Z",
+ "last_run": "2026-09-01T15:04:29Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 36,
-  "new": 22,
-  "postings": 15358,
-  "sites": 185
+  "matching": 40,
+  "new": 1,
+  "postings": 24435,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -99,6 +99,7 @@
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Finance-Internship_R26_3511",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Financial-Advisor-in-Training-Intern_R26_3498",
+  "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203",
   "workday:athene:/job/El-Segundo-California/XMLNAME-2026-Summer-Associate--Treasury---Business-Management_R253683",
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466",
@@ -2359,6 +2360,10 @@
   },
   "workday:ameriprise:/job/Minneapolis-Minnesota/Financial-Advisor-in-Training-Intern_R26_3498": {
    "f": "2026-08-31",
+   "l": "2026-09-01"
+  },
+  "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203": {
