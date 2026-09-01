@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T16:27:17Z",
+ "last_run": "2026-09-01T16:35:12Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 27,
-  "new": 0,
-  "postings": 21006,
-  "sites": 209
+  "matching": 42,
+  "new": 1,
+  "postings": 24751,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -92,6 +92,7 @@
   "smartrecruiters:Wabtec:3743990014653567",
   "smartrecruiters:abbvie:3743990014471696",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
+  "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1",
   "workday:airproducts:/job/Allentown-Pennsylvania/Spring-Intern-Accounting--Internal-Audit----FY-2027_JR-2026-21957",
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern---Accounting--Internal-Audit--FY27_JR-2026-21958",
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern-Finance--Corporate--2027-_JR-2026-21959",
@@ -2327,6 +2328,10 @@
   },
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945": {
    "f": "2026-08-25",
+   "l": "2026-09-01"
+  },
+  "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:airproducts:/job/Allentown-Pennsylvania/Spring-Intern-Accounting--Internal-Audit----FY-2027_JR-2026-21957": {
