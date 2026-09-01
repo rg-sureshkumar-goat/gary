@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-01T17:05:15Z",
+ "last_run": "2026-09-01T17:22:27Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 42,
-  "new": 0,
-  "postings": 24774,
-  "sites": 82
+  "matching": 51,
+  "new": 4,
+  "postings": 23602,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -155,6 +155,8 @@
   "workday:dimensional:/job/Austin/Internship-in-Investment-Strategy-Research--Undergraduate-and-Masters-_2026-9037",
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291",
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291-1",
+  "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970",
+  "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970-1",
   "workday:disney:/job/Celebration-FL-USA/Marketing-Strategy-Intern--Walt-Disney-World-Resort--Spring-2027_10159113",
   "workday:disney:/job/Celebration-FL-USA/Marketing-Strategy-Intern--Walt-Disney-World-Resort--Spring-2027_10159113-1",
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474",
@@ -331,6 +333,7 @@
   "workday:polaris:/job/Medina-MN-USA/Finance-Internship---Summer-2027_R30415",
   "workday:pru:/job/Newark-NJ-USA/Prudential--2027-Corporate--Finance-Internship-Program--FIP-_R-124881",
   "workday:rb:/job/New-York-NY/XMLNAME-2027-Summer-Intern---Executive-Office---Strategy---Operating-Services--Junior_R-0000033101",
+  "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2026-Global-Investment-Banking-Internship---Frankfurt_R-0000186550",
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2027-Global-Investment-Banking-Internship---Frankfurt_R-0000182048",
   "workday:rbc:/job/Fort-Collins-Colorado-United-States-of-America/Financial-Solutions-Intern_R-0000081516",
   "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008",
@@ -338,6 +341,7 @@
   "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2024-Capital-Markets--Cash-Management-Summer-Analyst_R-0000063505-1",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213-1",
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Markets-Quantitative-Trading-Summer-Analyst_R-0000183468",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
@@ -2595,6 +2599,14 @@
    "f": "2026-08-25",
    "l": "2026-08-30"
   },
+  "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
+  "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970-1": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:disney:/job/Celebration-FL-USA/Marketing-Strategy-Intern--Walt-Disney-World-Resort--Spring-2027_10159113": {
    "f": "2026-08-25",
    "l": "2026-09-01"
@@ -3307,6 +3319,10 @@
    "f": "2026-09-01",
    "l": "2026-09-01"
   },
+  "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2026-Global-Investment-Banking-Internship---Frankfurt_R-0000186550": {
+   "f": "2026-09-01",
+   "l": "2026-09-01"
+  },
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2027-Global-Investment-Banking-Internship---Frankfurt_R-0000182048": {
    "f": "2026-08-25",
    "l": "2026-08-30"
@@ -3333,6 +3349,10 @@
   },
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213-1": {
    "f": "2026-08-28",
+   "l": "2026-09-01"
+  },
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Markets-Quantitative-Trading-Summer-Analyst_R-0000183468": {
+   "f": "2026-09-01",
    "l": "2026-09-01"
   },
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214": {
