@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-02T20:05:06Z",
+ "last_run": "2026-09-02T20:22:50Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 47,
-  "new": 0,
-  "postings": 24762,
-  "sites": 82
+  "matching": 28,
+  "new": 1,
+  "postings": 21169,
+  "sites": 209
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -103,6 +103,7 @@
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern-Finance--Corporate--2027-_JR-2026-21959",
   "workday:alliedsolutions:/job/Carmel-IN/Finance-Operations-Intern_R-011080",
   "workday:alliedsolutions:/job/Carmel-IN/Financial-Planning---Acquisitions-Intern_R-011081",
+  "workday:alliedsolutions:/job/Carmel-IN/Strategic-Sourcing---Enterprise-Contracts-Intern_R-011088",
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1",
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1",
   "workday:ameriprise:/job/Boston-Massachusetts/Asset-Management-Technology-Intern---Data-Enablement_R26_3538",
@@ -2440,6 +2441,10 @@
    "l": "2026-09-02"
   },
   "workday:alliedsolutions:/job/Carmel-IN/Financial-Planning---Acquisitions-Intern_R-011081": {
+   "f": "2026-09-02",
+   "l": "2026-09-02"
+  },
+  "workday:alliedsolutions:/job/Carmel-IN/Strategic-Sourcing---Enterprise-Contracts-Intern_R-011088": {
    "f": "2026-09-02",
    "l": "2026-09-02"
   },
