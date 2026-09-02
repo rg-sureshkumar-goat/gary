@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-02T17:46:07Z",
+ "last_run": "2026-09-02T18:05:19Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 17,
-  "new": 0,
-  "postings": 24804,
-  "sites": 196
+  "matching": 46,
+  "new": 2,
+  "postings": 24769,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -141,6 +141,8 @@
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386",
   "workday:citi:/job/Houston-Texas-United-States/Banking---Commercial-Banking--Summer-Analyst--Houston---US--2027_25926681",
   "workday:citi:/job/Houston-Texas-United-States/Banking---Corporate-Banking--Summer-Analyst--Houston---US--2027_25926650",
+  "workday:citi:/job/Los-Angeles-California-United-States/Banking---Commercial-Banking--Summer-Analyst--Los-Angeles---US--2027_26947566",
+  "workday:citi:/job/San-Francisco-California-United-States/Banking---Commercial-Banking--Summer-Analyst--San-Francisco---US--2027_25926683",
   "workday:clr:/job/Oklahoma-City-OK/Accounting---Finance-Intern--Summer-2027-_R02590-1",
   "workday:commercebank:/job/KS---Central-Kansas---Wichita---Wichita-Waterfront-67206/Intern---Commercial-Banking--Summer-2027-_38388",
   "workday:commercebank:/job/MO---Kansas-City-DowntownPlaza---Kansas-City---KC-Downtown-Bank-Building-1000-Walnut-64106/Intern---Business-Banking--Summer-2027-_38387",
@@ -2591,6 +2593,14 @@
   },
   "workday:citi:/job/Houston-Texas-United-States/Banking---Corporate-Banking--Summer-Analyst--Houston---US--2027_25926650": {
    "f": "2026-08-26",
+   "l": "2026-09-02"
+  },
+  "workday:citi:/job/Los-Angeles-California-United-States/Banking---Commercial-Banking--Summer-Analyst--Los-Angeles---US--2027_26947566": {
+   "f": "2026-09-02",
+   "l": "2026-09-02"
+  },
+  "workday:citi:/job/San-Francisco-California-United-States/Banking---Commercial-Banking--Summer-Analyst--San-Francisco---US--2027_25926683": {
+   "f": "2026-09-02",
    "l": "2026-09-02"
   },
   "workday:clr:/job/Oklahoma-City-OK/Accounting---Finance-Intern--Summer-2027-_R02590-1": {
