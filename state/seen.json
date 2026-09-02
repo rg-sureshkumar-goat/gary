@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-02T17:04:24Z",
+ "last_run": "2026-09-02T17:21:59Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 44,
-  "new": 0,
-  "postings": 24745,
-  "sites": 82
+  "matching": 52,
+  "new": 4,
+  "postings": 23637,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -225,6 +225,7 @@
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
+  "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026",
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1",
   "workday:hec:/job/Houston-TX/I-26134---Accounting-Part-Time-Intern_R006419-1",
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1",
@@ -362,6 +363,8 @@
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213-1",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Markets-Quantitative-Trading-Summer-Analyst_R-0000183468",
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Quants-Summer-Associate--Quantitative-Technology-Services_R-0000186729",
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Quants-Summer-Associate--Quantitative-Technology-Services_R-0000186729-1",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
@@ -374,6 +377,7 @@
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Financial-Services-Consulting-Intern_JR120926",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Process-Risk-and-Controls-Consulting-Intern_JR120925",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Technology-Risk-and-Controls-Consulting-Intern_JR120923",
+  "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071",
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660",
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084",
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088",
@@ -2925,6 +2929,10 @@
    "f": "2026-08-31",
    "l": "2026-09-02"
   },
+  "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026": {
+   "f": "2026-09-02",
+   "l": "2026-09-02"
+  },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
    "f": "2026-08-26",
    "l": "2026-09-02"
@@ -3481,6 +3489,14 @@
    "f": "2026-09-01",
    "l": "2026-09-02"
   },
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Quants-Summer-Associate--Quantitative-Technology-Services_R-0000186729": {
+   "f": "2026-09-02",
+   "l": "2026-09-02"
+  },
+  "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Quants-Summer-Associate--Quantitative-Technology-Services_R-0000186729-1": {
+   "f": "2026-09-02",
+   "l": "2026-09-02"
+  },
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214": {
    "f": "2026-08-28",
    "l": "2026-09-02"
@@ -3527,6 +3543,10 @@
   },
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Technology-Risk-and-Controls-Consulting-Intern_JR120923": {
    "f": "2026-08-27",
+   "l": "2026-09-02"
+  },
+  "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071": {
+   "f": "2026-09-02",
    "l": "2026-09-02"
   },
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660": {
