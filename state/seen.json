@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-02T15:26:08Z",
+ "last_run": "2026-09-02T15:40:59Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 15,
+  "matching": 45,
   "new": 0,
-  "postings": 18215,
-  "sites": 205
+  "postings": 24688,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2287,7 +2287,7 @@
   },
   "oracle:jpmc:210784644": {
    "f": "2026-09-01",
-   "l": "2026-09-01"
+   "l": "2026-09-02"
   },
   "smartrecruiters:AristaNetworks:744000128256979": {
    "f": "2026-05-25",
