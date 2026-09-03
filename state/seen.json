@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-03T22:04:49Z",
+ "broken": {
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-09-03T22:21:19Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 47,
-  "new": 1,
-  "postings": 25164,
-  "sites": 82
+  "failed": 1,
+  "matching": 25,
+  "new": 3,
+  "postings": 24815,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -151,6 +153,7 @@
   "workday:cat:/job/Nashville-Tennessee/XMLNAME-2027-Summer-Intern---Finance_R0000387781",
   "workday:cat:/job/Peoria-Illinois/XMLNAME-2027-Summer-Corporate-Intern---Accounting_R0000379993",
   "workday:cat:/job/San-Diego-California/XMLNAME-2027-Business-Analyst-Intern_R0000381902",
+  "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620",
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198",
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386",
   "workday:citi:/job/Houston-Texas-United-States/Banking---Commercial-Banking--Summer-Analyst--Houston---US--2027_25926681",
@@ -261,6 +264,8 @@
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411",
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411-1",
   "workday:homedepot:/job/STORE-SUPPORT-CENTER-ATLANTA---9090/XMLNAME-2027-Summer-Internship---Finance---Accounting_Req191935",
+  "workday:hp:/job/Spring-Texas-United-States-of-America/Finance-Intern_UNI4241",
+  "workday:hp:/job/Spring-Texas-United-States-of-America/Finance-Intern_UNI4241-1",
   "workday:humana:/job/Louisville-KY/Finance---Accounting-Rotational-Internship-Program---September-2026_R-426435",
   "workday:huntington:/job/Columbus-OH/Summer-2027-Accounting-Internship_R0075371",
   "workday:huntington:/job/Columbus-OH/Summer-2027-Commercial-Banking-Internship_R0075257",
@@ -2689,6 +2694,10 @@
    "f": "2026-08-25",
    "l": "2026-09-03"
   },
+  "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620": {
+   "f": "2026-09-03",
+   "l": "2026-09-03"
+  },
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198": {
    "f": "2026-08-25",
    "l": "2026-09-03"
@@ -3131,6 +3140,14 @@
   },
   "workday:homedepot:/job/STORE-SUPPORT-CENTER-ATLANTA---9090/XMLNAME-2027-Summer-Internship---Finance---Accounting_Req191935": {
    "f": "2026-08-31",
+   "l": "2026-09-03"
+  },
+  "workday:hp:/job/Spring-Texas-United-States-of-America/Finance-Intern_UNI4241": {
+   "f": "2026-09-03",
+   "l": "2026-09-03"
+  },
+  "workday:hp:/job/Spring-Texas-United-States-of-America/Finance-Intern_UNI4241-1": {
+   "f": "2026-09-03",
    "l": "2026-09-03"
   },
   "workday:humana:/job/Louisville-KY/Finance---Accounting-Rotational-Internship-Program---September-2026_R-426435": {
