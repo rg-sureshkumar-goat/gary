@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-03T07:37:07Z",
+ "last_run": "2026-09-03T07:48:39Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 48,
+  "matching": 38,
   "new": 0,
-  "postings": 24726,
-  "sites": 82
+  "postings": 17688,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2985,7 +2985,7 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
@@ -2993,7 +2993,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1": {
    "f": "2026-09-01",
@@ -3373,7 +3373,7 @@
   },
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003": {
    "f": "2026-08-25",
@@ -3613,7 +3613,7 @@
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
    "f": "2026-09-01",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330": {
    "f": "2026-08-25",
