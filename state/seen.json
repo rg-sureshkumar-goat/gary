@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-03T16:05:11Z",
+ "last_run": "2026-09-03T16:23:23Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 45,
-  "new": 0,
-  "postings": 24787,
-  "sites": 82
+  "matching": 30,
+  "new": 2,
+  "postings": 21192,
+  "sites": 209
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -86,6 +86,7 @@
   "smartrecruiters:JobsForHumanity:744000055878703",
   "smartrecruiters:NorthwesternMutual:85751624",
   "smartrecruiters:RRSGroup:744000133857769",
+  "smartrecruiters:ServiceNow:744000147287709",
   "smartrecruiters:SyngentaGroup:744000146786093",
   "smartrecruiters:TheWonderfulCompany:744000113566258",
   "smartrecruiters:TheWonderfulCompany:744000113780016",
@@ -172,6 +173,7 @@
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-2027-Summer-Intern--Client-Accounting--St-Louis_R333460",
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-Intern--Client-Accounting_R333462-1",
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480",
+  "workday:danaher:/job/Fargo-North-Dakota-United-States/Accounting-Intern_R1316665",
   "workday:dimensional:/job/Austin/Internship-in-Investment-Solutions--Undergraduate---Master-s-_2026-9041",
   "workday:dimensional:/job/Austin/Internship-in-Investment-Strategy-Research--Undergraduate-and-Masters-_2026-9037",
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291",
@@ -2389,6 +2391,10 @@
    "f": "2026-06-24",
    "l": "2026-09-01"
   },
+  "smartrecruiters:ServiceNow:744000147287709": {
+   "f": "2026-09-03",
+   "l": "2026-09-03"
+  },
   "smartrecruiters:SyngentaGroup:744000146786093": {
    "f": "2026-09-01",
    "l": "2026-09-02"
@@ -2747,6 +2753,10 @@
   },
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480": {
    "f": "2026-08-31",
+   "l": "2026-09-03"
+  },
+  "workday:danaher:/job/Fargo-North-Dakota-United-States/Accounting-Intern_R1316665": {
+   "f": "2026-09-03",
    "l": "2026-09-03"
   },
   "workday:dimensional:/job/Austin/Internship-in-Investment-Solutions--Undergraduate---Master-s-_2026-9041": {
