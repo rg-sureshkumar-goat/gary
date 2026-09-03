@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-03T04:23:32Z",
+ "last_run": "2026-09-03T05:16:44Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 28,
-  "new": 0,
-  "postings": 21165,
-  "sites": 209
+  "matching": 47,
+  "new": 1,
+  "postings": 24748,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -121,6 +121,7 @@
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499",
+  "workday:boeing:/job/AUS---Port-Melbourne-Australia/Finance-Intern_JR2026523862-1",
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225",
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1",
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Intern---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ114738",
@@ -2531,6 +2532,10 @@
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499": {
    "f": "2026-09-01",
    "l": "2026-09-02"
+  },
+  "workday:boeing:/job/AUS---Port-Melbourne-Australia/Finance-Intern_JR2026523862-1": {
+   "f": "2026-09-03",
+   "l": "2026-09-03"
   },
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225": {
    "f": "2026-08-28",
