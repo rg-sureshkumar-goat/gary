@@ -1,12 +1,23 @@
 {
- "broken": {},
- "last_run": "2026-09-03T18:39:57Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "FOX": "HTTP 429",
+  "First American": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "Rakuten International": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "Sierra Space": "HTTP 429",
+  "Signet Jewelers": "HTTP 429"
+ },
+ "last_run": "2026-09-03T18:54:27Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 45,
+  "failed": 10,
+  "matching": 37,
   "new": 0,
-  "postings": 25132,
-  "sites": 82
+  "postings": 16402,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -42,6 +53,8 @@
   "greenhouse:drweng:7992670",
   "greenhouse:drweng:7993004",
   "greenhouse:eulerity:4709471006",
+  "greenhouse:faradayfuture:7799321003",
+  "greenhouse:faradayfuture:7799326003",
   "greenhouse:genscript:5169014007",
   "greenhouse:lincolninternational:8106841",
   "greenhouse:lucidmotors:5185317007",
@@ -93,6 +106,7 @@
   "smartrecruiters:TheWonderfulCompany:744000113780858",
   "smartrecruiters:TheWonderfulCompany:744000113783769",
   "smartrecruiters:Wabtec:3743990014653567",
+  "smartrecruiters:WesternDigital:744000147329610",
   "smartrecruiters:Winsupply1:3743990015014837",
   "smartrecruiters:abbvie:3743990014471696",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
@@ -163,6 +177,7 @@
   "workday:conagrabrands:/job/Omaha-Nebraska/Accounting-CCG-Internship---Summer-2027_Req-039792",
   "workday:conagrabrands:/job/Omaha-Nebraska/Supply-Chain-Finance-Internship---Summer-2026_Req-039798",
   "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Summer-Internship-Program---Actuary_JR2600796",
+  "workday:corteva:/job/Indianapolis-Indiana-United-States/Business-Analyst-Intern_248151W",
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern_R-71000",
   "workday:crowe:/job/Chicago-IL-USA/Business-Analyst-Intern_R-71638",
   "workday:crowe:/job/Chicago-IL-USA/Data-Consultant-Intern_R-71042",
@@ -338,6 +353,7 @@
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Nationwide-Financial-Actuarial-Internship_099735",
   "workday:nationwide:/job/Ohio---Columbus-Metro/XMLNAME-2027-Controllership-Winter-Spring-Co-op_099978",
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056",
+  "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855",
@@ -422,6 +438,7 @@
   "workday:td:/job/Boston-Massachusetts/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508825",
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2026-Summer-Internship-Program---Commercial-Banking--Commercial-Lending-_R_1508879",
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking--ICRE-_R_1508889",
+  "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking--ICRE-_R_1509280",
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362",
   "workday:td:/job/Coral-Gables-Florida/XMLNAME-2026-Summer-Internship-Program---Commercial-Banking--Commercial-Lending-_R_1508882",
   "workday:td:/job/Hartford-Connecticut/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking--Commercial-Lending-_R_1509003",
@@ -442,6 +459,7 @@
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508862",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508866-1",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509039",
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509284",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1",
@@ -526,6 +544,7 @@
   "Alamar Biosciences",
   "Alarm.com",
   "Alation",
+  "Albedo",
   "Albemarle",
   "Alcon",
   "Aledade",
@@ -549,6 +568,7 @@
   "Alteryx",
   "Amazon",
   "Ambarella",
+  "Ambi Robotics",
   "Ambrook",
   "Amcor",
   "Amentum",
@@ -861,6 +881,7 @@
   "Construction Resources",
   "Continental",
   "Continental Resources",
+  "Contoro",
   "Cooper Standard",
   "CoorsTek",
   "Copart",
@@ -916,6 +937,7 @@
   "Deegit",
   "Deepgram",
   "Defense Unicorns",
+  "Deft AI",
   "Delinea",
   "Deliveroo",
   "Deloitte (US)",
@@ -956,6 +978,7 @@
   "Drivemode",
   "Droyd Robotics",
   "Dryft",
+  "Dynamic Catholic",
   "Dyson",
   "E-Space",
   "ENOVIS",
@@ -1040,6 +1063,7 @@
   "Fairstone Financial",
   "Faith Technologies",
   "Fannie Mae",
+  "Faraday Future",
   "Farfetch",
   "Farsight",
   "Federal Home Loan Bank of New York",
@@ -1453,7 +1477,9 @@
   "Michelin",
   "Micron Technology",
   "MillerKnoll",
+  "Mind Robotics",
   "Minitab",
+  "Mirego",
   "Mistral AI",
   "Mizuho Securities USA",
   "Modal",
@@ -1504,6 +1530,7 @@
   "NextGen Federal Systems",
   "Nexthink",
   "NiSource",
+  "Niantic Spatial",
   "Nielsen",
   "NielsenIQ",
   "Nightwing",
@@ -1539,6 +1566,7 @@
   "Octaura",
   "Octopus Energy",
   "Odin Dynamics, Inc",
+  "Odys Aviation",
   "Odyssey",
   "OfferUp",
   "Ohio State University",
@@ -1980,6 +2008,7 @@
   "Tubi",
   "Turion Space",
   "Turner & Townsend",
+  "Tutor Intelligence",
   "Tutor Perini Corporation",
   "Twilio",
   "Two Six Technologies",
@@ -2004,6 +2033,7 @@
   "Unify",
   "Unilever",
   "Unisys",
+  "UnitX",
   "UnitedMasters",
   "University Corporation for Atmospheric Research",
   "University Health Network",
@@ -2093,6 +2123,7 @@
   "Webster Bank",
   "WellSky",
   "Welocalize",
+  "Western Aircraft",
   "Western Digital",
   "Western Union",
   "Westgate Resorts",
@@ -2212,6 +2243,14 @@
   },
   "greenhouse:eulerity:4709471006": {
    "f": "2026-08-30",
+   "l": "2026-09-03"
+  },
+  "greenhouse:faradayfuture:7799321003": {
+   "f": "2026-07-09",
+   "l": "2026-09-03"
+  },
+  "greenhouse:faradayfuture:7799326003": {
+   "f": "2026-07-09",
    "l": "2026-09-03"
   },
   "greenhouse:genscript:5169014007": {
@@ -2420,6 +2459,10 @@
   },
   "smartrecruiters:Wabtec:3743990014653567": {
    "f": "2026-08-25",
+   "l": "2026-09-03"
+  },
+  "smartrecruiters:WesternDigital:744000147329610": {
+   "f": "2026-09-03",
    "l": "2026-09-03"
   },
   "smartrecruiters:Winsupply1:3743990015014837": {
@@ -2716,6 +2759,10 @@
   },
   "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Summer-Internship-Program---Actuary_JR2600796": {
    "f": "2026-08-25",
+   "l": "2026-09-03"
+  },
+  "workday:corteva:/job/Indianapolis-Indiana-United-States/Business-Analyst-Intern_248151W": {
+   "f": "2026-09-03",
    "l": "2026-09-03"
   },
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern_R-71000": {
@@ -3426,6 +3473,10 @@
    "f": "2026-08-28",
    "l": "2026-09-03"
   },
+  "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207": {
+   "f": "2026-09-03",
+   "l": "2026-09-03"
+  },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
    "f": "2026-08-25",
    "l": "2026-09-03"
@@ -3762,6 +3813,10 @@
    "f": "2026-09-02",
    "l": "2026-09-03"
   },
+  "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking--ICRE-_R_1509280": {
+   "f": "2026-09-03",
+   "l": "2026-09-03"
+  },
   "workday:td:/job/Charlotte-North-Carolina/XMLNAME-2027-Summer-Internship-Program---Finance_R_1508362": {
    "f": "2026-08-31",
    "l": "2026-09-03"
@@ -3840,6 +3895,10 @@
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509039": {
    "f": "2026-09-02",
+   "l": "2026-09-03"
+  },
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509284": {
+   "f": "2026-09-03",
    "l": "2026-09-03"
   },
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218": {
