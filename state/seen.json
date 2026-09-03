@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-03T01:37:37Z",
+ "last_run": "2026-09-03T01:49:08Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 46,
+  "matching": 19,
   "new": 0,
-  "postings": 24828,
-  "sites": 82
+  "postings": 24831,
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2354,11 +2354,11 @@
   },
   "smartrecruiters:Intuitive:744000146505199": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "smartrecruiters:Intuitive:744000146505579": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "smartrecruiters:JobsForHumanity:744000016293876": {
    "f": "2026-08-25",
@@ -2374,7 +2374,7 @@
   },
   "smartrecruiters:NorthwesternMutual:85751624": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "smartrecruiters:RRSGroup:744000133857769": {
    "f": "2026-06-24",
@@ -2534,7 +2534,7 @@
   },
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225": {
    "f": "2026-08-28",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225-1": {
    "f": "2026-08-28",
@@ -2686,7 +2686,7 @@
   },
   "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Summer-Internship-Program---Actuary_JR2600796": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern_R-71000": {
    "f": "2026-08-25",
@@ -3038,23 +3038,23 @@
   },
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167-2": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411": {
    "f": "2026-09-01",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411-1": {
    "f": "2026-09-01",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:homedepot:/job/STORE-SUPPORT-CENTER-ATLANTA---9090/XMLNAME-2027-Summer-Internship---Finance---Accounting_Req191935": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:humana:/job/Louisville-KY/Finance---Accounting-Rotational-Internship-Program---September-2026_R-426435": {
    "f": "2026-08-25",
@@ -3342,7 +3342,7 @@
   },
   "workday:medline:/job/Northfield-Illinois/Finance-Accounting-Intern---Summer-2027_R2616741": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:medline:/job/Northfield-Illinois/MBA-Intern--Finance---Summer-2027_R2615807": {
    "f": "2026-08-25",
@@ -3382,15 +3382,15 @@
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276": {
    "f": "2026-08-25",
@@ -3662,23 +3662,23 @@
   },
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582": {
    "f": "2026-09-01",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:stryker:/job/Mahwah-New-Jersey/Summer-2027-Internship---Finance---New-Jersey_R572583": {
    "f": "2026-09-02",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:stryker:/job/Portage-Michigan/Summer-2027-Internship---Finance---Michigan_R572445-1": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:stryker:/job/San-Jose-California/Summer-2027-Internship---Finance---California_R572448": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689": {
    "f": "2026-08-25",
-   "l": "2026-09-02"
+   "l": "2026-09-03"
   },
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574": {
    "f": "2026-08-25",
