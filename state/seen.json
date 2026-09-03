@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-03T22:34:22Z",
+ "last_run": "2026-09-03T22:46:02Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 48,
+  "matching": 44,
   "new": 1,
-  "postings": 25169,
-  "sites": 82
+  "postings": 15499,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -401,6 +401,7 @@
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Quants-Summer-Associate--Quantitative-Technology-Services_R-0000186729-1",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
+  "workday:resolvetech:/job/Addison-TX/Finance-Intern_R1254",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
@@ -3703,6 +3704,10 @@
   },
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1": {
    "f": "2026-08-28",
+   "l": "2026-09-03"
+  },
+  "workday:resolvetech:/job/Addison-TX/Finance-Intern_R1254": {
+   "f": "2026-09-03",
    "l": "2026-09-03"
   },
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668": {
