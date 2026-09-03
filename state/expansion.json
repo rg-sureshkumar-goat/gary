@@ -9948,7 +9948,22 @@
       "last": "2026-09-02",
       "result": "added",
       "ats": "smartrecruiters"
+    },
+    "Qualified Health": {
+      "last": "2026-09-03",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "HD Supply": {
+      "last": "2026-09-03",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Acumatica": {
+      "last": "2026-09-03",
+      "result": "added",
+      "ats": "smartrecruiters"
     }
   },
-  "last_run": "2026-09-02"
+  "last_run": "2026-09-03"
 }
