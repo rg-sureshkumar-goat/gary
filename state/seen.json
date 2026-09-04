@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-04T12:41:05Z",
+ "last_run": "2026-09-04T12:52:29Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
-  "new": 0,
-  "postings": 24819,
-  "sites": 82
+  "matching": 60,
+  "new": 1,
+  "postings": 32201,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -79,6 +79,7 @@
   "smartrecruiters:AveryDennison:744000140069569",
   "smartrecruiters:AveryDennison:744000144151824",
   "smartrecruiters:BoschGroup:744000144612115",
+  "smartrecruiters:BoschGroup:744000147506529",
   "smartrecruiters:Continental:744000146251819",
   "smartrecruiters:EVERSANA1:744000146017939",
   "smartrecruiters:Eurofins:743999767858594",
@@ -2402,6 +2403,10 @@
   },
   "smartrecruiters:BoschGroup:744000144612115": {
    "f": "2026-08-20",
+   "l": "2026-09-04"
+  },
+  "smartrecruiters:BoschGroup:744000147506529": {
+   "f": "2026-09-04",
    "l": "2026-09-04"
   },
   "smartrecruiters:Continental:744000146251819": {
