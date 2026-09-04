@@ -1,24 +1,12 @@
 {
- "broken": {
-  "Becton Dickinson": "HTTP 429",
-  "Cleveland Clinic": "HTTP 429",
-  "Dow Chemical Company": "HTTP 429",
-  "Ecolab": "HTTP 429",
-  "Flowserve": "HTTP 429",
-  "Integrity": "HTTP 429",
-  "Maricopa County": "HTTP 429",
-  "PTC": "HTTP 429",
-  "Rockwell Automation": "HTTP 429",
-  "Tencent": "HTTP 429",
-  "TruStage": "HTTP 429"
- },
- "last_run": "2026-09-04T18:51:10Z",
+ "broken": {},
+ "last_run": "2026-09-04T18:51:40Z",
  "last_run_stats": {
-  "failed": 11,
-  "matching": 36,
-  "new": 0,
-  "postings": 16152,
-  "sites": 212
+  "failed": 0,
+  "matching": 45,
+  "new": 2,
+  "postings": 15362,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -226,6 +214,7 @@
   "workday:fanniemae:/job/Washington-DC/Campus---Finance-Program-Intern_JR2819-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Markets-Track-_JR2823-1",
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Quantitative-Research-Track-_JR2872",
+  "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476",
   "workday:fnbcorp:/job/Baltimore-MD/Summer-2027-Commercial-Credit-Banking-Intern---Baltimore--MD_2026-01898",
   "workday:fnbcorp:/job/Burlington-NC/Summer-2027-Retail-Banking-Intern_2026-01858",
   "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Commercial-Credit-Banking-Intern---Charlotte--NC_2026-01893",
@@ -261,6 +250,7 @@
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
+  "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
   "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026",
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1",
@@ -2989,6 +2979,10 @@
    "f": "2026-08-26",
    "l": "2026-09-04"
   },
+  "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
+  },
   "workday:fnbcorp:/job/Baltimore-MD/Summer-2027-Commercial-Credit-Banking-Intern---Baltimore--MD_2026-01898": {
    "f": "2026-09-01",
    "l": "2026-09-04"
@@ -3127,6 +3121,10 @@
   },
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064": {
    "f": "2026-08-20",
+   "l": "2026-09-04"
+  },
+  "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138": {
+   "f": "2026-09-04",
    "l": "2026-09-04"
   },
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638": {
