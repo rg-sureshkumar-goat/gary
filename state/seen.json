@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-04T23:04:31Z",
+ "last_run": "2026-09-04T23:19:16Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
-  "new": 0,
-  "postings": 25238,
-  "sites": 82
+  "matching": 22,
+  "new": 1,
+  "postings": 18364,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -49,6 +49,7 @@
   "greenhouse:lucidmotors:5185317007",
   "greenhouse:relaypro:8093012",
   "greenhouse:relaypro:8096572",
+  "greenhouse:schonfeld:8172064",
   "greenhouse:silananotechnologies:8157153",
   "greenhouse:verainstituteofjustice:4712591005",
   "greenhouse:whitewatermidstream:5217841007",
@@ -2301,6 +2302,10 @@
   "greenhouse:relaypro:8096572": {
    "f": "2026-08-25",
    "l": "2026-09-02"
+  },
+  "greenhouse:schonfeld:8172064": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
   },
   "greenhouse:silananotechnologies:8157153": {
    "f": "2026-08-25",
