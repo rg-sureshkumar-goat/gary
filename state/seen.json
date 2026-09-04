@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-04T19:33:40Z",
+ "last_run": "2026-09-04T19:45:55Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
+  "matching": 40,
   "new": 1,
-  "postings": 25212,
-  "sites": 82
+  "postings": 17738,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -484,6 +484,7 @@
   "workday:thinkbrg:/job/Nashville-TN/XMLNAME-2027-Summer-Associate--Intern----Corporate-Finance---Healthcare-Transaction-Advisory---Nashville--TN_JR101035",
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247",
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763",
+  "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151",
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157",
@@ -4065,6 +4066,10 @@
    "l": "2026-09-04"
   },
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
+  },
+  "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151": {
    "f": "2026-09-04",
    "l": "2026-09-04"
   },
