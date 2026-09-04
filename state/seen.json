@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Baker Tilly": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
- },
- "last_run": "2026-09-04T15:37:19Z",
+ "broken": {},
+ "last_run": "2026-09-04T15:48:01Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 48,
-  "new": 0,
-  "postings": 24404,
-  "sites": 82
+  "failed": 0,
+  "matching": 39,
+  "new": 1,
+  "postings": 17739,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -471,6 +469,7 @@
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019",
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020",
+  "workday:thinkbrg:/job/Nashville-TN/XMLNAME-2027-Summer-Associate--Intern----Corporate-Finance---Healthcare-Transaction-Advisory---Nashville--TN_JR101035",
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247",
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
@@ -3991,6 +3990,10 @@
   },
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020": {
    "f": "2026-08-25",
+   "l": "2026-09-04"
+  },
+  "workday:thinkbrg:/job/Nashville-TN/XMLNAME-2027-Summer-Associate--Intern----Corporate-Finance---Healthcare-Transaction-Advisory---Nashville--TN_JR101035": {
+   "f": "2026-09-04",
    "l": "2026-09-04"
   },
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247": {
