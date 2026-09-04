@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-04T19:17:52Z",
+ "last_run": "2026-09-04T19:33:40Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 21,
-  "new": 0,
-  "postings": 18364,
-  "sites": 205
+  "matching": 49,
+  "new": 1,
+  "postings": 25212,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -351,6 +351,7 @@
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003",
   "workday:mosaic:/job/US---Tampa-FL-Lithia-area/Accounting---Finance-Co-Op-Intern---Summer-2027_64569",
   "workday:msd:/job/USA---Pennsylvania---North-Wales-Upper-Gwynedd/XMLNAME-2027-Future-Talent-Program--Global-Labeling-Strategy---Intern_R411948",
+  "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Analytic-Consulting-Advisor-Internship_100235",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Controllership-Internship_099980",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Financial-Services-Internship_100076",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Nationwide-Financial-Actuarial-Internship_099735",
@@ -3533,6 +3534,10 @@
   },
   "workday:msd:/job/USA---Pennsylvania---North-Wales-Upper-Gwynedd/XMLNAME-2027-Future-Talent-Program--Global-Labeling-Strategy---Intern_R411948": {
    "f": "2026-09-03",
+   "l": "2026-09-04"
+  },
+  "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Analytic-Consulting-Advisor-Internship_100235": {
+   "f": "2026-09-04",
    "l": "2026-09-04"
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Controllership-Internship_099980": {
