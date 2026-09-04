@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-04T17:04:45Z",
+ "last_run": "2026-09-04T17:21:09Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 48,
-  "new": 0,
-  "postings": 24893,
-  "sites": 82
+  "matching": 58,
+  "new": 5,
+  "postings": 23785,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -413,12 +413,17 @@
   "workday:rsm:/job/Chicago/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR119233",
   "workday:rsm:/job/Chicago/Deal-Services-Financial-Due-Diligence-Consulting-Intern---Summer-2027_JR118064",
   "workday:rsm:/job/Chicago/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR117155",
+  "workday:rsm:/job/Chicago/Strategy---Management-Consulting-Intern--Summer-2027_JR117322",
   "workday:rsm:/job/Chicago/Technology-Risk-Consulting-Intern---Summer-2027_JR116271",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Financial-Services-Consulting-Intern_JR120926",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Process-Risk-and-Controls-Consulting-Intern_JR120925",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Technology-Risk-and-Controls-Consulting-Intern_JR120923",
   "workday:rsm:/job/Denver-Downtown/Enterprise-Data-Integration-and-Migration-Consulting-Intern---Summer-2027_JR116785",
   "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071",
+  "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439",
+  "workday:rsm:/job/New-York/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117261-1",
+  "workday:rsm:/job/New-York/Strategy---Management-Consulting-Intern--Summer-2027_JR117321",
+  "workday:rsm:/job/New-York/Technology-Risk-Consulting-Intern---Summer-2027_JR116441-1",
   "workday:rsm:/job/Seattle/Accounting-Methods-and-Periods-Tax-Intern---Winter-2027_JR119958",
   "workday:rsm:/job/USA-TX-Dallas-13155-Noel-Road/Enterprise-Data-Integration-and-Migration-Consulting-Intern---Summer-2027_JR116784",
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214",
@@ -3768,6 +3773,10 @@
    "f": "2026-08-31",
    "l": "2026-09-04"
   },
+  "workday:rsm:/job/Chicago/Strategy---Management-Consulting-Intern--Summer-2027_JR117322": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
+  },
   "workday:rsm:/job/Chicago/Technology-Risk-Consulting-Intern---Summer-2027_JR116271": {
    "f": "2026-08-31",
    "l": "2026-09-04"
@@ -3790,6 +3799,22 @@
   },
   "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071": {
    "f": "2026-09-02",
+   "l": "2026-09-04"
+  },
+  "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
+  },
+  "workday:rsm:/job/New-York/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117261-1": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
+  },
+  "workday:rsm:/job/New-York/Strategy---Management-Consulting-Intern--Summer-2027_JR117321": {
+   "f": "2026-09-04",
+   "l": "2026-09-04"
+  },
+  "workday:rsm:/job/New-York/Technology-Risk-Consulting-Intern---Summer-2027_JR116441-1": {
+   "f": "2026-09-04",
    "l": "2026-09-04"
   },
   "workday:rsm:/job/Seattle/Accounting-Methods-and-Periods-Tax-Intern---Winter-2027_JR119958": {
