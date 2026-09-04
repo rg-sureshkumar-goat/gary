@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-04T02:35:51Z",
+ "last_run": "2026-09-04T02:47:13Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
+  "matching": 44,
   "new": 0,
-  "postings": 24886,
-  "sites": 82
+  "postings": 15514,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2207,7 +2207,7 @@
   },
   "ashby:sereact:8ebf2a77-6006-416a-beb1-88f9bacd8fe3": {
    "f": "2026-08-06",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
@@ -2591,15 +2591,15 @@
   },
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:boeing:/job/AUS---Port-Melbourne-Australia/Finance-Intern_JR2026523862": {
    "f": "2026-09-03",
@@ -2731,7 +2731,7 @@
   },
   "workday:clr:/job/Oklahoma-City-OK/Accounting---Finance-Intern--Summer-2027-_R02590-1": {
    "f": "2026-08-26",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:commercebank:/job/KS---Central-Kansas---Wichita---Wichita-Waterfront-67206/Intern---Commercial-Banking--Summer-2027-_38388": {
    "f": "2026-08-28",
@@ -2803,15 +2803,15 @@
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-2027-Summer-Intern--Client-Accounting--St-Louis_R333460": {
    "f": "2026-08-31",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-Intern--Client-Accounting_R333462-1": {
    "f": "2026-08-20",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480": {
    "f": "2026-08-31",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:danaher:/job/Fargo-North-Dakota-United-States/Accounting-Intern_R1316665": {
    "f": "2026-09-03",
@@ -2943,107 +2943,107 @@
   },
   "workday:fnbcorp:/job/Baltimore-MD/Summer-2027-Commercial-Credit-Banking-Intern---Baltimore--MD_2026-01898": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Burlington-NC/Summer-2027-Retail-Banking-Intern_2026-01858": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Commercial-Credit-Banking-Intern---Charlotte--NC_2026-01893": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01826": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01827": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Charlotte-NC/Summer-2027-Retail-Banking-Intern_2026-01829": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Commercial-Credit-Banking-Intern---Cleveland--OH_2026-01890": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Retail-Banking-Intern_2026-01831-1": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Harrisburg--PA_2026-01899": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01901": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-IT-Asset-Management-Intern_2026-01959": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-Retail-Banking-Intern_2026-01973": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Accounting-Intern_2026-01921": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Capital-Markets-Intern_2026-02010": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01896": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Pittsburgh--PA_2026-01882": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Specialty-Finance_2026-01900": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Corporate-Finance-Intern_2026-01840": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-FNB-Advisory-Businesses--Wealth-Management--Private-Banking---Insurance-Intern_2026-01813-1": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Retail-Banking-Intern_2026-01955": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Small-Business-Banking-Intern---Pittsburgh--PA_2026-01824": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Treasury-Management-Intern_2026-02029": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Wholesale-Banking-Intern_2026-02038": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01897": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/Raleigh-NC/Summer-2027-Commercial-Credit-Banking-Intern---Raleigh--NC_2026-01892": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:fnbcorp:/job/State-College-PA/Summer-2027-Retail-Banking-Intern_2026-02143": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543": {
    "f": "2026-08-24",
@@ -3091,11 +3091,11 @@
   },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
    "f": "2026-08-26",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:hec:/job/Houston-TX/I-26134---Accounting-Part-Time-Intern_R006419-1": {
    "f": "2026-09-01",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1": {
    "f": "2026-08-25",
@@ -3719,7 +3719,7 @@
   },
   "workday:resolvetech:/job/Addison-TX/Finance-Intern_R1254": {
    "f": "2026-09-03",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668": {
    "f": "2026-08-12",
@@ -3787,31 +3787,31 @@
   },
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660": {
    "f": "2026-08-31",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-09-03"
+   "l": "2026-09-04"
   },
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582": {
    "f": "2026-09-01",
