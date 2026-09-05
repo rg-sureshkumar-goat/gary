@@ -1,27 +1,16 @@
 {
  "broken": {
-  "ASML": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Autostore": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Brock University": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "CMC Markets": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Dedalus": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Fresenius Kabi": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Interac": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "John Lewis Partnership": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Magna": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Michelin": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "ROCKWOOL Group": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Richemont": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Sartorius": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "TMX Group": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  "PwC (campus)": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "PwC (experienced)": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Unilever": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
  },
- "last_run": "2026-09-05T07:45:59Z",
+ "last_run": "2026-09-05T08:05:06Z",
  "last_run_stats": {
-  "failed": 14,
-  "matching": 37,
+  "failed": 3,
+  "matching": 50,
   "new": 0,
-  "postings": 16192,
-  "sites": 212
+  "postings": 23857,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
