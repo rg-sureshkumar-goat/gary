@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-05T03:35:57Z",
+ "last_run": "2026-09-05T03:46:40Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
+  "matching": 40,
   "new": 0,
-  "postings": 25242,
-  "sites": 82
+  "postings": 17755,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2298,7 +2298,7 @@
   },
   "greenhouse:lucidmotors:5185317007": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "greenhouse:relaypro:8093012": {
    "f": "2026-08-25",
@@ -2314,7 +2314,7 @@
   },
   "greenhouse:silananotechnologies:8157153": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "greenhouse:verainstituteofjustice:4712591005": {
    "f": "2026-07-07",
@@ -2402,7 +2402,7 @@
   },
   "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "oracle:jpmc:210691091": {
    "f": "2026-09-03",
@@ -2830,23 +2830,23 @@
   },
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern_R-71000": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:crowe:/job/Chicago-IL-USA/Business-Analyst-Intern_R-71638": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:crowe:/job/Chicago-IL-USA/Data-Consultant-Intern_R-71042": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:crowe:/job/Chicago-IL-USA/Finance-and-Compliance-Intern_R-71054": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:crowe:/job/Chicago-IL-USA/Forensic-Accounting-Intern_R-71605": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:crowe:/job/Chicago-IL-USA/Technology-Advisory-Intern_R-71003": {
    "f": "2026-08-25",
@@ -2854,7 +2854,7 @@
   },
   "workday:crowe:/job/Indianapolis-IN-USA/Municipal-Advisory-Intern_R-71002": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-2027-Summer-Intern--Client-Accounting--St-Louis_R333460": {
    "f": "2026-08-31",
@@ -2970,7 +2970,7 @@
   },
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365": {
    "f": "2026-08-31",
@@ -2986,31 +2986,31 @@
   },
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:equifax:/job/USA-Missouri---St-Louis---Clayton/Finance-Intern_J00178739": {
    "f": "2026-08-30",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:fanniemae:/job/Washington-DC/Campus---Accounting-Program-Intern_JR2817": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:fanniemae:/job/Washington-DC/Campus---Finance-Analytics-Intern--Analytics---Modeling-Program-_JR2814": {
    "f": "2026-09-02",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:fanniemae:/job/Washington-DC/Campus---Finance-Program-Intern_JR2819-1": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Markets-Track-_JR2823-1": {
    "f": "2026-08-26",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:fanniemae:/job/Washington-DC/Campus---Treasury---Capital-Markets-Program-Intern--Quantitative-Research-Track-_JR2872": {
    "f": "2026-08-26",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476": {
    "f": "2026-09-04",
@@ -3134,19 +3134,19 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1": {
    "f": "2026-09-01",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779": {
    "f": "2026-08-24",
@@ -3506,15 +3506,15 @@
   },
   "workday:magna:/job/Aurora-Ontario-CA/Jr-Financial-Analyst--Co-op-_R00240559": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:magna:/job/Milton-Ontario-CA/Finance-Co-op-Student_R00258630": {
    "f": "2026-08-27",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:magna:/job/Muncie-Indiana-US/Finance-Intern_R00258645": {
    "f": "2026-08-27",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:manulife:/job/Boston-Massachusetts/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Boston--MA-_JR26081869": {
    "f": "2026-08-28",
@@ -3554,7 +3554,7 @@
   },
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003": {
    "f": "2026-08-25",
@@ -3622,35 +3622,35 @@
   },
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Accounting-Intern--Year-Round-_R49748": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance-Intern---FP-A--Year-Round-_R49749-1": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Strategic-Sourcing-Supply-Chain-Intern--Summer-2027-_R49756": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Finance-Intern--Summer-2027-_R49793": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Strategic-Sourcing-Intern--Summer-2027-_R49800": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Rotation-Inten_R45303": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824": {
    "f": "2026-08-28",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:oshkoshcorporation:/job/Roy-Utah-United-States/Accounting-Intern--Summer-2027-_R49803": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698": {
    "f": "2026-08-04",
@@ -3814,7 +3814,7 @@
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
    "f": "2026-09-01",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230": {
    "f": "2026-09-04",
@@ -4074,11 +4074,11 @@
   },
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039": {
    "f": "2026-09-01",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1": {
    "f": "2026-09-01",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804": {
    "f": "2026-08-25",
@@ -4086,15 +4086,15 @@
   },
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020": {
    "f": "2026-08-25",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:thinkbrg:/job/Nashville-TN/XMLNAME-2027-Summer-Associate--Intern----Corporate-Finance---Healthcare-Transaction-Advisory---Nashville--TN_JR101035": {
    "f": "2026-09-04",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247": {
    "f": "2026-08-26",
@@ -4106,7 +4106,7 @@
   },
   "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151": {
    "f": "2026-09-04",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934": {
    "f": "2026-08-25",
