@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-05T05:34:41Z",
+ "last_run": "2026-09-05T05:45:58Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
-  "new": 0,
+  "matching": 26,
+  "new": 2,
   "postings": 25173,
-  "sites": 82
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -269,6 +269,8 @@
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929",
   "workday:hl:/job/Los-Angeles-CA-USA/Corporate-Development-Intern--Summer-2027-_R3354",
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535",
+  "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475",
+  "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475-1",
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167",
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167-2",
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411",
@@ -3207,6 +3209,14 @@
   },
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535": {
    "f": "2026-09-01",
+   "l": "2026-09-05"
+  },
+  "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475": {
+   "f": "2026-09-05",
+   "l": "2026-09-05"
+  },
+  "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475-1": {
+   "f": "2026-09-05",
    "l": "2026-09-05"
   },
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167": {
