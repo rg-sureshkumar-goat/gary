@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-05T16:35:35Z",
+ "last_run": "2026-09-05T16:45:57Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 51,
-  "new": 0,
-  "postings": 25154,
-  "sites": 82
+  "matching": 61,
+  "new": 1,
+  "postings": 32347,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -352,6 +352,7 @@
   "workday:manulife:/job/Tempe-Arizona/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Tempe--AZ-_JR26081868",
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1",
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078",
+  "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101",
   "workday:mckesson:/job/USA-TX-Irving/Innovation-Strategy-Intern---Summer-2027_JR0151704",
   "workday:mckesson:/job/USA-TX-Irving/Portfolio-Strategy-Intern---Summer-2027_JR0152311",
   "workday:mckesson:/job/USA-TX-The-Woodlands/Practice-Management-Accounting-Intern---Summer-2027_JR0150932",
@@ -3548,6 +3549,10 @@
   },
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078": {
    "f": "2026-08-26",
+   "l": "2026-09-05"
+  },
+  "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101": {
+   "f": "2026-09-05",
    "l": "2026-09-05"
   },
   "workday:mckesson:/job/USA-TX-Irving/Innovation-Strategy-Intern---Summer-2027_JR0151704": {
