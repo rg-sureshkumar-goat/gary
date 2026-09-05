@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-05T00:50:43Z",
+ "last_run": "2026-09-05T01:04:27Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 60,
+  "matching": 50,
   "new": 0,
-  "postings": 32304,
-  "sites": 202
+  "postings": 25244,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2361,7 +2361,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
-   "l": "2026-09-04"
+   "l": "2026-09-05"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/360517": {
    "f": "2026-08-25",
