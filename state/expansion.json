@@ -10094,7 +10094,30 @@
       "last": "2026-09-04",
       "result": "added",
       "ats": "greenhouse"
+    },
+    "Brave": {
+      "last": "2026-09-05",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Garner Health": {
+      "last": "2026-09-05",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Loram": {
+      "last": "2026-09-05",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Hy-Vee": {
+      "last": "2026-09-05",
+      "result": "none"
+    },
+    "CNA Insurance": {
+      "last": "2026-09-05",
+      "result": "none"
     }
   },
-  "last_run": "2026-09-04"
+  "last_run": "2026-09-05"
 }
