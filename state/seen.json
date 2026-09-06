@@ -1,28 +1,12 @@
 {
- "broken": {
-  "Applied Materials": "HTTP 429",
-  "Avnet": "HTTP 429",
-  "Becton Dickinson": "HTTP 429",
-  "Cleveland Clinic": "HTTP 429",
-  "Dow Chemical Company": "HTTP 429",
-  "Ecolab": "HTTP 429",
-  "FOX": "HTTP 429",
-  "Flowserve": "HTTP 429",
-  "GAF": "HTTP 429",
-  "Great American Insurance Company": "HTTP 429",
-  "Integrity": "HTTP 429",
-  "Maricopa County": "HTTP 429",
-  "National Interstate Insurance": "HTTP 429",
-  "Palo Alto Networks": "HTTP 429",
-  "Sedgwick Claims Management Services": "HTTP 429"
- },
- "last_run": "2026-09-06T06:53:33Z",
+ "broken": {},
+ "last_run": "2026-09-06T06:53:57Z",
  "last_run_stats": {
-  "failed": 15,
-  "matching": 36,
+  "failed": 0,
+  "matching": 44,
   "new": 0,
-  "postings": 15043,
-  "sites": 212
+  "postings": 15436,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
