@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-07T06:05:59Z",
+ "last_run": "2026-09-07T06:30:30Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 50,
-  "new": 0,
-  "postings": 24791,
-  "sites": 82
+  "matching": 46,
+  "new": 2,
+  "postings": 15485,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -502,7 +502,9 @@
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157",
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899",
-  "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805"
+  "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805",
+  "workday:xcelenergy:/job/Golden-CO-80401/Energy-Accounting-or-Analyst-Intern--CO_JR115573-1",
+  "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1"
  ],
  "seeded_companies": [
   "1-800 Contacts",
@@ -4159,6 +4161,14 @@
   },
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805": {
    "f": "2026-08-05",
+   "l": "2026-09-07"
+  },
+  "workday:xcelenergy:/job/Golden-CO-80401/Energy-Accounting-or-Analyst-Intern--CO_JR115573-1": {
+   "f": "2026-09-07",
+   "l": "2026-09-07"
+  },
+  "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1": {
+   "f": "2026-09-07",
    "l": "2026-09-07"
   }
  }
