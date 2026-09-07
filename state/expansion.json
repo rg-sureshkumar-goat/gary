@@ -10117,7 +10117,12 @@
     "CNA Insurance": {
       "last": "2026-09-05",
       "result": "none"
+    },
+    "incident.io": {
+      "last": "2026-09-07",
+      "result": "added",
+      "ats": "ashby"
     }
   },
-  "last_run": "2026-09-05"
+  "last_run": "2026-09-07"
 }
