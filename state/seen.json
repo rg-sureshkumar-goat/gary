@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-07T07:38:53Z",
+ "last_run": "2026-09-07T07:50:42Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
-  "new": 0,
-  "postings": 24763,
-  "sites": 82
+  "matching": 41,
+  "new": 1,
+  "postings": 17733,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -424,6 +424,7 @@
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
   "workday:resolvetech:/job/Addison-TX/Finance-Intern_R1254",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
+  "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Market-Access-Strategy--LCS-_R26-5069-2",
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2",
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
@@ -3846,6 +3847,10 @@
   },
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668": {
    "f": "2026-08-12",
+   "l": "2026-09-07"
+  },
+  "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Market-Access-Strategy--LCS-_R26-5069-2": {
+   "f": "2026-09-07",
    "l": "2026-09-07"
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
