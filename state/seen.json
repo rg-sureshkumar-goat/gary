@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-08T22:47:06Z",
+ "last_run": "2026-09-08T23:04:34Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 48,
-  "new": 0,
-  "postings": 15335,
-  "sites": 185
+  "matching": 64,
+  "new": 3,
+  "postings": 25237,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -41,6 +41,9 @@
   "greenhouse:charlesriverassociates:8128811",
   "greenhouse:charlesriverassociates:8160288",
   "greenhouse:coinbase:8173991",
+  "greenhouse:coinbase:8175366",
+  "greenhouse:coinbase:8175438",
+  "greenhouse:coinbase:8175569",
   "greenhouse:drweng:7992670",
   "greenhouse:drweng:7993004",
   "greenhouse:eulerity:4709471006",
@@ -2356,6 +2359,18 @@
    "l": "2026-09-08"
   },
   "greenhouse:coinbase:8173991": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "greenhouse:coinbase:8175366": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "greenhouse:coinbase:8175438": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "greenhouse:coinbase:8175569": {
    "f": "2026-09-08",
    "l": "2026-09-08"
   },
