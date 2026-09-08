@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Evolver": "HTTP 404"
- },
- "last_run": "2026-09-08T21:47:28Z",
+ "broken": {},
+ "last_run": "2026-09-08T22:05:31Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 27,
-  "new": 1,
-  "postings": 25053,
-  "sites": 196
+  "failed": 0,
+  "matching": 57,
+  "new": 0,
+  "postings": 25209,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
