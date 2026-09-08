@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-08T12:43:04Z",
+ "last_run": "2026-09-08T12:54:08Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 57,
-  "new": 0,
-  "postings": 24834,
-  "sites": 82
+  "matching": 71,
+  "new": 9,
+  "postings": 32174,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -261,6 +261,15 @@
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Finance--FP-A--Tax--Treasury--Controllership--Risk--IR--Corp-Dev--Strategy-Transformation-_R0054859",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Commercial---Corporate-Affairs---Commercial-Product-Strategy--HIV-Prevention-_R0054483",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Development---CDS-Business-Strategy-and-Operations_R0054754",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Development---Portfolio-Strategy-and-Analytics_R0054693",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---PDM---CMC-Regulatory-Affairs--Strategy-and-Operations_R0054713",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---PDM---CMC-Regulatory-Affairs--Strategy-and-Operations_R0054714",
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Research---Strategy--Innovation---Portfolio_R0054502",
+  "workday:gilead:/job/United-States---California---Foster-City/Job-Description-Intern---Commercial---Corporate-Affairs---Market-Access-Strategy--Liver_R0054671",
   "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943",
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
@@ -3197,6 +3206,42 @@
   },
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064": {
    "f": "2026-08-20",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Finance--FP-A--Tax--Treasury--Controllership--Risk--IR--Corp-Dev--Strategy-Transformation-_R0054859": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Commercial---Corporate-Affairs---Commercial-Product-Strategy--HIV-Prevention-_R0054483": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Development---CDS-Business-Strategy-and-Operations_R0054754": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Development---Portfolio-Strategy-and-Analytics_R0054693": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---PDM---CMC-Regulatory-Affairs--Strategy-and-Operations_R0054713": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---PDM---CMC-Regulatory-Affairs--Strategy-and-Operations_R0054714": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Intern---Research---Strategy--Innovation---Portfolio_R0054502": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Foster-City/Job-Description-Intern---Commercial---Corporate-Affairs---Market-Access-Strategy--Liver_R0054671": {
+   "f": "2026-09-08",
    "l": "2026-09-08"
   },
   "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943": {
