@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-08T12:54:08Z",
+ "last_run": "2026-09-08T13:06:15Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 71,
-  "new": 9,
-  "postings": 32174,
-  "sites": 202
+  "matching": 57,
+  "new": 1,
+  "postings": 24841,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -105,6 +105,7 @@
   "smartrecruiters:Winsupply1:3743990015014837",
   "smartrecruiters:abbvie:3743990014471696",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
+  "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373",
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884",
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879",
   "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1",
@@ -2570,6 +2571,10 @@
   },
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945": {
    "f": "2026-08-25",
+   "l": "2026-09-08"
+  },
+  "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373": {
+   "f": "2026-09-08",
    "l": "2026-09-08"
   },
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884": {
