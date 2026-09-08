@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Evolver": "HTTP 404"
- },
- "last_run": "2026-09-08T13:51:38Z",
+ "broken": {},
+ "last_run": "2026-09-08T14:05:56Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 26,
-  "new": 0,
-  "postings": 25015,
-  "sites": 196
+  "failed": 0,
+  "matching": 57,
+  "new": 1,
+  "postings": 24833,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -377,6 +375,7 @@
   "workday:mckesson:/job/USA-TX-The-Woodlands/Practice-Management-Accounting-Intern---Summer-2027_JR0150932",
   "workday:medline:/job/Northfield-Illinois/Finance-Accounting-Intern---Summer-2027_R2616741",
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558",
+  "workday:mmc:/job/Los-Angeles---West-5th/Career-Consulting-Summer-Associate--MBA-or-Master-s-Track----Los-Angeles---MBA-Program-2027_R_365103",
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003",
   "workday:mosaic:/job/US---Tampa-FL-Lithia-area/Accounting---Finance-Co-Op-Intern---Summer-2027_64569",
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Global-Strategic-Sourcing---Intern_R413301",
@@ -3673,6 +3672,10 @@
   },
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558": {
    "f": "2026-08-25",
+   "l": "2026-09-08"
+  },
+  "workday:mmc:/job/Los-Angeles---West-5th/Career-Consulting-Summer-Associate--MBA-or-Master-s-Track----Los-Angeles---MBA-Program-2027_R_365103": {
+   "f": "2026-09-08",
    "l": "2026-09-08"
   },
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003": {
