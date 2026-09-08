@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-08T18:05:30Z",
+ "broken": {
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-09-08T18:26:21Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 57,
-  "new": 0,
-  "postings": 24846,
-  "sites": 82
+  "failed": 1,
+  "matching": 33,
+  "new": 4,
+  "postings": 24838,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -161,6 +163,7 @@
   "workday:cat:/job/Peoria-Illinois/XMLNAME-2027-Summer-Corporate-Intern---Accounting_R0000379993",
   "workday:cat:/job/San-Diego-California/XMLNAME-2027-Business-Analyst-Intern_R0000381902",
   "workday:cibc:/job/Chicago-IL/XMLNAME-2026-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2519190",
+  "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2618394",
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620",
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198",
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386",
@@ -537,6 +540,9 @@
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763",
   "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151",
   "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Business-Banking-Summer-Intern_2026-0024843",
+  "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Financial-Crimes-Summer-Intern--Evergreen-_2026-0027054",
+  "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Finance--Treasury----Accounting-Summer-Intern---Accounting-Track_2026-0026089",
+  "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Finance--Treasury----Accounting-Summer-Intern---Finance-Track_2026-0026098",
   "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Wealth---Asset-Management-Intern_2026-0024894",
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
@@ -2820,6 +2826,10 @@
    "f": "2026-09-04",
    "l": "2026-09-08"
   },
+  "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2618394": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620": {
    "f": "2026-09-03",
    "l": "2026-09-08"
@@ -4333,6 +4343,18 @@
    "l": "2026-09-08"
   },
   "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Business-Banking-Summer-Intern_2026-0024843": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Financial-Crimes-Summer-Intern--Evergreen-_2026-0027054": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Finance--Treasury----Accounting-Summer-Intern---Accounting-Track_2026-0026089": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Finance--Treasury----Accounting-Summer-Intern---Finance-Track_2026-0026098": {
    "f": "2026-09-08",
    "l": "2026-09-08"
   },
