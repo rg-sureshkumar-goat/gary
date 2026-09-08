@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Veeda AI": "HTTP 404"
- },
- "last_run": "2026-09-08T14:25:41Z",
+ "broken": {},
+ "last_run": "2026-09-08T14:42:03Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 29,
-  "new": 2,
-  "postings": 24855,
-  "sites": 219
+  "failed": 0,
+  "matching": 57,
+  "new": 1,
+  "postings": 24819,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -108,6 +106,7 @@
   "smartrecruiters:abbvie:3743990014471696",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373",
+  "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696",
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884",
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879",
   "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1",
@@ -2579,6 +2578,10 @@
    "l": "2026-09-08"
   },
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
+  },
+  "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696": {
    "f": "2026-09-08",
    "l": "2026-09-08"
   },
