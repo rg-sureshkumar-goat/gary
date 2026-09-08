@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-08T04:39:19Z",
+ "last_run": "2026-09-08T04:49:49Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 56,
-  "new": 7,
-  "postings": 25140,
-  "sites": 82
+  "matching": 62,
+  "new": 1,
+  "postings": 32295,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -261,6 +261,7 @@
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
+  "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943",
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
   "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026",
@@ -3195,6 +3196,10 @@
   },
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064": {
    "f": "2026-08-20",
+   "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943": {
+   "f": "2026-09-08",
    "l": "2026-09-08"
   },
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138": {
