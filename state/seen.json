@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-08T14:42:03Z",
+ "last_run": "2026-09-08T14:51:53Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 57,
+  "matching": 48,
   "new": 1,
-  "postings": 24819,
-  "sites": 82
+  "postings": 15258,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -518,6 +518,7 @@
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1",
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
+  "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452",
   "workday:thermofisher:/job/Wilmington-North-Carolina-USA/Finance-Intern_R-01366569",
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019",
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020",
@@ -4248,6 +4249,10 @@
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804": {
    "f": "2026-08-25",
    "l": "2026-08-30"
+  },
+  "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452": {
+   "f": "2026-09-08",
+   "l": "2026-09-08"
   },
   "workday:thermofisher:/job/Wilmington-North-Carolina-USA/Finance-Intern_R-01366569": {
    "f": "2026-09-08",
