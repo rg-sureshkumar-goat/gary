@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T18:40:12Z",
+ "last_run": "2026-09-09T18:53:48Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 67,
-  "new": 1,
-  "postings": 25156,
-  "sites": 82
+  "matching": 43,
+  "new": 0,
+  "postings": 17894,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -83,6 +83,9 @@
   "lever:crestoperations:a4e1fa07-80f5-4a7d-989e-b755a7ac7d7e",
   "lever:crestoperations:b155c903-f65d-489b-8ea0-d959af22c481",
   "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24",
+  "lever:spawglass:3d5172d4-f71e-498f-b45c-670ae9fd29e5",
+  "lever:spawglass:db4e5a14-fd58-48f7-8c3f-53a99ca8b727",
+  "lever:spawglass:fa7b574c-35b8-44ad-b184-a60cfe540337",
   "oracle:jpmc:210690693",
   "oracle:jpmc:210691091",
   "oracle:jpmc:210773978",
@@ -137,7 +140,10 @@
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
   "workday:andersen:/job/Oak-Park-Heights-MN/Finance-Intern_R-8113",
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926",
+  "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104927",
+  "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936",
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Office-of-the-CFO_R104925",
+  "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104930",
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203",
   "workday:assurant:/job/Atlanta-GA/Global-Finance-Intern_R-115350",
   "workday:athene:/job/El-Segundo-California/XMLNAME-2026-Summer-Associate--Treasury---Business-Management_R253683",
@@ -241,6 +247,8 @@
   "workday:eisneramper:/job/New-York/XMLNAME-2027-Tax-Winter-Intern---Financial-Services_Req-8502",
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865",
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1",
+  "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510",
+  "workday:entegris:/job/Chaska-MN/Enterprise-Transformation-Program-Coordination-Co-op_REQ-14433",
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808",
   "workday:equifax:/job/USA-Missouri---St-Louis---Clayton/Finance-Intern_J00178739",
   "workday:ercot:/job/Taylor-TX/Intern---Corporate-Strategy-and-Enterprise-Quality_R2483",
@@ -352,6 +360,7 @@
   "workday:jll:/job/Chicago-IL/Capital-Markets-Summer-2027-Internship---Chicago--IL_REQ530231",
   "workday:jll:/job/Chicago-IL/Corporate-Capital-and-NNN-Lease-Capital-Markets-Summer-2027-Internship---Chicago--IL_REQ530530",
   "workday:jll:/job/Columbus-OH/Intern--Value-and-Risk-Advisory_REQ530251",
+  "workday:jll:/job/Dallas-TX/Capital-Markets-Summer-2027-Internship---Dallas--TX_REQ530150-1",
   "workday:jll:/job/Dallas-TX/Capital-Markets-Summer-2027-Internship---Dallas--TX_REQ530555",
   "workday:jll:/job/Denver-CO/Capital-Markets-Summer-2027-Internship---Denver--CO_REQ530239",
   "workday:jll:/job/Houston-TX/Houston-Capital-Markets-Summer-2027-Internship----Houston--TX_REQ530228",
@@ -536,6 +545,7 @@
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214-2",
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784",
+  "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474",
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084",
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088",
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079",
@@ -603,6 +613,7 @@
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899",
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805",
   "workday:xcelenergy:/job/Denver-CO-80205/Accounting-Tax-Finance-Intern_JR116533-1",
+  "workday:xcelenergy:/job/Denver-CO-80205/Residential-Energy-Product-Strategy-Intern--CO_JR115817-1",
   "workday:xcelenergy:/job/Golden-CO-80401/Energy-Accounting-or-Analyst-Intern--CO_JR115573-1",
   "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1"
  ],
@@ -1666,6 +1677,7 @@
   "Neighborly",
   "Nelnet",
   "Neo4j",
+  "Netcompany",
   "Netic",
   "Neuberger Berman",
   "Neuralink",
@@ -2040,6 +2052,7 @@
   "Spacial AI",
   "Span",
   "Sparksoft",
+  "SpawGlass",
   "Spectrum Control",
   "Spellman High Voltage Electronics",
   "Spotify",
@@ -2569,6 +2582,18 @@
    "f": "2026-08-25",
    "l": "2026-09-09"
   },
+  "lever:spawglass:3d5172d4-f71e-498f-b45c-670ae9fd29e5": {
+   "f": "2026-08-10",
+   "l": "2026-09-09"
+  },
+  "lever:spawglass:db4e5a14-fd58-48f7-8c3f-53a99ca8b727": {
+   "f": "2024-03-22",
+   "l": "2026-09-09"
+  },
+  "lever:spawglass:fa7b574c-35b8-44ad-b184-a60cfe540337": {
+   "f": "2025-03-17",
+   "l": "2026-09-09"
+  },
   "oracle:jpmc:210690693": {
    "f": "2026-09-09",
    "l": "2026-09-09"
@@ -2797,7 +2822,19 @@
    "f": "2026-09-09",
    "l": "2026-09-09"
   },
+  "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104927": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Office-of-the-CFO_R104925": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104930": {
    "f": "2026-09-09",
    "l": "2026-09-09"
   },
@@ -3216,6 +3253,14 @@
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1": {
    "f": "2026-08-28",
    "l": "2026-09-01"
+  },
+  "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:entegris:/job/Chaska-MN/Enterprise-Transformation-Program-Coordination-Co-op_REQ-14433": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
   },
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808": {
    "f": "2026-08-31",
@@ -3661,6 +3706,10 @@
    "f": "2026-08-24",
    "l": "2026-08-26"
   },
+  "workday:jll:/job/Dallas-TX/Capital-Markets-Summer-2027-Internship---Dallas--TX_REQ530150-1": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:jll:/job/Dallas-TX/Capital-Markets-Summer-2027-Internship---Dallas--TX_REQ530555": {
    "f": "2026-08-24",
    "l": "2026-08-26"
@@ -3827,7 +3876,7 @@
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---Service-Transformation---Data-Analytics_R-053219": {
    "f": "2026-08-24",
-   "l": "2026-09-04"
+   "l": "2026-09-09"
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Internship-Summer-2027---Strategy-and-Growth_R-052938": {
    "f": "2026-08-18",
@@ -4405,6 +4454,10 @@
    "f": "2026-09-09",
    "l": "2026-09-09"
   },
+  "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
    "l": "2026-09-09"
@@ -4670,6 +4723,10 @@
    "l": "2026-09-09"
   },
   "workday:xcelenergy:/job/Denver-CO-80205/Accounting-Tax-Finance-Intern_JR116533-1": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:xcelenergy:/job/Denver-CO-80205/Residential-Energy-Product-Strategy-Intern--CO_JR115817-1": {
    "f": "2026-09-09",
    "l": "2026-09-09"
   },

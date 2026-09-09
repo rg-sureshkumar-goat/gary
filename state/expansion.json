@@ -10207,6 +10207,16 @@
       "last": "2026-09-09",
       "result": "added",
       "ats": "workday"
+    },
+    "SpawGlass": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "lever"
+    },
+    "Netcompany": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "smartrecruiters"
     }
   },
   "last_run": "2026-09-09"
