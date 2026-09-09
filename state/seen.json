@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T23:35:22Z",
+ "last_run": "2026-09-09T23:45:59Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 66,
-  "new": 1,
-  "postings": 25246,
-  "sites": 82
+  "matching": 45,
+  "new": 2,
+  "postings": 17784,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -454,6 +454,8 @@
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276",
   "workday:oneok:/job/Tulsa-OK/Accounting-Intern---Tulsa--OK_R8273",
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Accounting-Intern--Year-Round-_R49748",
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Cost-Accounting-Intern--Year-Round-_R50187",
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance---Accounting-Intern--Summer-2027-_R50186",
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance-Intern---FP-A--Year-Round-_R49749-1",
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Strategic-Sourcing-Supply-Chain-Intern--Summer-2027-_R49756",
   "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Finance-Intern--Summer-2027-_R49793",
@@ -4099,6 +4101,14 @@
   },
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Accounting-Intern--Year-Round-_R49748": {
    "f": "2026-08-31",
+   "l": "2026-09-09"
+  },
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Cost-Accounting-Intern--Year-Round-_R50187": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance---Accounting-Intern--Summer-2027-_R50186": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Finance-Intern---FP-A--Year-Round-_R49749-1": {
