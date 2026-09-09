@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T20:05:01Z",
+ "last_run": "2026-09-09T20:23:52Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 66,
-  "new": 0,
-  "postings": 25178,
-  "sites": 82
+  "matching": 38,
+  "new": 2,
+  "postings": 21360,
+  "sites": 209
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -172,6 +172,7 @@
   "workday:cadence:/job/AUSTIN/AI---Strategic-Marketing-Intern_R56045",
   "workday:cadence:/job/AUSTIN/AI---Strategic-Marketing-Intern_R56045-1",
   "workday:campbellsoup:/job/USA---NJ---Camden/Sales-Finance-Co-op_Req-67677",
+  "workday:campbellsoup:/job/USA---NJ---Camden/Supply-Chain-Finance-Co-Op_Req-67695",
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65913",
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65914",
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65915",
@@ -370,6 +371,7 @@
   "workday:jll:/job/Miami-FL/Capital-Markets-Summer-2027-Internship---Miami--FL_REQ530237",
   "workday:jll:/job/Minneapolis-MN/Capital-Markets-Summer-2027-Internship---Minneapolis--MN_REQ530234",
   "workday:jll:/job/Morristown-NJ/Capital-Markets-Summer-2027-Internship---Morristown--NJ_REQ529778",
+  "workday:jll:/job/New-York-NY/Capital-Markets-Summer-2027-Internship---New-York_REQ528322",
   "workday:jll:/job/New-York-NY/M-A-and-Corporate-Advisory-Summer-2027-Internship----Madison--NY_REQ530219",
   "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ530581",
   "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ532428",
@@ -2950,6 +2952,10 @@
    "f": "2026-08-25",
    "l": "2026-08-26"
   },
+  "workday:campbellsoup:/job/USA---NJ---Camden/Supply-Chain-Finance-Co-Op_Req-67695": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65913": {
    "f": "2026-08-26",
    "l": "2026-09-09"
@@ -3749,6 +3755,10 @@
   "workday:jll:/job/Morristown-NJ/Capital-Markets-Summer-2027-Internship---Morristown--NJ_REQ529778": {
    "f": "2026-08-24",
    "l": "2026-08-26"
+  },
+  "workday:jll:/job/New-York-NY/Capital-Markets-Summer-2027-Internship---New-York_REQ528322": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
   },
   "workday:jll:/job/New-York-NY/M-A-and-Corporate-Advisory-Summer-2027-Internship----Madison--NY_REQ530219": {
    "f": "2026-08-24",
