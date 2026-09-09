@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T14:50:54Z",
+ "last_run": "2026-09-09T15:04:47Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
-  "new": 0,
-  "postings": 15319,
-  "sites": 185
+  "matching": 64,
+  "new": 1,
+  "postings": 24911,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -401,6 +401,7 @@
   "workday:meijer:/job/Grand-Rapids-MI/Finance-Intern--Summer-2027_R000697296",
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774",
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558",
+  "workday:mmc:/job/Chicago---155-Wacker/Health---Benefits-Financial-Summer-Intern---Central-Market---College-Program-2027_R_365270",
   "workday:mmc:/job/Los-Angeles---West-5th/Career-Consulting-Summer-Associate--MBA-or-Master-s-Track----Los-Angeles---MBA-Program-2027_R_365103",
   "workday:mmc:/job/New-York---1166/Summer-Intern--Rising-Talent-in-Finance--RTiF--Internal-Audit--New-York--2026_R_323003",
   "workday:mosaic:/job/US---Tampa-FL-Lithia-area/Accounting---Finance-Co-Op-Intern---Summer-2027_64569",
@@ -3851,6 +3852,10 @@
   },
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558": {
    "f": "2026-08-25",
+   "l": "2026-09-09"
+  },
+  "workday:mmc:/job/Chicago---155-Wacker/Health---Benefits-Financial-Summer-Intern---Central-Market---College-Program-2027_R_365270": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "workday:mmc:/job/Los-Angeles---West-5th/Career-Consulting-Summer-Associate--MBA-or-Master-s-Track----Los-Angeles---MBA-Program-2027_R_365103": {
