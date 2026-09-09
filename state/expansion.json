@@ -10142,7 +10142,72 @@
       "last": "2026-09-08",
       "result": "added",
       "ats": "workday"
+    },
+    "Semgrep": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Talos": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Revel": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "ONE Finance": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Allen Control Systems": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Retell AI": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Bedrock Robotics": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Protective Life": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "lever"
+    },
+    "Viam": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "CHAOS Industries": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Gallup": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Burlington Stores": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Meijer": {
+      "last": "2026-09-09",
+      "result": "added",
+      "ats": "workday"
     }
   },
-  "last_run": "2026-09-08"
+  "last_run": "2026-09-09"
 }
