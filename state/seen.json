@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-09T21:36:11Z",
+ "broken": {
+  "Odin Dynamics, Inc": "HTTP 404"
+ },
+ "last_run": "2026-09-09T21:47:34Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 68,
-  "new": 0,
-  "postings": 25214,
-  "sites": 82
+  "failed": 1,
+  "matching": 31,
+  "new": 2,
+  "postings": 25182,
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -125,6 +127,7 @@
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696",
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884",
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879",
+  "workday:ag:/job/Herndon-Area-VA/Summer-Internship---Digital-AI-Transformation_JR10437881",
   "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1",
   "workday:aig:/job/NY-New-York/XMLNAME-2027-Early-Careers--Summer-Intern--Finance--United-States--New-York--NY_JR2603641-1",
   "workday:airproducts:/job/Allentown-Pennsylvania/Spring-Intern-Accounting--Internal-Audit----FY-2027_JR-2026-21957",
@@ -444,6 +447,7 @@
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056",
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705",
+  "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Risk-Management-Internship--Fall-2026_JR-46002",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855",
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276",
@@ -2757,6 +2761,10 @@
    "f": "2026-09-05",
    "l": "2026-09-09"
   },
+  "workday:ag:/job/Herndon-Area-VA/Summer-Internship---Digital-AI-Transformation_JR10437881": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1": {
    "f": "2026-09-01",
    "l": "2026-09-09"
@@ -4051,6 +4059,10 @@
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
    "f": "2026-08-25",
+   "l": "2026-09-09"
+  },
+  "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Risk-Management-Internship--Fall-2026_JR-46002": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802": {
