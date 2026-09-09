@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-09T17:04:15Z",
+ "broken": {
+  "Haize Labs": "HTTP 404"
+ },
+ "last_run": "2026-09-09T17:22:58Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 65,
-  "new": 0,
-  "postings": 24900,
-  "sites": 82
+  "failed": 1,
+  "matching": 88,
+  "new": 5,
+  "postings": 23862,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -467,10 +469,12 @@
   "workday:rb:/job/New-York-NY/XMLNAME-2027-Summer-Intern---Executive-Office---Strategy---Operating-Services--Junior_R-0000033101",
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2026-Global-Investment-Banking-Internship---Frankfurt_R-0000186550",
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2027-Global-Investment-Banking-Internship---Frankfurt_R-0000182048",
+  "workday:rbc:/job/Chicago-Illinois-United-States-of-America/XMLNAME-2027-Capital-Markets--Operations-Summer-Analyst_R-0000187334",
   "workday:rbc:/job/Fort-Collins-Colorado-United-States-of-America/Financial-Solutions-Intern_R-0000081516",
   "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008",
   "workday:rbc:/job/Houston-Texas-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---Houston_R-0000186008-1",
   "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2024-Capital-Markets--Cash-Management-Summer-Analyst_R-0000063505-1",
+  "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2027-Capital-Markets--COO-Operations-Summer-Analyst_R-0000187346",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213-1",
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Markets-Quantitative-Trading-Summer-Analyst_R-0000183468",
@@ -499,8 +503,10 @@
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Technology-Risk-and-Controls-Consulting-Intern_JR120923",
   "workday:rsm:/job/Cincinnati/Infrastructure-Consulting-Intern---Summer-2027_JR116817",
   "workday:rsm:/job/Dallas/Managed-IT-Services-Service-Desk-Consulting-Intern---Summer-2027_JR117029",
+  "workday:rsm:/job/Denver-Downtown/Corporate-Performance-Management-Consulting-Intern---Summer-2027_JR117310",
   "workday:rsm:/job/Denver-Downtown/Enterprise-Data-Integration-and-Migration-Consulting-Intern---Summer-2027_JR116785",
   "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071",
+  "workday:rsm:/job/Denver-Greenwood/Managed-Application-Services-Consulting-Intern---Summer-2027_JR117300",
   "workday:rsm:/job/Denver-Greenwood/Microsoft-Finance---Supply-Chain-Consulting-Intern---Summer-2027_JR116812",
   "workday:rsm:/job/Houston/Managed-IT-Services-Service-Desk-Consulting-Intern---Summer-2027_JR117028",
   "workday:rsm:/job/Houston/Technology-Risk-Consulting-Intern---Summer-2027_JR116413",
@@ -589,6 +595,7 @@
   "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Finance--Treasury----Accounting-Summer-Intern---Finance-Track_2026-0026098",
   "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Wealth---Asset-Management-Intern_2026-0024894",
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934",
+  "workday:uva:/job/Charlottesville-VA/Federal-Work-Study--FWS--Internship-Program--Finance-and-Administrative-Intern--Student-Wage-_R0087128",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157",
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899",
@@ -4124,6 +4131,10 @@
    "f": "2026-08-25",
    "l": "2026-08-30"
   },
+  "workday:rbc:/job/Chicago-Illinois-United-States-of-America/XMLNAME-2027-Capital-Markets--Operations-Summer-Analyst_R-0000187334": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:rbc:/job/Fort-Collins-Colorado-United-States-of-America/Financial-Solutions-Intern_R-0000081516": {
    "f": "2026-08-25",
    "l": "2026-09-09"
@@ -4138,6 +4149,10 @@
   },
   "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2024-Capital-Markets--Cash-Management-Summer-Analyst_R-0000063505-1": {
    "f": "2026-08-25",
+   "l": "2026-09-09"
+  },
+  "workday:rbc:/job/Jersey-City-New-Jersey-United-States-of-America/XMLNAME-2027-Capital-Markets--COO-Operations-Summer-Analyst_R-0000187346": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate_R-0000186213": {
@@ -4252,12 +4267,20 @@
    "f": "2026-09-08",
    "l": "2026-09-09"
   },
+  "workday:rsm:/job/Denver-Downtown/Corporate-Performance-Management-Consulting-Intern---Summer-2027_JR117310": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:rsm:/job/Denver-Downtown/Enterprise-Data-Integration-and-Migration-Consulting-Intern---Summer-2027_JR116785": {
    "f": "2026-09-02",
    "l": "2026-09-09"
   },
   "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071": {
    "f": "2026-09-02",
+   "l": "2026-09-09"
+  },
+  "workday:rsm:/job/Denver-Greenwood/Managed-Application-Services-Consulting-Intern---Summer-2027_JR117300": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "workday:rsm:/job/Denver-Greenwood/Microsoft-Finance---Supply-Chain-Consulting-Intern---Summer-2027_JR116812": {
@@ -4611,6 +4634,10 @@
   "workday:uva:/job/Charlottesville-VA/Campaign-Finance-Research-Assistant---Federal-Work-Study-Internship-Program--Student-Wage-_R0085934": {
    "f": "2026-08-25",
    "l": "2026-08-26"
+  },
+  "workday:uva:/job/Charlottesville-VA/Federal-Work-Study--FWS--Internship-Program--Finance-and-Administrative-Intern--Student-Wage-_R0087128": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
   },
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176": {
    "f": "2026-09-01",
