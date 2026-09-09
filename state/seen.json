@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T16:27:33Z",
+ "last_run": "2026-09-09T16:41:33Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 20,
-  "sites": 1
+  "matching": 66,
+  "new": 1,
+  "postings": 24904,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -82,6 +82,7 @@
   "lever:crestoperations:a4e1fa07-80f5-4a7d-989e-b755a7ac7d7e",
   "lever:crestoperations:b155c903-f65d-489b-8ea0-d959af22c481",
   "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24",
+  "oracle:jpmc:210690693",
   "oracle:jpmc:210691091",
   "oracle:jpmc:210773978",
   "oracle:jpmc:210774074",
@@ -2557,6 +2558,10 @@
   },
   "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24": {
    "f": "2026-08-25",
+   "l": "2026-09-09"
+  },
+  "oracle:jpmc:210690693": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "oracle:jpmc:210691091": {
