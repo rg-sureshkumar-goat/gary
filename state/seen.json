@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T04:04:44Z",
+ "last_run": "2026-09-09T04:23:20Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 64,
-  "new": 0,
-  "postings": 25223,
-  "sites": 82
+  "matching": 36,
+  "new": 1,
+  "postings": 21278,
+  "sites": 209
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -558,6 +558,7 @@
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509284",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
   "workday:tel:/job/Austin-RiverSouth/Financial-Analyst-2027-Summer-Intern_R26-01501",
+  "workday:tel:/job/Austin-RiverSouth/Sales-Business-Analyst-Intern_R26-01519",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039",
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1",
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
@@ -2392,7 +2393,7 @@
   },
   "greenhouse:eulerity:4709471006": {
    "f": "2026-08-30",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "greenhouse:faradayfuture:7799321003": {
    "f": "2026-07-09",
@@ -2548,15 +2549,15 @@
   },
   "smartrecruiters:AristaNetworks:744000128256979": {
    "f": "2026-05-25",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:AveryDennison:744000140069569": {
    "f": "2026-07-27",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:AveryDennison:744000144151824": {
    "f": "2026-08-18",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:BoschGroup:744000144612115": {
    "f": "2026-08-20",
@@ -2568,15 +2569,15 @@
   },
   "smartrecruiters:Continental:744000146251819": {
    "f": "2026-08-28",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:EVERSANA1:744000146017939": {
    "f": "2026-08-27",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:Eurofins:743999767858594": {
    "f": "2021-08-20",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:Intuitive:744000146505199": {
    "f": "2026-08-31",
@@ -2612,7 +2613,7 @@
   },
   "smartrecruiters:ServiceNow:744000148334959": {
    "f": "2026-09-08",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "smartrecruiters:SyngentaGroup:744000146786093": {
    "f": "2026-09-01",
@@ -2676,7 +2677,7 @@
   },
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884": {
    "f": "2026-09-02",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879": {
    "f": "2026-09-05",
@@ -2704,15 +2705,15 @@
   },
   "workday:alliedsolutions:/job/Carmel-IN/Finance-Operations-Intern_R-011080": {
    "f": "2026-09-02",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:alliedsolutions:/job/Carmel-IN/Financial-Planning---Acquisitions-Intern_R-011081": {
    "f": "2026-09-02",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:alliedsolutions:/job/Carmel-IN/Strategic-Sourcing---Enterprise-Contracts-Intern_R-011088": {
    "f": "2026-09-02",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:amat:/job/AustinTX/Finance-Intern--MBA---Austin--TX-_R2624934": {
    "f": "2026-08-25",
@@ -2752,7 +2753,7 @@
   },
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203": {
    "f": "2026-08-26",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:assurant:/job/Atlanta-GA/Global-Finance-Intern_R-115350": {
    "f": "2026-09-02",
@@ -2864,15 +2865,15 @@
   },
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65913": {
    "f": "2026-08-26",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65914": {
    "f": "2026-08-26",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:campbellsoup:/job/USA---Remote/Business-Analyst--Co-op---DA-AI_Req-65915": {
    "f": "2026-08-26",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:capitalone:/job/McLean-VA/Strategy-Consulting-Intern---Summer-2027_R244315-1": {
    "f": "2026-08-25",
@@ -2984,7 +2985,7 @@
   },
   "workday:corteva:/job/Indianapolis-Indiana-United-States/Business-Analyst-Intern_248151W": {
    "f": "2026-09-03",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern_R-71000": {
    "f": "2026-08-25",
@@ -3028,11 +3029,11 @@
   },
   "workday:danaher:/job/Chaska-Minnesota-United-States/Financial-Analyst-Intern_R1316323": {
    "f": "2026-09-08",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:danaher:/job/Fargo-North-Dakota-United-States/Accounting-Intern_R1316665": {
    "f": "2026-09-03",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:dimensional:/job/Austin/Internship-in-Investment-Solutions--Undergraduate---Master-s-_2026-9041": {
    "f": "2026-08-28",
@@ -3044,7 +3045,7 @@
   },
   "workday:directsupply:/job/Milwaukee-WI/Financial-Planning-and-Analysis-Intern_REQ-2026-2556": {
    "f": "2026-09-05",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291": {
    "f": "2026-08-25",
@@ -3304,7 +3305,7 @@
   },
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1": {
    "f": "2026-08-28",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
    "f": "2026-08-25",
@@ -3324,11 +3325,11 @@
   },
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779": {
    "f": "2026-08-24",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064": {
    "f": "2026-08-20",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674": {
    "f": "2026-09-08",
@@ -3564,7 +3565,7 @@
   },
   "workday:jll:/job/Atlanta-GA/Capital-Markets-Summer-2027-Internship---Atlanta--GA_REQ530757": {
    "f": "2026-09-08",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:jll:/job/Austin-TX/Capital-Markets-Summer-2027-Internship---Austin--TX_REQ530579": {
    "f": "2026-08-24",
@@ -3596,7 +3597,7 @@
   },
   "workday:jll:/job/Houston-TX/Houston-Capital-Markets-Summer-2027-Internship----Houston--TX_REQ530228": {
    "f": "2026-09-08",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:jll:/job/Indianapolis-IN/Capital-Markets-Summer-2027-Internship---Indianapolis--IN_REQ530233": {
    "f": "2026-08-24",
@@ -3740,11 +3741,11 @@
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Accounting_R-053340": {
    "f": "2026-08-27",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Finance_R-052052": {
    "f": "2026-08-24",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---Service-Transformation---Data-Analytics_R-053219": {
    "f": "2026-08-24",
@@ -3752,11 +3753,11 @@
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Internship-Summer-2027---Strategy-and-Growth_R-052938": {
    "f": "2026-08-18",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Summer-Intern-2027--Business-Analyst-and-Project-Management_R-052922": {
    "f": "2026-08-18",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:magna:/job/Aurora-Ontario-CA/Jr-Financial-Analyst--Co-op-_R00240559": {
    "f": "2026-08-25",
@@ -3772,11 +3773,11 @@
   },
   "workday:manulife:/job/Boston-Massachusetts/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Boston--MA-_JR26081869": {
    "f": "2026-08-28",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:manulife:/job/Tempe-Arizona/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Tempe--AZ-_JR26081868": {
    "f": "2026-08-28",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1": {
    "f": "2026-08-24",
@@ -3948,11 +3949,11 @@
   },
   "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698": {
    "f": "2026-08-04",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:pg:/job/CINCINNATI-GENERAL-OFFICES/Finance---Accounting-Manager-Internship_R000157471": {
    "f": "2026-08-24",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002218": {
    "f": "2026-08-25",
@@ -4460,7 +4461,11 @@
   },
   "workday:tel:/job/Austin-RiverSouth/Financial-Analyst-2027-Summer-Intern_R26-01501": {
    "f": "2026-09-07",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
+  },
+  "workday:tel:/job/Austin-RiverSouth/Sales-Business-Analyst-Intern_R26-01519": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
   },
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039": {
    "f": "2026-09-01",
@@ -4548,7 +4553,7 @@
   },
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805": {
    "f": "2026-08-05",
-   "l": "2026-09-08"
+   "l": "2026-09-09"
   },
   "workday:xcelenergy:/job/Denver-CO-80205/Accounting-Tax-Finance-Intern_JR116533-1": {
    "f": "2026-09-09",
