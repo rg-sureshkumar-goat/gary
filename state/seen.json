@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T22:36:02Z",
+ "last_run": "2026-09-09T22:46:54Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 66,
-  "new": 0,
-  "postings": 25233,
-  "sites": 82
+  "matching": 53,
+  "new": 2,
+  "postings": 15333,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -402,6 +402,8 @@
   "workday:keybank:/job/Pottstown-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Pottstown--PA_R-41222",
   "workday:keybank:/job/Toledo-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Toledo--OH_R-41225",
   "workday:keybank:/job/Vandalia-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Dayton--OH_R-41220",
+  "workday:kiongroup:/job/Grand-Rapids-MI-United-States/Rotational-Finance-Intern_JR-0096082",
+  "workday:kiongroup:/job/Grand-Rapids-MI-United-States/Rotational-Finance-Intern_JR-0096082-2",
   "workday:labcorp:/job/USA---Remote---Massachusetts/Intern---PMO-Strategy---Transformation_2630678",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Accounting_R-053340",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Finance_R-052052",
@@ -3885,6 +3887,14 @@
   "workday:keybank:/job/Vandalia-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Dayton--OH_R-41220": {
    "f": "2026-08-04",
    "l": "2026-08-28"
+  },
+  "workday:kiongroup:/job/Grand-Rapids-MI-United-States/Rotational-Finance-Intern_JR-0096082": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:kiongroup:/job/Grand-Rapids-MI-United-States/Rotational-Finance-Intern_JR-0096082-2": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
   },
   "workday:labcorp:/job/USA---Remote---Massachusetts/Intern---PMO-Strategy---Transformation_2630678": {
    "f": "2026-09-09",
