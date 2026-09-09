@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T15:40:32Z",
+ "last_run": "2026-09-09T15:50:17Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 63,
-  "new": 0,
-  "postings": 25191,
-  "sites": 82
+  "matching": 44,
+  "new": 2,
+  "postings": 17732,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -231,6 +231,7 @@
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-2",
+  "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408",
   "workday:echo:/job/Chicago-IL/Accounting-Intern_R4643-1",
   "workday:echo:/job/Chicago-IL/FP-A-Intern_R4642",
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260",
@@ -276,6 +277,7 @@
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543",
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
+  "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1",
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2",
@@ -3169,6 +3171,10 @@
    "f": "2026-08-25",
    "l": "2026-08-30"
   },
+  "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:echo:/job/Chicago-IL/Accounting-Intern_R4643-1": {
    "f": "2026-09-02",
    "l": "2026-09-09"
@@ -3347,6 +3353,10 @@
   },
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1": {
    "f": "2026-08-28",
+   "l": "2026-09-09"
+  },
+  "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
