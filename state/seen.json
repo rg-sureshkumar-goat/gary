@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-09T17:37:17Z",
+ "broken": {
+  "Odin Dynamics, Inc": "HTTP 404"
+ },
+ "last_run": "2026-09-09T17:47:26Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 65,
-  "new": 0,
-  "postings": 24895,
-  "sites": 82
+  "failed": 1,
+  "matching": 29,
+  "new": 3,
+  "postings": 25117,
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -313,6 +315,8 @@
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535",
   "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475",
   "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475-1",
+  "workday:hntb:/job/Miami-FL/Finance-Intern---Summer-2027_R-31522",
+  "workday:hntb:/job/Miami-FL/Finance-Intern---Summer-2027_R-31522-1",
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167",
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167-2",
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411",
@@ -386,6 +390,7 @@
   "workday:keybank:/job/Pottstown-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Pottstown--PA_R-41222",
   "workday:keybank:/job/Toledo-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Toledo--OH_R-41225",
   "workday:keybank:/job/Vandalia-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Dayton--OH_R-41220",
+  "workday:labcorp:/job/USA---Remote---Massachusetts/Intern---PMO-Strategy---Transformation_2630678",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Accounting_R-053340",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Finance_R-052052",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---Service-Transformation---Data-Analytics_R-053219",
@@ -3505,6 +3510,14 @@
    "f": "2026-09-05",
    "l": "2026-09-09"
   },
+  "workday:hntb:/job/Miami-FL/Finance-Intern---Summer-2027_R-31522": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
+  "workday:hntb:/job/Miami-FL/Finance-Intern---Summer-2027_R-31522-1": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
+  },
   "workday:hntb:/job/Nashville-TN-City-Center/New-Grad-Project-Finance-Associate-II--Winter-Summer-2027--SED-Division--For-Current-Previous-HNTB-Interns-ONLY_R-31167": {
    "f": "2026-08-25",
    "l": "2026-09-09"
@@ -3800,6 +3813,10 @@
   "workday:keybank:/job/Vandalia-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Dayton--OH_R-41220": {
    "f": "2026-08-04",
    "l": "2026-08-28"
+  },
+  "workday:labcorp:/job/USA---Remote---Massachusetts/Intern---PMO-Strategy---Transformation_2630678": {
+   "f": "2026-09-09",
+   "l": "2026-09-09"
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Accounting_R-053340": {
    "f": "2026-08-27",
