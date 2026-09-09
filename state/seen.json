@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-09T23:20:41Z",
+ "last_run": "2026-09-09T23:35:22Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 31,
-  "new": 0,
-  "postings": 18407,
-  "sites": 205
+  "matching": 66,
+  "new": 1,
+  "postings": 25246,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -63,6 +63,7 @@
   "greenhouse:verainstituteofjustice:4712591005",
   "greenhouse:whitewatermidstream:5217841007",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Fall-2027/365635",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2027/360314",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2028/362041",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300",
@@ -2510,6 +2511,10 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061": {
    "f": "2026-08-25",
+   "l": "2026-09-09"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Fall-2027/365635": {
+   "f": "2026-09-09",
    "l": "2026-09-09"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2027/360314": {
