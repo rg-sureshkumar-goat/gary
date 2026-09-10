@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-10T14:38:53Z",
+ "last_run": "2026-09-10T14:50:44Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 66,
-  "new": 0,
-  "postings": 24942,
-  "sites": 82
+  "matching": 54,
+  "new": 1,
+  "postings": 15279,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -55,6 +55,7 @@
   "greenhouse:harbingermotors:5231841007",
   "greenhouse:lincolninternational:8106841",
   "greenhouse:lucidmotors:5185317007",
+  "greenhouse:perpay:4536787007",
   "greenhouse:relaypro:8093012",
   "greenhouse:relaypro:8096572",
   "greenhouse:rfsmart:5409030008",
@@ -2502,6 +2503,10 @@
   "greenhouse:lucidmotors:5185317007": {
    "f": "2026-08-25",
    "l": "2026-09-07"
+  },
+  "greenhouse:perpay:4536787007": {
+   "f": "2024-10-09",
+   "l": "2026-09-10"
   },
   "greenhouse:relaypro:8093012": {
    "f": "2026-08-25",
