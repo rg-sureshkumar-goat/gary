@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-10T16:36:48Z",
+ "last_run": "2026-09-10T16:48:42Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 65,
-  "new": 0,
-  "postings": 24957,
-  "sites": 82
+  "matching": 75,
+  "new": 2,
+  "postings": 32548,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -147,6 +147,7 @@
   "workday:ameriprise:/job/Boston-Massachusetts/Asset-Management-Technology-Intern---Data-Enablement_R26_3538",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Finance-Internship_R26_3511",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Financial-Advisor-in-Training-Intern_R26_3498",
+  "workday:ameriprise:/job/Minneapolis-Minnesota/Marketing---Sales-Strategy-Intern---Wealth-Management-Solutions_R26_3596",
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
   "workday:andersen:/job/Oak-Park-Heights-MN/Finance-Intern_R-8113",
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926",
@@ -608,6 +609,7 @@
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508866-1",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509039",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509284",
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1510260",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
   "workday:tel:/job/Austin-RiverSouth/Financial-Analyst-2027-Summer-Intern_R26-01501",
   "workday:tel:/job/Austin-RiverSouth/Sales-Business-Analyst-Intern_R26-01519",
@@ -2885,6 +2887,10 @@
    "f": "2026-08-31",
    "l": "2026-09-10"
   },
+  "workday:ameriprise:/job/Minneapolis-Minnesota/Marketing---Sales-Strategy-Intern---Wealth-Management-Solutions_R26_3596": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668": {
    "f": "2026-09-01",
    "l": "2026-09-10"
@@ -4739,6 +4745,10 @@
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509284": {
    "f": "2026-09-03",
+   "l": "2026-09-10"
+  },
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1510260": {
+   "f": "2026-09-10",
    "l": "2026-09-10"
   },
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218": {
