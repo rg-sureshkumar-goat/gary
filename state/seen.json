@@ -1,12 +1,20 @@
 {
- "broken": {},
- "last_run": "2026-09-10T06:41:46Z",
+ "broken": {
+  "Ecolab": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "NRECA International": "HTTP 429",
+  "Sierra Space": "HTTP 429"
+ },
+ "last_run": "2026-09-10T06:56:22Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 67,
-  "new": 0,
-  "postings": 24967,
-  "sites": 82
+  "failed": 7,
+  "matching": 46,
+  "new": 6,
+  "postings": 18507,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -107,6 +115,12 @@
   "smartrecruiters:JobsForHumanity:744000047832045",
   "smartrecruiters:JobsForHumanity:744000055878703",
   "smartrecruiters:NorthwesternMutual:85751624",
+  "smartrecruiters:PilotCompany:744000147290959",
+  "smartrecruiters:PilotCompany:744000147587219",
+  "smartrecruiters:PilotCompany:744000148330269",
+  "smartrecruiters:PilotCompany:744000148332428",
+  "smartrecruiters:PilotCompany:744000148332760",
+  "smartrecruiters:PilotCompany:744000148495349",
   "smartrecruiters:RRSGroup:744000133857769",
   "smartrecruiters:ServiceNow:744000147287709",
   "smartrecruiters:ServiceNow:744000148334959",
@@ -743,6 +757,7 @@
   "American Red Cross",
   "Ameriprise Financial",
   "Amgen",
+  "Amperesand",
   "Amynta Group",
   "AnaVation",
   "Analog Devices",
@@ -851,6 +866,7 @@
   "Bank of America",
   "Bank of Montreal",
   "Barkback",
+  "Barnes & Thornburg",
   "Barr",
   "Barry-Wehmiller",
   "Base Power",
@@ -931,6 +947,7 @@
   "CHAOS Industries",
   "CHEP",
   "CIBC",
+  "CIM Group",
   "CLEAR",
   "CLEAResult",
   "CLO Virtual Fashion",
@@ -1363,6 +1380,7 @@
   "HCompany",
   "HD Supply",
   "HELLBENDER",
+  "HMH",
   "HNTB",
   "HP IQ",
   "HPR",
@@ -1430,6 +1448,7 @@
   "Ibility",
   "Illumio",
   "Imerys",
+  "Immuta",
   "Impinj",
   "Impiricus",
   "Incident IQ",
@@ -1510,6 +1529,7 @@
   "Kargo",
   "Kastle",
   "Ken Garff Auto Group",
+  "Kensho",
   "Kensington",
   "Kepler Communications",
   "KeyBank",
@@ -1556,6 +1576,7 @@
   "Level AI",
   "Levi Strauss & Co.",
   "Lexeo Therapeutics",
+  "Lexington Medical",
   "LexisNexis Risk Solutions",
   "Liberty University",
   "Light & Wonder",
@@ -1787,6 +1808,7 @@
   "PNC Financial Services",
   "PSP Investments",
   "PTC",
+  "Pacific Fusion",
   "Pacvue",
   "Pagaya Investments",
   "Palantir Technologies",
@@ -1827,6 +1849,7 @@
   "Phonic",
   "Physical Intelligence",
   "Pika",
+  "Pilot Company",
   "Pine Rest",
   "PingWind",
   "Pitney Bowes",
@@ -2007,6 +2030,7 @@
   "Sensata",
   "Sentry",
   "Sentry Insurance",
+  "Sequence Holdings",
   "Sereact",
   "Serval",
   "ServiceNow",
@@ -2692,6 +2716,30 @@
   },
   "smartrecruiters:NorthwesternMutual:85751624": {
    "f": "2026-08-25",
+   "l": "2026-09-10"
+  },
+  "smartrecruiters:PilotCompany:744000147290959": {
+   "f": "2026-09-03",
+   "l": "2026-09-10"
+  },
+  "smartrecruiters:PilotCompany:744000147587219": {
+   "f": "2026-09-04",
+   "l": "2026-09-10"
+  },
+  "smartrecruiters:PilotCompany:744000148330269": {
+   "f": "2026-09-08",
+   "l": "2026-09-10"
+  },
+  "smartrecruiters:PilotCompany:744000148332428": {
+   "f": "2026-09-08",
+   "l": "2026-09-10"
+  },
+  "smartrecruiters:PilotCompany:744000148332760": {
+   "f": "2026-09-08",
+   "l": "2026-09-10"
+  },
+  "smartrecruiters:PilotCompany:744000148495349": {
+   "f": "2026-09-09",
    "l": "2026-09-10"
   },
   "smartrecruiters:RRSGroup:744000133857769": {
