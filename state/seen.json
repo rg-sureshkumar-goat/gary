@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-10T04:49:37Z",
+ "last_run": "2026-09-10T05:04:22Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 74,
+  "matching": 66,
   "new": 0,
-  "postings": 32487,
-  "sites": 202
+  "postings": 24962,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2551,7 +2551,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444": {
    "f": "2026-08-26",
-   "l": "2026-09-09"
+   "l": "2026-09-10"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
