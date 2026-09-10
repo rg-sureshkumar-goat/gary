@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-10T19:19:42Z",
+ "last_run": "2026-09-10T19:33:26Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 32,
-  "new": 0,
-  "postings": 18521,
-  "sites": 205
+  "matching": 67,
+  "new": 1,
+  "postings": 25014,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -579,6 +579,7 @@
   "workday:rsm:/job/Washington-DC-Metro/D365-Business-Central-Consulting-Intern---Summer-2027_JR117168",
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214",
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214-2",
+  "workday:salesforce:/job/Indiana---Indianapolis/Summer-2027-Intern---Finance-Operations-Associate_JR359638-2",
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784",
   "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474",
@@ -4643,6 +4644,10 @@
   },
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214-2": {
    "f": "2026-09-03",
+   "l": "2026-09-10"
+  },
+  "workday:salesforce:/job/Indiana---Indianapolis/Summer-2027-Intern---Finance-Operations-Associate_JR359638-2": {
+   "f": "2026-09-10",
    "l": "2026-09-10"
   },
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660": {
