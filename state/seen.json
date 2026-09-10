@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Haize Labs": "HTTP 404"
- },
- "last_run": "2026-09-10T17:22:27Z",
+ "broken": {},
+ "last_run": "2026-09-10T17:35:31Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 89,
+  "failed": 0,
+  "matching": 66,
   "new": 0,
-  "postings": 23915,
-  "sites": 200
+  "postings": 24971,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2575,7 +2573,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268": {
    "f": "2026-08-25",
-   "l": "2026-09-09"
+   "l": "2026-09-10"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444": {
    "f": "2026-08-26",
