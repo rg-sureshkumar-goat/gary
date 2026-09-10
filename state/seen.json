@@ -1,12 +1,21 @@
 {
- "broken": {},
- "last_run": "2026-09-10T18:39:59Z",
+ "broken": {
+  "Avnet": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Mizuho Securities USA": "HTTP 429",
+  "National Interstate Insurance": "HTTP 429"
+ },
+ "last_run": "2026-09-10T18:53:51Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 66,
+  "failed": 8,
+  "matching": 41,
   "new": 0,
-  "postings": 25277,
-  "sites": 82
+  "postings": 16491,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -117,6 +126,7 @@
   "smartrecruiters:RRSGroup:744000133857769",
   "smartrecruiters:ServiceNow:744000147287709",
   "smartrecruiters:ServiceNow:744000148334959",
+  "smartrecruiters:ServiceNow:744000148836589",
   "smartrecruiters:SyngentaGroup:744000146786093",
   "smartrecruiters:TheWonderfulCompany:744000113566258",
   "smartrecruiters:TheWonderfulCompany:744000113780016",
@@ -150,6 +160,7 @@
   "workday:ameriprise:/job/Minneapolis-Minnesota/Marketing---Sales-Strategy-Intern---Wealth-Management-Solutions_R26_3596",
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
   "workday:andersen:/job/Oak-Park-Heights-MN/Finance-Intern_R-8113",
+  "workday:ankura:/job/Atlanta-GA/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104957",
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926",
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104927",
   "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936",
@@ -164,6 +175,7 @@
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563",
   "workday:att:/job/Dallas-Texas/Transformation-Supply-Chain-Leadership-Program-Internship_R-120900",
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880",
+  "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246882",
   "workday:biotechne:/job/Minneapolis-MN/Finance-Intern_JR102112",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500",
@@ -516,12 +528,14 @@
   "workday:rbc:/job/New-York-New-York-United-States-of-America/XMLNAME-2027-Capital-Markets--Quants-Summer-Associate--Quantitative-Technology-Services_R-0000186729-1",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214",
   "workday:rbc:/job/San-Francisco-California-United-States-of-America/XMLNAME-2027-Capital-Markets--Global-Investment-Banking-Summer-Associate---San-Francisco_R-0000186214-1",
+  "workday:repsol:/job/Houston/Middle-Office--Risk-and-Valuation-Intern_83841",
   "workday:resolvetech:/job/Addison-TX/Finance-Intern_R1254",
   "workday:rfcuny:/job/New-York-NY/Accounting-Intern_JR3668",
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Market-Access-Strategy--LCS-_R26-5069-2",
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2",
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961",
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230",
+  "workday:rsm:/job/Boston/Strategy---Management-Consulting-Intern---Summer-2027_JR117320",
   "workday:rsm:/job/Boston/Technology-Risk-Consulting-Intern---Summer-2027_JR116339",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
   "workday:rsm:/job/Charlotte/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117252",
@@ -537,8 +551,10 @@
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Financial-Services-Consulting-Intern_JR120926",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Process-Risk-and-Controls-Consulting-Intern_JR120925",
   "workday:rsm:/job/Chicago/XMLNAME-2027-Elevate-Program-and-2028-Summer-Technology-Risk-and-Controls-Consulting-Intern_JR120923",
+  "workday:rsm:/job/Cincinnati/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR117381-1",
   "workday:rsm:/job/Cincinnati/Infrastructure-Consulting-Intern---Summer-2027_JR116817",
   "workday:rsm:/job/Dallas/Managed-IT-Services-Service-Desk-Consulting-Intern---Summer-2027_JR117029",
+  "workday:rsm:/job/Dallas/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117162",
   "workday:rsm:/job/Denver-Downtown/Corporate-Performance-Management-Consulting-Intern---Summer-2027_JR117310",
   "workday:rsm:/job/Denver-Downtown/Enterprise-Data-Integration-and-Migration-Consulting-Intern---Summer-2027_JR116785",
   "workday:rsm:/job/Denver-Downtown/Finance-Automation-Consulting-Intern---Summer-2027_JR121071",
@@ -551,13 +567,16 @@
   "workday:rsm:/job/Miami/Technology-Risk-Consulting-Intern---Summer-2027_JR117233",
   "workday:rsm:/job/Minneapolis/Microsoft-Customer-Engagement-Consulting-Intern---Summer-2027_JR117337",
   "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439",
+  "workday:rsm:/job/New-York/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117192",
   "workday:rsm:/job/New-York/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117261-1",
   "workday:rsm:/job/New-York/Strategy---Management-Consulting-Intern--Summer-2027_JR117321",
   "workday:rsm:/job/New-York/Technology-Risk-Consulting-Intern---Summer-2027_JR116441-1",
   "workday:rsm:/job/Philadelphia/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116963",
   "workday:rsm:/job/Philadelphia/Microsoft-Customer-Engagement-Consulting-Intern---Summer-2027_JR117341",
   "workday:rsm:/job/Philadelphia/Technology-Risk-Consulting-Intern---Summer-2027_JR117280",
+  "workday:rsm:/job/San-Diego/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117193",
   "workday:rsm:/job/San-Francisco/D365-Business-Central-Consulting-Intern---Summer-2027_JR117169",
+  "workday:rsm:/job/San-Francisco/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117157",
   "workday:rsm:/job/San-Francisco/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR116821",
   "workday:rsm:/job/San-Francisco/Technology-Risk-Consulting-Intern---Summer-2027_JR116841",
   "workday:rsm:/job/Seattle/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR121119",
@@ -578,6 +597,8 @@
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086",
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126",
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044",
+  "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929",
+  "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Summer-2027_115743",
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582",
   "workday:stryker:/job/Greenwood-Village-Colorado/XMLNAME-2027-Finance-Summer-Intern---Colorado_R572729",
   "workday:stryker:/job/Mahwah-New-Jersey/Summer-2027-Internship---Finance---New-Jersey_R572583",
@@ -850,6 +871,7 @@
   "Aypa Power",
   "BCBST",
   "BCforward",
+  "BDC Venture Capital",
   "BECU",
   "BJ's Wholesale Club",
   "BMO",
@@ -1491,6 +1513,7 @@
   "Irving Oil",
   "Ivalua",
   "Ivy Tech Community College",
+  "J.M. Smucker",
   "JINGDONG",
   "JM Family",
   "JPMorgan Chase",
@@ -2182,6 +2205,7 @@
   "The Health Management Academy",
   "The Home Depot",
   "The Kinetic Group",
+  "The MJ Companies",
   "The Mosaic Company",
   "The New School",
   "The New York Times",
@@ -2758,6 +2782,10 @@
    "f": "2026-09-08",
    "l": "2026-09-10"
   },
+  "smartrecruiters:ServiceNow:744000148836589": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "smartrecruiters:SyngentaGroup:744000146786093": {
    "f": "2026-09-01",
    "l": "2026-09-02"
@@ -2902,6 +2930,10 @@
    "f": "2026-08-27",
    "l": "2026-09-02"
   },
+  "workday:ankura:/job/Atlanta-GA/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104957": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926": {
    "f": "2026-09-09",
    "l": "2026-09-10"
@@ -2955,6 +2987,10 @@
    "l": "2026-09-10"
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
+  "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246882": {
    "f": "2026-09-10",
    "l": "2026-09-10"
   },
@@ -4378,6 +4414,10 @@
    "f": "2026-08-28",
    "l": "2026-09-10"
   },
+  "workday:repsol:/job/Houston/Middle-Office--Risk-and-Valuation-Intern_83841": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:resolvetech:/job/Addison-TX/Finance-Intern_R1254": {
    "f": "2026-09-03",
    "l": "2026-09-04"
@@ -4400,6 +4440,10 @@
   },
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230": {
    "f": "2026-09-04",
+   "l": "2026-09-10"
+  },
+  "workday:rsm:/job/Boston/Strategy---Management-Consulting-Intern---Summer-2027_JR117320": {
+   "f": "2026-09-10",
    "l": "2026-09-10"
   },
   "workday:rsm:/job/Boston/Technology-Risk-Consulting-Intern---Summer-2027_JR116339": {
@@ -4462,12 +4506,20 @@
    "f": "2026-08-27",
    "l": "2026-09-08"
   },
+  "workday:rsm:/job/Cincinnati/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR117381-1": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:rsm:/job/Cincinnati/Infrastructure-Consulting-Intern---Summer-2027_JR116817": {
    "f": "2026-09-08",
    "l": "2026-09-10"
   },
   "workday:rsm:/job/Dallas/Managed-IT-Services-Service-Desk-Consulting-Intern---Summer-2027_JR117029": {
    "f": "2026-09-08",
+   "l": "2026-09-10"
+  },
+  "workday:rsm:/job/Dallas/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117162": {
+   "f": "2026-09-10",
    "l": "2026-09-10"
   },
   "workday:rsm:/job/Denver-Downtown/Corporate-Performance-Management-Consulting-Intern---Summer-2027_JR117310": {
@@ -4518,6 +4570,10 @@
    "f": "2026-09-04",
    "l": "2026-09-10"
   },
+  "workday:rsm:/job/New-York/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117192": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:rsm:/job/New-York/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117261-1": {
    "f": "2026-09-04",
    "l": "2026-09-10"
@@ -4542,8 +4598,16 @@
    "f": "2026-09-10",
    "l": "2026-09-10"
   },
+  "workday:rsm:/job/San-Diego/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117193": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:rsm:/job/San-Francisco/D365-Business-Central-Consulting-Intern---Summer-2027_JR117169": {
    "f": "2026-09-08",
+   "l": "2026-09-10"
+  },
+  "workday:rsm:/job/San-Francisco/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117157": {
+   "f": "2026-09-10",
    "l": "2026-09-10"
   },
   "workday:rsm:/job/San-Francisco/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR116821": {
@@ -4624,6 +4688,14 @@
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
+   "l": "2026-09-10"
+  },
+  "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929": {
+   "f": "2026-09-09",
+   "l": "2026-09-10"
+  },
+  "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Summer-2027_115743": {
+   "f": "2026-09-09",
    "l": "2026-09-10"
   },
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582": {
