@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Haize Labs": "HTTP 404"
- },
- "last_run": "2026-09-10T13:23:09Z",
+ "broken": {},
+ "last_run": "2026-09-10T13:37:32Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 89,
+  "failed": 0,
+  "matching": 64,
   "new": 0,
-  "postings": 23876,
-  "sites": 200
+  "postings": 24953,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
