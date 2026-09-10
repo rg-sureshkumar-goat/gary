@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-10T21:04:40Z",
+ "broken": {
+  "Haize Labs": "HTTP 404"
+ },
+ "last_run": "2026-09-10T21:20:55Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 67,
-  "new": 0,
-  "postings": 25331,
-  "sites": 82
+  "failed": 1,
+  "matching": 97,
+  "new": 3,
+  "postings": 23932,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -251,6 +253,8 @@
   "workday:disney:/job/Celebration-FL-USA/WDI-Business-Planning-and-Strategy-Intern--Orlando--Spring-2027_10158474-2",
   "workday:disney:/job/Glendale-CA-USA/Accounting---Finance-Rotation-Program-Internship--Summer-2027_10158819",
   "workday:disney:/job/Glendale-CA-USA/Accounting---Finance-Rotation-Program-Internship--Summer-2027_10158819-1",
+  "workday:disney:/job/Glendale-CA-USA/Disney---Pixar-Games-Brand-Strategy-Intern--Spring-2027_10159020",
+  "workday:disney:/job/Glendale-CA-USA/Disney---Pixar-Games-Brand-Strategy-Intern--Spring-2027_10159020-2",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138",
@@ -526,6 +530,7 @@
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2",
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961",
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230",
+  "workday:rsm:/job/Boston/Managed-IT-Services-Service-Desk-Consulting-Intern---Winter-2027_JR117032",
   "workday:rsm:/job/Boston/Strategy---Management-Consulting-Intern---Summer-2027_JR117320",
   "workday:rsm:/job/Boston/Technology-Risk-Consulting-Intern---Summer-2027_JR116339",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
@@ -3326,6 +3331,14 @@
    "f": "2026-09-01",
    "l": "2026-09-10"
   },
+  "workday:disney:/job/Glendale-CA-USA/Disney---Pixar-Games-Brand-Strategy-Intern--Spring-2027_10159020": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
+  "workday:disney:/job/Glendale-CA-USA/Disney---Pixar-Games-Brand-Strategy-Intern--Spring-2027_10159020-2": {
+   "f": "2026-09-10",
+   "l": "2026-09-10"
+  },
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Product---Franchise-Strategy-Intern--Spring-2027_10159569": {
    "f": "2026-08-28",
    "l": "2026-09-05"
@@ -4432,6 +4445,10 @@
   },
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230": {
    "f": "2026-09-04",
+   "l": "2026-09-10"
+  },
+  "workday:rsm:/job/Boston/Managed-IT-Services-Service-Desk-Consulting-Intern---Winter-2027_JR117032": {
+   "f": "2026-09-10",
    "l": "2026-09-10"
   },
   "workday:rsm:/job/Boston/Strategy---Management-Consulting-Intern---Summer-2027_JR117320": {
