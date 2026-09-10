@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Veeda AI": "HTTP 404"
- },
- "last_run": "2026-09-10T06:28:24Z",
+ "broken": {},
+ "last_run": "2026-09-10T06:41:46Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 34,
+  "failed": 0,
+  "matching": 67,
   "new": 0,
-  "postings": 24986,
-  "sites": 219
+  "postings": 24967,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
