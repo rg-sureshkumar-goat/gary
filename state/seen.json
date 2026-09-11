@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-11T19:04:10Z",
+ "last_run": "2026-09-11T19:20:28Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 68,
-  "new": 0,
-  "postings": 25091,
-  "sites": 82
+  "matching": 36,
+  "new": 2,
+  "postings": 18592,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -138,6 +138,8 @@
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Digital-Strategy-Analyst_R171828",
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696",
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884",
+  "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064784",
+  "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064785",
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879",
   "workday:ag:/job/Herndon-Area-VA/Summer-Internship---Digital-AI-Transformation_JR10437881",
   "workday:aig:/job/IL-Chicago/XMLNAME-2027-Early-Careers--Summer-Intern--Forensic-Accounting---United-States--Dallas--TX---Chicago--IL_JR2603648-1",
@@ -2900,6 +2902,14 @@
   },
   "workday:aep:/job/Columbus-OH/Acounting---Finance-Intern---Columbus--OH-and-nearby-areas_R18884": {
    "f": "2026-09-02",
+   "l": "2026-09-11"
+  },
+  "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064784": {
+   "f": "2026-09-11",
+   "l": "2026-09-11"
+  },
+  "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064785": {
+   "f": "2026-09-11",
    "l": "2026-09-11"
   },
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879": {
