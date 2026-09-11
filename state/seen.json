@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-11T15:37:35Z",
+ "broken": {
+  "Custom Computer Specialists": "HTTP 404"
+ },
+ "last_run": "2026-09-11T15:48:41Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 68,
-  "new": 0,
-  "postings": 25083,
-  "sites": 82
+  "failed": 1,
+  "matching": 45,
+  "new": 1,
+  "postings": 17849,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -486,6 +488,7 @@
   "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Strategic-Sourcing-Intern--Summer-2027-_R49800",
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Rotation-Inten_R45303",
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824",
+  "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Finance---Accounting-Intern_R50271",
   "workday:oshkoshcorporation:/job/Roy-Utah-United-States/Accounting-Intern--Summer-2027-_R49803",
   "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698",
   "workday:pg:/job/CINCINNATI-GENERAL-OFFICES/Finance---Accounting-Manager-Internship_R000157471",
@@ -4303,6 +4306,10 @@
   },
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824": {
    "f": "2026-08-28",
+   "l": "2026-09-11"
+  },
+  "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Finance---Accounting-Intern_R50271": {
+   "f": "2026-09-11",
    "l": "2026-09-11"
   },
   "workday:oshkoshcorporation:/job/Roy-Utah-United-States/Accounting-Intern--Summer-2027-_R49803": {
