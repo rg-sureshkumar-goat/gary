@@ -10282,7 +10282,77 @@
       "last": "2026-09-10",
       "result": "added",
       "ats": "workday"
+    },
+    "Exegy": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Inferact": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Swarm Aero": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Ridgeline": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Geneva Trading": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Tanium": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Delta Faucet": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Ketjen": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Securian Financial Group": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "workday"
+    },
+    "AllianceBernstein": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Wellington Management": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Gables Residential": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Knobelsdorff Enterprises": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Wellmark": {
+      "last": "2026-09-11",
+      "result": "added",
+      "ats": "smartrecruiters"
     }
   },
-  "last_run": "2026-09-10"
+  "last_run": "2026-09-11"
 }
