@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-11T15:04:34Z",
+ "last_run": "2026-09-11T15:22:25Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 68,
-  "new": 1,
-  "postings": 25076,
-  "sites": 82
+  "matching": 34,
+  "new": 2,
+  "postings": 18539,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -656,6 +656,8 @@
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247",
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763",
   "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151",
+  "workday:ttc:/job/Bloomington-MN/HR-Strategy---Talent-Intern---The-Toro-Company_JR17037",
+  "workday:ttc:/job/Bloomington-MN/RLC-Financial-Planning-and-Analysis-Intern---The-Toro-Company_JR17138",
   "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Business-Banking-Summer-Intern_2026-0024843",
   "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Financial-Crimes-Summer-Intern--Evergreen-_2026-0027054",
   "workday:usbank:/job/Minneapolis-MN/XMLNAME-2027-Finance--Treasury----Accounting-Summer-Intern---Accounting-Track_2026-0026089",
@@ -4981,6 +4983,14 @@
   },
   "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151": {
    "f": "2026-09-04",
+   "l": "2026-09-11"
+  },
+  "workday:ttc:/job/Bloomington-MN/HR-Strategy---Talent-Intern---The-Toro-Company_JR17037": {
+   "f": "2026-09-11",
+   "l": "2026-09-11"
+  },
+  "workday:ttc:/job/Bloomington-MN/RLC-Financial-Planning-and-Analysis-Intern---The-Toro-Company_JR17138": {
+   "f": "2026-09-11",
    "l": "2026-09-11"
   },
   "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Business-Banking-Summer-Intern_2026-0024843": {
