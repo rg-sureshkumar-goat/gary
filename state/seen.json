@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-11T11:36:16Z",
+ "broken": {
+  "Custom Computer Specialists": "HTTP 404"
+ },
+ "last_run": "2026-09-11T11:47:23Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 66,
+  "failed": 1,
+  "matching": 44,
   "new": 0,
-  "postings": 25052,
-  "sites": 82
+  "postings": 17823,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
