@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-13T00:32:03Z",
+ "last_run": "2026-09-13T00:42:02Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 67,
   "new": 0,
-  "postings": 20,
-  "sites": 1
+  "postings": 25405,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2618,31 +2618,31 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061": {
    "f": "2026-08-25",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Fall-2027/365635": {
    "f": "2026-09-09",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2027/360314": {
    "f": "2026-08-28",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2028/362041": {
    "f": "2026-08-28",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300": {
    "f": "2026-08-28",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295": {
    "f": "2026-08-28",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Summer-2027/363235": {
    "f": "2026-08-28",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265": {
    "f": "2026-08-25",
@@ -2662,11 +2662,11 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Internal-Services-Co-Op-Intern-Finance-Strategy-Transformation-Winter-2027/364303": {
    "f": "2026-09-11",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/360517": {
    "f": "2026-08-25",
@@ -2674,23 +2674,23 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/364861": {
    "f": "2026-08-31",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2028/362622": {
    "f": "2026-09-08",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270": {
    "f": "2026-08-26",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2028/364863": {
    "f": "2026-08-31",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Global-Trade-Advisory-Summer-2027/364867": {
    "f": "2026-08-31",
-   "l": "2026-09-12"
+   "l": "2026-09-13"
   },
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606": {
    "f": "2026-08-25",
