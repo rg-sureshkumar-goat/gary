@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-14T20:37:07Z",
+ "broken": {
+  "Nio": "HTTP 422"
+ },
+ "last_run": "2026-09-14T20:49:21Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 74,
-  "new": 0,
-  "postings": 25367,
-  "sites": 82
+  "failed": 1,
+  "matching": 79,
+  "new": 2,
+  "postings": 32496,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -68,6 +70,7 @@
   "greenhouse:robinhood:8198187",
   "greenhouse:schonfeld:8172064",
   "greenhouse:silananotechnologies:8157153",
+  "greenhouse:smartlyio:6191935004",
   "greenhouse:verainstituteofjustice:4712591005",
   "greenhouse:whitewatermidstream:5217841007",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061",
@@ -369,6 +372,7 @@
   "workday:gilead:/job/United-States---California---Foster-City/Job-Description-Intern---Commercial---Corporate-Affairs---Market-Access-Strategy--Liver_R0054671",
   "workday:gilead:/job/United-States---California---Santa-Monica/Intern---CFO---FP-A--Kite-_R0054613",
   "workday:gilead:/job/United-States---California---Santa-Monica/Intern---Kite-Development---Med-Affairs--Strategy-and-Communications---Cell-Therapy-_R0054508",
+  "workday:gilead:/job/United-States---California---Santa-Monica/Intern---Kite-Development---Med-Affairs--Strategy-and-Communications---Cell-Therapy-_R0054508-1",
   "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943",
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138",
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366",
@@ -2667,6 +2671,10 @@
    "f": "2026-08-25",
    "l": "2026-09-09"
   },
+  "greenhouse:smartlyio:6191935004": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "greenhouse:verainstituteofjustice:4712591005": {
    "f": "2026-07-07",
    "l": "2026-09-10"
@@ -3886,6 +3894,10 @@
   "workday:gilead:/job/United-States---California---Santa-Monica/Intern---Kite-Development---Med-Affairs--Strategy-and-Communications---Cell-Therapy-_R0054508": {
    "f": "2026-09-08",
    "l": "2026-09-08"
+  },
+  "workday:gilead:/job/United-States---California---Santa-Monica/Intern---Kite-Development---Med-Affairs--Strategy-and-Communications---Cell-Therapy-_R0054508-1": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
   },
   "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943": {
    "f": "2026-09-08",
