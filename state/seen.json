@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-14T15:07:25Z",
+ "last_run": "2026-09-14T15:25:43Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 70,
-  "new": 0,
-  "postings": 25294,
-  "sites": 82
+  "matching": 46,
+  "new": 9,
+  "postings": 18550,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -169,11 +169,20 @@
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
   "workday:andersen:/job/Oak-Park-Heights-MN/Finance-Intern_R-8113",
   "workday:ankura:/job/Atlanta-GA/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104957",
+  "workday:ankura:/job/Chicago-IL/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104968",
+  "workday:ankura:/job/Chicago-IL/University-Intern--Risk-Advisory--eDiscovery_R104975",
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926",
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104927",
+  "workday:ankura:/job/Dallas-TX/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104970",
+  "workday:ankura:/job/Dallas-TX/University-Intern--Risk-Advisory--eDiscovery_R104979",
+  "workday:ankura:/job/Fairfield-CT/University-Intern--Construction--Disputes---Advisory_R104955",
+  "workday:ankura:/job/Houston-TX/University-Intern--Forensic-Accounting---Claims-Consulting_R104971",
   "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936",
+  "workday:ankura:/job/New-York-NY/University-Intern--Risk-Advisory--eDiscovery_R104977",
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Office-of-the-CFO_R104925",
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104930",
+  "workday:ankura:/job/San-Francisco-CA/University-Intern--Risk-Advisory--eDiscovery_R104976",
+  "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--eDiscovery_R104978",
   "workday:aoins:/job/Lansing-MI/Accounting-Intern---Winter-Spring-2027_R_14526",
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203",
   "workday:assurant:/job/Atlanta-GA/Global-Finance-Intern_R-115350",
@@ -3047,6 +3056,14 @@
    "f": "2026-09-10",
    "l": "2026-09-14"
   },
+  "workday:ankura:/job/Chicago-IL/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104968": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/Chicago-IL/University-Intern--Risk-Advisory--eDiscovery_R104975": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926": {
    "f": "2026-09-09",
    "l": "2026-09-14"
@@ -3055,8 +3072,28 @@
    "f": "2026-09-09",
    "l": "2026-09-14"
   },
+  "workday:ankura:/job/Dallas-TX/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104970": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/Dallas-TX/University-Intern--Risk-Advisory--eDiscovery_R104979": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/Fairfield-CT/University-Intern--Construction--Disputes---Advisory_R104955": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/Houston-TX/University-Intern--Forensic-Accounting---Claims-Consulting_R104971": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936": {
    "f": "2026-09-09",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/New-York-NY/University-Intern--Risk-Advisory--eDiscovery_R104977": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Office-of-the-CFO_R104925": {
@@ -3065,6 +3102,14 @@
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104930": {
    "f": "2026-09-09",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/San-Francisco-CA/University-Intern--Risk-Advisory--eDiscovery_R104976": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--eDiscovery_R104978": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "workday:aoins:/job/Lansing-MI/Accounting-Intern---Winter-Spring-2027_R_14526": {
