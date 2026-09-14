@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-14T15:39:30Z",
+ "last_run": "2026-09-14T15:51:30Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 70,
-  "new": 0,
-  "postings": 25290,
-  "sites": 82
+  "matching": 48,
+  "new": 2,
+  "postings": 17867,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -506,6 +506,7 @@
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Risk-Management-Internship--Fall-2026_JR-46002",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855",
+  "workday:nvent:/job/St-Louis-Park-MN-US/Finance-Intern---Summer-2027_R23569",
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276",
   "workday:oneok:/job/Tulsa-OK/Accounting-Intern---Tulsa--OK_R8273",
   "workday:oshkoshcorporation:/job/Appleton-Wisconsin-United-States/Accounting-Intern--Year-Round-_R49748",
@@ -682,6 +683,7 @@
   "workday:tencent:/job/US-California-Palo-Alto/AI-Business-Analyst-Intern_R108039-1",
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
   "workday:thehartford:/job/Hartford-CT/Intern--Finance-Leadership-Development-Program_R2626423-1",
+  "workday:thehartford:/job/Hartford-CT/Intern--Investment-Portfolio-Management_R2626689-1",
   "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452",
   "workday:thermofisher:/job/Wilmington-North-Carolina-USA/Finance-Intern_R-01366569",
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019",
@@ -4416,6 +4418,10 @@
    "f": "2026-08-25",
    "l": "2026-09-14"
   },
+  "workday:nvent:/job/St-Louis-Park-MN-US/Finance-Intern---Summer-2027_R23569": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276": {
    "f": "2026-08-25",
    "l": "2026-09-14"
@@ -5118,6 +5124,10 @@
   },
   "workday:thehartford:/job/Hartford-CT/Intern--Finance-Leadership-Development-Program_R2626423-1": {
    "f": "2026-09-08",
+   "l": "2026-09-14"
+  },
+  "workday:thehartford:/job/Hartford-CT/Intern--Investment-Portfolio-Management_R2626689-1": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452": {
