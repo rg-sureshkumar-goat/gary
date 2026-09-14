@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-14T22:38:36Z",
+ "last_run": "2026-09-14T22:49:04Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 75,
-  "new": 0,
-  "postings": 25370,
-  "sites": 82
+  "matching": 57,
+  "new": 4,
+  "postings": 15294,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -742,7 +742,11 @@
   "workday:xcelenergy:/job/Denver-CO-80205/Accounting-Tax-Finance-Intern_JR116533-1",
   "workday:xcelenergy:/job/Denver-CO-80205/Residential-Energy-Product-Strategy-Intern--CO_JR115817-1",
   "workday:xcelenergy:/job/Golden-CO-80401/Energy-Accounting-or-Analyst-Intern--CO_JR115573-1",
-  "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1"
+  "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1",
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Business-Transformation-Intern---MN--CO_JR115602-1",
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Energy-Programs-Strategy---Analytics-Intern---MN_JR115669-1",
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Residential-Energy-Product-Strategy-Intern---MN--WI_JR116323-1",
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Residential-Energy-Product-Strategy-Intern---MN_JR115811"
  ],
  "seeded_companies": [
   "1-800 Contacts",
@@ -5396,6 +5400,22 @@
   },
   "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1": {
    "f": "2026-09-07",
+   "l": "2026-09-14"
+  },
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Business-Transformation-Intern---MN--CO_JR115602-1": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Energy-Programs-Strategy---Analytics-Intern---MN_JR115669-1": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Residential-Energy-Product-Strategy-Intern---MN--WI_JR116323-1": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:xcelenergy:/job/Minneapolis-MN-55401/Residential-Energy-Product-Strategy-Intern---MN_JR115811": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   }
  }
