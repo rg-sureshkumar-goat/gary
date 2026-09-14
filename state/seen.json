@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-14T22:04:58Z",
+ "broken": {
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-09-14T22:23:17Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 73,
-  "new": 0,
-  "postings": 25361,
-  "sites": 82
+  "failed": 1,
+  "matching": 40,
+  "new": 1,
+  "postings": 25013,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -737,6 +739,7 @@
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157",
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899",
+  "workday:wgl:/job/Washington-DC/WGL---2027-Finance---Accounting-Intern_R7255",
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805",
   "workday:xcelenergy:/job/Denver-CO-80205/Accounting-Tax-Finance-Intern_JR116533-1",
   "workday:xcelenergy:/job/Denver-CO-80205/Residential-Energy-Product-Strategy-Intern--CO_JR115817-1",
@@ -5371,6 +5374,10 @@
   },
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899": {
    "f": "2026-08-28",
+   "l": "2026-09-14"
+  },
+  "workday:wgl:/job/Washington-DC/WGL---2027-Finance---Accounting-Intern_R7255": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805": {
