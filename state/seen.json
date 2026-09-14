@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-14T00:43:19Z",
+ "broken": {
+  "Nio": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ "last_run": "2026-09-14T00:52:29Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 67,
+  "failed": 1,
+  "matching": 72,
   "new": 0,
-  "postings": 25388,
-  "sites": 82
+  "postings": 32465,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
