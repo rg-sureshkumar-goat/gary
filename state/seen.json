@@ -1,12 +1,21 @@
 {
- "broken": {},
- "last_run": "2026-09-14T18:41:43Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "First American": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Sierra Space": "HTTP 429",
+  "Signet Jewelers": "HTTP 429"
+ },
+ "last_run": "2026-09-14T18:56:45Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 74,
-  "new": 1,
-  "postings": 25324,
-  "sites": 82
+  "failed": 8,
+  "matching": 45,
+  "new": 0,
+  "postings": 16657,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -198,6 +207,8 @@
   "workday:att:/job/Dallas-Texas/Transformation-Supply-Chain-Leadership-Program-Internship_R-120900",
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880",
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246882",
+  "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Advisory-Intern--Strategy---Operations-_JR107990",
+  "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Finance-Intern--Capital---Infrastructure---Debt-Issuance-_JR107991",
   "workday:biotechne:/job/Minneapolis-MN/Finance-Intern_JR102112",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500",
@@ -294,8 +305,10 @@
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-2",
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408",
+  "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Commercial-Strategy-Intern_Job_Req_55300",
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Commercial-Strategy-and-Business-Development-Intern_Job_Req_55299",
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Consumer-Strategy-and-Ventures-Intern_Job_Req_55292",
+  "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Wealth---Asset-Management-Intern_Job_Req_55305",
   "workday:echo:/job/Chicago-IL/Accounting-Intern_R4643-1",
   "workday:echo:/job/Chicago-IL/FP-A-Intern_R4642",
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260",
@@ -367,6 +380,8 @@
   "workday:gilead:/job/United-States---California---Santa-Monica/Intern---Kite-Development---Med-Affairs--Strategy-and-Communications---Cell-Therapy-_R0054508",
   "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943",
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138",
+  "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366",
+  "workday:gnw:/job/Raleigh-North-Carolina/Business-Transformation-Intern_REQ-260373",
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Corporate-Finance---Risk---Agency-Accounting_R000110129",
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Corporate-Finance---Risk---Investment-Risk-Management_R000110128",
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Investment-Accounting_R000110127",
@@ -661,6 +676,7 @@
   "workday:stryker:/job/Mahwah-New-Jersey/Summer-2027-Internship---Finance---New-Jersey_R572583",
   "workday:stryker:/job/Portage-Michigan/Summer-2027-Internship---Finance---Michigan_R572445-1",
   "workday:stryker:/job/San-Jose-California/Summer-2027-Internship---Finance---California_R572448",
+  "workday:sunlife:/job/Wellesley-Hills-Massachusetts/Strategic-Vendor-Management---Co-op_JR00127632",
   "workday:swbc:/job/San-Antonio-TX/Intern---Investment-Services_R0015530",
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
@@ -758,6 +774,7 @@
   "ASML",
   "AT&T",
   "AVEVA",
+  "AWE",
   "AXQ Capital",
   "AXS",
   "Abacus Insights",
@@ -1284,6 +1301,7 @@
   "Eloquent AI",
   "Elsevier",
   "Empower",
+  "Enact Mortgage Insurance",
   "Enbridge",
   "Endeavor Health",
   "Endpoint Clinical",
@@ -3190,6 +3208,14 @@
    "f": "2026-09-10",
    "l": "2026-09-14"
   },
+  "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Advisory-Intern--Strategy---Operations-_JR107990": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Finance-Intern--Capital---Infrastructure---Debt-Issuance-_JR107991": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:biotechne:/job/Minneapolis-MN/Finance-Intern_JR102112": {
    "f": "2026-09-02",
    "l": "2026-09-02"
@@ -3578,11 +3604,19 @@
    "f": "2026-09-09",
    "l": "2026-09-14"
   },
+  "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Commercial-Strategy-Intern_Job_Req_55300": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Commercial-Strategy-and-Business-Development-Intern_Job_Req_55299": {
    "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Consumer-Strategy-and-Ventures-Intern_Job_Req_55292": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Wealth---Asset-Management-Intern_Job_Req_55305": {
    "f": "2026-09-14",
    "l": "2026-09-14"
   },
@@ -3869,6 +3903,14 @@
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138": {
    "f": "2026-09-04",
    "l": "2026-09-04"
+  },
+  "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
+   "f": "2026-09-09",
+   "l": "2026-09-14"
+  },
+  "workday:gnw:/job/Raleigh-North-Carolina/Business-Transformation-Intern_REQ-260373": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Corporate-Finance---Risk---Agency-Accounting_R000110129": {
    "f": "2026-09-14",
@@ -5054,6 +5096,10 @@
    "f": "2026-08-31",
    "l": "2026-09-14"
   },
+  "workday:sunlife:/job/Wellesley-Hills-Massachusetts/Strategic-Vendor-Management---Co-op_JR00127632": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:swbc:/job/San-Antonio-TX/Intern---Investment-Services_R0015530": {
    "f": "2026-09-11",
    "l": "2026-09-11"
@@ -5164,7 +5210,7 @@
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508866-1": {
    "f": "2026-09-02",
-   "l": "2026-09-10"
+   "l": "2026-09-14"
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509039": {
    "f": "2026-09-02",

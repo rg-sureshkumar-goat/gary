@@ -10404,6 +10404,16 @@
       "last": "2026-09-14",
       "result": "added",
       "ats": "lever"
+    },
+    "Enact Mortgage Insurance": {
+      "last": "2026-09-14",
+      "result": "added",
+      "ats": "workday"
+    },
+    "AWE": {
+      "last": "2026-09-14",
+      "result": "added",
+      "ats": "workday"
     }
   },
   "last_run": "2026-09-14"
