@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-14T11:50:41Z",
+ "last_run": "2026-09-14T12:11:31Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 46,
-  "new": 0,
-  "postings": 17907,
-  "sites": 212
+  "matching": 69,
+  "new": 3,
+  "postings": 25339,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -60,6 +60,9 @@
   "greenhouse:relaypro:8093012",
   "greenhouse:relaypro:8096572",
   "greenhouse:rfsmart:5409030008",
+  "greenhouse:robinhood:8123238",
+  "greenhouse:robinhood:8198153",
+  "greenhouse:robinhood:8198187",
   "greenhouse:schonfeld:8172064",
   "greenhouse:silananotechnologies:8157153",
   "greenhouse:verainstituteofjustice:4712591005",
@@ -2602,6 +2605,18 @@
   },
   "greenhouse:rfsmart:5409030008": {
    "f": "2026-09-08",
+   "l": "2026-09-14"
+  },
+  "greenhouse:robinhood:8123238": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "greenhouse:robinhood:8198153": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "greenhouse:robinhood:8198187": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "greenhouse:schonfeld:8172064": {
