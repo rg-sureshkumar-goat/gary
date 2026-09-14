@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-14T10:50:13Z",
+ "last_run": "2026-09-14T11:04:45Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 54,
-  "new": 0,
-  "postings": 15250,
-  "sites": 185
+  "matching": 67,
+  "new": 1,
+  "postings": 25316,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -132,6 +132,7 @@
   "smartrecruiters:WesternDigital:744000148348049",
   "smartrecruiters:Winsupply1:3743990015014837",
   "smartrecruiters:abbvie:3743990014471696",
+  "smartrecruiters:rolandberger:744000149302309",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
   "workday:abglobal:/job/Nashville-Tennessee/Business-Analyst-Summer-Intern_R0019767",
   "workday:abglobal:/job/Nashville-Tennessee/Investment-Management-Operations-Summer-Intern_R0019775",
@@ -2894,6 +2895,10 @@
   "smartrecruiters:abbvie:3743990014562976": {
    "f": "2026-08-25",
    "l": "2026-08-25"
+  },
+  "smartrecruiters:rolandberger:744000149302309": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
   },
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945": {
    "f": "2026-08-25",
