@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-14T15:51:30Z",
+ "last_run": "2026-09-14T16:04:52Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 48,
-  "new": 2,
-  "postings": 17867,
-  "sites": 212
+  "matching": 68,
+  "new": 1,
+  "postings": 25290,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -140,6 +140,7 @@
   "smartrecruiters:Winsupply1:3743990015014837",
   "smartrecruiters:abbvie:3743990014471696",
   "smartrecruiters:rolandberger:744000149302309",
+  "smartrecruiters:rolandberger:744000149375035",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
   "workday:abglobal:/job/Nashville-Tennessee/Business-Analyst-Summer-Intern_R0019767",
   "workday:abglobal:/job/Nashville-Tennessee/Investment-Management-Operations-Summer-Intern_R0019775",
@@ -2931,6 +2932,10 @@
    "l": "2026-08-25"
   },
   "smartrecruiters:rolandberger:744000149302309": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "smartrecruiters:rolandberger:744000149375035": {
    "f": "2026-09-14",
    "l": "2026-09-14"
   },
