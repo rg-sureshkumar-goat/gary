@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-14T21:04:48Z",
+ "broken": {
+  "Haize Labs": "HTTP 404"
+ },
+ "last_run": "2026-09-14T21:22:33Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 73,
-  "new": 0,
-  "postings": 25365,
-  "sites": 82
+  "failed": 1,
+  "matching": 108,
+  "new": 4,
+  "postings": 24032,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -356,6 +358,7 @@
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1",
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
+  "workday:gfs:/job/Wyoming-Michigan/Strategy-and-Profit-Revenue-Management-Internship_R-57181",
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674",
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Finance--FP-A--Tax--Treasury--Controllership--Risk--IR--Corp-Dev--Strategy-Transformation-_R0054859",
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Finance-FP-A--Leadership-Development-Program-_R0054559",
@@ -590,9 +593,11 @@
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Market-Access-Strategy--LCS-_R26-5069-2",
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2",
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961",
+  "workday:rsm:/job/Atlanta-Metro-Area/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117220",
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230",
   "workday:rsm:/job/Boston/Managed-IT-Services-Service-Desk-Consulting-Intern---Winter-2027_JR117032",
   "workday:rsm:/job/Boston/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR121242",
+  "workday:rsm:/job/Boston/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR116338",
   "workday:rsm:/job/Boston/Strategy---Management-Consulting-Intern---Summer-2027_JR117320",
   "workday:rsm:/job/Boston/Technology-Risk-Consulting-Intern---Summer-2027_JR116339",
   "workday:rsm:/job/Charlotte/Accounting-Methods-and-Periods-Tax-Intern---Summer-2027_JR118330",
@@ -630,6 +635,7 @@
   "workday:rsm:/job/Minneapolis/Microsoft-Customer-Engagement-Consulting-Intern---Summer-2027_JR117337",
   "workday:rsm:/job/Minneapolis/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR116991",
   "workday:rsm:/job/Minneapolis/Technology-Risk-Consulting-Intern---Summer-2027_JR117180",
+  "workday:rsm:/job/Nashville/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117218",
   "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439",
   "workday:rsm:/job/New-York/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117192",
   "workday:rsm:/job/New-York/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117261-1",
@@ -3837,6 +3843,10 @@
    "f": "2026-08-20",
    "l": "2026-09-14"
   },
+  "workday:gfs:/job/Wyoming-Michigan/Strategy-and-Profit-Revenue-Management-Internship_R-57181": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674": {
    "f": "2026-09-08",
    "l": "2026-09-14"
@@ -4781,6 +4791,10 @@
    "f": "2026-09-08",
    "l": "2026-09-14"
   },
+  "workday:rsm:/job/Atlanta-Metro-Area/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117220": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
   "workday:rsm:/job/Atlanta-Metro-Area/Technology-Risk-Consulting-Intern---Summer-2027_JR117230": {
    "f": "2026-09-04",
    "l": "2026-09-14"
@@ -4790,6 +4804,10 @@
    "l": "2026-09-14"
   },
   "workday:rsm:/job/Boston/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR121242": {
+   "f": "2026-09-14",
+   "l": "2026-09-14"
+  },
+  "workday:rsm:/job/Boston/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR116338": {
    "f": "2026-09-14",
    "l": "2026-09-14"
   },
@@ -4939,6 +4957,10 @@
   },
   "workday:rsm:/job/Minneapolis/Technology-Risk-Consulting-Intern---Summer-2027_JR117180": {
    "f": "2026-09-11",
+   "l": "2026-09-14"
+  },
+  "workday:rsm:/job/Nashville/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117218": {
+   "f": "2026-09-14",
    "l": "2026-09-14"
   },
   "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439": {
