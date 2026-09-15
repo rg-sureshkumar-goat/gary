@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-15T15:05:20Z",
+ "last_run": "2026-09-15T15:22:21Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 74,
-  "new": 0,
-  "postings": 25356,
-  "sites": 82
+  "matching": 50,
+  "new": 3,
+  "postings": 18516,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -195,6 +195,8 @@
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Office-of-the-CFO_R104925",
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Turnaround---Restructuring_R104930",
   "workday:ankura:/job/San-Francisco-CA/University-Intern--Risk-Advisory--eDiscovery_R104976",
+  "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104947",
+  "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104949",
   "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--eDiscovery_R104978",
   "workday:aoins:/job/Lansing-MI/Accounting-Intern---Winter-Spring-2027_R_14526",
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203",
@@ -674,6 +676,7 @@
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214-2",
   "workday:salesforce:/job/Indiana---Indianapolis/Summer-2027-Intern---Finance-Operations-Associate_JR359638-2",
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660",
+  "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784",
   "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474",
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084",
@@ -3223,6 +3226,14 @@
    "f": "2026-09-14",
    "l": "2026-09-15"
   },
+  "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104947": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
+  "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104949": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
   "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--eDiscovery_R104978": {
    "f": "2026-09-14",
    "l": "2026-09-15"
@@ -5149,6 +5160,10 @@
   },
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660": {
    "f": "2026-08-31",
+   "l": "2026-09-15"
+  },
+  "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812": {
+   "f": "2026-09-15",
    "l": "2026-09-15"
   },
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784": {
