@@ -1,12 +1,28 @@
 {
- "broken": {},
- "last_run": "2026-09-15T06:43:41Z",
+ "broken": {
+  "Advance Auto Parts": "HTTP 429",
+  "Applied Materials": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Cleveland Clinic": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "First American": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Maricopa County": "HTTP 429",
+  "NRECA International": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Palo Alto Networks": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "UL Standards & Engagement": "HTTP 429"
+ },
+ "last_run": "2026-09-15T06:57:32Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 74,
-  "new": 0,
-  "postings": 25367,
-  "sites": 82
+  "failed": 15,
+  "matching": 48,
+  "new": 2,
+  "postings": 15431,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -61,6 +77,8 @@
   "greenhouse:later:8802818002",
   "greenhouse:lincolninternational:8106841",
   "greenhouse:lucidmotors:5185317007",
+  "greenhouse:nationallifeinsurancecompany:4390742009",
+  "greenhouse:nationallifeinsurancecompany:4403604009",
   "greenhouse:perpay:4536787007",
   "greenhouse:relaypro:8093012",
   "greenhouse:relaypro:8096572",
@@ -529,6 +547,8 @@
   "workday:nationwide:/job/Ohio---Columbus-Metro/XMLNAME-2027-Controllership-Winter-Spring-Co-op_099978",
   "workday:nationwide:/job/Ohio---Columbus-One-Nationwide-Plaza/Summer-2027-Corporate-Development-Internship_100331",
   "workday:nationwide:/job/Ohio---Columbus-One-Nationwide-Plaza/Summer-2027-Personal-Lines-Sales-Business-Analyst-Intern_100038",
+  "workday:ncratleos:/job/ATLANTA-GA-USA/Business-Analyst-Intern_R1154685",
+  "workday:ncratleos:/job/ATLANTA-GA-USA/Professional-Services-Consultant-Intern_R1154692",
   "workday:nelnet:/job/Lincoln-NE/Finance-Intern---GTM---NBS_R23100",
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056",
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207",
@@ -1113,6 +1133,7 @@
   "Chanel",
   "Charge Robotics",
   "Charles River Associates",
+  "Charta Health",
   "Charter Manufacturing",
   "Checkr",
   "Cheiron",
@@ -1372,6 +1393,7 @@
   "Fairstone Financial",
   "Faith Technologies",
   "Fannie Mae",
+  "Fanvue",
   "Faraday Future",
   "Farfetch",
   "Farsight",
@@ -1612,6 +1634,7 @@
   "Intropic",
   "Intuitive Surgical",
   "Invesco",
+  "IonQ",
   "Iovance Biotherapeutics",
   "Iowa State University",
   "Iron Mountain",
@@ -1828,6 +1851,7 @@
   "Muon Space",
   "NAV CANADA",
   "NBCUniversal",
+  "NCR Atleos",
   "NCR Voyix",
   "NORY",
   "NOX METALS",
@@ -1839,6 +1863,7 @@
   "Nash",
   "National Information Solutions Cooperative (NISC)",
   "National Interstate Insurance",
+  "National Life",
   "Nationwide",
   "Nationwide Children's Hospital",
   "Navi AI",
@@ -1913,6 +1938,7 @@
   "Onto Innovation",
   "Open Farm Pet",
   "OpenAI",
+  "OpenGov",
   "OpenTable",
   "OpenX",
   "OpusClip",
@@ -2192,6 +2218,7 @@
   "Silicon Laboratories",
   "Simmons Bank",
   "Simons Foundation",
+  "SingleStore",
   "SitusAMC",
   "Skechers",
   "Skydio",
@@ -2493,6 +2520,7 @@
   "Woodward Governor",
   "Worcester Polytechnic Institute",
   "Workato",
+  "Workshop",
   "Workstream",
   "World Kinect",
   "Worldly",
@@ -2661,6 +2689,14 @@
   "greenhouse:lucidmotors:5185317007": {
    "f": "2026-08-25",
    "l": "2026-09-07"
+  },
+  "greenhouse:nationallifeinsurancecompany:4390742009": {
+   "f": "2026-09-08",
+   "l": "2026-09-15"
+  },
+  "greenhouse:nationallifeinsurancecompany:4403604009": {
+   "f": "2026-09-14",
+   "l": "2026-09-15"
   },
   "greenhouse:perpay:4536787007": {
    "f": "2024-10-09",
@@ -4556,6 +4592,14 @@
   },
   "workday:nationwide:/job/Ohio---Columbus-One-Nationwide-Plaza/Summer-2027-Personal-Lines-Sales-Business-Analyst-Intern_100038": {
    "f": "2026-09-04",
+   "l": "2026-09-15"
+  },
+  "workday:ncratleos:/job/ATLANTA-GA-USA/Business-Analyst-Intern_R1154685": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
+  "workday:ncratleos:/job/ATLANTA-GA-USA/Professional-Services-Consultant-Intern_R1154692": {
+   "f": "2026-09-15",
    "l": "2026-09-15"
   },
   "workday:nelnet:/job/Lincoln-NE/Finance-Intern---GTM---NBS_R23100": {
