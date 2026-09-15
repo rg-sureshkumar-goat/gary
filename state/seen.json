@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-15T15:37:46Z",
+ "last_run": "2026-09-15T15:49:52Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 74,
-  "new": 0,
-  "postings": 25355,
-  "sites": 82
+  "matching": 48,
+  "new": 2,
+  "postings": 17873,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -555,6 +555,8 @@
   "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Finance-Intern--Summer-2027-_R49793",
   "workday:oshkoshcorporation:/job/Dodge-Center-Minnesota-United-States/Strategic-Sourcing-Intern--Summer-2027-_R49800",
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Rotation-Inten_R45303",
+  "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Business-Analyst-Intern---Aftermarket_R49542",
+  "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49498",
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49501",
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824",
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Finance---Accounting-Intern_R50271",
@@ -4677,6 +4679,14 @@
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Rotation-Inten_R45303": {
    "f": "2026-08-25",
    "l": "2026-09-09"
+  },
+  "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Business-Analyst-Intern---Aftermarket_R49542": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
+  "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49498": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
   },
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49501": {
    "f": "2026-09-14",
