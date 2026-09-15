@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-15T17:35:27Z",
+ "broken": {
+  "Odin Dynamics, Inc": "HTTP 404"
+ },
+ "last_run": "2026-09-15T17:47:55Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 75,
-  "new": 0,
-  "postings": 25358,
-  "sites": 82
+  "failed": 1,
+  "matching": 40,
+  "new": 2,
+  "postings": 25359,
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -262,6 +264,7 @@
   "workday:conagrabrands:/job/Chicago-Illinois/FP-A-Internship---Summer-2027_Req-039834",
   "workday:conagrabrands:/job/Omaha-Nebraska/Accounting-CCG-Internship---Summer-2027_Req-039792",
   "workday:conagrabrands:/job/Omaha-Nebraska/Supply-Chain-Finance-Internship---Summer-2026_Req-039798",
+  "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Financial-Summer-Internship-Program_JR2600898",
   "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Summer-Internship-Program---Actuary_JR2600796",
   "workday:corteva:/job/Indianapolis-Indiana-United-States/Business-Analyst-Intern_248151W",
   "workday:cox:/job/Atlanta-GA/Corporate-Strategy-Intern_R202682423",
@@ -432,6 +435,7 @@
   "workday:igsenergy:/job/Ohio-Remote/Solar-Finance-Intern--Summer-2027-_R6304",
   "workday:igsenergy:/job/Ohio-Remote/Strategy-Intern--Summer-2027-_R6300",
   "workday:ingredion:/job/Westchester-IL/Global-Operations-Finance-Intern_Req-40191-1",
+  "workday:inmar:/job/Headquarters-Winston-Salem-NC/Finance-Internships--Summer-2027_JY2627634",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Accounting_R-15353",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Accounting_R-15353-1",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Financial-Planning---Analysis--FP-A-_R-15346",
@@ -3502,6 +3506,10 @@
    "f": "2026-08-17",
    "l": "2026-09-15"
   },
+  "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Financial-Summer-Internship-Program_JR2600898": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
   "workday:corebridgefinancial:/job/TX-Houston/XMLNAME-2027-Corebridge-Summer-Internship-Program---Actuary_JR2600796": {
    "f": "2026-08-25",
    "l": "2026-09-15"
@@ -4181,6 +4189,10 @@
   "workday:ingredion:/job/Westchester-IL/Global-Operations-Finance-Intern_Req-40191-1": {
    "f": "2026-09-02",
    "l": "2026-09-02"
+  },
+  "workday:inmar:/job/Headquarters-Winston-Salem-NC/Finance-Internships--Summer-2027_JY2627634": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Accounting_R-15353": {
    "f": "2026-09-03",
