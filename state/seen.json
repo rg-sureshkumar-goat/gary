@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-15T06:58:00Z",
+ "broken": {
+  "EY (US)": "URLError: <urlopen error timed out>"
+ },
+ "last_run": "2026-09-15T07:08:29Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 57,
+  "failed": 1,
+  "matching": 74,
   "new": 0,
-  "postings": 15281,
-  "sites": 185
+  "postings": 25247,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
