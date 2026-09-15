@@ -1,12 +1,19 @@
 {
- "broken": {},
- "last_run": "2026-09-15T18:39:39Z",
+ "broken": {
+  "Dow Chemical Company": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429"
+ },
+ "last_run": "2026-09-15T18:54:36Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 76,
-  "new": 1,
-  "postings": 25388,
-  "sites": 82
+  "failed": 6,
+  "matching": 45,
+  "new": 0,
+  "postings": 17137,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -152,6 +159,7 @@
   "smartrecruiters:rolandberger:744000149302309",
   "smartrecruiters:rolandberger:744000149375035",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
+  "workday:abbott:/job/United-States--Madison--1-Exact-Lane/XMLNAME-2027-Finance-Cancer-Diagnostics-Intern_31161561",
   "workday:abglobal:/job/Nashville-Tennessee/Business-Analyst-Summer-Intern_R0019767",
   "workday:abglobal:/job/Nashville-Tennessee/Investment-Management-Operations-Summer-Intern_R0019775",
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373",
@@ -215,6 +223,7 @@
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Corporate-Development-Intern---Graduate_R71514",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Graduate_R71500",
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499",
+  "workday:blueorigin:/job/Greater-Seattle-Area/XMLNAME-2026-Intern-Conversion---Financial-Analyst-I_R72228",
   "workday:boeing:/job/AUS---Port-Melbourne-Australia/Finance-Intern_JR2026523862",
   "workday:boeing:/job/AUS---Port-Melbourne-Australia/Finance-Intern_JR2026523862-1",
   "workday:boeing:/job/USA---Hazelwood-MO/Boeing-Summer-2027-Internship-Program--PAID----Finance--Evergreen-_JR2026519225",
@@ -362,6 +371,7 @@
   "workday:fnbcorp:/job/State-College-PA/Summer-2027-Retail-Banking-Intern_2026-02143",
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543",
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
+  "workday:freudenberg:/job/Durham-NC/Finance-Accounting-Intern_R_00107225-1",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
@@ -449,6 +459,7 @@
   "workday:jll:/job/Atlanta-GA/Capital-Markets-Summer-2027-Internship---Atlanta--GA_REQ530757",
   "workday:jll:/job/Austin-TX/Capital-Markets-Summer-2027-Internship---Austin--TX_REQ530579",
   "workday:jll:/job/Boston-MA/Capital-Markets-Summer-2027-Internship---Boston--MA_REQ530236",
+  "workday:jll:/job/Charlotte-NC/Capital-Markets-Summer-2027-Internship---Charlotte--NC_REQ530244",
   "workday:jll:/job/Chicago-IL/Capital-Markets-Summer-2027-Internship---Chicago--IL_REQ530231",
   "workday:jll:/job/Chicago-IL/Corporate-Capital-and-NNN-Lease-Capital-Markets-Summer-2027-Internship---Chicago--IL_REQ530530",
   "workday:jll:/job/Columbus-OH/Intern--Value-and-Risk-Advisory_REQ530251",
@@ -500,6 +511,7 @@
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---FAR-Program---Finance_R-052052",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Intern-2027---Service-Transformation---Data-Analytics_R-053219",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Internship-Summer-2027---Strategy-and-Growth_R-052938",
+  "workday:lplfinancial:/job/Fort-MillCharlotte/Internship-Summer-2027-Wealth-Advisor-Group_R-052554",
   "workday:lplfinancial:/job/Fort-MillCharlotte/Summer-Intern-2027--Business-Analyst-and-Project-Management_R-052922",
   "workday:magna:/job/Aurora-Ontario-CA/Jr-Financial-Analyst--Co-op-_R00240559",
   "workday:magna:/job/Milton-Ontario-CA/Finance-Co-op-Student_R00258630",
@@ -3055,6 +3067,10 @@
    "f": "2026-08-25",
    "l": "2026-09-15"
   },
+  "workday:abbott:/job/United-States--Madison--1-Exact-Lane/XMLNAME-2027-Finance-Cancer-Diagnostics-Intern_31161561": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
   "workday:abglobal:/job/Nashville-Tennessee/Business-Analyst-Summer-Intern_R0019767": {
    "f": "2026-09-11",
    "l": "2026-09-11"
@@ -3313,6 +3329,10 @@
   },
   "workday:blueorigin:/job/Greater-Seattle-Area/Summer-2027-Finance-Intern---Undergraduate_R71499": {
    "f": "2026-09-01",
+   "l": "2026-09-15"
+  },
+  "workday:blueorigin:/job/Greater-Seattle-Area/XMLNAME-2026-Intern-Conversion---Financial-Analyst-I_R72228": {
+   "f": "2026-09-15",
    "l": "2026-09-15"
   },
   "workday:boeing:/job/AUS---Port-Melbourne-Australia/Finance-Intern_JR2026523862": {
@@ -3907,6 +3927,10 @@
    "f": "2026-08-24",
    "l": "2026-09-15"
   },
+  "workday:freudenberg:/job/Durham-NC/Finance-Accounting-Intern_R_00107225-1": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
+  },
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1": {
    "f": "2026-08-28",
    "l": "2026-09-15"
@@ -4253,11 +4277,15 @@
   },
   "workday:jll:/job/Boston-MA/Capital-Markets-Summer-2027-Internship---Boston--MA_REQ530236": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-09-15"
+  },
+  "workday:jll:/job/Charlotte-NC/Capital-Markets-Summer-2027-Internship---Charlotte--NC_REQ530244": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
   },
   "workday:jll:/job/Chicago-IL/Capital-Markets-Summer-2027-Internship---Chicago--IL_REQ530231": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-09-15"
   },
   "workday:jll:/job/Chicago-IL/Corporate-Capital-and-NNN-Lease-Capital-Markets-Summer-2027-Internship---Chicago--IL_REQ530530": {
    "f": "2026-08-24",
@@ -4297,11 +4325,11 @@
   },
   "workday:jll:/job/Los-Angeles-CA/Capital-Markets-Summer-2027-Internship---Century-City--LA_REQ530570": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-09-15"
   },
   "workday:jll:/job/Miami-FL/Capital-Markets-Summer-2027-Internship---Miami--FL_REQ530237": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-09-15"
   },
   "workday:jll:/job/Minneapolis-MN/Capital-Markets-Summer-2027-Internship---Minneapolis--MN_REQ530234": {
    "f": "2026-08-24",
@@ -4313,7 +4341,7 @@
   },
   "workday:jll:/job/New-York-NY/Capital-Markets-Summer-2027-Internship---New-York_REQ528322": {
    "f": "2026-09-09",
-   "l": "2026-09-12"
+   "l": "2026-09-15"
   },
   "workday:jll:/job/New-York-NY/M-A-and-Corporate-Advisory-Summer-2027-Internship----Madison--NY_REQ530219": {
    "f": "2026-08-24",
@@ -4365,7 +4393,7 @@
   },
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-09-15"
   },
   "workday:keybank:/job/Albany-OR/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Albany--OR_R-41217": {
    "f": "2026-08-04",
@@ -4461,6 +4489,10 @@
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Internship-Summer-2027---Strategy-and-Growth_R-052938": {
    "f": "2026-08-18",
+   "l": "2026-09-15"
+  },
+  "workday:lplfinancial:/job/Fort-MillCharlotte/Internship-Summer-2027-Wealth-Advisor-Group_R-052554": {
+   "f": "2026-09-15",
    "l": "2026-09-15"
   },
   "workday:lplfinancial:/job/Fort-MillCharlotte/Summer-Intern-2027--Business-Analyst-and-Project-Management_R-052922": {
@@ -5521,7 +5553,7 @@
   },
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157": {
    "f": "2026-08-31",
-   "l": "2026-09-01"
+   "l": "2026-09-15"
   },
   "workday:volarisgroup:/job/United-States---Wayne-PA/M-A-Business-Development-Intern_R71020": {
    "f": "2026-09-15",
