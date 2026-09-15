@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-15T00:33:18Z",
+ "last_run": "2026-09-15T00:43:49Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 75,
   "new": 0,
-  "postings": 20,
-  "sites": 1
+  "postings": 25387,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2738,7 +2738,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
-   "l": "2026-09-14"
+   "l": "2026-09-15"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
@@ -2746,7 +2746,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
-   "l": "2026-09-14"
+   "l": "2026-09-15"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Internal-Services-Co-Op-Intern-Finance-Strategy-Transformation-Winter-2027/364303": {
    "f": "2026-09-11",
