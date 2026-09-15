@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-15T23:05:08Z",
+ "last_run": "2026-09-15T23:20:47Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 74,
-  "new": 0,
-  "postings": 25395,
-  "sites": 82
+  "matching": 51,
+  "new": 1,
+  "postings": 18573,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -326,6 +326,7 @@
   "workday:eisneramper:/job/New-York/XMLNAME-2027-Tax-Winter-Intern---Financial-Services_Req-8502",
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865",
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1",
+  "workday:elevancehealth:/job/IN-INDIANAPOLIS-220-VIRGINIA-AVE/Finance-Intern---Summer-2027_JR207231",
   "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510",
   "workday:entegris:/job/Chaska-MN/Enterprise-Transformation-Program-Coordination-Co-op_REQ-14433",
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808",
@@ -3772,6 +3773,10 @@
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1": {
    "f": "2026-08-28",
    "l": "2026-09-01"
+  },
+  "workday:elevancehealth:/job/IN-INDIANAPOLIS-220-VIRGINIA-AVE/Finance-Intern---Summer-2027_JR207231": {
+   "f": "2026-09-15",
+   "l": "2026-09-15"
   },
   "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510": {
    "f": "2026-09-09",
