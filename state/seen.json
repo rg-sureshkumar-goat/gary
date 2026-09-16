@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-16T16:37:15Z",
+ "broken": {
+  "Nio": "HTTP 422"
+ },
+ "last_run": "2026-09-16T16:49:53Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 76,
-  "new": 0,
-  "postings": 25437,
-  "sites": 82
+  "failed": 1,
+  "matching": 82,
+  "new": 2,
+  "postings": 32691,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -523,6 +525,7 @@
   "workday:manulife:/job/Tempe-Arizona/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Tempe--AZ-_JR26081868",
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1",
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078",
+  "workday:mckesson:/job/Irving-TX-USA---6555-North-State-Highway-161-P001/Business-Analyst-Intern--Product-Performance---Summer-2027_JR0153111",
   "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101",
   "workday:mckesson:/job/USA-TX-Irving/Innovation-Strategy-Intern---Summer-2027_JR0151704",
   "workday:mckesson:/job/USA-TX-Irving/Portfolio-Strategy-Intern---Summer-2027_JR0152311",
@@ -713,6 +716,7 @@
   "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Summer-2027_115743",
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-Accounting-Intern_SOSJ12450-1",
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-FP-A-Intern_SOSJ12452",
+  "workday:strayer:/job/Minneapolis-MN/Intern---Financial-Planning-and-Analysis_R29086",
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582",
   "workday:stryker:/job/Greenwood-Village-Colorado/XMLNAME-2027-Finance-Summer-Intern---Colorado_R572729",
   "workday:stryker:/job/Mahwah-New-Jersey/Summer-2027-Internship---Finance---New-Jersey_R572583",
@@ -4580,6 +4584,10 @@
    "f": "2026-08-26",
    "l": "2026-09-16"
   },
+  "workday:mckesson:/job/Irving-TX-USA---6555-North-State-Highway-161-P001/Business-Analyst-Intern--Product-Performance---Summer-2027_JR0153111": {
+   "f": "2026-09-16",
+   "l": "2026-09-16"
+  },
   "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101": {
    "f": "2026-09-05",
    "l": "2026-09-16"
@@ -5342,6 +5350,10 @@
   },
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-FP-A-Intern_SOSJ12452": {
    "f": "2026-09-15",
+   "l": "2026-09-16"
+  },
+  "workday:strayer:/job/Minneapolis-MN/Intern---Financial-Planning-and-Analysis_R29086": {
+   "f": "2026-09-16",
    "l": "2026-09-16"
   },
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582": {
