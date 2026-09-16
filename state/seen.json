@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-16T23:04:52Z",
+ "last_run": "2026-09-16T23:21:10Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 77,
-  "new": 0,
-  "postings": 25469,
-  "sites": 82
+  "matching": 61,
+  "new": 4,
+  "postings": 18613,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -460,6 +460,10 @@
   "workday:insulet:/job/Acton-Massachusetts/Intern--Treasury--June---August-2027--Hybrid-_REQ-2026-18143",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Accounting_R-15353",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Accounting_R-15353-1",
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Functions-Data-Office_R-15350",
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Functions-Data-Office_R-15350-1",
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Services--Travel-and-Events_R-15355",
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Services--Travel-and-Events_R-15355-1",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Financial-Planning---Analysis--FP-A-_R-15346",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Financial-Planning---Analysis--FP-A-_R-15346-2",
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--Capital-Markets-_R-15094",
@@ -4347,6 +4351,22 @@
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Accounting_R-15353-1": {
    "f": "2026-09-03",
+   "l": "2026-09-16"
+  },
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Functions-Data-Office_R-15350": {
+   "f": "2026-09-16",
+   "l": "2026-09-16"
+  },
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Functions-Data-Office_R-15350-1": {
+   "f": "2026-09-16",
+   "l": "2026-09-16"
+  },
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Services--Travel-and-Events_R-15355": {
+   "f": "2026-09-16",
+   "l": "2026-09-16"
+  },
+  "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Services--Travel-and-Events_R-15355-1": {
+   "f": "2026-09-16",
    "l": "2026-09-16"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Financial-Planning---Analysis--FP-A-_R-15346": {
