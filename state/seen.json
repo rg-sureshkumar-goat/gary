@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-16T13:38:27Z",
+ "broken": {
+  "Odin Dynamics, Inc": "HTTP 404"
+ },
+ "last_run": "2026-09-16T13:51:21Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 75,
+  "failed": 1,
+  "matching": 40,
   "new": 0,
-  "postings": 25387,
-  "sites": 82
+  "postings": 25395,
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
