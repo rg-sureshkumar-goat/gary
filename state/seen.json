@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-16T22:04:35Z",
+ "broken": {
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-09-16T22:21:26Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 76,
-  "new": 0,
-  "postings": 25463,
-  "sites": 82
+  "failed": 1,
+  "matching": 47,
+  "new": 3,
+  "postings": 25193,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -138,6 +140,8 @@
   "smartrecruiters:PilotCompany:744000148332760",
   "smartrecruiters:PilotCompany:744000148495349",
   "smartrecruiters:RRSGroup:744000133857769",
+  "smartrecruiters:Sandisk:744000149955849",
+  "smartrecruiters:Sandisk:744000149955990",
   "smartrecruiters:ServiceNow:744000147287709",
   "smartrecruiters:ServiceNow:744000148334959",
   "smartrecruiters:ServiceNow:744000148836589",
@@ -179,6 +183,7 @@
   "workday:alliedsolutions:/job/Carmel-IN/Strategic-Sourcing---Enterprise-Contracts-Intern_R-011088",
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1",
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1",
+  "workday:americancentury:/job/Kansas-City-Missouri/Investment-Operations---Transformation-Intern_R0005725",
   "workday:americancentury:/job/Kansas-City-Missouri/Personal-Financial-Solutions-Intern_R0005719",
   "workday:ameriprise:/job/Boston-Massachusetts/Asset-Management-Technology-Intern---Data-Enablement_R26_3538",
   "workday:ameriprise:/job/Boston-Massachusetts/Quantitative-Investment-Research-Co-op--Equities-_R26_3532",
@@ -3042,6 +3047,14 @@
    "f": "2026-06-24",
    "l": "2026-09-01"
   },
+  "smartrecruiters:Sandisk:744000149955849": {
+   "f": "2026-09-16",
+   "l": "2026-09-16"
+  },
+  "smartrecruiters:Sandisk:744000149955990": {
+   "f": "2026-09-16",
+   "l": "2026-09-16"
+  },
   "smartrecruiters:ServiceNow:744000147287709": {
    "f": "2026-09-03",
    "l": "2026-09-08"
@@ -3216,6 +3229,10 @@
   },
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1": {
    "f": "2026-08-25",
+   "l": "2026-09-16"
+  },
+  "workday:americancentury:/job/Kansas-City-Missouri/Investment-Operations---Transformation-Intern_R0005725": {
+   "f": "2026-09-16",
    "l": "2026-09-16"
   },
   "workday:americancentury:/job/Kansas-City-Missouri/Personal-Financial-Solutions-Intern_R0005719": {
