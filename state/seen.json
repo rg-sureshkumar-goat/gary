@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-17T19:35:30Z",
+ "last_run": "2026-09-17T19:46:33Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 77,
-  "new": 0,
-  "postings": 25495,
-  "sites": 82
+  "matching": 49,
+  "new": 1,
+  "postings": 18058,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -103,6 +103,7 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2028/364863",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Global-Trade-Advisory-Summer-2027/364867",
   "lever:Aprio:2c69eb91-9c0b-40e1-afe4-17b909b94706",
+  "lever:Aprio:85d3d741-99dc-4a73-8837-951c9ddf646c",
   "lever:Aprio:b96b0836-b3ba-481f-8f0f-d57a186642b0",
   "lever:CesiumAstro:e0525e31-2d45-441e-bf3e-36be4b67d8ef",
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606",
@@ -2930,6 +2931,10 @@
   },
   "lever:Aprio:2c69eb91-9c0b-40e1-afe4-17b909b94706": {
    "f": "2023-03-21",
+   "l": "2026-09-17"
+  },
+  "lever:Aprio:85d3d741-99dc-4a73-8837-951c9ddf646c": {
+   "f": "2024-08-27",
    "l": "2026-09-17"
   },
   "lever:Aprio:b96b0836-b3ba-481f-8f0f-d57a186642b0": {
