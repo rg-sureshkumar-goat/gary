@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-17T06:57:12Z",
+ "last_run": "2026-09-17T07:06:49Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 56,
-  "new": 0,
-  "postings": 15328,
-  "sites": 185
+  "matching": 78,
+  "new": 1,
+  "postings": 25440,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -810,6 +810,7 @@
   "workday:verizon:/job/Lake-Mary-Florida/Verizon-Finance--Financial-Planning---Analysis-Summer-2027-Internship_R-1100617",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Data-Analytics-and-Corporate-Strategy-Intern_REQ-22176",
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157",
+  "workday:visa:/job/US---Foster-City-CA/Finance-Intern---Summer-2027_REF088568W-1",
   "workday:volarisgroup:/job/United-States---Wayne-PA/M-A-Business-Development-Intern_R71020",
   "workday:washpost:/job/DC-Washington-TWP-Headquarters/Newsroom-Summer-Internship-Program-2027--Content-Strategy-Editors_JR-90275899",
   "workday:wgl:/job/Washington-DC/WGL---2027-Finance---Accounting-Intern_R7255",
@@ -5774,6 +5775,10 @@
   },
   "workday:vermeer:/job/Pella-Iowa-USA---Corporate-Office/Finance-Intern---Summer-2027_REQ-22157": {
    "f": "2026-08-31",
+   "l": "2026-09-17"
+  },
+  "workday:visa:/job/US---Foster-City-CA/Finance-Intern---Summer-2027_REF088568W-1": {
+   "f": "2026-09-17",
    "l": "2026-09-17"
   },
   "workday:volarisgroup:/job/United-States---Wayne-PA/M-A-Business-Development-Intern_R71020": {
