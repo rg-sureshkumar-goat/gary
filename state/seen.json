@@ -1,12 +1,15 @@
 {
- "broken": {},
- "last_run": "2026-09-17T21:34:58Z",
+ "broken": {
+  "Odin Dynamics, Inc": "HTTP 404",
+  "Postman": "HTTP 404"
+ },
+ "last_run": "2026-09-17T21:45:44Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 76,
-  "new": 0,
-  "postings": 25515,
-  "sites": 82
+  "failed": 2,
+  "matching": 42,
+  "new": 1,
+  "postings": 25437,
+  "sites": 196
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -587,6 +590,7 @@
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Distribution-Finance-Intern--Fall-2026_JR-46019-1",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Financial-Planning---Wealth-Intern--Summer-2027_JR-46008",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705",
+  "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Data---Analytics-Intern--Summer-2027_JR-46050",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Risk-Management-Internship--Fall-2026_JR-46002",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern--Summer-2027_JR-45802",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Public-Investments---Credit-Investment-Intern-MBA-MS--Summer-2027_JR-45855",
@@ -4893,6 +4897,10 @@
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Analyst-Intern---Private-Debt---Equity--Summer-2027_JR-45705": {
    "f": "2026-08-25",
+   "l": "2026-09-17"
+  },
+  "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Data---Analytics-Intern--Summer-2027_JR-46050": {
+   "f": "2026-09-17",
    "l": "2026-09-17"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Investment-Risk-Management-Internship--Fall-2026_JR-46002": {
