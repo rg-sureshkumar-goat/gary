@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-18T18:51:52Z",
+ "broken": {
+  "Pennant Group": "HTTP 401"
+ },
+ "last_run": "2026-09-18T18:52:31Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 46,
+  "failed": 1,
+  "matching": 56,
   "new": 0,
-  "postings": 17887,
-  "sites": 212
+  "postings": 15479,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
