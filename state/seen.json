@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-18T13:04:48Z",
+ "last_run": "2026-09-18T13:22:16Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 76,
-  "new": 0,
-  "postings": 25427,
-  "sites": 82
+  "matching": 102,
+  "new": 1,
+  "postings": 24290,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -231,6 +231,7 @@
   "workday:att:/job/Dallas-Texas/Transformation-Supply-Chain-Leadership-Program-Internship_R-120900",
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880",
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246882",
+  "workday:bakerhughes:/job/US-TX-HOUSTON-575-N-DAIRY-ASHFORD-RD-ENERGY-CENTER-II-EC2/Intern-Co-op---Finance--Spring-2027-Opportunities_R169272",
   "workday:bakertilly:/job/USA-IL-Chicago-800-W-Fulton/Summer-2027---Digital-Advisory-Solutions-Internship_JR108016",
   "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Advisory-Intern--Strategy---Operations-_JR107990",
   "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Finance-Intern--Capital---Infrastructure---Debt-Issuance-_JR107991",
@@ -3476,6 +3477,10 @@
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246882": {
    "f": "2026-09-10",
    "l": "2026-09-14"
+  },
+  "workday:bakerhughes:/job/US-TX-HOUSTON-575-N-DAIRY-ASHFORD-RD-ENERGY-CENTER-II-EC2/Intern-Co-op---Finance--Spring-2027-Opportunities_R169272": {
+   "f": "2026-09-18",
+   "l": "2026-09-18"
   },
   "workday:bakertilly:/job/USA-IL-Chicago-800-W-Fulton/Summer-2027---Digital-Advisory-Solutions-Internship_JR108016": {
    "f": "2026-09-16",
