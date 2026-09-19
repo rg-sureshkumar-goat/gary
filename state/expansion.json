@@ -10613,7 +10613,40 @@
       "last": "2026-09-18",
       "result": "added",
       "ats": "workday"
+    },
+    "Fable": {
+      "last": "2026-09-19",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "DatologyAI": {
+      "last": "2026-09-19",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Athene": {
+      "last": "2026-09-19",
+      "result": "none"
+    },
+    "Thrivent": {
+      "last": "2026-09-19",
+      "result": "none"
+    },
+    "The Brattle Group": {
+      "last": "2026-09-19",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Cambridge Investment Research": {
+      "last": "2026-09-19",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Risepoint": {
+      "last": "2026-09-19",
+      "result": "added",
+      "ats": "workday"
     }
   },
-  "last_run": "2026-09-18"
+  "last_run": "2026-09-19"
 }
