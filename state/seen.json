@@ -1,15 +1,12 @@
 {
- "broken": {
-  "Odin Dynamics, Inc": "HTTP 404",
-  "Postman": "HTTP 404"
- },
- "last_run": "2026-09-19T21:46:00Z",
+ "broken": {},
+ "last_run": "2026-09-19T22:04:31Z",
  "last_run_stats": {
-  "failed": 2,
-  "matching": 40,
+  "failed": 0,
+  "matching": 80,
   "new": 0,
-  "postings": 25433,
-  "sites": 196
+  "postings": 25366,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -2956,7 +2953,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265": {
    "f": "2026-08-25",
-   "l": "2026-09-18"
+   "l": "2026-09-19"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268": {
    "f": "2026-08-25",
