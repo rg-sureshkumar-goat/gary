@@ -1,11 +1,11 @@
 {
  "broken": {},
- "last_run": "2026-09-20T08:36:40Z",
+ "last_run": "2026-09-20T09:05:26Z",
  "last_run_stats": {
   "failed": 0,
   "matching": 75,
   "new": 0,
-  "postings": 25075,
+  "postings": 25310,
   "sites": 82
  },
  "recommended": {
