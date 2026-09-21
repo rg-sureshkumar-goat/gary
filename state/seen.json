@@ -1,12 +1,16 @@
 {
- "broken": {},
- "last_run": "2026-09-21T06:44:07Z",
+ "broken": {
+  "Fannie Mae": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "TruStage": "HTTP 429"
+ },
+ "last_run": "2026-09-21T06:58:07Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 77,
+  "failed": 3,
+  "matching": 38,
   "new": 0,
-  "postings": 25147,
-  "sites": 82
+  "postings": 17698,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -584,6 +588,9 @@
   "workday:mckesson:/job/USA-TX-The-Woodlands/Practice-Management-Accounting-Intern---Summer-2027_JR0150932",
   "workday:medline:/job/Northfield-Illinois/Finance-Accounting-Intern---Summer-2027_R2616741",
   "workday:meijer:/job/Grand-Rapids-MI/Finance-Intern--Summer-2027_R000697296",
+  "workday:mfs:/job/Boston/DCI-Sales-Co-op-Spring-2027--January---June-_MFS-231927",
+  "workday:mfs:/job/Boston/Distribution-Strategic-Capabilities-Co-op-Spring-2027--January---June-_MFS-231938",
+  "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905",
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774",
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097",
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558",
@@ -4926,6 +4933,18 @@
   "workday:meijer:/job/Grand-Rapids-MI/Finance-Intern--Summer-2027_R000697296": {
    "f": "2026-09-09",
    "l": "2026-09-09"
+  },
+  "workday:mfs:/job/Boston/DCI-Sales-Co-op-Spring-2027--January---June-_MFS-231927": {
+   "f": "2026-09-21",
+   "l": "2026-09-21"
+  },
+  "workday:mfs:/job/Boston/Distribution-Strategic-Capabilities-Co-op-Spring-2027--January---June-_MFS-231938": {
+   "f": "2026-09-21",
+   "l": "2026-09-21"
+  },
+  "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905": {
+   "f": "2026-09-21",
+   "l": "2026-09-21"
   },
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774": {
    "f": "2026-09-09",
