@@ -10646,7 +10646,17 @@
       "last": "2026-09-19",
       "result": "added",
       "ats": "workday"
+    },
+    "Collinear AI": {
+      "last": "2026-09-21",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Upbound Group": {
+      "last": "2026-09-21",
+      "result": "added",
+      "ats": "workday"
     }
   },
-  "last_run": "2026-09-19"
+  "last_run": "2026-09-21"
 }
