@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-21T23:04:41Z",
+ "last_run": "2026-09-21T23:21:22Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 78,
-  "new": 0,
-  "postings": 25270,
-  "sites": 82
+  "matching": 54,
+  "new": 1,
+  "postings": 18606,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -623,6 +623,7 @@
   "workday:ncratleos:/job/ATLANTA-GA-USA/Professional-Services-Consultant-Intern_R1154692",
   "workday:nelnet:/job/Lincoln-NE/Finance-Intern---GTM---NBS_R23100",
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056",
+  "workday:ngc:/job/United-States-Maryland-Linthicum/XMLNAME-2027-Strategic-Sourcing-Intern---Baltimore-MD_R10252107",
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Distribution-Finance-Intern--Fall-2026_JR-46019-1",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Financial-Planning---Wealth-Intern--Summer-2027_JR-46008",
@@ -5084,6 +5085,10 @@
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056": {
    "f": "2026-08-28",
+   "l": "2026-09-21"
+  },
+  "workday:ngc:/job/United-States-Maryland-Linthicum/XMLNAME-2027-Strategic-Sourcing-Intern---Baltimore-MD_R10252107": {
+   "f": "2026-09-21",
    "l": "2026-09-21"
   },
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207": {
