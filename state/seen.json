@@ -1,12 +1,25 @@
 {
- "broken": {},
- "last_run": "2026-09-22T06:41:28Z",
+ "broken": {
+  "Cleveland Clinic": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "Mizuho Securities USA": "HTTP 429",
+  "NRECA International": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429"
+ },
+ "last_run": "2026-09-22T06:55:58Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 78,
+  "failed": 12,
+  "matching": 36,
   "new": 0,
-  "postings": 25257,
-  "sites": 82
+  "postings": 16069,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -159,6 +172,9 @@
   "smartrecruiters:PilotCompany:744000148332760",
   "smartrecruiters:PilotCompany:744000148495349",
   "smartrecruiters:RRSGroup:744000133857769",
+  "smartrecruiters:Resultant:744000150785390",
+  "smartrecruiters:Resultant:744000150787255",
+  "smartrecruiters:Resultant:744000150787699",
   "smartrecruiters:Sandisk:744000149955849",
   "smartrecruiters:Sandisk:744000149955990",
   "smartrecruiters:ServiceNow:744000147287709",
@@ -170,6 +186,7 @@
   "smartrecruiters:TheWonderfulCompany:744000113780858",
   "smartrecruiters:TheWonderfulCompany:744000113783769",
   "smartrecruiters:VeoliaEnvironnementSA:744000150459789",
+  "smartrecruiters:VeoliaEnvironnementSA:744000150937809",
   "smartrecruiters:WabashValleyPowerAlliance:744000149874100",
   "smartrecruiters:Wabtec:3743990014653567",
   "smartrecruiters:Wabtec:3743990015094546",
@@ -1338,6 +1355,7 @@
   "Cortland",
   "Coupa Software",
   "Covestro",
+  "Cowboy Space",
   "Cox",
   "CoxHealth",
   "Creatify",
@@ -1672,6 +1690,7 @@
   "Harvey",
   "Hawk-Eye Innovations",
   "Hayden AI",
+  "Headlands Tech Holdings",
   "Healthfirst",
   "HeartFlow",
   "Heidelberg Materials",
@@ -2240,6 +2259,7 @@
   "Republic Airways",
   "Resmed",
   "Resolve Tech Solutions",
+  "Resultant",
   "Retell AI",
   "Revantage Corporate Services",
   "Revel",
@@ -2601,6 +2621,7 @@
   "Very Good Security",
   "Vestwell",
   "Vevo",
+  "Vialto Partners",
   "Viam",
   "Viatris",
   "Viridien",
@@ -3212,6 +3233,18 @@
    "f": "2026-06-24",
    "l": "2026-09-01"
   },
+  "smartrecruiters:Resultant:744000150785390": {
+   "f": "2026-09-21",
+   "l": "2026-09-22"
+  },
+  "smartrecruiters:Resultant:744000150787255": {
+   "f": "2026-09-21",
+   "l": "2026-09-22"
+  },
+  "smartrecruiters:Resultant:744000150787699": {
+   "f": "2026-09-21",
+   "l": "2026-09-22"
+  },
   "smartrecruiters:Sandisk:744000149955849": {
    "f": "2026-09-16",
    "l": "2026-09-22"
@@ -3254,6 +3287,10 @@
   },
   "smartrecruiters:VeoliaEnvironnementSA:744000150459789": {
    "f": "2026-09-18",
+   "l": "2026-09-22"
+  },
+  "smartrecruiters:VeoliaEnvironnementSA:744000150937809": {
+   "f": "2026-09-22",
    "l": "2026-09-22"
   },
   "smartrecruiters:WabashValleyPowerAlliance:744000149874100": {
