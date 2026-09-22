@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Target": "TimeoutError: The read operation timed out"
- },
- "last_run": "2026-09-22T13:06:06Z",
+ "broken": {},
+ "last_run": "2026-09-22T13:24:23Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 77,
+  "failed": 0,
+  "matching": 95,
   "new": 0,
-  "postings": 24962,
-  "sites": 82
+  "postings": 24123,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
