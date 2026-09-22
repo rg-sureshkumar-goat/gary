@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-09-22T20:04:45Z",
+ "broken": {
+  "Mach Industries": "HTTP 404"
+ },
+ "last_run": "2026-09-22T20:21:12Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 77,
-  "new": 0,
-  "postings": 25361,
-  "sites": 82
+  "failed": 1,
+  "matching": 52,
+  "new": 1,
+  "postings": 21538,
+  "sites": 209
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -562,6 +564,7 @@
   "workday:jll:/job/SAN-ANTONIO-TX/Capital-Markets-Summer-2027-Internship---San-Antonio--TX_REQ530580",
   "workday:jll:/job/Salt-Lake-City-UT/Capital-Markets-Analyst-Summer-2027-Internship---Salt-Lake-City--UT_REQ530571",
   "workday:jll:/job/San-Diego-CA/Capital-Markets-Summer-2027-Internship---San-Diego--CA_REQ530207-1",
+  "workday:jll:/job/San-Diego-CA/Public-Institutions-Advisory-Summer-2027-Internship---San-Diego--CA_REQ534204",
   "workday:jll:/job/San-Francisco-CA/Capital-Markets-Summer-2027-Internship---San-Francisco--CA_REQ530240",
   "workday:jll:/job/Seattle-WA/Capital-Markets-Summer-Internship-2027---Seattle--WA_REQ530584",
   "workday:jll:/job/Tampa-FL/Capital-Markets-Summer-2027-Internship---Tampa--FL_REQ532419",
@@ -4861,6 +4864,10 @@
   },
   "workday:jll:/job/San-Diego-CA/Capital-Markets-Summer-2027-Internship---San-Diego--CA_REQ530207-1": {
    "f": "2026-08-24",
+   "l": "2026-09-22"
+  },
+  "workday:jll:/job/San-Diego-CA/Public-Institutions-Advisory-Summer-2027-Internship---San-Diego--CA_REQ534204": {
+   "f": "2026-09-22",
    "l": "2026-09-22"
   },
   "workday:jll:/job/San-Francisco-CA/Capital-Markets-Summer-2027-Internship---San-Francisco--CA_REQ530240": {
