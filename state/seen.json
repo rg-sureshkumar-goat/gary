@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Mach Industries": "HTTP 404"
- },
- "last_run": "2026-09-22T00:28:16Z",
+ "broken": {},
+ "last_run": "2026-09-22T00:30:35Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 51,
-  "new": 1,
-  "postings": 21501,
-  "sites": 209
+  "failed": 0,
+  "matching": 0,
+  "new": 0,
+  "postings": 25,
+  "sites": 1
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
