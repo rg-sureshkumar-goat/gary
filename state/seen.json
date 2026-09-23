@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-23T15:04:28Z",
+ "last_run": "2026-09-23T15:23:22Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 78,
-  "new": 1,
-  "postings": 25391,
-  "sites": 82
+  "matching": 55,
+  "new": 2,
+  "postings": 18663,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -616,6 +616,7 @@
   "workday:meijer:/job/Grand-Rapids-MI/Finance-Intern--Summer-2027_R000697296",
   "workday:mfs:/job/Boston/DCI-Sales-Co-op-Spring-2027--January---June-_MFS-231927",
   "workday:mfs:/job/Boston/Distribution-Strategic-Capabilities-Co-op-Spring-2027--January---June-_MFS-231938",
+  "workday:mfs:/job/Boston/Investment-Operations-Business-Analyst-Co-op-Spring-2027--January---June-_MFS-231947",
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905",
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774",
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097",
@@ -645,6 +646,7 @@
   "workday:nelnet:/job/Lincoln-NE/Finance-Intern---GTM---NBS_R23100",
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056",
   "workday:ngc:/job/United-States-Maryland-Linthicum/XMLNAME-2027-Strategic-Sourcing-Intern---Baltimore-MD_R10252107",
+  "workday:ngc:/job/United-States-Minnesota-Plymouth/XMLNAME-2027-Finance-Intern---Plymouth-MN_R10252490",
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Distribution-Finance-Intern--Fall-2026_JR-46019-1",
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Financial-Planning---Wealth-Intern--Summer-2027_JR-46008",
@@ -5094,13 +5096,17 @@
    "f": "2026-09-21",
    "l": "2026-09-23"
   },
+  "workday:mfs:/job/Boston/Investment-Operations-Business-Analyst-Co-op-Spring-2027--January---June-_MFS-231947": {
+   "f": "2026-09-23",
+   "l": "2026-09-23"
+  },
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905": {
    "f": "2026-09-21",
    "l": "2026-09-23"
   },
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774": {
    "f": "2026-09-09",
-   "l": "2026-09-14"
+   "l": "2026-09-23"
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097": {
    "f": "2026-09-17",
@@ -5208,6 +5214,10 @@
   },
   "workday:ngc:/job/United-States-Maryland-Linthicum/XMLNAME-2027-Strategic-Sourcing-Intern---Baltimore-MD_R10252107": {
    "f": "2026-09-21",
+   "l": "2026-09-23"
+  },
+  "workday:ngc:/job/United-States-Minnesota-Plymouth/XMLNAME-2027-Finance-Intern---Plymouth-MN_R10252490": {
+   "f": "2026-09-23",
    "l": "2026-09-23"
   },
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Financial-Analyst-Intern---McLean-VA_R10249207": {
