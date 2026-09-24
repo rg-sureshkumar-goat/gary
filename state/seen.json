@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-24T00:31:20Z",
+ "last_run": "2026-09-24T00:42:26Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 81,
   "new": 0,
-  "postings": 24,
-  "sites": 1
+  "postings": 25452,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3027,7 +3027,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265": {
    "f": "2026-08-25",
-   "l": "2026-09-23"
+   "l": "2026-09-24"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268": {
    "f": "2026-08-25",
@@ -3039,7 +3039,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
-   "l": "2026-09-23"
+   "l": "2026-09-24"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
