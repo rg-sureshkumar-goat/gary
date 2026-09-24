@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-24T02:49:19Z",
+ "last_run": "2026-09-24T03:04:36Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 58,
+  "matching": 80,
   "new": 0,
-  "postings": 15545,
-  "sites": 185
+  "postings": 25447,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3048,7 +3048,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
-   "l": "2026-09-23"
+   "l": "2026-09-24"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
