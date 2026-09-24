@@ -1,12 +1,31 @@
 {
- "broken": {},
- "last_run": "2026-09-24T18:05:08Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "First American": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "Relativity": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429",
+  "Sierra Space": "HTTP 429",
+  "Signet Jewelers": "HTTP 429"
+ },
+ "last_run": "2026-09-24T18:55:01Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 75,
-  "new": 0,
-  "postings": 25448,
-  "sites": 82
+  "failed": 18,
+  "matching": 38,
+  "new": 1,
+  "postings": 15087,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -73,6 +92,7 @@
   "greenhouse:lucidmotors:5185317007",
   "greenhouse:nationallifeinsurancecompany:4390742009",
   "greenhouse:nationallifeinsurancecompany:4403604009",
+  "greenhouse:olsson:5434137008",
   "greenhouse:perpay:4536787007",
   "greenhouse:point72:8811167002",
   "greenhouse:relaypro:8093012",
@@ -214,6 +234,7 @@
   "workday:alliedsolutions:/job/Carmel-IN/Strategic-Sourcing---Enterprise-Contracts-Intern_R-011088",
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1",
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1",
+  "workday:americancentury:/job/Kansas-City-Missouri/Investment-Analyst-Summer-Associate_R0005737",
   "workday:americancentury:/job/Kansas-City-Missouri/Investment-Operations---Transformation-Intern_R0005725",
   "workday:americancentury:/job/Kansas-City-Missouri/Personal-Financial-Solutions-Intern_R0005719",
   "workday:ameriprise:/job/Boston-Massachusetts/Asset-Management-Technology-Intern---Data-Enablement_R26_3538",
@@ -336,6 +357,7 @@
   "workday:corteva:/job/Indianapolis-Indiana-United-States/Business-Analyst-Intern_248151W",
   "workday:cox:/job/Atlanta-GA/Corporate-Strategy-Intern_R202682423",
   "workday:cox:/job/Atlanta-GA/Financial-Analyst-Intern_R202682419",
+  "workday:cox:/job/Atlanta-GA/Financial-Planning---Analysis-Intern_R202682422",
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern---WINTER-2027_R-52338",
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern_R-71000",
   "workday:crowe:/job/Chicago-IL-USA/Business-Analyst-Intern_R-71638",
@@ -682,6 +704,7 @@
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49498",
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49501",
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824",
+  "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Accounting-Intern_R50462",
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Finance---Accounting-Intern_R50271",
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Treasury-Intern_R49232",
   "workday:oshkoshcorporation:/job/Roy-Utah-United-States/Accounting-Intern--Summer-2027-_R49803",
@@ -693,6 +716,7 @@
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002247",
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002271",
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002363",
+  "workday:philips:/job/Plymouth-Minnesota-United-States/Finance-Intern_592696",
   "workday:pimco:/job/New-York-NY-USA/XMLNAME-2027-Summer-Intern---Global-Wealth-Management--Strategic-Accounts-Analyst--US--_R106770",
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Alternatives-Investment-Operations-Intern_R106782",
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Consultant-Relations-Group-Analyst--US_R106741",
@@ -2917,6 +2941,10 @@
    "f": "2026-09-14",
    "l": "2026-09-15"
   },
+  "greenhouse:olsson:5434137008": {
+   "f": "2026-09-24",
+   "l": "2026-09-24"
+  },
   "greenhouse:perpay:4536787007": {
    "f": "2024-10-09",
    "l": "2026-09-24"
@@ -3493,6 +3521,10 @@
    "f": "2026-08-25",
    "l": "2026-09-24"
   },
+  "workday:americancentury:/job/Kansas-City-Missouri/Investment-Analyst-Summer-Associate_R0005737": {
+   "f": "2026-09-24",
+   "l": "2026-09-24"
+  },
   "workday:americancentury:/job/Kansas-City-Missouri/Investment-Operations---Transformation-Intern_R0005725": {
    "f": "2026-09-16",
    "l": "2026-09-24"
@@ -3983,6 +4015,10 @@
   },
   "workday:cox:/job/Atlanta-GA/Financial-Analyst-Intern_R202682419": {
    "f": "2026-09-11",
+   "l": "2026-09-24"
+  },
+  "workday:cox:/job/Atlanta-GA/Financial-Planning---Analysis-Intern_R202682422": {
+   "f": "2026-09-24",
    "l": "2026-09-24"
   },
   "workday:crowe:/job/Chicago-IL-USA/Accounting-Advisory-Intern---WINTER-2027_R-52338": {
@@ -5377,6 +5413,10 @@
    "f": "2026-08-28",
    "l": "2026-09-15"
   },
+  "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Accounting-Intern_R50462": {
+   "f": "2026-09-24",
+   "l": "2026-09-24"
+  },
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Finance---Accounting-Intern_R50271": {
    "f": "2026-09-11",
    "l": "2026-09-24"
@@ -5419,6 +5459,10 @@
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002363": {
    "f": "2026-09-22",
+   "l": "2026-09-24"
+  },
+  "workday:philips:/job/Plymouth-Minnesota-United-States/Finance-Intern_592696": {
+   "f": "2026-09-24",
    "l": "2026-09-24"
   },
   "workday:pimco:/job/New-York-NY-USA/XMLNAME-2027-Summer-Intern---Global-Wealth-Management--Strategic-Accounts-Analyst--US--_R106770": {
