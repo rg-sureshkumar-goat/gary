@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-26T13:03:09Z",
+ "last_run": "2026-09-26T14:43:16Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 57,
   "new": 0,
-  "postings": 22,
-  "sites": 1
+  "postings": 15625,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -6382,31 +6382,31 @@
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:situsamc:/job/El-Segungdo-CA/Asset-Management-Intern--El-Segundo_JR03085": {
    "f": "2026-09-23",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-09-25"
+   "l": "2026-09-26"
   },
   "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929": {
    "f": "2026-09-09",
