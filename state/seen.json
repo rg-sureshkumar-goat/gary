@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-28T20:39:42Z",
+ "last_run": "2026-09-28T21:23:02Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 72,
+  "matching": 76,
   "new": 2,
-  "postings": 25194,
-  "sites": 82
+  "postings": 24236,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -869,7 +869,9 @@
   "workday:rsm:/job/Minneapolis/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR116991",
   "workday:rsm:/job/Minneapolis/Technology-Risk-Consulting-Intern---Summer-2027_JR117180",
   "workday:rsm:/job/Nashville/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117218",
+  "workday:rsm:/job/New-York/Federal-Mergers-and-Acquisitions-Tax-Intern---Summer-2027_JR121534",
   "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439",
+  "workday:rsm:/job/New-York/International-Tax-Mergers---Acquisitions-Intern---Summer-2027_JR121410",
   "workday:rsm:/job/New-York/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117192",
   "workday:rsm:/job/New-York/Process-Risk-and-Controls-Consulting-Intern---Summer-2027_JR117261-1",
   "workday:rsm:/job/New-York/Strategy---Management-Consulting-Intern--Summer-2027_JR117321",
@@ -6277,9 +6279,17 @@
    "f": "2026-09-14",
    "l": "2026-09-28"
   },
+  "workday:rsm:/job/New-York/Federal-Mergers-and-Acquisitions-Tax-Intern---Summer-2027_JR121534": {
+   "f": "2026-09-28",
+   "l": "2026-09-28"
+  },
   "workday:rsm:/job/New-York/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR116439": {
    "f": "2026-09-04",
    "l": "2026-09-15"
+  },
+  "workday:rsm:/job/New-York/International-Tax-Mergers---Acquisitions-Intern---Summer-2027_JR121410": {
+   "f": "2026-09-28",
+   "l": "2026-09-28"
   },
   "workday:rsm:/job/New-York/Oracle-NetSuite-Consulting-Intern--Summer-2027_JR117192": {
    "f": "2026-09-10",
