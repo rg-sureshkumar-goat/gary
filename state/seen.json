@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-28T16:44:42Z",
+ "last_run": "2026-09-28T20:39:42Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 22,
-  "sites": 1
+  "matching": 72,
+  "new": 2,
+  "postings": 25194,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -560,7 +560,9 @@
   "workday:heinz:/job/Chicago-IL/XMLNAME-2027-US-Finance-Summer-Internship-Program_R-105300",
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929",
   "workday:hl:/job/Los-Angeles-CA-USA/Corporate-Development-Intern--Summer-2027-_R3354",
+  "workday:hl:/job/Los-Angeles-CA-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---Los-Angeles_R3584",
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535",
+  "workday:hl:/job/New-York-NY-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---New-York_R3585",
   "workday:hntb:/job/Atlanta-GA/Finance-Intern---Summer-2027_R-31690",
   "workday:hntb:/job/Atlanta-GA/Finance-Intern---Summer-2027_R-31690-1",
   "workday:hntb:/job/Boston-MA/Project-Operations-and-Finance-Intern---Summer-2027_R-31584",
@@ -3277,7 +3279,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
-   "l": "2026-09-24"
+   "l": "2026-09-28"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
@@ -5031,9 +5033,17 @@
    "f": "2026-08-25",
    "l": "2026-09-28"
   },
+  "workday:hl:/job/Los-Angeles-CA-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---Los-Angeles_R3584": {
+   "f": "2026-09-28",
+   "l": "2026-09-28"
+  },
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535": {
    "f": "2026-09-01",
    "l": "2026-09-14"
+  },
+  "workday:hl:/job/New-York-NY-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---New-York_R3585": {
+   "f": "2026-09-28",
+   "l": "2026-09-28"
   },
   "workday:hntb:/job/Atlanta-GA/Finance-Intern---Summer-2027_R-31690": {
    "f": "2026-09-23",
