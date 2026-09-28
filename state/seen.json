@@ -1,14 +1,14 @@
 {
  "broken": {
-  "JPMorgan Chase": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  "Relativity": "HTTP 429"
  },
- "last_run": "2026-09-28T14:17:05Z",
+ "last_run": "2026-09-28T14:32:44Z",
  "last_run_stats": {
   "failed": 1,
-  "matching": 66,
+  "matching": 42,
   "new": 0,
-  "postings": 21148,
-  "sites": 82
+  "postings": 18076,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -968,6 +968,7 @@
   "workday:tjx:/job/Framingham-MA-01701/Financial-Analyst-Internship---Summer-2027_REQ153141",
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247",
   "workday:transunion:/job/White-Plains-New-York/Consulting-Analytics---Argus-Advisory-Internship---Summer-2026_19042605",
+  "workday:transunion:/job/White-Plains-New-York/Financial-Services---Argus-Advisory-Internship---Summer-2027_19042627",
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763",
   "workday:trustage:/job/Wisconsin---Remote/Finance-Accounting-Intern--hybrid-_R-012151",
   "workday:ttc:/job/Bloomington-MN/CRM-Business-Analyst-Intern---The-Toro-Company_JR17386",
@@ -4502,7 +4503,7 @@
   },
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260": {
    "f": "2026-08-25",
-   "l": "2026-09-27"
+   "l": "2026-09-28"
   },
   "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365": {
    "f": "2026-08-31",
@@ -6086,7 +6087,7 @@
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
    "f": "2026-09-01",
-   "l": "2026-09-27"
+   "l": "2026-09-28"
   },
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961": {
    "f": "2026-09-08",
@@ -6662,6 +6663,10 @@
   },
   "workday:transunion:/job/White-Plains-New-York/Consulting-Analytics---Argus-Advisory-Internship---Summer-2026_19042605": {
    "f": "2026-09-25",
+   "l": "2026-09-28"
+  },
+  "workday:transunion:/job/White-Plains-New-York/Financial-Services---Argus-Advisory-Internship---Summer-2027_19042627": {
+   "f": "2026-09-28",
    "l": "2026-09-28"
   },
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763": {
