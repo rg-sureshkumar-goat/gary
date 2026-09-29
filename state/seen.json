@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-29T18:46:13Z",
+ "last_run": "2026-09-29T19:37:19Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 72,
+  "matching": 43,
   "new": 1,
-  "postings": 25162,
-  "sites": 82
+  "postings": 18119,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -710,6 +710,7 @@
   "workday:mfs:/job/Boston/Distribution-Strategic-Capabilities-Co-op-Spring-2027--January---June-_MFS-231938",
   "workday:mfs:/job/Boston/Investment-Operations-Business-Analyst-Co-op-Spring-2027--January---June-_MFS-231947",
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905",
+  "workday:michelinhr:/job/GREENVILLE-SC/XMLNAME-2027-Summer-Inclusion-Strategy---Business-Integration-Intern_R-2026029963",
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774",
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097",
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558",
@@ -4856,7 +4857,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
@@ -5657,6 +5658,10 @@
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905": {
    "f": "2026-09-21",
    "l": "2026-09-25"
+  },
+  "workday:michelinhr:/job/GREENVILLE-SC/XMLNAME-2027-Summer-Inclusion-Strategy---Business-Integration-Intern_R-2026029963": {
+   "f": "2026-09-29",
+   "l": "2026-09-29"
   },
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774": {
    "f": "2026-09-09",
