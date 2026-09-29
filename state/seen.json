@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-09-29T06:25:21Z",
+ "last_run": "2026-09-29T07:29:14Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 71,
-  "new": 0,
-  "postings": 25190,
-  "sites": 82
+  "matching": 55,
+  "new": 1,
+  "postings": 18555,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -214,6 +214,7 @@
   "smartrecruiters:abbvie:3743990014471696",
   "smartrecruiters:rolandberger:744000149302309",
   "smartrecruiters:rolandberger:744000149375035",
+  "workday:aah:/job/Charlotte-NC---4400-Golf-Acres-Dr/Finance-Intern_R271470",
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945",
   "workday:abbott:/job/United-States--Madison--1-Exact-Lane/XMLNAME-2027-Finance-Cancer-Diagnostics-Intern_31161561",
   "workday:abglobal:/job/Nashville-Tennessee/Business-Analyst-Summer-Intern_R0019767",
@@ -2980,7 +2981,7 @@
   },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "greenhouse:aqr:8161563": {
    "f": "2026-08-27",
@@ -3180,7 +3181,7 @@
   },
   "greenhouse:schonfeld:8172064": {
    "f": "2026-09-04",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "greenhouse:silananotechnologies:8157153": {
    "f": "2026-08-25",
@@ -3608,7 +3609,7 @@
   },
   "smartrecruiters:Wabtec:3743990014653567": {
    "f": "2026-08-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "smartrecruiters:Wabtec:3743990015094546": {
    "f": "2026-09-06",
@@ -3644,6 +3645,10 @@
   },
   "smartrecruiters:rolandberger:744000149375035": {
    "f": "2026-09-14",
+   "l": "2026-09-29"
+  },
+  "workday:aah:/job/Charlotte-NC---4400-Golf-Acres-Dr/Finance-Intern_R271470": {
+   "f": "2026-09-28",
    "l": "2026-09-29"
   },
   "workday:abbott:/job/United-States---Illinois---Abbott-Park/XMLNAME-2027-Finance-Internship_31159945": {
@@ -3684,11 +3689,11 @@
   },
   "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064784": {
    "f": "2026-09-11",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064785": {
    "f": "2026-09-11",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879": {
    "f": "2026-09-05",
@@ -3800,23 +3805,23 @@
   },
   "workday:andersonsinc:/job/Maumee-OH/Accounting-Intern--Summer-2027-_R12482": {
    "f": "2026-09-15",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Atlanta-GA/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104957": {
    "f": "2026-09-10",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Chicago-IL/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104968": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Chicago-IL/University-Intern--Disputes---Economics---Valuation---Transaction-Advisory_R104985": {
    "f": "2026-09-18",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Chicago-IL/University-Intern--Risk-Advisory--eDiscovery_R104975": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Chicago-IL/University-Intern--Strategic-Finance--Office-of-the-CFO_R104926": {
    "f": "2026-09-09",
@@ -3828,47 +3833,47 @@
   },
   "workday:ankura:/job/Dallas-TX/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104970": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Dallas-TX/University-Intern--Risk-Advisory--Forensics_R105025-1": {
    "f": "2026-09-16",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Dallas-TX/University-Intern--Risk-Advisory--eDiscovery_R104979": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Fairfield-CT/University-Intern--Construction--Disputes---Advisory_R104955": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Houston-TX/University-Intern--Forensic-Accounting---Claims-Consulting_R104971": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Los-Angeles-CA/University-Intern--Construction--Disputes---Advisory_R104963": {
    "f": "2026-09-16",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936": {
    "f": "2026-09-09",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Disputes---Economics---Financial-Services-Advisory_R104990": {
    "f": "2026-09-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Disputes---Economics---Financial-Services-Disputes_R104995": {
    "f": "2026-09-28",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Risk-Advisory--Forensics_R105033": {
    "f": "2026-09-16",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Risk-Advisory--eDiscovery_R104977": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Strategic-Finance--Office-of-the-CFO_R104925": {
    "f": "2026-09-09",
@@ -3880,35 +3885,35 @@
   },
   "workday:ankura:/job/Phoenix-AZ/University-Intern--Construction--Disputes---Advisory_R104967-1": {
    "f": "2026-09-16",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/San-Francisco-CA/University-Intern--Risk-Advisory--eDiscovery_R104976": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104947": {
    "f": "2026-09-15",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104949": {
    "f": "2026-09-15",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Disputes---Economics---Financial-Services-Advisory_R104991": {
    "f": "2026-09-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Disputes---Economics---Financial-Services-Disputes_R104993": {
    "f": "2026-09-28",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--Forensics_R105029": {
    "f": "2026-09-16",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--eDiscovery_R104978": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:aoins:/job/Lansing-MI/Accounting-Intern---Winter-Spring-2027_R_14526": {
    "f": "2026-09-10",
@@ -4072,7 +4077,7 @@
   },
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370": {
    "f": "2026-08-31",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:bpinternational:/job/United-States-of-America---Illinois---Chicago/Summer-Internship---Supply--Trading----Shipping-Finance---Risk---Chicago--IL_RQ115370-1": {
    "f": "2026-08-31",
@@ -4136,15 +4141,15 @@
   },
   "workday:cat:/job/Irving-Texas/XMLNAME-2027-Summer-Corporate-Intern---Finance_R0000380161": {
    "f": "2026-09-08",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:cat:/job/Nashville-Tennessee/XMLNAME-2027-Summer-Intern---Finance_R0000387781": {
    "f": "2026-08-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:cat:/job/Peoria-Illinois/XMLNAME-2027-Summer-Corporate-Intern---Accounting_R0000379993": {
    "f": "2026-09-02",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:cat:/job/San-Diego-California/XMLNAME-2027-Business-Analyst-Intern_R0000381902": {
    "f": "2026-08-25",
@@ -4560,7 +4565,7 @@
   },
   "workday:elevancehealth:/job/IN-INDIANAPOLIS-220-VIRGINIA-AVE/Finance-Intern---Summer-2027_JR207231": {
    "f": "2026-09-15",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:elkay:/job/Downers-Grove-IL/Finance-Intern--Summer-2027-_REQ-020156": {
    "f": "2026-09-25",
@@ -4584,11 +4589,11 @@
   },
   "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510": {
    "f": "2026-09-09",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:entegris:/job/Chaska-MN/Enterprise-Transformation-Program-Coordination-Co-op_REQ-14433": {
    "f": "2026-09-09",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808": {
    "f": "2026-08-31",
@@ -4840,7 +4845,7 @@
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:gehc:/job/IL03-01-Chicago-500-W-Monroe-St/Financial-Management-Program-Internship_R4043926-1": {
    "f": "2026-09-01",
@@ -5608,11 +5613,11 @@
   },
   "workday:mfs:/job/Boston/Brand-Strategy-and-Governance-Co-op-Spring-2027--January---June-_MFS-231952": {
    "f": "2026-09-23",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:mfs:/job/Boston/DCI-Sales-Co-op-Spring-2027--January---June-_MFS-231927": {
    "f": "2026-09-21",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:mfs:/job/Boston/Distribution-Strategic-Capabilities-Co-op-Spring-2027--January---June-_MFS-231938": {
    "f": "2026-09-21",
@@ -5620,7 +5625,7 @@
   },
   "workday:mfs:/job/Boston/Investment-Operations-Business-Analyst-Co-op-Spring-2027--January---June-_MFS-231947": {
    "f": "2026-09-23",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905": {
    "f": "2026-09-21",
@@ -5628,7 +5633,7 @@
   },
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774": {
    "f": "2026-09-09",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097": {
    "f": "2026-09-17",
@@ -5768,7 +5773,7 @@
   },
   "workday:ngc:/job/United-States-Virginia-McLean/XMLNAME-2027-Strategy-and-Business-Development-Operations-Intern---McLean-VA_R10252573-1": {
    "f": "2026-09-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Distribution-Finance-Intern--Fall-2026_JR-46019-1": {
    "f": "2026-09-11",
@@ -5904,15 +5909,15 @@
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002247": {
    "f": "2026-08-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002271": {
    "f": "2026-08-25",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002363": {
    "f": "2026-09-22",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:philips:/job/Plymouth-Minnesota-United-States/Finance-Intern_592696": {
    "f": "2026-09-24",
@@ -6012,11 +6017,11 @@
   },
   "workday:rb:/job/New-York-NY/XMLNAME-2027-Summer-Intern---Executive-Office---Strategy---Operating-Services--Junior_R-0000033101": {
    "f": "2026-09-01",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:rb:/job/San-Francisco-CA/XMLNAME-2027-SF-Fed-Summer-Internship---BUSINESS-ANALYST-Intern_R-0000033321": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:rbc:/job/9-10-TAUNUSANLAGEFRANKFURT-AM-MAIN/XMLNAME-2026-Global-Investment-Banking-Internship---Frankfurt_R-0000186550": {
    "f": "2026-09-01",
@@ -6424,11 +6429,11 @@
   },
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812": {
    "f": "2026-09-15",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784": {
    "f": "2026-09-09",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474": {
    "f": "2026-09-09",
@@ -6508,7 +6513,7 @@
   },
   "workday:sunlife:/job/Wellesley-Hills-Massachusetts/Strategic-Vendor-Management---Co-op_JR00127632": {
    "f": "2026-09-14",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:swbc:/job/San-Antonio-TX/Intern---Investment-Services_R0015530": {
    "f": "2026-09-11",
@@ -6516,7 +6521,7 @@
   },
   "workday:swib:/job/Madison-Wisconsin/Investment-Risk-Analyst-Intern_R-001328": {
    "f": "2026-09-28",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689": {
    "f": "2026-08-25",
@@ -6732,15 +6737,15 @@
   },
   "workday:ttc:/job/Bloomington-MN/CRM-Business-Analyst-Intern---The-Toro-Company_JR17386": {
    "f": "2026-09-22",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ttc:/job/Bloomington-MN/HR-Strategy---Talent-Intern---The-Toro-Company_JR17037": {
    "f": "2026-09-11",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:ttc:/job/Bloomington-MN/RLC-Financial-Planning-and-Analysis-Intern---The-Toro-Company_JR17138": {
    "f": "2026-09-11",
-   "l": "2026-09-28"
+   "l": "2026-09-29"
   },
   "workday:umb:/job/UT---Ogden---2225-Washington-Blvd/Tax-Accounting-Specialist---Internship_R-9424": {
    "f": "2026-09-16",
