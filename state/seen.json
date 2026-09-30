@@ -1,12 +1,21 @@
 {
- "broken": {},
- "last_run": "2026-09-30T20:48:34Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "FOX": "HTTP 429",
+  "First American": "HTTP 429",
+  "Mizuho Securities USA": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429"
+ },
+ "last_run": "2026-09-30T22:38:41Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 8,
+  "matching": 41,
   "new": 0,
-  "postings": 22,
-  "sites": 1
+  "postings": 16514,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -745,6 +754,7 @@
   "workday:mtb:/job/Wilmington-DE/XMLNAME-2027-Corporate-Summer-Internship-Program--Family-Wealth--Investment-Associate_R89660",
   "workday:myhrabc:/job/Carrollton-TX/Intern--Client-Financial-Services_R2613792",
   "workday:myhrabc:/job/Carrollton-TX/Intern-Technical-Business-Analyst---Product-Owner_R2613660",
+  "workday:myhrhome:/job/Irving-TX/Intern_R2609-52605",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Analytic-Consulting-Advisor-Internship_100235",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Controllership-Internship_099980",
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Financial-Services-Internship_100076",
@@ -1551,6 +1561,7 @@
   "Custom Computer Specialists",
   "Customers Bank",
   "DH Pace",
+  "DPD UK",
   "DPR Family of Companies",
   "DRW",
   "DV Group",
@@ -1983,6 +1994,7 @@
   "Ivalua",
   "Ivy Tech Community College",
   "J.M. Smucker",
+  "JCDecaux",
   "JINGDONG",
   "JM Family",
   "JPMorgan Chase",
@@ -3365,7 +3377,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270": {
    "f": "2026-08-26",
-   "l": "2026-09-23"
+   "l": "2026-09-30"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2028/364863": {
    "f": "2026-08-31",
@@ -4609,7 +4621,7 @@
   },
   "workday:echo:/job/Chicago-IL/FP-A-Intern_R4642": {
    "f": "2026-09-02",
-   "l": "2026-09-29"
+   "l": "2026-09-30"
   },
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260": {
    "f": "2026-08-25",
@@ -5373,7 +5385,7 @@
   },
   "workday:jll:/job/Atlanta-GA/Capital-Markets-Summer-2027-Internship---Atlanta--GA_REQ530757": {
    "f": "2026-09-08",
-   "l": "2026-09-11"
+   "l": "2026-09-30"
   },
   "workday:jll:/job/Austin-TX/Capital-Markets-Summer-2027-Internship---Austin--TX_REQ530579": {
    "f": "2026-08-24",
@@ -5425,7 +5437,7 @@
   },
   "workday:jll:/job/Jacksonville-FL/Capital-Markets-Summer-2027-Internship---Jacksonville--FL_REQ532423": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-30"
   },
   "workday:jll:/job/Los-Angeles-CA/Capital-Markets-Fall-2026-Internship---Los-Angeles_REQ520613": {
    "f": "2026-09-22",
@@ -5457,7 +5469,7 @@
   },
   "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ530581": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-09-30"
   },
   "workday:jll:/job/Orlando-FL/Capital-Markets-Summer-2027-Internship---Orlando--FL_REQ532428": {
    "f": "2026-08-31",
@@ -5513,7 +5525,7 @@
   },
   "workday:jll:/job/Tampa-FL/Capital-Markets-Summer-2027-Internship---Tampa--FL_REQ532419": {
    "f": "2026-08-31",
-   "l": "2026-09-02"
+   "l": "2026-09-30"
   },
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230": {
    "f": "2026-08-24",
@@ -5834,6 +5846,10 @@
   "workday:myhrabc:/job/Carrollton-TX/Intern-Technical-Business-Analyst---Product-Owner_R2613660": {
    "f": "2026-09-25",
    "l": "2026-09-26"
+  },
+  "workday:myhrhome:/job/Irving-TX/Intern_R2609-52605": {
+   "f": "2026-09-30",
+   "l": "2026-09-30"
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Analytic-Consulting-Advisor-Internship_100235": {
    "f": "2026-09-04",
@@ -6941,7 +6957,7 @@
   },
   "workday:umb:/job/UT---Ogden---2225-Washington-Blvd/Tax-Accounting-Specialist---Internship_R-9425-1": {
    "f": "2026-09-16",
-   "l": "2026-09-29"
+   "l": "2026-09-30"
   },
   "workday:usbank:/job/Charlotte-NC/XMLNAME-2027-Business-Banking-Summer-Intern_2026-0024843": {
    "f": "2026-09-08",

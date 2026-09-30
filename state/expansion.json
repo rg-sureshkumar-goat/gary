@@ -10894,6 +10894,16 @@
       "last": "2026-09-30",
       "result": "added",
       "ats": "workday"
+    },
+    "JCDecaux": {
+      "last": "2026-09-30",
+      "result": "added",
+      "ats": "workday"
+    },
+    "DPD UK": {
+      "last": "2026-09-30",
+      "result": "added",
+      "ats": "smartrecruiters"
     }
   },
   "last_run": "2026-09-30"
