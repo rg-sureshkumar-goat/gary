@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-01T21:31:32Z",
+ "last_run": "2026-10-01T22:57:51Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 70,
+  "matching": 45,
   "new": 0,
-  "postings": 25242,
-  "sites": 82
+  "postings": 18154,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -141,6 +141,9 @@
   "lever:Aprio:85d3d741-99dc-4a73-8837-951c9ddf646c",
   "lever:Aprio:b96b0836-b3ba-481f-8f0f-d57a186642b0",
   "lever:CesiumAstro:e0525e31-2d45-441e-bf3e-36be4b67d8ef",
+  "lever:MBRDNA:31311ba0-472c-4ea2-a15f-70f25ff91e60",
+  "lever:allegiantair:637e4751-89ff-4935-a6a0-e913b7452031",
+  "lever:allegiantair:fd433f06-813b-4254-b549-5c69f4b5af10",
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606",
   "lever:crestoperations:a4e1fa07-80f5-4a7d-989e-b755a7ac7d7e",
   "lever:crestoperations:b155c903-f65d-489b-8ea0-d959af22c481",
@@ -526,6 +529,8 @@
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
   "workday:generac:/job/Waukesha-WI---USA/Intern-Finance_JR17063",
+  "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971",
+  "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971-1",
   "workday:gfs:/job/Wyoming-Michigan/Accounting---Finance-Internship_R-57232",
   "workday:gfs:/job/Wyoming-Michigan/Strategy-and-Profit-Revenue-Management-Internship_R-57181",
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674",
@@ -547,6 +552,7 @@
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138",
   "workday:globalfoundries:/job/USA---New-York---Malta/Finance---Operations-Analyst-Intern--Summer-2027-_JR-2605140",
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance---Operations-Analyst-Intern--Summer-2027-_JR-2605137",
+  "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483",
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366",
   "workday:gnw:/job/Raleigh-North-Carolina/Business-Transformation-Intern_REQ-260373",
   "workday:graco:/job/Anoka-Minnesota-USA/Accounting-Intern_R0023526",
@@ -563,12 +569,14 @@
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Market-Risk_R000110113",
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Treasury-Operations-Specialist_R000110163",
   "workday:guidehouse:/job/US---NY-New-York/Intern---Life-Sciences-Advisory--Health-Segment---Campus-2027_43306",
+  "workday:guidehouse:/job/US---VA-McLean/Intern---Health-and-Human-Services--Federal-Health-Advisory---Campus-2027_45153",
   "workday:guidestone:/job/Dallas-TX/Summer-Intern---Financial-Advisor_R2130",
   "workday:guidestone:/job/Dallas-TX/Summer-Intern---Growth-Marketing-Strategy_R2127",
   "workday:haier:/job/USA-Louisville-KY/Finance-Summer-Intern--Shared-Services-_REQ-26795",
   "workday:haier:/job/USA-Louisville-KY/Finance-Year-Round-Internship--January-2027-Start-_REQ-26944",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
   "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026",
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern--Downers-Grove-_R0059501",
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1",
   "workday:hec:/job/Houston-TX/I-26134---Accounting-Part-Time-Intern_R006419-1",
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1",
@@ -822,6 +830,9 @@
   "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Business-Credit_R230898-1",
   "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking---Financials-and-Diversified-Track_R230900-1",
   "workday:pnc:/job/MA---Boston-02110/XMLNAME-2027-M-A-Summer-Associate--Boston-_R231649",
+  "workday:pnc:/job/NY---New-York-10173/Graduate-Intern--Economics--Chief-Investment-Office--CIO---Non-Campus-_R237631",
+  "workday:pnc:/job/NY---New-York-10173/Graduate-Intern--Modeling--Chief-Investment-Office--CIO---Non-Campus-_R237632-1",
+  "workday:pnc:/job/NY---New-York-10173/Graduate-Intern--Portfolio-Management-and-Analytics--Chief-Investment-Office--CIO---Non-Campus-_R237633-1",
   "workday:pnc:/job/PA---Pittsburgh-15222/Asset-Management-Group-Undergraduate-Intern_R230880-1",
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--East-_R230901-1",
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Real-Estate-Banking_R230915-1",
@@ -1009,6 +1020,7 @@
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509039",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1509284",
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1510260",
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1514326",
   "workday:td:/job/San-Francisco-California/XMLNAME-2027-Summer-Analyst-Program---Investment-Banking--Healthcare--San-Francisco-_R_1513984",
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218",
   "workday:tel:/job/Austin-RiverSouth/Financial-Analyst-2027-Summer-Intern_R26-01501",
@@ -1840,6 +1852,7 @@
   "Giga AI",
   "Gilead Sciences",
   "Ginkgo Bioworks",
+  "Glean",
   "Glencore",
   "Global Channel Management",
   "Global Infrastructure",
@@ -3418,6 +3431,18 @@
    "f": "2026-09-16",
    "l": "2026-10-01"
   },
+  "lever:MBRDNA:31311ba0-472c-4ea2-a15f-70f25ff91e60": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
+  "lever:allegiantair:637e4751-89ff-4935-a6a0-e913b7452031": {
+   "f": "2026-09-29",
+   "l": "2026-10-01"
+  },
+  "lever:allegiantair:fd433f06-813b-4254-b549-5c69f4b5af10": {
+   "f": "2026-09-29",
+   "l": "2026-10-01"
+  },
   "lever:crestoperations:0c3cb17a-06f9-43aa-a623-c3588544f606": {
    "f": "2026-08-25",
    "l": "2026-10-01"
@@ -4036,7 +4061,7 @@
   },
   "workday:att:/job/Dallas-Texas/Transformation-Supply-Chain-Leadership-Program-Internship_R-120900": {
    "f": "2026-09-03",
-   "l": "2026-09-30"
+   "l": "2026-10-01"
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246500": {
    "f": "2026-09-22",
@@ -4974,6 +4999,14 @@
    "f": "2026-09-23",
    "l": "2026-10-01"
   },
+  "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
+  "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971-1": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
   "workday:gfs:/job/Wyoming-Michigan/Accounting---Finance-Internship_R-57232": {
    "f": "2026-09-15",
    "l": "2026-10-01"
@@ -5058,6 +5091,10 @@
    "f": "2026-09-17",
    "l": "2026-09-18"
   },
+  "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
    "f": "2026-09-09",
    "l": "2026-09-14"
@@ -5122,6 +5159,10 @@
    "f": "2026-09-22",
    "l": "2026-09-23"
   },
+  "workday:guidehouse:/job/US---VA-McLean/Intern---Health-and-Human-Services--Federal-Health-Advisory---Campus-2027_45153": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
   "workday:guidestone:/job/Dallas-TX/Summer-Intern---Financial-Advisor_R2130": {
    "f": "2026-09-22",
    "l": "2026-10-01"
@@ -5144,6 +5185,10 @@
   },
   "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026": {
    "f": "2026-09-02",
+   "l": "2026-10-01"
+  },
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern--Downers-Grove-_R0059501": {
+   "f": "2026-10-01",
    "l": "2026-10-01"
   },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
@@ -5476,7 +5521,7 @@
   },
   "workday:jll:/job/Minneapolis-MN/Capital-Markets-Summer-2027-Internship---Minneapolis--MN_REQ530234": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-10-01"
   },
   "workday:jll:/job/Morristown-NJ/Capital-Markets-Summer-2027-Internship---Morristown--NJ_REQ529778": {
    "f": "2026-08-24",
@@ -6164,6 +6209,18 @@
   },
   "workday:pnc:/job/MA---Boston-02110/XMLNAME-2027-M-A-Summer-Associate--Boston-_R231649": {
    "f": "2026-08-25",
+   "l": "2026-10-01"
+  },
+  "workday:pnc:/job/NY---New-York-10173/Graduate-Intern--Economics--Chief-Investment-Office--CIO---Non-Campus-_R237631": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
+  "workday:pnc:/job/NY---New-York-10173/Graduate-Intern--Modeling--Chief-Investment-Office--CIO---Non-Campus-_R237632-1": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
+  "workday:pnc:/job/NY---New-York-10173/Graduate-Intern--Portfolio-Management-and-Analytics--Chief-Investment-Office--CIO---Non-Campus-_R237633-1": {
+   "f": "2026-10-01",
    "l": "2026-10-01"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Asset-Management-Group-Undergraduate-Intern_R230880-1": {
@@ -6914,6 +6971,10 @@
    "f": "2026-09-10",
    "l": "2026-10-01"
   },
+  "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1514326": {
+   "f": "2026-10-01",
+   "l": "2026-10-01"
+  },
   "workday:td:/job/San-Francisco-California/XMLNAME-2027-Summer-Analyst-Program---Investment-Banking--Healthcare--San-Francisco-_R_1513984": {
    "f": "2026-09-29",
    "l": "2026-10-01"
@@ -6964,7 +7025,7 @@
   },
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Valuation--New-York-and-Boston-_JR101096": {
    "f": "2026-09-11",
-   "l": "2026-09-24"
+   "l": "2026-10-01"
   },
   "workday:thinkbrg:/job/Chicago-IL/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Chicago--IL_JR101020": {
    "f": "2026-08-25",

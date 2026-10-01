@@ -10933,6 +10933,11 @@
       "last": "2026-10-01",
       "result": "added",
       "ats": "workday"
+    },
+    "Glean": {
+      "last": "2026-10-01",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
   "last_run": "2026-10-01"
