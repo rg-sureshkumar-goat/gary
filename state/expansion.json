@@ -10938,7 +10938,36 @@
       "last": "2026-10-01",
       "result": "added",
       "ats": "greenhouse"
+    },
+    "Helion Energy": {
+      "last": "2026-10-02",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Riot Games": {
+      "last": "2026-10-02",
+      "result": "none"
+    },
+    "Datacor": {
+      "last": "2026-10-02",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Gas South": {
+      "last": "2026-10-02",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Primient": {
+      "last": "2026-10-02",
+      "result": "added",
+      "ats": "workday"
+    },
+    "ShopBack": {
+      "last": "2026-10-02",
+      "result": "added",
+      "ats": "lever"
     }
   },
-  "last_run": "2026-10-01"
+  "last_run": "2026-10-02"
 }
