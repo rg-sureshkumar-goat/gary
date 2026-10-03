@@ -1,12 +1,18 @@
 {
- "broken": {},
- "last_run": "2026-10-03T20:21:40Z",
+ "broken": {
+  "Advance Auto Parts": "HTTP 429",
+  "Applied Materials": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "National Interstate Insurance": "HTTP 429"
+ },
+ "last_run": "2026-10-03T21:48:24Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 66,
+  "failed": 5,
+  "matching": 45,
   "new": 0,
-  "postings": 25172,
-  "sites": 82
+  "postings": 17212,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -417,6 +423,7 @@
   "workday:directsupply:/job/Milwaukee-WI/Financial-Planning-and-Analysis-Intern_REQ-2026-2556",
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291",
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291-1",
+  "workday:disney:/job/Anaheim-CA-USA/Finance---Data-Intern--Spring-2027_10160502-1",
   "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970",
   "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970-1",
   "workday:disney:/job/Celebration-FL-USA/Disney-s-Fairy-Tale-Weddings---Honeymoons-Marketing-Strategy-Intern--Spring-2027_10159284",
@@ -3413,7 +3420,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444": {
    "f": "2026-08-26",
-   "l": "2026-09-24"
+   "l": "2026-10-03"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
@@ -4582,6 +4589,10 @@
   "workday:disney:/job/Anaheim-CA-USA/Disneyland-Design-and-Construction-Strategic-Sourcing-Intern--Spring-2027_10158291-1": {
    "f": "2026-08-25",
    "l": "2026-08-30"
+  },
+  "workday:disney:/job/Anaheim-CA-USA/Finance---Data-Intern--Spring-2027_10160502-1": {
+   "f": "2026-10-03",
+   "l": "2026-10-03"
   },
   "workday:disney:/job/Burbank-CA-USA/Finance-Transformation-Intern--Spring-2027_10158970": {
    "f": "2026-09-01",
@@ -6265,11 +6276,11 @@
   },
   "workday:pimco:/job/New-York-NY-USA/XMLNAME-2027-Summer-Intern---Global-Wealth-Management--Strategic-Accounts-Analyst--US--_R106770": {
    "f": "2026-08-21",
-   "l": "2026-10-02"
+   "l": "2026-10-03"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Alternatives-Investment-Operations-Intern_R106782": {
    "f": "2026-08-25",
-   "l": "2026-10-02"
+   "l": "2026-10-03"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Consultant-Relations-Group-Analyst--US_R106741": {
    "f": "2026-08-18",
@@ -6277,11 +6288,11 @@
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Finance---Accounting-Analyst_R106623": {
    "f": "2026-08-18",
-   "l": "2026-10-02"
+   "l": "2026-10-03"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Product-Strategy-Analyst--US_R106626": {
    "f": "2026-08-18",
-   "l": "2026-10-02"
+   "l": "2026-10-03"
   },
   "workday:pipersandler:/job/Leawood-KS/XMLNAME-2027-Summer-Internship-Program---Public-Finance_R-100708": {
    "f": "2026-09-14",
