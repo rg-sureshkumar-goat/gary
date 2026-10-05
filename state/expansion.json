@@ -10094,7 +10094,7 @@
       "ats": "lever"
     },
     "Ramiel Capital": {
-      "last": "2026-09-04",
+      "last": "2026-10-05",
       "result": "none"
     },
     "The Exploration Company": {
@@ -10103,7 +10103,7 @@
       "ats": "ashby"
     },
     "Inspiration Commerce Group": {
-      "last": "2026-09-04",
+      "last": "2026-10-05",
       "result": "none"
     },
     "skillz": {
@@ -10122,7 +10122,7 @@
       "ats": "lever"
     },
     "Axle": {
-      "last": "2026-09-04",
+      "last": "2026-10-05",
       "result": "none"
     },
     "Kokosing": {
@@ -10987,7 +10987,12 @@
       "last": "2026-10-03",
       "result": "added",
       "ats": "workday"
+    },
+    "Pangram Labs": {
+      "last": "2026-10-05",
+      "result": "added",
+      "ats": "ashby"
     }
   },
-  "last_run": "2026-10-04"
+  "last_run": "2026-10-05"
 }
