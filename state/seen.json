@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-05T17:07:51Z",
+ "last_run": "2026-10-05T18:49:18Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 53,
   "new": 0,
-  "postings": 21,
-  "sites": 1
+  "postings": 15378,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5184,7 +5184,7 @@
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483": {
    "f": "2026-10-01",
-   "l": "2026-10-04"
+   "l": "2026-10-05"
   },
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
    "f": "2026-09-09",
@@ -5908,7 +5908,7 @@
   },
   "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214-1": {
    "f": "2026-09-29",
-   "l": "2026-10-04"
+   "l": "2026-10-05"
   },
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078": {
    "f": "2026-08-26",
