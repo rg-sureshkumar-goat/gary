@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-06T11:14:58Z",
+ "last_run": "2026-10-06T13:39:23Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 44,
   "new": 0,
-  "postings": 21,
-  "sites": 1
+  "postings": 18302,
+  "sites": 214
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -86,6 +86,7 @@
   "greenhouse:genscript:5169014007",
   "greenhouse:harbingermotors:5231841007",
   "greenhouse:hevenaerotech:4410340009",
+  "greenhouse:iex-interns:8171353",
   "greenhouse:inspiremedicalsystemsinc:5423274008",
   "greenhouse:klaviyocampus:7991090003",
   "greenhouse:klaviyocampus:7991091003",
@@ -611,6 +612,7 @@
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2026-Enterprise-Finance-Strategy-Undergraduate-Finance-Intern_J286276",
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-FP-A-Undergraduate-Finance-Intern_J286275",
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-Treasury-Undergraduate-Finance-Intern_J286282",
+  "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-FP-A-Graduate-Finance-Intern_J285909",
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-Undergraduate-Finance-Intern_J285573",
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Undergraduate-Intern_J286545",
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929",
@@ -940,6 +942,7 @@
   "workday:rsm:/job/Chicago/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116966",
   "workday:rsm:/job/Chicago/Deal-Services-Financial-Due-Diligence-Consulting-Intern---Summer-2027_JR118064",
   "workday:rsm:/job/Chicago/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR117155",
+  "workday:rsm:/job/Chicago/Financial-and-Accounting-Outsourcing-Intern---Summer-2027_JR121775",
   "workday:rsm:/job/Chicago/Microsoft-Customer-Engagement-Consulting-Intern---Summer-2027_JR117335",
   "workday:rsm:/job/Chicago/Strategy---Management-Consulting-Intern--Summer-2027_JR117322",
   "workday:rsm:/job/Chicago/Technology-Risk-Consulting-Intern---Summer-2027_JR116271",
@@ -1475,6 +1478,7 @@
   "Cable One",
   "Cadence",
   "Cadence Design Systems",
+  "Cadence Solutions",
   "Caliber",
   "California ISO",
   "Calix",
@@ -2011,6 +2015,7 @@
   "ICF",
   "ID.me",
   "IDEX",
+  "IEX",
   "IFS",
   "IGS Energy",
   "IJM",
@@ -2094,6 +2099,7 @@
   "Johnson Matthey",
   "Jonas Software",
   "Jones Lang LaSalle (JLL)",
+  "Judi Health",
   "Julius Baer",
   "Jumio",
   "Jump Trading",
@@ -3275,6 +3281,10 @@
   "greenhouse:hevenaerotech:4410340009": {
    "f": "2026-09-24",
    "l": "2026-09-25"
+  },
+  "greenhouse:iex-interns:8171353": {
+   "f": "2026-09-01",
+   "l": "2026-10-06"
   },
   "greenhouse:inspiremedicalsystemsinc:5423274008": {
    "f": "2026-09-17",
@@ -5254,7 +5264,7 @@
   },
   "workday:greenheckgroup:/job/Schofield-WI/Finance-Intern_JR104736": {
    "f": "2026-10-02",
-   "l": "2026-10-04"
+   "l": "2026-10-06"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern---FP-A-and-Management-Reporting_R000110212": {
    "f": "2026-09-18",
@@ -5390,6 +5400,10 @@
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-Treasury-Undergraduate-Finance-Intern_J286282": {
    "f": "2026-10-05",
+   "l": "2026-10-06"
+  },
+  "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-FP-A-Graduate-Finance-Intern_J285909": {
+   "f": "2026-10-06",
    "l": "2026-10-06"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-Undergraduate-Finance-Intern_J285573": {
@@ -6715,6 +6729,10 @@
   "workday:rsm:/job/Chicago/Financial-Services-Risk-Consulting-Intern---Summer-2027_JR117155": {
    "f": "2026-08-31",
    "l": "2026-09-09"
+  },
+  "workday:rsm:/job/Chicago/Financial-and-Accounting-Outsourcing-Intern---Summer-2027_JR121775": {
+   "f": "2026-10-06",
+   "l": "2026-10-06"
   },
   "workday:rsm:/job/Chicago/Microsoft-Customer-Engagement-Consulting-Intern---Summer-2027_JR117335": {
    "f": "2026-09-08",

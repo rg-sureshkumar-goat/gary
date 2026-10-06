@@ -11013,6 +11013,25 @@
       "last": "2026-10-06",
       "result": "added",
       "ats": "workday"
+    },
+    "StackAdapt": {
+      "last": "2026-10-06",
+      "result": "none"
+    },
+    "Judi Health": {
+      "last": "2026-10-06",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Cadence Solutions": {
+      "last": "2026-10-06",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "IEX": {
+      "last": "2026-10-06",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
   "last_run": "2026-10-06"
