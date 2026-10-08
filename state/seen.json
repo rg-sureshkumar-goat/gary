@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-10-08T16:41:20Z",
+ "broken": {
+  "LiveRamp": "HTTP 403"
+ },
+ "last_run": "2026-10-08T19:25:29Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 60,
-  "new": 0,
-  "postings": 25320,
-  "sites": 82
+  "failed": 1,
+  "matching": 69,
+  "new": 1,
+  "postings": 18493,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -255,6 +257,7 @@
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern---Accounting--Internal-Audit--FY27_JR-2026-21958",
   "workday:airproducts:/job/Allentown-Pennsylvania/Summer-Intern-Finance--Corporate--2027-_JR-2026-21959",
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Digital-Products---AI-Strategy-Intern---Summer-2027---Franklin--TN_R00214215",
+  "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Finance-Intern---Summer-2027---Franklin--TN_R00214239",
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Purchasing-Strategy-Intern---Summer-2027---Franklin--TN_R00214277",
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/SAP-Platform-Intern--Finance-Purchasing----Summer-2027---Franklin--TN_R00214217",
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Treasury-Capital-Markets-Intern---Summer-2027---Frankin--TN_R00214234",
@@ -4010,6 +4013,10 @@
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Digital-Products---AI-Strategy-Intern---Summer-2027---Franklin--TN_R00214215": {
    "f": "2026-10-07",
+   "l": "2026-10-08"
+  },
+  "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Finance-Intern---Summer-2027---Franklin--TN_R00214239": {
+   "f": "2026-10-08",
    "l": "2026-10-08"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Purchasing-Strategy-Intern---Summer-2027---Franklin--TN_R00214277": {
