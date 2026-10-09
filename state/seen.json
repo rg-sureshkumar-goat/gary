@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-09T06:04:19Z",
+ "last_run": "2026-10-09T08:11:31Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 56,
   "new": 0,
-  "postings": 25,
-  "sites": 1
+  "postings": 25216,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -6393,7 +6393,7 @@
   },
   "workday:msd:/job/USA---Pennsylvania---North-Wales-Upper-Gwynedd/XMLNAME-2027-Future-Talent-Program--Global-Labeling-Strategy---Intern_R411948": {
    "f": "2026-09-03",
-   "l": "2026-10-06"
+   "l": "2026-10-09"
   },
   "workday:msd:/job/USA---Pennsylvania---West-Point/XMLNAME-2027-Future-Talent-Program---Laboratory-Operations-AI---Digital-Transformation---Intern_R413048": {
    "f": "2026-09-08",
