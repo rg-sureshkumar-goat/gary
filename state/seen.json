@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-09T15:25:00Z",
+ "last_run": "2026-10-09T18:48:39Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 55,
-  "new": 0,
-  "postings": 25229,
-  "sites": 82
+  "matching": 62,
+  "new": 1,
+  "postings": 15456,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -799,6 +799,7 @@
   "workday:manulife:/job/Boston-Massachusetts/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Boston--MA-_JR26081869",
   "workday:manulife:/job/Tempe-Arizona/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Tempe--AZ-_JR26081868",
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1",
+  "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214",
   "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214-1",
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078",
   "workday:mckesson:/job/Irving-TX-USA---6555-North-State-Highway-161-P001/Business-Analyst-Intern--Product-Performance---Summer-2027_JR0153111",
@@ -6225,6 +6226,10 @@
   },
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1": {
    "f": "2026-08-24",
+   "l": "2026-10-09"
+  },
+  "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214": {
+   "f": "2026-10-09",
    "l": "2026-10-09"
   },
   "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214-1": {
