@@ -1,12 +1,26 @@
 {
- "broken": {},
- "last_run": "2026-10-09T20:52:02Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "Relativity": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429",
+  "Sierra Space": "HTTP 429"
+ },
+ "last_run": "2026-10-09T22:56:38Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 13,
+  "matching": 34,
   "new": 0,
-  "postings": 26,
-  "sites": 1
+  "postings": 15940,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -86,6 +100,7 @@
   "greenhouse:gallup:4398221009",
   "greenhouse:gassouth:8247555",
   "greenhouse:gassouth:8247609",
+  "greenhouse:gcmgrosvenor:8015835003",
   "greenhouse:genscript:5169014007",
   "greenhouse:harbingermotors:5231841007",
   "greenhouse:hevenaerotech:4410340009",
@@ -393,6 +408,7 @@
   "workday:cibc:/job/Chicago-IL/XMLNAME-2026-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2519190",
   "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2618394",
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620",
+  "workday:cibc:/job/New-York-NY/XMLNAME-2027-Global-Transaction-Banking--US-Cash-Management-Summer-Analyst_2611116",
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198",
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386",
   "workday:cir:/job/Fairfield-IA/Consulting-Services-AI---Automation-Intern_R-2025-223",
@@ -584,6 +600,7 @@
   "workday:generac:/job/Waukesha-WI---USA/Corporate-Accounting-Intern_JR15779",
   "workday:generac:/job/Waukesha-WI---USA/Finance-Intern---Shared-Services_JR16064",
   "workday:generac:/job/Waukesha-WI---USA/Intern-Finance_JR17063",
+  "workday:generac:/job/Waukesha-WI---USA/Operations-Strategy---Transformation-Intern_JR17275",
   "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971",
   "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971-1",
   "workday:gfs:/job/Wyoming-Michigan/Accounting---Finance-Internship_R-57232",
@@ -645,6 +662,7 @@
   "workday:heidelbergmaterials:/job/Irving-TX/Tax-Accounting-Intern_JR10018242-1",
   "workday:heinz:/job/Chicago-IL/XMLNAME-2027-US-Finance-Summer-Internship-Program_R-105300",
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-AHN-FP-A-Undergraduate-Finance-Intern_J287012",
+  "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-AHN-FP-A-Undergraduate-Finance-Intern_J288294",
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-Health-Plan-Gov-Undergraduate-Finance-Intern_J287474",
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2026-Enterprise-Finance-Strategy-Undergraduate-Finance-Intern_J286276",
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-FP-A-Undergraduate-Finance-Intern_J286275",
@@ -803,6 +821,7 @@
   "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214-1",
   "workday:massmutual:/job/Cincinnati-OH/Accounting-Intern--Spring-2027-_R21078",
   "workday:mckesson:/job/Irving-TX-USA---6555-North-State-Highway-161-P001/Business-Analyst-Intern--Product-Performance---Summer-2027_JR0153111",
+  "workday:mckesson:/job/USA-TX-Irving/CSI-Strategy-Intern---Summer-2027_JR0154263",
   "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101",
   "workday:mckesson:/job/USA-TX-Irving/Innovation-Strategy-Intern---Summer-2027_JR0151704",
   "workday:mckesson:/job/USA-TX-Irving/Portfolio-Strategy-Intern---Summer-2027_JR0152311",
@@ -1093,6 +1112,7 @@
   "workday:swbc:/job/San-Antonio-TX/Intern---Investment-Services_R0015530",
   "workday:swbc:/job/San-Antonio-TX/Investment-Services-Intern_R0015648",
   "workday:swib:/job/Madison-Wisconsin/Investment-Risk-Analyst-Intern_R-001328",
+  "workday:swib:/job/Madison-Wisconsin/Systematic-Multi-Strategy-Intern_R-001342",
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689",
   "workday:target:/job/1000-Nicollet-Mall-MinneapolisMN-55403-2542/Financial-Analyst-Intern----Minneapolis--MN--Starting-Summer--2027-_R0000450574",
   "workday:tcenergy:/job/Houston-Office-TC-Energy-Cente/Student-Intern--Accounting---Finance_JR-10743",
@@ -3356,6 +3376,10 @@
    "f": "2026-10-01",
    "l": "2026-10-02"
   },
+  "greenhouse:gcmgrosvenor:8015835003": {
+   "f": "2026-10-09",
+   "l": "2026-10-09"
+  },
   "greenhouse:genscript:5169014007": {
    "f": "2026-08-25",
    "l": "2026-09-02"
@@ -4596,6 +4620,10 @@
    "f": "2026-09-03",
    "l": "2026-09-30"
   },
+  "workday:cibc:/job/New-York-NY/XMLNAME-2027-Global-Transaction-Banking--US-Cash-Management-Summer-Analyst_2611116": {
+   "f": "2026-10-09",
+   "l": "2026-10-09"
+  },
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198": {
    "f": "2026-08-25",
    "l": "2026-09-24"
@@ -5364,6 +5392,10 @@
    "f": "2026-09-23",
    "l": "2026-10-09"
   },
+  "workday:generac:/job/Waukesha-WI---USA/Operations-Strategy---Transformation-Intern_JR17275": {
+   "f": "2026-10-09",
+   "l": "2026-10-09"
+  },
   "workday:gevernova:/job/Stamford/Financial-Services-AI-Program-Support-Associate-Intern_R5053971": {
    "f": "2026-10-01",
    "l": "2026-10-07"
@@ -5606,6 +5638,10 @@
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-AHN-FP-A-Undergraduate-Finance-Intern_J287012": {
    "f": "2026-10-08",
+   "l": "2026-10-09"
+  },
+  "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-AHN-FP-A-Undergraduate-Finance-Intern_J288294": {
+   "f": "2026-10-09",
    "l": "2026-10-09"
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-Health-Plan-Gov-Undergraduate-Finance-Intern_J287474": {
@@ -6214,7 +6250,7 @@
   },
   "workday:manulife:/job/Boston-Massachusetts/Summer-Intern-2027---Investment-Management-Sales-Desk--Boston--MA-_JR26081869": {
    "f": "2026-10-06",
-   "l": "2026-10-08"
+   "l": "2026-10-09"
   },
   "workday:manulife:/job/Boston-Massachusetts/XMLNAME-2027-US-Summer-Internship---Investment-Management-Sales-Desk--Boston--MA-_JR26081869": {
    "f": "2026-08-28",
@@ -6242,6 +6278,10 @@
   },
   "workday:mckesson:/job/Irving-TX-USA---6555-North-State-Highway-161-P001/Business-Analyst-Intern--Product-Performance---Summer-2027_JR0153111": {
    "f": "2026-09-16",
+   "l": "2026-10-09"
+  },
+  "workday:mckesson:/job/USA-TX-Irving/CSI-Strategy-Intern---Summer-2027_JR0154263": {
+   "f": "2026-10-09",
    "l": "2026-10-09"
   },
   "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101": {
@@ -7406,6 +7446,10 @@
   },
   "workday:swib:/job/Madison-Wisconsin/Investment-Risk-Analyst-Intern_R-001328": {
    "f": "2026-09-28",
+   "l": "2026-10-09"
+  },
+  "workday:swib:/job/Madison-Wisconsin/Systematic-Multi-Strategy-Intern_R-001342": {
+   "f": "2026-10-09",
    "l": "2026-10-09"
   },
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689": {
