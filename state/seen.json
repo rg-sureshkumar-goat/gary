@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-09T18:48:39Z",
+ "last_run": "2026-10-09T20:11:19Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 62,
-  "new": 1,
-  "postings": 15456,
-  "sites": 185
+  "matching": 56,
+  "new": 0,
+  "postings": 25286,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5654,7 +5654,7 @@
   },
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535": {
    "f": "2026-09-01",
-   "l": "2026-09-14"
+   "l": "2026-10-09"
   },
   "workday:hl:/job/New-York-NY-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---New-York_R3585": {
    "f": "2026-09-28",
