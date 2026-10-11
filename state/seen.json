@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-11T14:54:36Z",
+ "last_run": "2026-10-11T15:36:32Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 38,
   "new": 0,
-  "postings": 26,
-  "sites": 1
+  "postings": 18258,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5039,7 +5039,7 @@
   },
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260": {
    "f": "2026-08-25",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365": {
    "f": "2026-08-31",
@@ -5347,7 +5347,7 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1": {
    "f": "2026-09-09",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
    "f": "2026-08-25",
@@ -5359,7 +5359,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
@@ -6951,7 +6951,7 @@
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
    "f": "2026-09-01",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961": {
    "f": "2026-09-08",
