@@ -1,12 +1,24 @@
 {
- "broken": {},
- "last_run": "2026-10-11T20:29:46Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "Ercot": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Protech Automotive Solutions": "HTTP 429",
+  "Relativity": "HTTP 429",
+  "Rockwell Automation": "HTTP 429"
+ },
+ "last_run": "2026-10-11T22:30:04Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 55,
+  "failed": 11,
+  "matching": 34,
   "new": 0,
-  "postings": 25154,
-  "sites": 82
+  "postings": 16642,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -612,6 +624,7 @@
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance---Operations-Analyst-Intern--Summer-2027-_JR-2605137",
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance-Project-Management-Analyst-Intern--Summer-2027-_JR-2604486",
   "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483",
+  "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Pricing---AI-Analytics-Intern--Summer-2027-_JR-2605139",
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Transactions---Alliances-Intern--Summer-2027-_JR-2604237",
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366",
   "workday:gnw:/job/Raleigh-North-Carolina/Business-Transformation-Intern_REQ-260373",
@@ -3571,7 +3584,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444": {
    "f": "2026-08-26",
-   "l": "2026-10-08"
+   "l": "2026-10-11"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Strategy/361165": {
    "f": "2026-08-25",
@@ -3579,7 +3592,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
-   "l": "2026-10-07"
+   "l": "2026-10-11"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
@@ -4339,7 +4352,7 @@
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246500": {
    "f": "2026-09-22",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880": {
    "f": "2026-09-10",
@@ -4351,11 +4364,11 @@
   },
   "workday:bah:/job/McLean-VA/University--Summer-2027---Accounting-Intern_R0250271": {
    "f": "2026-09-22",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:bah:/job/McLean-VA/University--Summer-2027---Corporate-Development-Intern_R0250270": {
    "f": "2026-09-22",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:bakerhughes:/job/US-TX-HOUSTON-575-N-DAIRY-ASHFORD-RD-ENERGY-CENTER-II-EC2/Intern-Co-op---Finance--Spring-2027-Opportunities_R169272": {
    "f": "2026-09-18",
@@ -4507,7 +4520,7 @@
   },
   "workday:caci:/job/Ashburn-VA-US/Business-Analyst-Intern---Summer-2027_333045": {
    "f": "2026-10-02",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:caci:/job/Oklahoma-City-OK-US/Finance---Accounting-Shared-Service-Center-Intern---Summer-2027_330407": {
    "f": "2026-08-25",
@@ -5095,11 +5108,11 @@
   },
   "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510": {
    "f": "2026-09-09",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:entegris:/job/Chaska-MN/Enterprise-Transformation-Program-Coordination-Co-op_REQ-14433": {
    "f": "2026-09-09",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:equifax:/job/USA---Georgia---Atlanta---Midtown-30309/Finance-Intern_J00178808": {
    "f": "2026-08-31",
@@ -5403,27 +5416,27 @@
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Corporate-Development--Transactions-Team-_R0054674": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Finance--FP-A--Tax--Treasury--Controllership--Risk--IR--Corp-Dev--Strategy-Transformation-_R0054859": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---CFO---Finance-FP-A--Leadership-Development-Program-_R0054559": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---Commercial---Corporate-Affairs---Commercial-Product-Strategy--HIV-Prevention-_R0054483": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---Development---CDS-Business-Strategy-and-Operations_R0054754": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---Development---Portfolio-Strategy-and-Analytics_R0054693": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---Kite-Commercial---Early-Pipeline-Strategy---Franchise-Operations_R0054506": {
    "f": "2026-09-08",
@@ -5431,23 +5444,23 @@
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---Kite-Commercial---Early-Pipeline-Strategy---Franchise-Operations_R0054506-1": {
    "f": "2026-09-11",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---PDM---CMC-Regulatory-Affairs--Strategy-and-Operations_R0054713": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---PDM---CMC-Regulatory-Affairs--Strategy-and-Operations_R0054714": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Intern---Research---Strategy--Innovation---Portfolio_R0054502": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Foster-City/Job-Description-Intern---Commercial---Corporate-Affairs---Market-Access-Strategy--Liver_R0054671": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---California---Santa-Monica/Intern---CFO---FP-A--Kite-_R0054613": {
    "f": "2026-09-08",
@@ -5459,11 +5472,11 @@
   },
   "workday:gilead:/job/United-States---California---Santa-Monica/Intern---Kite-Development---Med-Affairs--Strategy-and-Communications---Cell-Therapy-_R0054508-1": {
    "f": "2026-09-14",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gilead:/job/United-States---North-Carolina---Raleigh/Intern---Human-Resources---Strategy---Operations_R0054943": {
    "f": "2026-09-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:globalfoundries:/job/USA---California---Santa-Clara/Finance-Intern--Finance---Operations--Summer-2027-_JR-2605138": {
    "f": "2026-09-04",
@@ -5479,15 +5492,19 @@
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance-Project-Management-Analyst-Intern--Summer-2027-_JR-2604486": {
    "f": "2026-10-06",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483": {
    "f": "2026-10-01",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
+  },
+  "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Pricing---AI-Analytics-Intern--Summer-2027-_JR-2605139": {
+   "f": "2026-10-11",
+   "l": "2026-10-11"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Transactions---Alliances-Intern--Summer-2027-_JR-2604237": {
    "f": "2026-10-08",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
    "f": "2026-09-09",
@@ -5555,11 +5572,11 @@
   },
   "workday:guidehouse:/job/US---GA-Atlanta/Intern---Centers-for-Disease-Control-and-Prevention--Federal-Health-Advisory---Campus-2027_45239": {
    "f": "2026-10-06",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:guidehouse:/job/US---NY-New-York/Intern---Life-Sciences-Advisory--Health-Segment---Campus-2027_43306": {
    "f": "2026-09-22",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:guidehouse:/job/US---VA-McLean/Intern---Health-and-Human-Services--Federal-Health-Advisory---Campus-2027_45153": {
    "f": "2026-10-01",
@@ -5631,43 +5648,43 @@
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-AHN-FP-A-Undergraduate-Finance-Intern_J288294": {
    "f": "2026-10-09",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-Health-Plan-Gov-Undergraduate-Finance-Intern_J287474": {
    "f": "2026-10-05",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2026-Enterprise-Finance-Strategy-Undergraduate-Finance-Intern_J286276": {
    "f": "2026-10-05",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-FP-A-Undergraduate-Finance-Intern_J286275": {
    "f": "2026-10-05",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-Treasury-Undergraduate-Finance-Intern_J286282": {
    "f": "2026-10-05",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-HMIG-Undergraduate-Financial-Analytics-Intern_J286836": {
    "f": "2026-10-06",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-FP-A-Graduate-Finance-Intern_J285909": {
    "f": "2026-10-06",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-Undergraduate-Finance-Intern_J285573": {
    "f": "2026-10-05",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Undergraduate-Intern_J286545": {
    "f": "2026-10-05",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929": {
    "f": "2026-08-26",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:hl:/job/Los-Angeles-CA-USA/Corporate-Development-Intern--Summer-2027-_R3354": {
    "f": "2026-08-25",
@@ -5919,7 +5936,7 @@
   },
   "workday:jabil:/job/Austin-TX/AI-Transformation-Intern_J2466044": {
    "f": "2026-10-06",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:jci:/job/Milwaukee-Wisconsin-United-States-of-America/Accounting---Finance-Intern_WD30278457": {
    "f": "2026-09-03",
@@ -6459,7 +6476,7 @@
   },
   "workday:myhrhome:/job/Irving-TX/Intern_R2609-52605": {
    "f": "2026-09-30",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:nationwide:/job/Ohio---Columbus-Metro/Summer-2027-Analytic-Consulting-Advisor-Internship_100235": {
    "f": "2026-09-04",
@@ -7391,7 +7408,7 @@
   },
   "workday:strayer:/job/Minneapolis-MN/Intern---Financial-Planning-and-Analysis_R29086": {
    "f": "2026-09-16",
-   "l": "2026-10-10"
+   "l": "2026-10-11"
   },
   "workday:stryker:/job/Flower-Mound-Texas/Summer-2027-Internship---Finance---Texas_R572582": {
    "f": "2026-09-01",
