@@ -1,12 +1,16 @@
 {
- "broken": {},
- "last_run": "2026-10-12T20:22:52Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "Rockwell Automation": "HTTP 429"
+ },
+ "last_run": "2026-10-12T21:44:34Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 51,
-  "new": 0,
-  "postings": 25118,
-  "sites": 82
+  "failed": 3,
+  "matching": 40,
+  "new": 1,
+  "postings": 17739,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -15,6 +19,7 @@
   "greenhouse:drweng:7992670": "2026-09-14",
   "greenhouse:drweng:7993004": "2026-09-14",
   "greenhouse:genscript:5169014007": "2026-08-31",
+  "greenhouse:lincolninternational:8106841": "2026-10-12",
   "greenhouse:perpay:4536787007": "2026-09-14",
   "greenhouse:verainstituteofjustice:4712591005": "2026-09-07",
   "greenhouse:williamblair:4977450007": "2026-09-28",
@@ -34,11 +39,23 @@
   "smartrecruiters:TheWonderfulCompany:744000113566258": "2026-08-31",
   "smartrecruiters:TheWonderfulCompany:744000113780016": "2026-08-31",
   "smartrecruiters:TheWonderfulCompany:744000113780858": "2026-08-31",
-  "smartrecruiters:TheWonderfulCompany:744000113783769": "2026-08-31"
+  "smartrecruiters:TheWonderfulCompany:744000113783769": "2026-08-31",
+  "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698": "2026-10-12",
+  "workday:pnc:/job/IL---Chicago-60606/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--West-_R230912-1": "2026-10-12",
+  "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Business-Credit_R230898-1": "2026-10-12",
+  "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking---Financials-and-Diversified-Track_R230900-1": "2026-10-12",
+  "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--East-_R230901-1": "2026-10-12",
+  "workday:pnc:/job/PA---Pittsburgh-15222/Corporate-Finance---Accounting-Undergraduate-Intern_R231489-1": "2026-10-12",
+  "workday:pnc:/job/PNC-Center---Cleveland-OH001/Retail-Banking-Summer-Intern-Program---Financial-Wellness-Solutions_R230922-1": "2026-10-12",
+  "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": "2026-10-12",
+  "workday:winlandfoods:/job/USA-IL-Oak-Brook/Finance-Intern_R28805": "2026-10-12"
  },
  "reminders_sent": [],
  "reported": [
   "amazon:10435673",
+  "ashby:1password:25a06bd3-2367-4cfc-8624-4c6d7c938459",
+  "ashby:1password:519a2f66-66ce-4903-9da9-56b8cf3aa4d8",
+  "ashby:1password:75be57ce-1b7d-4e11-a105-69c1906ab320",
   "ashby:Antares:9976c2a9-3667-4152-a4ea-affa8b637026",
   "ashby:Etched:a0a1671e-15d4-474c-8227-97fe16ade553",
   "ashby:base-power:1b275bc7-7ea3-49f2-a41a-209431458d36",
@@ -483,6 +500,7 @@
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-2",
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408",
+  "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039",
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311",
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55897",
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Commercial-Strategy-Intern_Job_Req_55300",
@@ -499,6 +517,7 @@
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/The-Wall-Street-Journal-Summer-Business--Finance---Economic-Reporting-Internships--2027-_Job_Req_55671-1",
   "workday:dowjones:/job/New-York-City/Summer-2027-Internship-Program---FP-A-Intern_Job_Req_55318",
   "workday:dowjones:/job/New-York-City/Summer-2027-Internship-Program---Product-Strategy-Intern_Job_Req_55317",
+  "workday:dtna:/job/Portland-OR-US/On-Highway-Product-Marketing-and-Strategy-Intern_DT-20177-1",
   "workday:ebi:/job/Simsbury-CT/Finance-Intern_REQ107740",
   "workday:echo:/job/Chicago-IL/Accounting-Intern_R4643-1",
   "workday:echo:/job/Chicago-IL/FP-A-Intern_R4642",
@@ -705,6 +724,7 @@
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309",
   "workday:hyvee:/job/Corporate-Office-Westown-Pkwy-West-Des-Moines-IA/Marketing-Strategy-Intern---Summer-2027_R249892",
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Business-Transformation--Reston-_R2603346",
+  "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Corporate-Development--Reston--VA-_R2603481",
   "workday:igsenergy:/job/Ohio-Remote/Business-Analyst-Intern--Summer-2027-_R6298",
   "workday:igsenergy:/job/Ohio-Remote/Solar-Finance-Intern--Summer-2027-_R6304",
   "workday:igsenergy:/job/Ohio-Remote/Strategy-Intern--Summer-2027-_R6300",
@@ -3188,6 +3208,18 @@
    "f": "2026-08-25",
    "l": "2026-08-25"
   },
+  "ashby:1password:25a06bd3-2367-4cfc-8624-4c6d7c938459": {
+   "f": "2026-10-12",
+   "l": "2026-10-12"
+  },
+  "ashby:1password:519a2f66-66ce-4903-9da9-56b8cf3aa4d8": {
+   "f": "2026-10-12",
+   "l": "2026-10-12"
+  },
+  "ashby:1password:75be57ce-1b7d-4e11-a105-69c1906ab320": {
+   "f": "2026-10-12",
+   "l": "2026-10-12"
+  },
   "ashby:Antares:9976c2a9-3667-4152-a4ea-affa8b637026": {
    "f": "2026-09-14",
    "l": "2026-09-16"
@@ -4980,6 +5012,10 @@
    "f": "2026-09-09",
    "l": "2026-10-12"
   },
+  "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039": {
+   "f": "2026-10-12",
+   "l": "2026-10-12"
+  },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311": {
    "f": "2026-09-15",
    "l": "2026-10-12"
@@ -5042,6 +5078,10 @@
   },
   "workday:dowjones:/job/New-York-City/Summer-2027-Internship-Program---Product-Strategy-Intern_Job_Req_55317": {
    "f": "2026-09-15",
+   "l": "2026-10-12"
+  },
+  "workday:dtna:/job/Portland-OR-US/On-Highway-Product-Marketing-and-Strategy-Intern_DT-20177-1": {
+   "f": "2026-10-12",
    "l": "2026-10-12"
   },
   "workday:ebi:/job/Simsbury-CT/Finance-Intern_REQ107740": {
@@ -5866,6 +5906,10 @@
   },
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Business-Transformation--Reston-_R2603346": {
    "f": "2026-10-02",
+   "l": "2026-10-12"
+  },
+  "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Corporate-Development--Reston--VA-_R2603481": {
+   "f": "2026-10-12",
    "l": "2026-10-12"
   },
   "workday:igsenergy:/job/Ohio-Remote/Business-Analyst-Intern--Summer-2027-_R6298": {
