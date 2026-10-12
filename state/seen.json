@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-12T17:51:30Z",
+ "last_run": "2026-10-12T19:47:05Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 27,
-  "sites": 1
+  "matching": 40,
+  "new": 2,
+  "postings": 18231,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -580,6 +580,8 @@
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
   "workday:freudenberg:/job/Durham-NC/Finance-Accounting-Intern_R_00107225-1",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
+  "workday:gafsgi:/job/Parsippany-NJ/Financial-Planning-and-Analysis-Intern_26423",
+  "workday:gafsgi:/job/Parsippany-NJ/Strategy-Special-Projects-Intern_26426",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1",
@@ -5366,9 +5368,17 @@
    "f": "2026-08-28",
    "l": "2026-10-12"
   },
+  "workday:gafsgi:/job/Parsippany-NJ/Financial-Planning-and-Analysis-Intern_26423": {
+   "f": "2026-10-12",
+   "l": "2026-10-12"
+  },
+  "workday:gafsgi:/job/Parsippany-NJ/Strategy-Special-Projects-Intern_26426": {
+   "f": "2026-10-12",
+   "l": "2026-10-12"
+  },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1": {
    "f": "2026-09-09",
-   "l": "2026-10-11"
+   "l": "2026-10-12"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1": {
    "f": "2026-08-25",
@@ -5380,7 +5390,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-10-11"
+   "l": "2026-10-12"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
