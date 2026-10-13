@@ -1,15 +1,12 @@
 {
- "broken": {
-  "GE Healthcare": "HTTP 429",
-  "Maricopa County": "HTTP 429"
- },
- "last_run": "2026-10-13T23:11:29Z",
+ "broken": {},
+ "last_run": "2026-10-13T23:43:49Z",
  "last_run_stats": {
-  "failed": 2,
-  "matching": 40,
-  "new": 1,
-  "postings": 18024,
-  "sites": 213
+  "failed": 0,
+  "matching": 0,
+  "new": 0,
+  "postings": 27,
+  "sites": 1
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
