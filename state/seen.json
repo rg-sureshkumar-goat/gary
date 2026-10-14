@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-14T13:40:58Z",
+ "last_run": "2026-10-14T15:38:46Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 27,
-  "sites": 1
+  "matching": 48,
+  "new": 1,
+  "postings": 25176,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -141,6 +141,7 @@
   "greenhouse:vikingglobalinvestors:6203684004",
   "greenhouse:whitewatermidstream:5217841007",
   "greenhouse:williamblair:4977450007",
+  "greenhouse:williamblair:5265526007",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Business-Process-Controls-Advisory-Summer-2027/361291",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Baruch-Co-Op-Winter-Spring-2027/364061",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Fall-2027/365635",
@@ -3610,6 +3611,10 @@
   "greenhouse:williamblair:4977450007": {
    "f": "2025-12-01",
    "l": "2026-09-28"
+  },
+  "greenhouse:williamblair:5265526007": {
+   "f": "2026-10-14",
+   "l": "2026-10-14"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Business-Process-Controls-Advisory-Summer-2027/361291": {
    "f": "2026-09-18",
