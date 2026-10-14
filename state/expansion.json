@@ -11174,7 +11174,12 @@
       "last": "2026-10-13",
       "result": "added",
       "ats": "workday"
+    },
+    "Groma": {
+      "last": "2026-10-14",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
-  "last_run": "2026-10-13"
+  "last_run": "2026-10-14"
 }
