@@ -1,16 +1,12 @@
 {
- "broken": {
-  "Odin Dynamics, Inc": "HTTP 404",
-  "Postman": "HTTP 404",
-  "Realtor.com": "HTTP 404"
- },
- "last_run": "2026-10-14T17:58:46Z",
+ "broken": {},
+ "last_run": "2026-10-14T19:51:39Z",
  "last_run_stats": {
-  "failed": 3,
-  "matching": 48,
-  "new": 0,
-  "postings": 25650,
-  "sites": 196
+  "failed": 0,
+  "matching": 50,
+  "new": 2,
+  "postings": 25218,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -53,6 +49,7 @@
  "reminders_sent": [],
  "reported": [
   "amazon:10435673",
+  "amazon:10452956",
   "ashby:1password:25a06bd3-2367-4cfc-8624-4c6d7c938459",
   "ashby:1password:519a2f66-66ce-4903-9da9-56b8cf3aa4d8",
   "ashby:1password:75be57ce-1b7d-4e11-a105-69c1906ab320",
@@ -172,6 +169,7 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2028/364863",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Global-Trade-Advisory-Summer-2027/364867",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-San-Juan-Accounting-Winter-2027/371528",
   "lever:Aprio:2c69eb91-9c0b-40e1-afe4-17b909b94706",
   "lever:Aprio:85d3d741-99dc-4a73-8837-951c9ddf646c",
   "lever:Aprio:b96b0836-b3ba-481f-8f0f-d57a186642b0",
@@ -3244,6 +3242,10 @@
    "f": "2026-08-25",
    "l": "2026-10-06"
   },
+  "amazon:10452956": {
+   "f": "2026-06-18",
+   "l": "2026-10-14"
+  },
   "amazon:10492198": {
    "f": "2026-08-25",
    "l": "2026-08-25"
@@ -3706,7 +3708,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/364861": {
    "f": "2026-08-31",
-   "l": "2026-10-08"
+   "l": "2026-10-14"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2028/362622": {
    "f": "2026-09-08",
@@ -3723,6 +3725,10 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Global-Trade-Advisory-Summer-2027/364867": {
    "f": "2026-08-31",
    "l": "2026-09-24"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-San-Juan-Accounting-Winter-2027/371528": {
+   "f": "2026-10-14",
+   "l": "2026-10-14"
   },
   "lever:Aprio:2c69eb91-9c0b-40e1-afe4-17b909b94706": {
    "f": "2023-03-21",
