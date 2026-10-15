@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-15T18:37:21Z",
+ "last_run": "2026-10-15T19:43:53Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 60,
-  "new": 0,
-  "postings": 15585,
-  "sites": 185
+  "matching": 52,
+  "new": 1,
+  "postings": 25269,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -894,6 +894,7 @@
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Global-Strategic-Sourcing---Intern_R413301",
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Global-Supplier-Management-Group-Digital-Strategy---Insights--DS-I----Intern_R416016",
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Global-Supplier-Management-Group-Direct-Advanced-Strategy-and-Procurement---Co-op_R415226",
+  "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Marketing-Strategy---Project-Management-Co-op_R422071",
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Strategy-Realization-Office--SRO----Intern_R413119",
   "workday:msd:/job/USA---Pennsylvania---Lower-Gwynedd-Township-Spring-House/XMLNAME-2027-Future-Talent-Program---Digital-Transformation-Conversion---Intern_R412942",
   "workday:msd:/job/USA---Pennsylvania---North-Wales-Upper-Gwynedd/XMLNAME-2027-Future-Talent-Program---Global-Market-Access--Strategy---Operations---Intern_R413314",
@@ -6664,6 +6665,10 @@
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Global-Supplier-Management-Group-Direct-Advanced-Strategy-and-Procurement---Co-op_R415226": {
    "f": "2026-09-08",
    "l": "2026-10-09"
+  },
+  "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Marketing-Strategy---Project-Management-Co-op_R422071": {
+   "f": "2026-10-15",
+   "l": "2026-10-15"
   },
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Strategy-Realization-Office--SRO----Intern_R413119": {
    "f": "2026-09-08",
