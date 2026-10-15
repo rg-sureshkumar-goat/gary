@@ -1,15 +1,12 @@
 {
- "broken": {
-  "Maximor AI": "HTTP 404",
-  "Veeda AI": "HTTP 404"
- },
- "last_run": "2026-10-15T14:23:51Z",
+ "broken": {},
+ "last_run": "2026-10-15T15:59:39Z",
  "last_run_stats": {
-  "failed": 2,
-  "matching": 47,
-  "new": 0,
-  "postings": 25058,
-  "sites": 219
+  "failed": 0,
+  "matching": 53,
+  "new": 2,
+  "postings": 25236,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -69,6 +66,7 @@
   "ashby:tensorwave:2cd72118-37ff-4c6e-887c-d65f168c5c59",
   "ashby:tensorwave:3a8708bf-6569-48f5-bf12-db0ebf8e2b6f",
   "ashby:tensorwave:b9e63782-5e36-4108-964f-294a028c03f4",
+  "greenhouse:airbnb:8285171",
   "greenhouse:appian:8088498",
   "greenhouse:aqr:8161563",
   "greenhouse:arcesiumllc:5262557007",
@@ -157,6 +155,7 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Fall-2027/366604",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Summer-2027/363235",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Valuation-Analytics-Winter-2027/361853",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444",
@@ -3330,6 +3329,10 @@
    "f": "2026-10-05",
    "l": "2026-10-15"
   },
+  "greenhouse:airbnb:8285171": {
+   "f": "2026-10-15",
+   "l": "2026-10-15"
+  },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
    "l": "2026-10-15"
@@ -3682,6 +3685,10 @@
    "f": "2026-08-28",
    "l": "2026-10-12"
   },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Valuation-Analytics-Winter-2027/361853": {
+   "f": "2026-10-15",
+   "l": "2026-10-15"
+  },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265": {
    "f": "2026-08-25",
    "l": "2026-09-24"
@@ -3700,7 +3707,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Analyst-Corporate-Finance/364072": {
    "f": "2026-10-13",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
