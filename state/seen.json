@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-15T15:59:39Z",
+ "last_run": "2026-10-15T18:37:21Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 53,
-  "new": 2,
-  "postings": 25236,
-  "sites": 82
+  "matching": 60,
+  "new": 0,
+  "postings": 15585,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -7591,11 +7591,11 @@
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:situsamc:/job/El-Segungdo-CA/Asset-Management-Intern--El-Segundo_JR03085": {
    "f": "2026-09-23",
@@ -7603,19 +7603,19 @@
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929": {
    "f": "2026-09-09",
@@ -8127,7 +8127,7 @@
   },
   "workday:xcelenergy:/job/Denver-CO-80205/Accounting-Tax-Finance-Intern_JR116533-1": {
    "f": "2026-09-09",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xcelenergy:/job/Denver-CO-80205/Residential-Energy-Product-Strategy-Intern--CO_JR115817-1": {
    "f": "2026-09-09",
@@ -8135,19 +8135,19 @@
   },
   "workday:xcelenergy:/job/Golden-CO-80401/Energy-Accounting-or-Analyst-Intern--CO_JR115573-1": {
    "f": "2026-09-07",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xcelenergy:/job/Henderson-CO-80640/Asset-Strategy---Budget-Integration-Intern--CO_JR115564-1": {
    "f": "2026-09-07",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xcelenergy:/job/Minneapolis-MN-55401/Business-Transformation-Intern---MN--CO_JR115602-1": {
    "f": "2026-09-14",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xcelenergy:/job/Minneapolis-MN-55401/Energy-Programs-Strategy---Analytics-Intern---MN_JR115669-1": {
    "f": "2026-09-14",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xcelenergy:/job/Minneapolis-MN-55401/Mass-Market-Strategy-Intern---MN_JR116101": {
    "f": "2026-09-17",
@@ -8155,11 +8155,11 @@
   },
   "workday:xcelenergy:/job/Minneapolis-MN-55401/Residential-Energy-Product-Strategy-Intern---MN--WI_JR116323-1": {
    "f": "2026-09-14",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xcelenergy:/job/Minneapolis-MN-55401/Residential-Energy-Product-Strategy-Intern---MN_JR115811": {
    "f": "2026-09-14",
-   "l": "2026-10-14"
+   "l": "2026-10-15"
   },
   "workday:xenergy:/job/Rockville-MD/Growth---Strategy-Internship---Summer-2027_R101322-1": {
    "f": "2026-09-17",
