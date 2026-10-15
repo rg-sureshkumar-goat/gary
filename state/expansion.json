@@ -11179,7 +11179,17 @@
       "last": "2026-10-14",
       "result": "added",
       "ats": "greenhouse"
+    },
+    "Whataburger": {
+      "last": "2026-10-15",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Atom Computing": {
+      "last": "2026-10-15",
+      "result": "added",
+      "ats": "lever"
     }
   },
-  "last_run": "2026-10-14"
+  "last_run": "2026-10-15"
 }
