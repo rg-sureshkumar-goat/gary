@@ -1,14 +1,12 @@
 {
- "broken": {
-  "Nio": "HTTP 422"
- },
- "last_run": "2026-10-16T04:58:25Z",
+ "broken": {},
+ "last_run": "2026-10-16T05:17:55Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 65,
-  "new": 1,
-  "postings": 32807,
-  "sites": 202
+  "failed": 0,
+  "matching": 51,
+  "new": 0,
+  "postings": 25153,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
