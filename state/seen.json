@@ -1,18 +1,12 @@
 {
- "broken": {
-  "Epiq Systems": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Nordstrom": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Patterson Companies": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "RXO": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "SEKO Logistics": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
- },
- "last_run": "2026-10-17T11:13:30Z",
+ "broken": {},
+ "last_run": "2026-10-17T12:10:34Z",
  "last_run_stats": {
-  "failed": 5,
-  "matching": 33,
+  "failed": 0,
+  "matching": 0,
   "new": 0,
-  "postings": 18031,
-  "sites": 212
+  "postings": 25,
+  "sites": 1
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
