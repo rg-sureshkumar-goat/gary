@@ -1,12 +1,19 @@
 {
- "broken": {},
- "last_run": "2026-10-17T18:50:26Z",
+ "broken": {
+  "Cleveland Clinic": "HTTP 429",
+  "First American": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "National Interstate Insurance": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429",
+  "Tencent": "HTTP 429"
+ },
+ "last_run": "2026-10-17T20:59:21Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 32,
-  "new": 0,
-  "postings": 15397,
-  "sites": 185
+  "failed": 6,
+  "matching": 35,
+  "new": 3,
+  "postings": 17386,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -695,8 +702,10 @@
   "workday:haier:/job/USA-Louisville-KY/Finance-Year-Round-Internship--January-2027-Start-_REQ-26944",
   "workday:haier:/job/USA-Louisville-KY/Financial-Development-Program-Intern--Summer-2027-_REQ-26638",
   "workday:harman:/job/US-Home-Office-New-York/Intern---Product-Strategy_R-55477-2026",
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Accounting-Intern_R0059481",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern--Downers-Grove-_R0059501",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern_R0059500",
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480",
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1",
   "workday:hec:/job/Houston-TX/I-26134---Accounting-Part-Time-Intern_R006419-1",
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1",
@@ -1014,6 +1023,9 @@
   "workday:prologis:/job/Denver-Colorado/Treasury-Cash-Management-Intern_R6832",
   "workday:prologis:/job/San-Francisco-California/Investment-Analyst-Program--IAP--Intern_R6830",
   "workday:pru:/job/Newark-NJ-USA/Prudential--2027-Corporate--Finance-Internship-Program--FIP-_R-124881",
+  "workday:qtsdatacenters:/job/Ashburn-VA/Summer-2027-Internship--Development-Capital-Strategy_R2026-1888",
+  "workday:qtsdatacenters:/job/Ashburn-VA/Summer-2027-Internship--Development-Capital-Strategy_R2026-1889",
+  "workday:qtsdatacenters:/job/Duluth-GA/Summer-2027-Internship--Oracle-Functional-Business-Analyst_R2026-1899",
   "workday:quickenloans:/job/Detroit-MI/Summer-2027-Internships---Marketing--Accounting--or-Information-Technology_R-085042-1",
   "workday:quickenloans:/job/Detroit-MI/Treasury-Operations-Intern---Winter-2027_R-084527",
   "workday:rb:/job/Chicago-IL/Summer-2027-Intern---Accounting-Majors_R-0000033617-1",
@@ -1479,6 +1491,7 @@
   "Astera",
   "Astera Labs",
   "Astranis",
+  "Astreya",
   "Astronomer",
   "Athena Health",
   "Atlas Energy Solutions",
@@ -2424,6 +2437,7 @@
   "Marsh McLennan (Oliver Wyman, Mercer)",
   "Marshall Wace",
   "Marvell",
+  "Mary Free Bed Rehabilitation Hospital",
   "Mass General Brigham",
   "MassMutual Ascend",
   "Mastercard",
@@ -2718,6 +2732,7 @@
   "Pylon",
   "Q2",
   "QGenda",
+  "QTS",
   "QuEra Computing",
   "Quadrillion Labs",
   "Qualified Health",
@@ -5890,12 +5905,20 @@
    "f": "2026-09-02",
    "l": "2026-10-06"
   },
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Accounting-Intern_R0059481": {
+   "f": "2026-10-17",
+   "l": "2026-10-17"
+  },
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern--Downers-Grove-_R0059501": {
    "f": "2026-10-01",
    "l": "2026-10-09"
   },
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern_R0059500": {
    "f": "2026-10-02",
+   "l": "2026-10-17"
+  },
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480": {
+   "f": "2026-10-17",
    "l": "2026-10-17"
   },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
@@ -6292,7 +6315,7 @@
   },
   "workday:jll:/job/Indianapolis-IN/Capital-Markets-Summer-2027-Internship---Indianapolis--IN_REQ530233": {
    "f": "2026-08-24",
-   "l": "2026-08-26"
+   "l": "2026-10-17"
   },
   "workday:jll:/job/Irvine-CA/Capital-Markets-Summer-2027-Internship---Orange-County--CA_REQ529972-1": {
    "f": "2026-08-24",
@@ -6864,7 +6887,7 @@
   },
   "workday:nordstrom:/job/Seattle-WA/Finance---Corporate-Internship---Summer-2027_R-886463-1": {
    "f": "2026-10-12",
-   "l": "2026-10-16"
+   "l": "2026-10-17"
   },
   "workday:northwesternmutual:/job/Milwaukee-WI-Corporate/Distribution-Finance-Intern--Fall-2026_JR-46019-1": {
    "f": "2026-09-11",
@@ -7173,6 +7196,18 @@
   "workday:pru:/job/Newark-NJ-USA/Prudential--2027-Corporate--Finance-Internship-Program--FIP-_R-124881": {
    "f": "2026-09-01",
    "l": "2026-09-18"
+  },
+  "workday:qtsdatacenters:/job/Ashburn-VA/Summer-2027-Internship--Development-Capital-Strategy_R2026-1888": {
+   "f": "2026-10-17",
+   "l": "2026-10-17"
+  },
+  "workday:qtsdatacenters:/job/Ashburn-VA/Summer-2027-Internship--Development-Capital-Strategy_R2026-1889": {
+   "f": "2026-10-17",
+   "l": "2026-10-17"
+  },
+  "workday:qtsdatacenters:/job/Duluth-GA/Summer-2027-Internship--Oracle-Functional-Business-Analyst_R2026-1899": {
+   "f": "2026-10-17",
+   "l": "2026-10-17"
   },
   "workday:quickenloans:/job/Detroit-MI/Summer-2027-Internships---Marketing--Accounting--or-Information-Technology_R-085042-1": {
    "f": "2026-10-15",
