@@ -1,19 +1,34 @@
 {
  "broken": {
-  "City of Charlotte": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Empower": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Nio": "HTTP 422",
-  "State of North Carolina": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "TSC": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
-  "Vertex Pharmaceuticals": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+  "Adobe": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Allstate": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Apollo Global Management": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Baker Tilly": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Bristol Myers Squibb": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Cigna": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Citigroup": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Comcast": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Discover": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Guggenheim Partners": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Harris Williams": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Merck": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "NVIDIA": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Prudential Financial": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "PwC (campus)": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "PwC (experienced)": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "S&P Global": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Salesforce": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "T. Rowe Price": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Target": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Visa": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
  },
- "last_run": "2026-10-17T04:58:22Z",
+ "last_run": "2026-10-17T08:56:51Z",
  "last_run_stats": {
-  "failed": 6,
-  "matching": 50,
+  "failed": 21,
+  "matching": 35,
   "new": 0,
-  "postings": 32227,
-  "sites": 202
+  "postings": 18013,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3722,11 +3737,11 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265": {
    "f": "2026-08-25",
-   "l": "2026-09-24"
+   "l": "2026-10-17"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Cyber-Strategy/360268": {
    "f": "2026-08-25",
-   "l": "2026-10-15"
+   "l": "2026-10-17"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Finance-Technology/362444": {
    "f": "2026-08-26",
