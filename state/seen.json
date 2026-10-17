@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-17T18:40:00Z",
+ "last_run": "2026-10-17T18:50:26Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 49,
+  "matching": 32,
   "new": 0,
-  "postings": 25179,
-  "sites": 82
+  "postings": 15397,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5532,7 +5532,7 @@
   },
   "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Commercial-Credit-Banking-Intern---Cleveland--OH_2026-01890": {
    "f": "2026-09-01",
-   "l": "2026-10-16"
+   "l": "2026-10-17"
   },
   "workday:fnbcorp:/job/Cleveland-OH/Summer-2027-Retail-Banking-Intern_2026-01831-1": {
    "f": "2026-09-01",
@@ -5540,11 +5540,11 @@
   },
   "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Harrisburg--PA_2026-01899": {
    "f": "2026-09-01",
-   "l": "2026-10-16"
+   "l": "2026-10-17"
   },
   "workday:fnbcorp:/job/Harrisburg-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01901": {
    "f": "2026-09-01",
-   "l": "2026-10-16"
+   "l": "2026-10-17"
   },
   "workday:fnbcorp:/job/Hermitage-PA/Summer-2027-IT-Asset-Management-Intern_2026-01959": {
    "f": "2026-09-01",
@@ -5564,7 +5564,7 @@
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Investment-Real-Estate_2026-01896": {
    "f": "2026-09-01",
-   "l": "2026-10-16"
+   "l": "2026-10-17"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Pittsburgh--PA_2026-01882": {
    "f": "2026-09-01",
@@ -5572,7 +5572,7 @@
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Commercial-Credit-Banking-Intern---Specialty-Finance_2026-01900": {
    "f": "2026-09-01",
-   "l": "2026-10-16"
+   "l": "2026-10-17"
   },
   "workday:fnbcorp:/job/Pittsburgh-PA/Summer-2027-Corporate-Finance-Intern_2026-01840": {
    "f": "2026-09-01",
