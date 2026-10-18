@@ -10647,8 +10647,9 @@
       "ats": "smartrecruiters"
     },
     "Rothesay": {
-      "last": "2026-09-17",
-      "result": "none"
+      "last": "2026-10-18",
+      "result": "added",
+      "ats": "greenhouse"
     },
     "Axcelis Technologies": {
       "last": "2026-09-17",
@@ -11263,7 +11264,11 @@
       "last": "2026-10-17",
       "result": "added",
       "ats": "workday"
+    },
+    "Chainlink Labs": {
+      "last": "2026-10-18",
+      "result": "none"
     }
   },
-  "last_run": "2026-10-17"
+  "last_run": "2026-10-18"
 }
