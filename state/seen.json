@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-18T06:34:23Z",
+ "last_run": "2026-10-18T11:28:53Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 32,
+  "matching": 50,
   "new": 0,
-  "postings": 15374,
-  "sites": 185
+  "postings": 25151,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
