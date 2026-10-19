@@ -11268,7 +11268,22 @@
     "Chainlink Labs": {
       "last": "2026-10-18",
       "result": "none"
+    },
+    "Wise": {
+      "last": "2026-10-19",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "Graviton": {
+      "last": "2026-10-19",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Braze": {
+      "last": "2026-10-19",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
-  "last_run": "2026-10-18"
+  "last_run": "2026-10-19"
 }
