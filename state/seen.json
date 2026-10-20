@@ -1,16 +1,20 @@
 {
  "broken": {
-  "Odin Dynamics, Inc": "HTTP 404",
-  "Postman": "HTTP 404",
-  "Realtor.com": "HTTP 404"
+  "Becton Dickinson": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "Sierra Space": "HTTP 429",
+  "Signet Jewelers": "HTTP 429",
+  "Tencent": "HTTP 429"
  },
- "last_run": "2026-10-20T21:33:51Z",
+ "last_run": "2026-10-20T21:55:20Z",
  "last_run_stats": {
-  "failed": 3,
-  "matching": 49,
-  "new": 0,
-  "postings": 25367,
-  "sites": 196
+  "failed": 7,
+  "matching": 34,
+  "new": 3,
+  "postings": 17352,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -78,6 +82,7 @@
   "ashby:clera:6622a020-90ea-4ec2-abc0-b87da498ff8f",
   "ashby:ibotta:97fc4740-8330-4bed-aab1-e95201bdb02d",
   "ashby:ibotta:f8880452-62af-4b0d-96ab-6e0943dd4fbf",
+  "ashby:leland:a2c2c00d-2b9d-4e5c-bf15-289473ba1191",
   "ashby:riveron:1b0521bf-047a-4406-9e95-a117033c9c69",
   "ashby:sereact:8ebf2a77-6006-416a-beb1-88f9bacd8fe3",
   "ashby:tensorwave:05734549-52e7-4142-8525-c6fb79f5d337",
@@ -109,6 +114,8 @@
   "greenhouse:coinbase:8175435",
   "greenhouse:coinbase:8175438",
   "greenhouse:coinbase:8175569",
+  "greenhouse:drivewealth:8038087003",
+  "greenhouse:drivewealth:8039368003",
   "greenhouse:drweng:7992670",
   "greenhouse:drweng:7993004",
   "greenhouse:enova:8238162",
@@ -725,6 +732,7 @@
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern--Downers-Grove-_R0059501",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern_R0059500",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480",
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Process-Consultant-Senior-Intern_R0059483",
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1",
   "workday:hec:/job/Houston-TX/I-26134---Accounting-Part-Time-Intern_R006419-1",
   "workday:heidelbergmaterials:/job/Irving-TX/Accounting---Finance-Intern_JR10018182-1",
@@ -1259,6 +1267,9 @@
   "workday:tencent:/job/US-California-Palo-Alto/BD-and-Strategic-Analysis-Intern_R107804",
   "workday:thehartford:/job/Hartford-CT/Intern--Finance-Leadership-Development-Program_R2626423-1",
   "workday:thehartford:/job/Hartford-CT/Intern--Investment-Portfolio-Management_R2626689-1",
+  "workday:thehartford:/job/Wayne-PA/XMLNAME-2027-Summer-Intern---Finance_R2627497",
+  "workday:thehartford:/job/Wayne-PA/XMLNAME-2027-Summer-Intern---Investment-Consulting-Group_R2627498",
+  "workday:thehartford:/job/Wayne-PA/XMLNAME-2027-Summer-Intern---Rotational--IT--Operations--Risk--and-Fund-Treasury-_R2627500",
   "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452",
   "workday:thermofisher:/job/Wilmington-North-Carolina-USA/Finance-Intern_R-01366569",
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Turnaround---Restructuring---Boston--MA_JR101019",
@@ -2802,6 +2813,7 @@
   "Realtor.com",
   "Realty Income",
   "Red Bull",
+  "Redgate",
   "Redhorse",
   "Redwood Credit Union",
   "Redwood Materials",
@@ -3390,6 +3402,10 @@
    "f": "2026-09-10",
    "l": "2026-09-25"
   },
+  "ashby:leland:a2c2c00d-2b9d-4e5c-bf15-289473ba1191": {
+   "f": "2026-10-07",
+   "l": "2026-10-20"
+  },
   "ashby:riveron:1b0521bf-047a-4406-9e95-a117033c9c69": {
    "f": "2026-08-25",
    "l": "2026-09-08"
@@ -3513,6 +3529,14 @@
   "greenhouse:coinbase:8175569": {
    "f": "2026-09-08",
    "l": "2026-09-22"
+  },
+  "greenhouse:drivewealth:8038087003": {
+   "f": "2026-10-20",
+   "l": "2026-10-20"
+  },
+  "greenhouse:drivewealth:8039368003": {
+   "f": "2026-10-20",
+   "l": "2026-10-20"
   },
   "greenhouse:drweng:7992670": {
    "f": "2026-07-13",
@@ -5736,11 +5760,11 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
@@ -5992,6 +6016,10 @@
   },
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480": {
    "f": "2026-10-17",
+   "l": "2026-10-20"
+  },
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Process-Consultant-Senior-Intern_R0059483": {
+   "f": "2026-10-20",
    "l": "2026-10-20"
   },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
@@ -6412,7 +6440,7 @@
   },
   "workday:jll:/job/Los-Angeles-CA/Capital-Markets-Summer-2027-Internship---Century-City--LA_REQ530570": {
    "f": "2026-08-24",
-   "l": "2026-09-23"
+   "l": "2026-10-20"
   },
   "workday:jll:/job/Miami-FL/Capital-Markets-Summer-2027-Internship---Miami--FL_REQ530237": {
    "f": "2026-08-24",
@@ -6816,7 +6844,7 @@
   },
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558": {
    "f": "2026-08-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:mmc:/job/Chicago---155-Wacker/Health---Benefits-Financial-Summer-Intern---Central-Market---College-Program-2027_R_365270": {
    "f": "2026-09-09",
@@ -7480,7 +7508,7 @@
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
    "f": "2026-09-01",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961": {
    "f": "2026-09-08",
@@ -8104,7 +8132,7 @@
   },
   "workday:td:/job/San-Francisco-California/XMLNAME-2027-Summer-Analyst-Program---Investment-Banking--Healthcare--San-Francisco-_R_1513984": {
    "f": "2026-09-29",
-   "l": "2026-10-13"
+   "l": "2026-10-20"
   },
   "workday:td:/job/Southfield-Michigan/XMLNAME-2027-Summer-Internship-Program---TD-Auto-Finance_R_1508218": {
    "f": "2026-08-31",
@@ -8136,6 +8164,18 @@
   },
   "workday:thehartford:/job/Hartford-CT/Intern--Investment-Portfolio-Management_R2626689-1": {
    "f": "2026-09-14",
+   "l": "2026-10-20"
+  },
+  "workday:thehartford:/job/Wayne-PA/XMLNAME-2027-Summer-Intern---Finance_R2627497": {
+   "f": "2026-10-20",
+   "l": "2026-10-20"
+  },
+  "workday:thehartford:/job/Wayne-PA/XMLNAME-2027-Summer-Intern---Investment-Consulting-Group_R2627498": {
+   "f": "2026-10-20",
+   "l": "2026-10-20"
+  },
+  "workday:thehartford:/job/Wayne-PA/XMLNAME-2027-Summer-Intern---Rotational--IT--Operations--Risk--and-Fund-Treasury-_R2627500": {
+   "f": "2026-10-20",
    "l": "2026-10-20"
   },
   "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452": {

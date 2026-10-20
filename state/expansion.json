@@ -11310,6 +11310,15 @@
       "last": "2026-10-20",
       "result": "added",
       "ats": "workday"
+    },
+    "Steel": {
+      "last": "2026-10-20",
+      "result": "none"
+    },
+    "Redgate": {
+      "last": "2026-10-20",
+      "result": "added",
+      "ats": "ashby"
     }
   },
   "last_run": "2026-10-20"
