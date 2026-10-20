@@ -1,14 +1,15 @@
 {
  "broken": {
-  "Accenture": "HTTP 429"
+  "LiveRamp": "HTTP 403",
+  "Visier Solutions": "HTTP 404"
  },
- "last_run": "2026-10-20T05:33:59Z",
+ "last_run": "2026-10-20T07:27:53Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 47,
+  "failed": 2,
+  "matching": 61,
   "new": 0,
-  "postings": 24473,
-  "sites": 82
+  "postings": 18500,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3408,7 +3409,7 @@
   },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "greenhouse:aqr:8161563": {
    "f": "2026-08-27",
@@ -3676,7 +3677,7 @@
   },
   "greenhouse:schonfeld:8172064": {
    "f": "2026-09-04",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "greenhouse:silananotechnologies:8157153": {
    "f": "2026-08-25",
@@ -4192,7 +4193,7 @@
   },
   "smartrecruiters:Wabtec:3743990014653567": {
    "f": "2026-08-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "smartrecruiters:Wabtec:3743990015094546": {
    "f": "2026-09-06",
@@ -4272,11 +4273,11 @@
   },
   "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064784": {
    "f": "2026-09-11",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:aes:/job/US-Dayton-OH/Investment-Planning-Intern---Summer-2027_R1064785": {
    "f": "2026-09-11",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ag:/job/Atlanta-Area-GA/Summer-Internship---Accounting-Specialist_JR10436879": {
    "f": "2026-09-05",
@@ -4312,47 +4313,47 @@
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Cross-Car-Line-Feature-Strategy-Intern---Summer-2027---Franklin--TN_R00214296": {
    "f": "2026-10-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Customer-Journey-and-Strategy-Intern---Summer-2027---Franklin--TN_R00214244": {
    "f": "2026-10-16",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Digital-Products---AI-Strategy-Intern---Summer-2027---Franklin--TN_R00214215": {
    "f": "2026-10-07",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/External-Reporting-Accounting-Intern---Summer-2027---Franklin--TN_R00214232": {
    "f": "2026-10-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Finance-Intern---Summer-2027---Franklin--TN_R00214238": {
    "f": "2026-10-12",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Finance-Intern---Summer-2027---Franklin--TN_R00214239": {
    "f": "2026-10-08",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Purchasing-Strategy-Intern---Summer-2027---Franklin--TN_R00214277": {
    "f": "2026-10-07",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/SAP-Platform-Intern--Finance-Purchasing----Summer-2027---Franklin--TN_R00214217": {
    "f": "2026-10-07",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Treasury-Capital-Markets-Intern---Summer-2027---Frankin--TN_R00214234": {
    "f": "2026-10-07",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Treasury-Cash-Management-Intern---Summer-2027---Franklin--TN_R00214233": {
    "f": "2026-10-07",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliance:/job/Franklin-Tennessee---United-States-of-America/Treasury-Intern---Summer-2027---Franklin--HQ_R00214235": {
    "f": "2026-10-07",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:alliedsolutions:/job/Carmel-IN/Finance-Operations-Intern_R-011080": {
    "f": "2026-09-02",
@@ -4440,7 +4441,7 @@
   },
   "workday:andersonsinc:/job/Maumee-OH/Accounting-Intern--Summer-2027-_R12482": {
    "f": "2026-09-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Atlanta-GA/University-Intern--Construction-Disputes---Advisory--Forensic-Accounting---Claims-Consulting-_R104957": {
    "f": "2026-09-10",
@@ -4452,7 +4453,7 @@
   },
   "workday:ankura:/job/Chicago-IL/University-Intern--Disputes---Economics---Valuation---Transaction-Advisory_R104985": {
    "f": "2026-09-18",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Chicago-IL/University-Intern--Risk-Advisory--eDiscovery_R104975": {
    "f": "2026-09-14",
@@ -4472,7 +4473,7 @@
   },
   "workday:ankura:/job/Dallas-TX/University-Intern--Risk-Advisory--Forensics_R105025-1": {
    "f": "2026-09-16",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Dallas-TX/University-Intern--Risk-Advisory--eDiscovery_R104979": {
    "f": "2026-09-14",
@@ -4480,7 +4481,7 @@
   },
   "workday:ankura:/job/Fairfield-CT/University-Intern--Construction--Disputes---Advisory_R104955": {
    "f": "2026-09-14",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Houston-TX/University-Intern--Forensic-Accounting---Claims-Consulting_R104971": {
    "f": "2026-09-14",
@@ -4492,15 +4493,15 @@
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Construction--Disputes---Advisory_R104936": {
    "f": "2026-09-09",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Disputes---Economics---Financial-Services-Advisory_R104990": {
    "f": "2026-09-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Disputes---Economics---Financial-Services-Disputes_R104995": {
    "f": "2026-09-28",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/New-York-NY/University-Intern--Risk-Advisory--Forensics_R105033": {
    "f": "2026-09-16",
@@ -4520,27 +4521,27 @@
   },
   "workday:ankura:/job/Phoenix-AZ/University-Intern--Construction--Disputes---Advisory_R104967-1": {
    "f": "2026-09-16",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/San-Francisco-CA/University-Intern--Risk-Advisory--eDiscovery_R104976": {
    "f": "2026-09-14",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104947": {
    "f": "2026-09-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Construction--Disputes---Advisory_R104949": {
    "f": "2026-09-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Disputes---Economics---Financial-Services-Advisory_R104991": {
    "f": "2026-09-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Disputes---Economics---Financial-Services-Disputes_R104993": {
    "f": "2026-09-28",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ankura:/job/Washington-DC/University-Intern--Risk-Advisory--Forensics_R105029": {
    "f": "2026-09-16",
@@ -4856,7 +4857,7 @@
   },
   "workday:cat:/job/Nashville-Tennessee/XMLNAME-2027-Summer-Intern---Finance_R0000387781": {
    "f": "2026-08-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:cat:/job/Peoria-Illinois/XMLNAME-2027-Summer-Corporate-Intern---Accounting_R0000379993": {
    "f": "2026-09-02",
@@ -5416,7 +5417,7 @@
   },
   "workday:elevancehealth:/job/IN-INDIANAPOLIS-220-VIRGINIA-AVE/Finance-Intern---Summer-2027_JR207231": {
    "f": "2026-09-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:elkay:/job/Downers-Grove-IL/Finance-Intern--Summer-2027-_REQ-020156": {
    "f": "2026-09-25",
@@ -6260,11 +6261,11 @@
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Services--Travel-and-Events_R-15355": {
    "f": "2026-09-16",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Corporate-Services--Travel-and-Events_R-15355-1": {
    "f": "2026-09-16",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Financial-Planning---Analysis--FP-A-_R-15346": {
    "f": "2026-09-03",
@@ -6276,11 +6277,11 @@
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Fixed-Income-Global-Technology_R-15621": {
    "f": "2026-10-13",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Fixed-Income-Global-Technology_R-15621-1": {
    "f": "2026-10-13",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:invesco:/job/Atlanta-Georgia/Early-Career-Intern---Investments--Capital-Markets-_R-15094": {
    "f": "2026-08-25",
@@ -6308,11 +6309,11 @@
   },
   "workday:invesco:/job/Houston-Texas/Early-Career-Intern---Investment-Technology_R-15622": {
    "f": "2026-09-29",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:invesco:/job/Houston-Texas/Early-Career-Intern---Investment-Technology_R-15622-1": {
    "f": "2026-09-29",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:jabil:/job/Austin-TX/AI-Transformation-Intern_J2466044": {
    "f": "2026-10-06",
@@ -6320,7 +6321,7 @@
   },
   "workday:jabil:/job/St-PetersburgTampa-FL/Technical-Accounting-Intern_J2467362": {
    "f": "2026-10-13",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:jci:/job/Milwaukee-Wisconsin-United-States-of-America/Accounting---Finance-Intern_WD30278457": {
    "f": "2026-09-03",
@@ -6572,7 +6573,7 @@
   },
   "workday:ksmcpa:/job/Remote---Indiana/Intern---Tax-Due-Diligence--Spring-2027-_R-100540": {
    "f": "2026-10-06",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:labcorp:/job/Remote_United-States/Intern---Financial-Analytics---Technology_2630761": {
    "f": "2026-09-11",
@@ -6724,11 +6725,11 @@
   },
   "workday:mfs:/job/Boston/Brand-Strategy-and-Governance-Co-op-Spring-2027--January---June-_MFS-231952": {
    "f": "2026-09-23",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:mfs:/job/Boston/DCI-Sales-Co-op-Spring-2027--January---June-_MFS-231927": {
    "f": "2026-09-21",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:mfs:/job/Boston/Distribution-Strategic-Capabilities-Co-op-Spring-2027--January---June-_MFS-231938": {
    "f": "2026-09-21",
@@ -7112,11 +7113,11 @@
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002247": {
    "f": "2026-08-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002271": {
    "f": "2026-08-25",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002363": {
    "f": "2026-09-22",
@@ -7124,11 +7125,11 @@
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002388-1": {
    "f": "2026-10-02",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:phigroup:/job/Tempe-AZ/Patient-Financial-Services-Intern_REQ002394": {
    "f": "2026-10-06",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:philips:/job/Cambridge-US-Massachusetts-United-States/Intern-Customer-Experience--Health-Systems-Strategy-and-Growth--Cambridge--MA-Summer-2027_593456": {
    "f": "2026-10-14",
@@ -7284,31 +7285,31 @@
   },
   "workday:rb:/job/Chicago-IL/Summer-2027-Intern---Accounting-Majors_R-0000033617-1": {
    "f": "2026-10-01",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/Chicago-IL/Summer-2027-Intern---Business-Majors---ex-Business-Administration---Finance_R-0000033616-1": {
    "f": "2026-10-01",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/Cleveland-OH/Financial-Management-Intern---2027_R-0000033636": {
    "f": "2026-10-01",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/Cleveland-OH/SCS---Community-Banking-and-Applications-Intern---2027_R-0000033638": {
    "f": "2026-10-01",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/Dallas-TX/XMLNAME-2027-Intern---Community-Banking-Organizations--Dallas-_R-0000033576": {
    "f": "2026-10-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/Dallas-TX/XMLNAME-2027-Intern---Strategic-Risk-Management_R-0000033563-1": {
    "f": "2026-10-15",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/Houston-TX/XMLNAME-2027-Intern---Community-Banking-Organizations--Houston-_R-0000033578-1": {
    "f": "2026-10-14",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:rb:/job/New-York-NY/XMLNAME-2027-Summer-Intern---Executive-Office---Strategy---Operating-Services--Junior_R-0000033101": {
    "f": "2026-09-01",
@@ -7924,7 +7925,7 @@
   },
   "workday:sunlife:/job/Wellesley-Hills-Massachusetts/Strategic-Vendor-Management---Co-op_JR00127632": {
    "f": "2026-09-14",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:swa:/job/TX-Dallas/Summer-2027-Financial-Planning---Analytics-Internship_R-2026-73010": {
    "f": "2026-10-01",
@@ -7944,11 +7945,11 @@
   },
   "workday:swib:/job/Madison-Wisconsin/Investment-Risk-Analyst-Intern_R-001328": {
    "f": "2026-09-28",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:swib:/job/Madison-Wisconsin/Systematic-Multi-Strategy-Intern_R-001342": {
    "f": "2026-10-09",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:synchronyfinancial:/job/Stamford-Hub/BLP-Intern---Finance_2601689": {
    "f": "2026-08-25",
@@ -8176,27 +8177,27 @@
   },
   "workday:ttc:/job/Bloomington-MN/CRM-Business-Analyst-Intern---The-Toro-Company_JR17386": {
    "f": "2026-09-22",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ttc:/job/Bloomington-MN/Finance-Intern---The-Toro-Company_JR17543": {
    "f": "2026-10-19",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ttc:/job/Bloomington-MN/Finance-Intern--Global-Shared-Services---The-Toro-Company_JR17156": {
    "f": "2026-10-06",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ttc:/job/Bloomington-MN/HR-Strategy---Talent-Intern---The-Toro-Company_JR17037": {
    "f": "2026-09-11",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ttc:/job/Bloomington-MN/RLC-Financial-Planning-and-Analysis-Intern---The-Toro-Company_JR17138": {
    "f": "2026-09-11",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:ttc:/job/Perry-OK/IT-Business-Analyst-Intern---Ditch-Witch_JR17608": {
    "f": "2026-10-13",
-   "l": "2026-10-19"
+   "l": "2026-10-20"
   },
   "workday:umb:/job/Kansas-City-MO/Capital-Markets-Sales-Intern_R-9589": {
    "f": "2026-10-14",
