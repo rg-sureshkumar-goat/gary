@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-10-21T13:45:00Z",
+ "broken": {
+  "Corewell Health": "HTTP 504"
+ },
+ "last_run": "2026-10-21T14:41:55Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 1,
+  "matching": 25,
   "new": 0,
-  "postings": 30,
-  "sites": 1
+  "postings": 15124,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5168,11 +5170,11 @@
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-2027-Summer-Intern--Client-Accounting--St-Louis_R333460": {
    "f": "2026-08-31",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-Intern--Client-Accounting_R333462-1": {
    "f": "2026-08-20",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480": {
    "f": "2026-08-31",
@@ -5900,23 +5902,23 @@
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance-Project-Management-Analyst-Intern--Summer-2027-_JR-2604486": {
    "f": "2026-10-06",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483": {
    "f": "2026-10-01",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Pricing---AI-Analytics-Intern--Summer-2027-_JR-2605139": {
    "f": "2026-10-11",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Transactions---Alliances-Intern--Summer-2027-_JR-2604237": {
    "f": "2026-10-08",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Technical-Accounting-Intern--Summer-2027-_JR-2604485": {
    "f": "2026-10-13",
-   "l": "2026-10-20"
+   "l": "2026-10-21"
   },
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
    "f": "2026-09-09",
