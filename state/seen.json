@@ -1,14 +1,15 @@
 {
  "broken": {
-  "Accenture": "HTTP 429"
+  "LiveRamp": "HTTP 403",
+  "Visier Solutions": "HTTP 404"
  },
- "last_run": "2026-10-21T17:27:47Z",
+ "last_run": "2026-10-21T19:16:36Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 49,
-  "new": 1,
-  "postings": 24652,
-  "sites": 82
+  "failed": 2,
+  "matching": 59,
+  "new": 0,
+  "postings": 18558,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
