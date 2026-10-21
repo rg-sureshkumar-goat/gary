@@ -11319,7 +11319,22 @@
       "last": "2026-10-20",
       "result": "added",
       "ats": "ashby"
+    },
+    "Metamorphic": {
+      "last": "2026-10-21",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "ClickHouse": {
+      "last": "2026-10-21",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Humble Robotics": {
+      "last": "2026-10-21",
+      "result": "added",
+      "ats": "lever"
     }
   },
-  "last_run": "2026-10-20"
+  "last_run": "2026-10-21"
 }
