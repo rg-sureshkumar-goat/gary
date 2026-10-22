@@ -1,14 +1,16 @@
 {
  "broken": {
-  "Accenture": "HTTP 429"
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "Rockwell Automation": "HTTP 429"
  },
- "last_run": "2026-10-22T21:48:49Z",
+ "last_run": "2026-10-22T21:59:09Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 49,
-  "new": 0,
-  "postings": 24774,
-  "sites": 82
+  "failed": 3,
+  "matching": 35,
+  "new": 1,
+  "postings": 17709,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -662,6 +664,7 @@
   "workday:fnbcorp:/job/State-College-PA/Summer-2027-Retail-Banking-Intern_2026-02143",
   "workday:freddiemac:/job/McLean-VA/Accounting-and-Finance-Intern--Summer-2027_JR17543",
   "workday:freddiemac:/job/McLean-VA/Capital-Markets-Intern---Summer-2027_JR17560",
+  "workday:freight:/job/FXF-USUSAFXFMHQMemphis-Headquarters/Intern-FP-A_RC5469",
   "workday:freudenberg:/job/Durham-NC/Finance-Accounting-Intern_R_00107225-1",
   "workday:freudenberg:/job/Plymouth-MI/Finance---Treasury-Intern_R_00106619-1",
   "workday:gafsgi:/job/Parsippany-NJ/Financial-Planning-and-Analysis-Intern_26423",
@@ -1011,6 +1014,7 @@
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Business-Analyst-Intern---Aftermarket_R49542",
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49498",
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49501",
+  "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Accounting-Intern--Summer-2027-_R51431",
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824",
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Accounting-Intern_R50462",
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Finance---Accounting-Intern_R50271",
@@ -1187,6 +1191,8 @@
   "workday:salesforce:/job/California---San-Francisco/Summer-2027-Intern---Product-GTM-Strategy_JR362217-1",
   "workday:salesforce:/job/Indiana---Indianapolis/Summer-2027-Intern---Finance-Operations-Associate_JR359638-2",
   "workday:sanofi:/job/Framingham-MA/XMLNAME-2027-Spring-Co-op-Data-Science---Digital-Transformation--Framingham--MA_R2854091",
+  "workday:santander:/job/Boston/XMLNAME-2027-Finance-and-Accounting-Summer-Analyst-Program---Boston_Req1628609",
+  "workday:santander:/job/Miami/XMLNAME-2027-Finance-and-Accounting-Summer-Analyst-Program---Miami_Req1628626",
   "workday:santander:/job/UCM---Los-Angeles/XMLNAME-2027-Investment-Banking-Summer-Associate-Program---Los-Angeles_Req1614802",
   "workday:santander:/job/UCM---San-Francisco/XMLNAME-2027-Investment-Banking-Summer-Associate-Program---San-Francisco_Req1614797",
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660",
@@ -1801,6 +1807,7 @@
   "Cohere Health",
   "Cohesity",
   "Coinbase",
+  "Colibri Group",
   "Collabera",
   "Collaborative Robotics",
   "Colliers",
@@ -2045,6 +2052,7 @@
   "Farfetch",
   "Farm Credit Canada",
   "Farsight",
+  "FedEx Freight",
   "Federal Home Loan Bank of New York",
   "Fehr & Peers",
   "Fenwick & West",
@@ -5468,7 +5476,7 @@
   },
   "workday:ecolab:/job/USA---Minnesota---Saint-Paul/Undergrad-Finance-and-Accounting-Internship_R00303260": {
    "f": "2026-08-25",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365": {
    "f": "2026-08-31",
@@ -5782,6 +5790,10 @@
    "f": "2026-08-24",
    "l": "2026-10-20"
   },
+  "workday:freight:/job/FXF-USUSAFXFMHQMemphis-Headquarters/Intern-FP-A_RC5469": {
+   "f": "2026-10-21",
+   "l": "2026-10-22"
+  },
   "workday:freudenberg:/job/Durham-NC/Finance-Accounting-Intern_R_00107225-1": {
    "f": "2026-09-15",
    "l": "2026-10-22"
@@ -5808,7 +5820,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
@@ -7180,11 +7192,15 @@
   },
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49498": {
    "f": "2026-09-15",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49501": {
    "f": "2026-09-14",
    "l": "2026-10-15"
+  },
+  "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Accounting-Intern--Summer-2027-_R51431": {
+   "f": "2026-10-22",
+   "l": "2026-10-22"
   },
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824": {
    "f": "2026-08-28",
@@ -7890,6 +7906,14 @@
    "f": "2026-10-09",
    "l": "2026-10-18"
   },
+  "workday:santander:/job/Boston/XMLNAME-2027-Finance-and-Accounting-Summer-Analyst-Program---Boston_Req1628609": {
+   "f": "2026-10-22",
+   "l": "2026-10-22"
+  },
+  "workday:santander:/job/Miami/XMLNAME-2027-Finance-and-Accounting-Summer-Analyst-Program---Miami_Req1628626": {
+   "f": "2026-10-22",
+   "l": "2026-10-22"
+  },
   "workday:santander:/job/UCM---Los-Angeles/XMLNAME-2027-Investment-Banking-Summer-Associate-Program---Los-Angeles_Req1614802": {
    "f": "2026-09-22",
    "l": "2026-10-22"
@@ -8272,7 +8296,7 @@
   },
   "workday:thinkbrg:/job/Boston-MA/XMLNAME-2027-Summer-Associate---Corporate-Finance---Valuation--New-York-and-Boston-_JR101096": {
    "f": "2026-09-11",
-   "l": "2026-10-11"
+   "l": "2026-10-22"
   },
   "workday:thinkbrg:/job/Chicago-IL/Corporate-Finance--Transaction-Advisory---2027-Summer-Associate--Intern-_JR101208": {
    "f": "2026-10-21",

@@ -11380,6 +11380,16 @@
     "EDF Energy": {
       "last": "2026-10-22",
       "result": "none"
+    },
+    "FedEx Freight": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Colibri Group": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "lever"
     }
   },
   "last_run": "2026-10-22"
