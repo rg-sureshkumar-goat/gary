@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-22T04:37:55Z",
+ "last_run": "2026-10-22T06:33:40Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 25,
   "new": 0,
-  "postings": 30,
-  "sites": 1
+  "postings": 15470,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3403,7 +3403,7 @@
   },
   "ashby:clera:6622a020-90ea-4ec2-abc0-b87da498ff8f": {
    "f": "2026-10-16",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "ashby:ibotta:97fc4740-8330-4bed-aab1-e95201bdb02d": {
    "f": "2026-09-11",
@@ -3479,7 +3479,7 @@
   },
   "greenhouse:audaxgroup:4737364005": {
    "f": "2026-09-23",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "greenhouse:boxinc:8226667": {
    "f": "2026-09-23",
@@ -3547,11 +3547,11 @@
   },
   "greenhouse:drivewealth:8038087003": {
    "f": "2026-10-20",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "greenhouse:drivewealth:8039368003": {
    "f": "2026-10-20",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "greenhouse:drweng:7992670": {
    "f": "2026-07-13",
@@ -3675,7 +3675,7 @@
   },
   "greenhouse:perpay:4536787007": {
    "f": "2024-10-09",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "greenhouse:point72:8811167002": {
    "f": "2026-09-18",
@@ -4619,7 +4619,7 @@
   },
   "workday:aptiv:/job/Troy-MI---USA/Finance-Intern_J000704334": {
    "f": "2026-10-08",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:argonne:/job/Lemont-IL-USA/Financial-Management-Program-Internship_411203": {
    "f": "2026-08-26",
@@ -5067,7 +5067,7 @@
   },
   "workday:clr:/job/Oklahoma-City-OK/Accounting---Finance-Intern--Summer-2027-_R02590-1": {
    "f": "2026-08-26",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:cna:/job/Chicago-IL-USA/Finance---Accounting-Internship-Program--Summer-2027-_R-8048": {
    "f": "2026-09-09",
@@ -5183,11 +5183,11 @@
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-2027-Summer-Intern--Client-Accounting--St-Louis_R333460": {
    "f": "2026-08-31",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-Intern--Client-Accounting_R333462-1": {
    "f": "2026-08-20",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480": {
    "f": "2026-08-31",
@@ -5443,7 +5443,7 @@
   },
   "workday:ebi:/job/Simsbury-CT/Finance-Intern_REQ107740": {
    "f": "2026-10-08",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:echo:/job/Chicago-IL/Accounting-Intern_R4643-1": {
    "f": "2026-09-02",
@@ -5919,23 +5919,23 @@
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance-Project-Management-Analyst-Intern--Summer-2027-_JR-2604486": {
    "f": "2026-10-06",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483": {
    "f": "2026-10-01",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Pricing---AI-Analytics-Intern--Summer-2027-_JR-2605139": {
    "f": "2026-10-11",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Transactions---Alliances-Intern--Summer-2027-_JR-2604237": {
    "f": "2026-10-08",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Technical-Accounting-Intern--Summer-2027-_JR-2604485": {
    "f": "2026-10-13",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
    "f": "2026-09-09",
@@ -6063,7 +6063,7 @@
   },
   "workday:hec:/job/Houston-TX/I-26075---Accounting-Part-Time-Intern_R005834-1": {
    "f": "2026-08-26",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:hec:/job/Houston-TX/I-26134---Accounting-Part-Time-Intern_R006419-1": {
    "f": "2026-09-01",
@@ -7551,7 +7551,7 @@
   },
   "workday:roberthalf:/job/CHICAGO/Chicago-Internal-Audit-and-Financial-Advisory-Intern---2027_JR-258795-3": {
    "f": "2026-10-13",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:roberthalf:/job/DENVER/Denver-Technology-Consulting-Intern---2027_JR-258907-4": {
    "f": "2026-09-29",
@@ -7895,7 +7895,7 @@
   },
   "workday:simmonsbank:/job/Columbia-MO/Investment-Services-Intern_R115475": {
    "f": "2026-10-07",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474": {
    "f": "2026-09-09",
@@ -7903,11 +7903,11 @@
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:situsamc:/job/El-Segungdo-CA/Asset-Management-Intern--El-Segundo_JR03085": {
    "f": "2026-09-23",
@@ -7915,19 +7915,19 @@
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929": {
    "f": "2026-09-09",
@@ -8295,7 +8295,7 @@
   },
   "workday:transunion:/job/White-Plains-New-York/Financial-Services---Argus-Advisory-Internship---Summer-2027_19042627": {
    "f": "2026-09-28",
-   "l": "2026-10-21"
+   "l": "2026-10-22"
   },
   "workday:trumpf:/job/Farmington-CT/Financial-Analysis---Controlling-Intern_R00042763": {
    "f": "2026-09-04",
