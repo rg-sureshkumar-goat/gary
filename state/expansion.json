@@ -11343,7 +11343,44 @@
       "last": "2026-10-21",
       "result": "added",
       "ats": "lever"
+    },
+    "Walrus": {
+      "last": "2026-10-22",
+      "result": "none"
+    },
+    "OpenArt AI": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Metalenz": {
+      "last": "2026-10-22",
+      "result": "none"
+    },
+    "Trace3": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Brunswick Group": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Genworth": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Microchip Technology": {
+      "last": "2026-10-22",
+      "result": "added",
+      "ats": "workday"
+    },
+    "EDF Energy": {
+      "last": "2026-10-22",
+      "result": "none"
     }
   },
-  "last_run": "2026-10-21"
+  "last_run": "2026-10-22"
 }
