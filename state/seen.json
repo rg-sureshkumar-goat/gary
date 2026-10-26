@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-26T21:10:21Z",
+ "last_run": "2026-10-26T22:07:10Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 26,
-  "sites": 1
+  "matching": 49,
+  "new": 1,
+  "postings": 25214,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -1056,6 +1056,7 @@
   "workday:novoco:/job/Cleveland-OH/Financial-Forecasting-Intern_JR100783",
   "workday:ntrs:/job/Chicago-IL/Asset-Management-Intern---Enablement_R160753-2",
   "workday:nvent:/job/St-Louis-Park-MN-US/Finance-Intern---Summer-2027_R23569",
+  "workday:nvidia:/job/US-CA-Santa-Clara/Go-to-Market-Strategy-Intern--NPN-AI-Consulting---Summer-2027_JR2028642",
   "workday:oceanspray:/job/Lakeville-MA/Intern--Sales-Strategy_R5405",
   "workday:oneok:/job/Dallas-TX/Accounting-Intern---Dallas--TX_R8276",
   "workday:oneok:/job/Tulsa-OK/Accounting-Intern---Tulsa--OK_R8273",
@@ -3968,7 +3969,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Analyst-Corporate-Finance/364072": {
    "f": "2026-10-13",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
@@ -7313,6 +7314,10 @@
   "workday:nvent:/job/St-Louis-Park-MN-US/Finance-Intern---Summer-2027_R23569": {
    "f": "2026-09-14",
    "l": "2026-10-25"
+  },
+  "workday:nvidia:/job/US-CA-Santa-Clara/Go-to-Market-Strategy-Intern--NPN-AI-Consulting---Summer-2027_JR2028642": {
+   "f": "2026-10-26",
+   "l": "2026-10-26"
   },
   "workday:oceanspray:/job/Lakeville-MA/Intern--Sales-Strategy_R5405": {
    "f": "2026-09-10",
