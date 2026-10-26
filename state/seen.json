@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-26T15:10:05Z",
+ "last_run": "2026-10-26T17:56:02Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 47,
   "new": 0,
-  "postings": 26,
-  "sites": 1
+  "postings": 25139,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3859,15 +3859,15 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Fall-2027/365635": {
    "f": "2026-09-09",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Japanese-Services-Group-Summer-2027/361864": {
    "f": "2026-09-25",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Japanese-Services-Group-Winter-2028/368640": {
    "f": "2026-09-25",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Summer-2027/360314": {
    "f": "2026-08-28",
@@ -3879,7 +3879,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300": {
    "f": "2026-08-28",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295": {
    "f": "2026-08-28",
@@ -3931,7 +3931,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Internal-Services-Summer-Associate-Internal-Strategy-Summer-2027/367722": {
    "f": "2026-09-21",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2027/360517": {
    "f": "2026-08-25",
@@ -3959,7 +3959,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-San-Juan-Accounting-Winter-2027/371528": {
    "f": "2026-10-14",
-   "l": "2026-10-24"
+   "l": "2026-10-26"
   },
   "lever:Aprio:2c69eb91-9c0b-40e1-afe4-17b909b94706": {
    "f": "2023-03-21",
