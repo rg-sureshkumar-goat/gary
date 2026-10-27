@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-10-27T18:49:00Z",
+ "broken": {
+  "Nio": "HTTP 422"
+ },
+ "last_run": "2026-10-27T20:39:38Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 48,
-  "new": 0,
-  "postings": 25241,
-  "sites": 82
+  "failed": 1,
+  "matching": 50,
+  "new": 1,
+  "postings": 32765,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -457,6 +459,7 @@
   "workday:bankeasy:/job/Watertown-SD/Universal-Banking-Intern_R-100824",
   "workday:barclays:/job/New-York-745-7th-Avenue/Banking-Associate-Summer-Internship-Program-2027-New-York_JR-0000130643",
   "workday:barclays:/job/New-York-745-7th-Avenue/XMLNAME-2027-Finance-Analyst-Summer-Internship-Program-New-York_JR-0000123221",
+  "workday:bcbst:/job/USA-TN-Chattanooga-Remote/Financial-Accounting-and-Reporting-Intern_R-51498",
   "workday:biibhr:/job/Cambridge-MA/Co-op--Neuropsychiatry-Strategy---Operations_REQ24383",
   "workday:biotechne:/job/Minneapolis-MN/Finance-Intern_JR102112",
   "workday:blackrock:/job/New-York-NY/XMLNAME-2027-Quantitative-Masters-Internship-Program---Investments---Global-Capital-Markets---New-York_R266468",
@@ -4920,6 +4923,10 @@
    "f": "2026-09-04",
    "l": "2026-09-25"
   },
+  "workday:bcbst:/job/USA-TN-Chattanooga-Remote/Financial-Accounting-and-Reporting-Intern_R-51498": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
   "workday:biibhr:/job/Cambridge-MA/Co-op--Neuropsychiatry-Strategy---Operations_REQ24383": {
    "f": "2026-10-15",
    "l": "2026-10-27"
@@ -7570,7 +7577,7 @@
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking--East-_R230901-1": {
    "f": "2026-08-05",
-   "l": "2026-10-14"
+   "l": "2026-10-27"
   },
   "workday:pnc:/job/PA---Pittsburgh-15222/Corporate---Institutional-Banking-Undergraduate-Intern---Real-Estate-Banking_R230915-1": {
    "f": "2026-08-03",
