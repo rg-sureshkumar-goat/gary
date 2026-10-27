@@ -9838,7 +9838,7 @@
       "ats": "lever"
     },
     "The Browser Company": {
-      "last": "2026-09-26",
+      "last": "2026-10-27",
       "result": "none"
     },
     "Maximor AI": {
@@ -9847,7 +9847,7 @@
       "ats": "ashby"
     },
     "Xpansiv": {
-      "last": "2026-09-26",
+      "last": "2026-10-27",
       "result": "none"
     },
     "Compeer Financial": {
@@ -10866,8 +10866,9 @@
       "ats": "ashby"
     },
     "GovSignals": {
-      "last": "2026-09-26",
-      "result": "none"
+      "last": "2026-10-27",
+      "result": "added",
+      "ats": "ashby"
     },
     "Neogen": {
       "last": "2026-09-26",
@@ -11499,7 +11500,22 @@
       "last": "2026-10-26",
       "result": "added",
       "ats": "workday"
+    },
+    "Hiya": {
+      "last": "2026-10-27",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Aurora Innovation": {
+      "last": "2026-10-27",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Saviynt": {
+      "last": "2026-10-27",
+      "result": "added",
+      "ats": "lever"
     }
   },
-  "last_run": "2026-10-26"
+  "last_run": "2026-10-27"
 }
