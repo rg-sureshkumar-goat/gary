@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-27T20:41:11Z",
+ "last_run": "2026-10-27T22:40:22Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 27,
-  "sites": 1
+  "matching": 39,
+  "new": 4,
+  "postings": 18203,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -277,6 +277,7 @@
   "smartrecruiters:BoschGroup:744000152463644",
   "smartrecruiters:BoschGroup:744000153214980",
   "smartrecruiters:BoschGroup:744000156311489",
+  "smartrecruiters:BoschGroup:744000157853924",
   "smartrecruiters:CapTechConsulting:744000155060459",
   "smartrecruiters:Continental:744000146251819",
   "smartrecruiters:Continental:744000150455589",
@@ -384,6 +385,8 @@
   "workday:ameriprise:/job/Minneapolis-Minnesota/Investments-Intern--Fixed-Income-Investment-Grade_R26_3681",
   "workday:ameriprise:/job/Minneapolis-Minnesota/Marketing---Sales-Strategy-Intern---Wealth-Management-Solutions_R26_3596",
   "workday:amgen:/job/United-States---Remote/Grad-Intern---Finance--Summer-2027-_R-256444",
+  "workday:amgen:/job/United-States---Remote/Grad-Intern---R-D-Execution--Operations---Strategy--R-D-EOS---Summer-2027-_R-259859",
+  "workday:amgen:/job/United-States---Remote/Grad-Intern---R-D-Strategy---Performance-Excellence--SPx---Summer-2027-_R-259863",
   "workday:amgen:/job/United-States---Remote/Undergrad-Co-op---Finance-Accounting_R-258006",
   "workday:amgen:/job/United-States---Remote/Undergrad-Intern---Finance--Summer-2027-_R-254668",
   "workday:andersen:/job/Oak-Park-Heights-MN/Finance-Intern_R-8113",
@@ -436,6 +439,8 @@
   "workday:att:/job/Dallas-Texas/Transformation-Supply-Chain-Leadership-Program-Internship_R-120900",
   "workday:avav:/job/Simi-Valley-CA/Finance-Systems-Intern_8899",
   "workday:badgermeter:/job/Milwaukee-WI/Accounting-Intern_4626",
+  "workday:bah:/job/Arlington-VA/R0251716-University--Digital-Transformation-Analyst---Spring-Intern_R0252398",
+  "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst---Summer-Intern_R0252403",
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst-Intern_R0251716",
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst-Intern_R0251721",
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246500",
@@ -515,6 +520,7 @@
   "workday:churchdwight:/job/USA-Ewing-NJ/XMLNAME-2027-Undergraduate-Summer-Finance-Internship_R2026-15618",
   "workday:cibc:/job/Chicago-IL/XMLNAME-2026-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2519190",
   "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2618394",
+  "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Private-Equity-Chicago_2620147-1",
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620",
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Global-Transaction-Banking--US-Cash-Management-Summer-Analyst_2611116",
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198",
@@ -522,6 +528,7 @@
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386",
   "workday:cir:/job/Fairfield-IA/Consulting-Services-AI---Automation-Intern_R-2025-223",
   "workday:circlek:/job/Nonstore-B049-Tampa-FL/Financial-Analyst-Intern_R627142-1",
+  "workday:circlek:/job/Nonstore-B049-Tampa-FL/Financial-Analyst-Intern_R630967",
   "workday:circlek:/job/Nonstore-B152-Charlotte-NC/Real-Estate-Strategy---Reporting-Intern_R630515-1",
   "workday:cisco:/job/RTP-North-Carolina-US/Business-Analyst-I--Intern--United-States_2026181",
   "workday:cisco:/job/RTP-North-Carolina-US/Financial-Analyst-I---LIFT-Intern_2022092",
@@ -725,6 +732,8 @@
   "workday:gafsgi:/job/Parsippany-NJ/Strategy-Special-Projects-Intern_26426",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op---Summer-2027_R9538-1",
   "workday:gaig:/job/Cincinnati-OH-USA/Accounting-Co-Op-Spring-2027_R9194-1",
+  "workday:gaig:/job/Cincinnati-OH-USA/Business-Analyst-Intern---Summer-2027_R9807-1",
+  "workday:gaig:/job/Cincinnati-OH-USA/IT-Finance-Intern---Summer-2027_R9808",
   "workday:gaig:/job/Ohio-USA/M-A-Intern_R9779",
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1",
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2",
@@ -791,6 +800,7 @@
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Accounting-Intern_R0059481",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern--Downers-Grove-_R0059501",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Business-Analyst-Intern_R0059500",
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Customer-Service-Business-Analyst-Intern_R0059486",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Process-Consultant-Intern_R0059485",
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Process-Consultant-Senior-Intern_R0059483",
@@ -855,6 +865,7 @@
   "workday:hyperiongrp:/job/Dallas--325-North-Saint-Paul/Accounting-Intern_R0019541",
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309",
   "workday:hyvee:/job/Corporate-Office-Westown-Pkwy-West-Des-Moines-IA/Marketing-Strategy-Intern---Summer-2027_R249892",
+  "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Accounting--Reston--VA-_R2603678",
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Business-Transformation--Reston-_R2603346",
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Corporate-Development--Reston--VA-_R2603481",
   "workday:igsenergy:/job/Ohio-Remote/Business-Analyst-Intern--Summer-2027-_R6298",
@@ -924,6 +935,7 @@
   "workday:jll:/job/Tampa-FL/Capital-Markets-Summer-2027-Internship---Tampa--FL_REQ532419",
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230",
   "workday:jll:/job/Washington-DC/Real-Estate-Advisory-and-Consulting-Summer-2027-Internship---Washington--DC_REQ541736",
+  "workday:jmfamily:/job/Florida---Deerfield-Beach/Accounts-Payable--AP--Customer-Experience-Transformation-Intern_JR105090",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Treasury-Intern_JR105137",
   "workday:keybank:/job/Albany-OR/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Albany--OR_R-41217",
   "workday:keybank:/job/Bellingham-WA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Bellingham--WA_R-41216",
@@ -938,6 +950,7 @@
   "workday:keybank:/job/Cleveland-OH/XMLNAME-2027-KeyBanc-Capital-Markets-Foreign-Exchange--FX--Summer-Analyst_R-41798",
   "workday:keybank:/job/Erie-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Erie--PA_R-41223",
   "workday:keybank:/job/Goshen-IN/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Goshen--IN_R-41215",
+  "workday:keybank:/job/New-York-NY/XMLNAME-2027-Summer-Key-Equipment-Finance-Capital-Markets-Buy-Sell-Intern---New-York-City_R-42915",
   "workday:keybank:/job/Portland-OR/XMLNAME-2027-Equity-Research-Summer-Analyst---Portland--OR_R-37708",
   "workday:keybank:/job/Pottstown-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Pottstown--PA_R-41222",
   "workday:keybank:/job/San-Francisco-CA/XMLNAME-2027-KBCM-Investment-Banking-Summer-Analyst---San-Francisco--CA_R-37718",
@@ -997,6 +1010,7 @@
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905",
   "workday:michelinhr:/job/GREENVILLE-SC/XMLNAME-2027-Summer-Inclusion-Strategy---Business-Integration-Intern_R-2026029963",
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774",
+  "workday:micron:/job/Boise-ID---Main-Site/Intern---NAND-Storage-Strategic-Roadmap-Planning_JR115838",
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097",
   "workday:midlandsb:/job/Effingham-IL/Intern---Finance_JR1469",
   "workday:midlandsb:/job/Rockford-IL/Intern---Community-Banking-and-Commercial-Lending_JR1465",
@@ -1004,6 +1018,8 @@
   "workday:midlandsb:/job/Sunset-Hills-MO/Intern---Commercial-Banking_JR1464",
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558",
   "workday:mizuho:/job/Houston-TX/XMLNAME-2028-Investment-Banking-Summer-Analyst-Program---Houston_R7483",
+  "workday:mizuho:/job/San-Francisco/XMLNAME-2028-Investment-Banking-Summer-Analyst---San-Francisco_R7499",
+  "workday:mizuho:/job/San-Francisco/XMLNAME-2028-M-A-Summer-Analyst---San-Francisco_R7500",
   "workday:mmc:/job/Chicago---155-Wacker/Health---Benefits-Financial-Summer-Intern---Central-Market---College-Program-2027_R_365270",
   "workday:mmc:/job/Edina---Minnesota/Catastrophe-Advisory-Summer-Intern---College-Program-2027_R_367575-1",
   "workday:mmc:/job/Los-Angeles---West-5th/Career-Consulting-Summer-Associate--MBA-or-Master-s-Track----Los-Angeles---MBA-Program-2027_R_365103",
@@ -3987,7 +4003,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
-   "l": "2026-10-24"
+   "l": "2026-10-27"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
@@ -4188,6 +4204,10 @@
   "smartrecruiters:BoschGroup:744000156311489": {
    "f": "2026-10-19",
    "l": "2026-10-26"
+  },
+  "smartrecruiters:BoschGroup:744000157853924": {
+   "f": "2026-10-26",
+   "l": "2026-10-27"
   },
   "smartrecruiters:CapTechConsulting:744000155060459": {
    "f": "2026-10-12",
@@ -4487,7 +4507,7 @@
   },
   "workday:ag:/job/Herndon-Area-VA/Short-term-Internship---Finance-Services---Transformation_JR10449745": {
    "f": "2026-10-15",
-   "l": "2026-10-18"
+   "l": "2026-10-27"
   },
   "workday:ag:/job/Herndon-Area-VA/Summer-Internship---Digital-AI-Transformation_JR10437881": {
    "f": "2026-09-09",
@@ -4628,6 +4648,14 @@
   "workday:amgen:/job/United-States---Remote/Grad-Intern---Finance--Summer-2027-_R-256444": {
    "f": "2026-09-24",
    "l": "2026-10-01"
+  },
+  "workday:amgen:/job/United-States---Remote/Grad-Intern---R-D-Execution--Operations---Strategy--R-D-EOS---Summer-2027-_R-259859": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
+  "workday:amgen:/job/United-States---Remote/Grad-Intern---R-D-Strategy---Performance-Excellence--SPx---Summer-2027-_R-259863": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
   },
   "workday:amgen:/job/United-States---Remote/Undergrad-Co-op---Finance-Accounting_R-258006": {
    "f": "2026-10-19",
@@ -4836,6 +4864,14 @@
   "workday:badgermeter:/job/Milwaukee-WI/Accounting-Intern_4626": {
    "f": "2026-10-08",
    "l": "2026-10-08"
+  },
+  "workday:bah:/job/Arlington-VA/R0251716-University--Digital-Transformation-Analyst---Spring-Intern_R0252398": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
+  "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst---Summer-Intern_R0252403": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
   },
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst-Intern_R0251716": {
    "f": "2026-10-15",
@@ -5153,6 +5189,10 @@
    "f": "2026-09-08",
    "l": "2026-10-27"
   },
+  "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Private-Equity-Chicago_2620147-1": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620": {
    "f": "2026-09-03",
    "l": "2026-09-30"
@@ -5184,6 +5224,10 @@
   "workday:circlek:/job/Nonstore-B049-Tampa-FL/Financial-Analyst-Intern_R627142-1": {
    "f": "2026-10-08",
    "l": "2026-10-21"
+  },
+  "workday:circlek:/job/Nonstore-B049-Tampa-FL/Financial-Analyst-Intern_R630967": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
   },
   "workday:circlek:/job/Nonstore-B152-Charlotte-NC/Real-Estate-Strategy---Reporting-Intern_R630515-1": {
    "f": "2026-10-22",
@@ -5715,7 +5759,7 @@
   },
   "workday:enovis:/job/Tijuana-Baja-California-Mexico/Finance-Intern_R0034529": {
    "f": "2026-10-13",
-   "l": "2026-10-23"
+   "l": "2026-10-27"
   },
   "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510": {
    "f": "2026-09-09",
@@ -5997,6 +6041,14 @@
    "f": "2026-08-25",
    "l": "2026-09-17"
   },
+  "workday:gaig:/job/Cincinnati-OH-USA/Business-Analyst-Intern---Summer-2027_R9807-1": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
+  "workday:gaig:/job/Cincinnati-OH-USA/IT-Finance-Intern---Summer-2027_R9808": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
   "workday:gaig:/job/Ohio-USA/M-A-Intern_R9779": {
    "f": "2026-10-23",
    "l": "2026-10-27"
@@ -6261,6 +6313,10 @@
    "f": "2026-10-02",
    "l": "2026-10-19"
   },
+  "workday:hcsc:/job/IL---Chicago/Early-Careers---Customer-Service-Business-Analyst-Intern_R0059486": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480": {
    "f": "2026-10-17",
    "l": "2026-10-27"
@@ -6516,6 +6572,10 @@
   "workday:hyvee:/job/Corporate-Office-Westown-Pkwy-West-Des-Moines-IA/Marketing-Strategy-Intern---Summer-2027_R249892": {
    "f": "2026-10-06",
    "l": "2026-10-06"
+  },
+  "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Accounting--Reston--VA-_R2603678": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
   },
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Business-Transformation--Reston-_R2603346": {
    "f": "2026-10-02",
@@ -6797,6 +6857,10 @@
    "f": "2026-10-13",
    "l": "2026-10-15"
   },
+  "workday:jmfamily:/job/Florida---Deerfield-Beach/Accounts-Payable--AP--Customer-Experience-Transformation-Intern_JR105090": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Treasury-Intern_JR105137": {
    "f": "2026-10-27",
    "l": "2026-10-27"
@@ -6851,6 +6915,10 @@
   },
   "workday:keybank:/job/Goshen-IN/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Goshen--IN_R-41215": {
    "f": "2026-08-04",
+   "l": "2026-10-27"
+  },
+  "workday:keybank:/job/New-York-NY/XMLNAME-2027-Summer-Key-Equipment-Finance-Capital-Markets-Buy-Sell-Intern---New-York-City_R-42915": {
+   "f": "2026-10-27",
    "l": "2026-10-27"
   },
   "workday:keybank:/job/Portland-OR/XMLNAME-2027-Equity-Research-Summer-Analyst---Portland--OR_R-37708": {
@@ -7093,6 +7161,10 @@
    "f": "2026-09-09",
    "l": "2026-09-29"
   },
+  "workday:micron:/job/Boise-ID---Main-Site/Intern---NAND-Storage-Strategic-Roadmap-Planning_JR115838": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097": {
    "f": "2026-09-17",
    "l": "2026-09-23"
@@ -7119,6 +7191,14 @@
   },
   "workday:mizuho:/job/Houston-TX/XMLNAME-2028-Investment-Banking-Summer-Analyst-Program---Houston_R7483": {
    "f": "2026-10-26",
+   "l": "2026-10-27"
+  },
+  "workday:mizuho:/job/San-Francisco/XMLNAME-2028-Investment-Banking-Summer-Analyst---San-Francisco_R7499": {
+   "f": "2026-10-27",
+   "l": "2026-10-27"
+  },
+  "workday:mizuho:/job/San-Francisco/XMLNAME-2028-M-A-Summer-Analyst---San-Francisco_R7500": {
+   "f": "2026-10-27",
    "l": "2026-10-27"
   },
   "workday:mmc:/job/Chicago---155-Wacker/Health---Benefits-Financial-Summer-Intern---Central-Market---College-Program-2027_R_365270": {
