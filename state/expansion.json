@@ -11638,6 +11638,33 @@
       "last": "2026-10-28",
       "result": "added",
       "ats": "lever"
+    },
+    "SoundExchange": {
+      "last": "2026-10-28",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Subtotal": {
+      "last": "2026-10-28",
+      "result": "none"
+    },
+    "The Robotics Company": {
+      "last": "2026-10-28",
+      "result": "none"
+    },
+    "WebFX": {
+      "last": "2026-10-28",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "WorldEngine AI": {
+      "last": "2026-10-28",
+      "result": "none"
+    },
+    "FormFactor": {
+      "last": "2026-10-28",
+      "result": "added",
+      "ats": "workday"
     }
   },
   "last_run": "2026-10-28"
