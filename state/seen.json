@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-29T15:31:42Z",
+ "last_run": "2026-10-29T17:12:29Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 41,
+  "matching": 50,
   "new": 0,
-  "postings": 18170,
-  "sites": 212
+  "postings": 25450,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -4113,7 +4113,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Summer-2028/362622": {
    "f": "2026-09-08",
-   "l": "2026-10-24"
+   "l": "2026-10-29"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Tax-Tax-Intern-Accounting-Winter-2027/350270": {
    "f": "2026-08-26",
