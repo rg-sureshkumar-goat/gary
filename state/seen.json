@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-29T21:06:34Z",
+ "last_run": "2026-10-29T21:54:36Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 49,
   "new": 0,
-  "postings": 28,
-  "sites": 1
+  "postings": 25504,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5326,7 +5326,7 @@
   },
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386": {
    "f": "2026-08-25",
-   "l": "2026-10-02"
+   "l": "2026-10-29"
   },
   "workday:cir:/job/Fairfield-IA/Consulting-Services-AI---Automation-Intern_R-2025-223": {
    "f": "2026-09-19",
