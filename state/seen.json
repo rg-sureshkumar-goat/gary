@@ -1,16 +1,12 @@
 {
- "broken": {
-  "Beacon Software": "HTTP 404",
-  "Maximor AI": "HTTP 404",
-  "Veeda AI": "HTTP 404"
- },
- "last_run": "2026-10-30T06:24:56Z",
+ "broken": {},
+ "last_run": "2026-10-30T07:26:56Z",
  "last_run_stats": {
-  "failed": 3,
+  "failed": 0,
   "matching": 45,
   "new": 0,
-  "postings": 25351,
-  "sites": 219
+  "postings": 25296,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -4119,7 +4115,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
-   "l": "2026-10-29"
+   "l": "2026-10-30"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
