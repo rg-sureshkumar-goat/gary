@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-30T15:01:17Z",
+ "last_run": "2026-10-30T18:49:39Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 27,
-  "sites": 1
+  "matching": 29,
+  "new": 1,
+  "postings": 15499,
+  "sites": 185
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -959,6 +959,7 @@
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230",
   "workday:jll:/job/Washington-DC/Real-Estate-Advisory-and-Consulting-Summer-2027-Internship---Washington--DC_REQ541736",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Accounts-Payable--AP--Customer-Experience-Transformation-Intern_JR105090",
+  "workday:jmfamily:/job/Florida---Deerfield-Beach/Corporate-Development-Intern_JR105084",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/JM-A-Treasury-Intern_JR105169",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Treasury-Intern_JR105137",
   "workday:keybank:/job/Albany-OR/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Albany--OR_R-41217",
@@ -6341,23 +6342,23 @@
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Finance-Project-Management-Analyst-Intern--Summer-2027-_JR-2604486": {
    "f": "2026-10-06",
-   "l": "2026-10-29"
+   "l": "2026-10-30"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/SEC-Reporting---Accounting-Intern--Summer-2027-_JR-2604483": {
    "f": "2026-10-01",
-   "l": "2026-10-29"
+   "l": "2026-10-30"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Pricing---AI-Analytics-Intern--Summer-2027-_JR-2605139": {
    "f": "2026-10-11",
-   "l": "2026-10-29"
+   "l": "2026-10-30"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Strategic-Transactions---Alliances-Intern--Summer-2027-_JR-2604237": {
    "f": "2026-10-08",
-   "l": "2026-10-29"
+   "l": "2026-10-30"
   },
   "workday:globalfoundries:/job/USA---Texas---Austin/Technical-Accounting-Intern--Summer-2027-_JR-2604485": {
    "f": "2026-10-13",
-   "l": "2026-10-29"
+   "l": "2026-10-30"
   },
   "workday:gnw:/job/Raleigh-North-Carolina/Accounting-Intern_REQ-260366": {
    "f": "2026-09-09",
@@ -7033,6 +7034,10 @@
   },
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Accounts-Payable--AP--Customer-Experience-Transformation-Intern_JR105090": {
    "f": "2026-10-27",
+   "l": "2026-10-30"
+  },
+  "workday:jmfamily:/job/Florida---Deerfield-Beach/Corporate-Development-Intern_JR105084": {
+   "f": "2026-10-30",
    "l": "2026-10-30"
   },
   "workday:jmfamily:/job/Florida---Deerfield-Beach/JM-A-Treasury-Intern_JR105169": {
