@@ -11800,6 +11800,21 @@
       "last": "2026-10-30",
       "result": "added",
       "ats": "greenhouse"
+    },
+    "Gearset": {
+      "last": "2026-10-30",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Protagonist": {
+      "last": "2026-10-30",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "AtriCure": {
+      "last": "2026-10-30",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
   "last_run": "2026-10-30"
