@@ -1,12 +1,16 @@
 {
- "broken": {},
- "last_run": "2026-10-30T23:23:05Z",
+ "broken": {
+  "Beacon Software": "HTTP 404",
+  "Maximor AI": "HTTP 404",
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-10-31T02:18:07Z",
  "last_run_stats": {
-  "failed": 0,
+  "failed": 3,
   "matching": 45,
   "new": 0,
-  "postings": 25335,
-  "sites": 82
+  "postings": 25433,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3695,7 +3699,7 @@
   },
   "greenhouse:andurilindustries:5269977007": {
    "f": "2026-10-20",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
@@ -3815,7 +3819,7 @@
   },
   "greenhouse:drweng:7993004": {
    "f": "2026-07-13",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "greenhouse:enova:8238162": {
    "f": "2026-09-28",
@@ -4047,7 +4051,7 @@
   },
   "greenhouse:uberfreight:5437020008": {
    "f": "2026-10-16",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "greenhouse:verainstituteofjustice:4712591005": {
    "f": "2026-07-07",
@@ -4207,11 +4211,11 @@
   },
   "lever:allegiantair:637e4751-89ff-4935-a6a0-e913b7452031": {
    "f": "2026-09-29",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "lever:allegiantair:fd433f06-813b-4254-b549-5c69f4b5af10": {
    "f": "2026-09-29",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "lever:brightmachines:2b3e6083-1051-4c4f-a10c-f1e765b4758e": {
    "f": "2026-10-16",
@@ -4767,11 +4771,11 @@
   },
   "workday:americancentury:/job/Kansas-City-Missouri/Investment-Analyst-Summer-Associate_R0005737": {
    "f": "2026-09-24",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:americancentury:/job/Kansas-City-Missouri/Investment-Operations---Transformation-Intern_R0005725": {
    "f": "2026-09-16",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:americancentury:/job/Kansas-City-Missouri/Personal-Financial-Solutions-Intern_R0005719": {
    "f": "2026-09-10",
@@ -5007,7 +5011,7 @@
   },
   "workday:assurant:/job/Atlanta-GA/Summer-2027-Intern--Global-Finance-Intern_R-115643": {
    "f": "2026-09-22",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:athene:/job/El-Segundo-California/XMLNAME-2026-Summer-Associate--Treasury---Business-Management_R253683": {
    "f": "2026-08-25",
@@ -5031,7 +5035,7 @@
   },
   "workday:avav:/job/Simi-Valley-CA/Finance-Systems-Intern_8899": {
    "f": "2026-10-13",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:badgermeter:/job/Milwaukee-WI/Accounting-Intern_4626": {
    "f": "2026-10-08",
@@ -5039,11 +5043,11 @@
   },
   "workday:bah:/job/Arlington-VA/R0251716-University--Digital-Transformation-Analyst---Spring-Intern_R0252398": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst---Summer-Intern_R0252403": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst-Intern_R0251716": {
    "f": "2026-10-15",
@@ -5055,7 +5059,7 @@
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246500": {
    "f": "2026-09-22",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880": {
    "f": "2026-09-10",
@@ -5067,11 +5071,11 @@
   },
   "workday:bah:/job/McLean-VA/University--Summer-2027---Accounting-Intern_R0250271": {
    "f": "2026-09-22",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:bah:/job/McLean-VA/University--Summer-2027---Corporate-Development-Intern_R0250270": {
    "f": "2026-09-22",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:bakerhughes:/job/US-TX-HOUSTON-575-N-DAIRY-ASHFORD-RD-ENERGY-CENTER-II-EC2/Intern-Co-op---Finance--Spring-2027-Opportunities_R169272": {
    "f": "2026-09-18",
@@ -5363,7 +5367,7 @@
   },
   "workday:cibc:/job/Atlanta-GA/XMLNAME-2027-Summer-Intern---Commercial-Banking_2620111": {
    "f": "2026-10-28",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:cibc:/job/Chicago-IL/XMLNAME-2026-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2519190": {
    "f": "2026-09-04",
@@ -5375,7 +5379,7 @@
   },
   "workday:cibc:/job/Chicago-IL/XMLNAME-2027-Summer-Intern---Private-Equity-Chicago_2620147-1": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Corporate-Banking-Summer-Analyst_2529620": {
    "f": "2026-09-03",
@@ -5919,11 +5923,11 @@
   },
   "workday:elanco:/job/Fort-Dodge-IA/Finance-Intern---Fort-Dodge--Iowa--Summer-2027-_R0027194": {
    "f": "2026-09-17",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:elanco:/job/Indianapolis-IN/Finance-Intern--Summer-2027-_R0026865": {
    "f": "2026-08-19",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:elevancehealth:/job/GA-ATLANTA-740-W-PEACHTREE-ST-NW/Revenue-Accounting-Co-Op-Internship_JR200185-1": {
    "f": "2026-08-28",
@@ -6419,11 +6423,11 @@
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern---FP-A-and-Management-Reporting_R000110212": {
    "f": "2026-09-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Corporate-Finance---Risk---Agency-Accounting_R000110129": {
    "f": "2026-09-14",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Corporate-Finance---Risk---Compensation---Benefits-FP-A_R000110165": {
    "f": "2026-09-18",
@@ -6435,11 +6439,11 @@
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Corporate-Tax_R000110175": {
    "f": "2026-09-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Expense-Management-FP-A_R000110122": {
    "f": "2026-09-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--FR-A--Rein--Statutory_R000110171": {
    "f": "2026-09-18",
@@ -6451,15 +6455,15 @@
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Internal-Audit_R000110166": {
    "f": "2026-09-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Investment-Accounting_R000110127": {
    "f": "2026-09-14",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Market-Risk_R000110113": {
    "f": "2026-09-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern--Treasury-Operations-Specialist_R000110163": {
    "f": "2026-09-18",
@@ -7087,15 +7091,15 @@
   },
   "workday:keybank:/job/Albany-OR/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Albany--OR_R-41217": {
    "f": "2026-08-04",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Bellingham-WA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Bellingham--WA_R-41216": {
    "f": "2026-08-04",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Boise-ID/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Boise--ID_R-41218": {
    "f": "2026-08-04",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Boston-MA/XMLNAME-2027-KBCM-Investment-Banking-Summer-Analyst---Boston--MA_R-37710": {
    "f": "2026-09-21",
@@ -7131,15 +7135,15 @@
   },
   "workday:keybank:/job/Erie-PA/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Erie--PA_R-41223": {
    "f": "2026-08-04",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Goshen-IN/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Goshen--IN_R-41215": {
    "f": "2026-08-04",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/New-York-NY/XMLNAME-2027-Summer-Key-Equipment-Finance-Capital-Markets-Buy-Sell-Intern---New-York-City_R-42915": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Portland-OR/XMLNAME-2027-Equity-Research-Summer-Analyst---Portland--OR_R-37708": {
    "f": "2026-08-31",
@@ -7155,11 +7159,11 @@
   },
   "workday:keybank:/job/Superior-CO/XMLNAME-2027-Summer-Internship---Structured-Finance---Superior--CO_R-42950": {
    "f": "2026-10-28",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Toledo-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Toledo--OH_R-41225": {
    "f": "2026-08-04",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:keybank:/job/Vandalia-OH/Summer-2027-Key-Investment-Services-Internship--Certified-Financial-Planner-Track----Dayton--OH_R-41220": {
    "f": "2026-08-04",
@@ -7287,7 +7291,7 @@
   },
   "workday:markelcorp:/job/Richmond-VA/XMLNAME-2027-Finance-Internship-Program_R0023773-1": {
    "f": "2026-08-24",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:marvell:/job/Santa-Clara-CA/Accounting-Intern--BS---Summer-2027_2604214": {
    "f": "2026-10-09",
@@ -7539,11 +7543,11 @@
   },
   "workday:myhrhome:/job/Irving-TX/Intern_R2609-52605": {
    "f": "2026-09-30",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:myhrhome:/job/New-York-NY/Intern---Capital-Markets_R2610-53021": {
    "f": "2026-10-29",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:nasdaq:/job/USA---New-York-City---New-York/Business-Analyst-Intern---2027-Summer-Internship_R0027136": {
    "f": "2026-10-21",
@@ -7595,19 +7599,19 @@
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Finance---Accounting_R23258": {
    "f": "2026-10-21",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Investments---Nelnet-Financial-Services--Starting-May-2027-_R23227": {
    "f": "2026-10-12",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Marketing-Communications-Strategy_R23221": {
    "f": "2026-10-08",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056": {
    "f": "2026-08-28",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:ngc:/job/United-States-Maryland-Linthicum/XMLNAME-2027-Strategic-Sourcing-Intern---Baltimore-MD_R10252107": {
    "f": "2026-09-21",
@@ -8639,11 +8643,11 @@
   },
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-Accounting-Intern_SOSJ12450-1": {
    "f": "2026-09-15",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-FP-A-Intern_SOSJ12452": {
    "f": "2026-09-15",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:strayer:/job/Minneapolis-MN/Intern---Financial-Planning-and-Analysis_R29086": {
    "f": "2026-09-16",
@@ -8935,7 +8939,7 @@
   },
   "workday:transperfect:/job/US-New-York-NY/Consulting-Intern_R2025-243247": {
    "f": "2026-08-26",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:transunion:/job/White-Plains-New-York/Consulting-Analytics---Argus-Advisory-Internship---Summer-2026_19042605": {
    "f": "2026-09-25",
@@ -9099,7 +9103,7 @@
   },
   "workday:wgl:/job/Washington-DC/WGL---2027-Finance---Accounting-Intern_R7255": {
    "f": "2026-09-14",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:wilburellis:/job/Home-Office-Colorado-United-States/Finance-Intern--CA--CO--MI--OR--TX--WA-_R1883": {
    "f": "2026-09-25",
@@ -9171,7 +9175,7 @@
   },
   "workday:xenergy:/job/Rockville-MD/Growth---Strategy-Internship---Summer-2027_R101322-1": {
    "f": "2026-09-17",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:zendesk:/job/Madison-Wisconsin-United-States-of-America/G-A-Finance-F-S-Intern_R35532": {
    "f": "2026-09-15",
