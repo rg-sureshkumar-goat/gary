@@ -1,12 +1,15 @@
 {
- "broken": {},
- "last_run": "2026-10-31T14:30:42Z",
+ "broken": {
+  "LiveRamp": "HTTP 403",
+  "Visier Solutions": "HTTP 404"
+ },
+ "last_run": "2026-10-31T15:16:44Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 2,
+  "matching": 59,
   "new": 0,
-  "postings": 27,
-  "sites": 1
+  "postings": 18289,
+  "sites": 205
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -7421,7 +7424,7 @@
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---NAND-Storage-Strategic-Roadmap-Planning_JR115838": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097": {
    "f": "2026-09-17",
@@ -7429,11 +7432,11 @@
   },
   "workday:micron:/job/Boise-ID---North-Office/Intern---Strategic-Category-Analyst_JR115962": {
    "f": "2026-10-28",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:micron:/job/San-Jose-CA/Sales-Strategy-and-Operations-Summer-Intern_JR116055": {
    "f": "2026-10-30",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:midlandsb:/job/Effingham-IL/Intern---Finance_JR1469": {
    "f": "2026-10-06",
@@ -8593,15 +8596,15 @@
   },
   "workday:snc:/job/Lone-Tree-CO/Program-Finance-Systems-Analyst-Intern--Summer-2027-_R0031193": {
    "f": "2026-10-29",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:snc:/job/Lone-Tree-CO/Program-Financial-Analyst-Intern--Summer-2027-_R0031190": {
    "f": "2026-10-29",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:snc:/job/Sparks-NV/Accounting-Intern--Summer-2027-_R0031256": {
    "f": "2026-10-30",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:sonoco:/job/Hartsville-SC-USA/Finance-Intern_JR-160522": {
    "f": "2026-09-16",
