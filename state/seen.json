@@ -1,12 +1,17 @@
 {
- "broken": {},
- "last_run": "2026-10-31T19:57:29Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429"
+ },
+ "last_run": "2026-10-31T21:54:47Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 4,
+  "matching": 35,
   "new": 0,
-  "postings": 27,
-  "sites": 1
+  "postings": 17267,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -263,6 +268,7 @@
   "lever:crestoperations:b155c903-f65d-489b-8ea0-d959af22c481",
   "lever:ekimetrics:d8f0b664-ad5b-4111-a1dc-a8143934bf24",
   "lever:neighbor:7ed377a8-69c3-4882-8b91-10ff6c891c50",
+  "lever:palantir:bd7766c4-6aea-4b37-8d47-a8864bb9bd69",
   "lever:pattern:01d654dc-ec62-4d83-bcd9-76cb80b9c347",
   "lever:pattern:90097cfe-4a53-46fa-9d33-46844161c07c",
   "lever:spawglass:3d5172d4-f71e-498f-b45c-670ae9fd29e5",
@@ -4259,6 +4265,10 @@
    "f": "2026-10-15",
    "l": "2026-10-31"
   },
+  "lever:palantir:bd7766c4-6aea-4b37-8d47-a8864bb9bd69": {
+   "f": "2026-10-31",
+   "l": "2026-10-31"
+  },
   "lever:pattern:01d654dc-ec62-4d83-bcd9-76cb80b9c347": {
    "f": "2026-10-16",
    "l": "2026-10-17"
@@ -5621,7 +5631,7 @@
   },
   "workday:cw:/job/Tempe-Arizona-USA/EIC-Client-Accounting-Intern_R341208": {
    "f": "2026-10-28",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480": {
    "f": "2026-08-31",
@@ -6581,47 +6591,47 @@
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-AHN-FP-A-Undergraduate-Finance-Intern_J288294": {
    "f": "2026-10-09",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-Health-Plan-Gov-Undergraduate-Finance-Intern_J287474": {
    "f": "2026-10-05",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/PA-Working-at-Home---Pennsylvania/Summer-2027-Strategic-Planning-Undergraduate-Intern_J287156": {
    "f": "2026-10-19",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2026-Enterprise-Finance-Strategy-Undergraduate-Finance-Intern_J286276": {
    "f": "2026-10-05",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-FP-A-Undergraduate-Finance-Intern_J286275": {
    "f": "2026-10-05",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-FAP-5th-Avenue-Place/Summer-2027-Enterprise-Treasury-Undergraduate-Finance-Intern_J286282": {
    "f": "2026-10-05",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Digital-Operations-Business-Analyst-enGen-Undergraduate-Intern_J289843": {
    "f": "2026-10-26",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-HMIG-Undergraduate-Financial-Analytics-Intern_J286836": {
    "f": "2026-10-06",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-FP-A-Graduate-Finance-Intern_J285909": {
    "f": "2026-10-06",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Summer-2027-Health-Plan-Undergraduate-Finance-Intern_J285573": {
    "f": "2026-10-05",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:highmarkhealth:/job/Pittsburgh-PA-15222-PAP-Penn-Avenue-Place/Undergraduate-Intern_J286545": {
    "f": "2026-10-05",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929": {
    "f": "2026-08-26",
@@ -8185,7 +8195,7 @@
   },
   "workday:roberthalf:/job/CHICAGO/Chicago-Internal-Audit-and-Financial-Advisory-Intern---2027_JR-258795-3": {
    "f": "2026-10-13",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:roberthalf:/job/DENVER/Denver-Technology-Consulting-Intern---2027_JR-258907-4": {
    "f": "2026-09-29",
@@ -8557,7 +8567,7 @@
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
@@ -8569,7 +8579,7 @@
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
@@ -8577,11 +8587,11 @@
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929": {
    "f": "2026-09-09",
