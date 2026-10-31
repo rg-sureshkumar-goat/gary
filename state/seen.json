@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-10-31T19:25:17Z",
+ "last_run": "2026-10-31T19:31:35Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 45,
+  "matching": 40,
   "new": 0,
-  "postings": 25206,
-  "sites": 82
+  "postings": 18154,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -4773,7 +4773,7 @@
   },
   "workday:amat:/job/Santa-ClaraCA/Summer-2027-Data-Finance-Analyst-Intern--Bachelor-s--Santa-Clara--CA-_R2626652": {
    "f": "2026-10-28",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1": {
    "f": "2026-08-07",
@@ -5329,7 +5329,7 @@
   },
   "workday:cboe:/job/Chicago-IL/Technical-Business-Analyst-Intern_R-4710": {
    "f": "2026-10-02",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:cbrands:/job/Rochester-New-York/Intern--Finance-Analytics_R-41494": {
    "f": "2026-10-13",
@@ -5825,7 +5825,7 @@
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039": {
    "f": "2026-10-12",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311": {
    "f": "2026-09-15",
@@ -6261,15 +6261,15 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Business-Analyst-Intern---Summer-2027_R9807-1": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/IT-Finance-Intern---Summer-2027_R9808": {
    "f": "2026-10-27",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:gaig:/job/Ohio-USA/M-A-Intern_R9779": {
    "f": "2026-10-23",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
@@ -6277,7 +6277,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
@@ -7749,7 +7749,7 @@
   },
   "workday:oshkoshcorporation:/job/Frederick-Maryland-United-States/ERP-Summer-2027-Intern_R49545": {
    "f": "2026-09-30",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:oshkoshcorporation:/job/Hagerstown-Maryland-United-States/Finance-Intern---Year-Round-Rotation-Program_R50982": {
    "f": "2026-10-13",
@@ -7765,7 +7765,7 @@
   },
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49498": {
    "f": "2026-09-15",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:oshkoshcorporation:/job/McConnellsburg-Pennsylvania-United-States/Customer-Support-Business-Analyst-Intern_R49501": {
    "f": "2026-09-14",
@@ -7773,7 +7773,7 @@
   },
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Accounting-Intern--Summer-2027-_R51431": {
    "f": "2026-10-22",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:oshkoshcorporation:/job/Orlando-Florida-United-States/Finance-Intern---FP-A--Year-Round-_R49824": {
    "f": "2026-08-28",
@@ -7789,7 +7789,7 @@
   },
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/International-Finance-Intern--Year-Round-_R51139": {
    "f": "2026-10-14",
-   "l": "2026-10-30"
+   "l": "2026-10-31"
   },
   "workday:oshkoshcorporation:/job/Oshkosh-Wisconsin-United-States/Treasury-Intern_R49232": {
    "f": "2026-09-16",
