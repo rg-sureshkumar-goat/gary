@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-02T18:17:10Z",
+ "last_run": "2026-11-02T20:27:07Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 27,
-  "sites": 1
+  "matching": 48,
+  "new": 1,
+  "postings": 25256,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -860,6 +860,7 @@
   "workday:hl:/job/Atlanta-GA-USA/XMLNAME-2027-Investment-Banking-Summer-Associate--Class-of-2028----Atlanta-Business-Services_R3725",
   "workday:hl:/job/Los-Angeles-CA-USA/Corporate-Development-Intern--Summer-2027-_R3354",
   "workday:hl:/job/Los-Angeles-CA-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---Los-Angeles_R3584",
+  "workday:hl:/job/Los-Angeles-CA-USA/XMLNAME-2028-Investment-Banking-Summer-Associate--Class-of-2028----Los-Angeles-Business-Services_R3732",
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535",
   "workday:hl:/job/New-York-NY-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---New-York_R3585",
   "workday:hntb:/job/Atlanta-GA/Finance-Intern---Summer-2027_R-31690",
@@ -6680,6 +6681,10 @@
   },
   "workday:hl:/job/Los-Angeles-CA-USA/XMLNAME-2027-Summer-Associate---Financial-Restructuring---Los-Angeles_R3584": {
    "f": "2026-09-28",
+   "l": "2026-11-02"
+  },
+  "workday:hl:/job/Los-Angeles-CA-USA/XMLNAME-2028-Investment-Banking-Summer-Associate--Class-of-2028----Los-Angeles-Business-Services_R3732": {
+   "f": "2026-11-02",
    "l": "2026-11-02"
   },
   "workday:hl:/job/New-York-NY-USA/Summer-2027-Research-Intern--Portfolio-Valuation--New-York_R3535": {
