@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-04T15:44:41Z",
+ "last_run": "2026-11-04T17:39:53Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 38,
-  "new": 0,
-  "postings": 18161,
-  "sites": 212
+  "matching": 46,
+  "new": 1,
+  "postings": 25480,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -634,6 +634,7 @@
   "workday:citi:/job/Houston-Texas-United-States/Banking---Commercial-Banking--Summer-Analyst--Houston---US--2027_25926681",
   "workday:citi:/job/Houston-Texas-United-States/Banking---Corporate-Banking--Summer-Analyst--Houston---US--2027_25926650",
   "workday:citi:/job/Los-Angeles-California-United-States/Banking---Commercial-Banking--Summer-Analyst--Los-Angeles---US--2027_26947566",
+  "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Summer-Analyst--New-York-City---US--2027_261007501",
   "workday:citi:/job/New-York-New-York-United-States/Functions---Finance--Summer-Associate--New-York---USA--2027_26997257",
   "workday:citi:/job/San-Francisco-California-United-States/Banking---Commercial-Banking--Summer-Analyst--San-Francisco---US--2027_25926683",
   "workday:citi:/job/San-Francisco-California-United-States/Banking---Corporate-Banking--Summer-Analyst--San-Francisco---US--2027_25926646",
@@ -5265,7 +5266,7 @@
   },
   "workday:bakertilly:/job/USA-IN-Indianapolis/Summer-2027-Public-Sector-Finance-Intern--Capital---Infrastructure---Debt-Issuance-_JR107991": {
    "f": "2026-09-14",
-   "l": "2026-10-14"
+   "l": "2026-11-04"
   },
   "workday:bakertilly:/job/USA-NM-Albuquerque/Summer-2027-Compliance-Advisory-Intern_JR108362": {
    "f": "2026-10-06",
@@ -5682,6 +5683,10 @@
   "workday:citi:/job/Los-Angeles-California-United-States/Banking---Commercial-Banking--Summer-Analyst--Los-Angeles---US--2027_26947566": {
    "f": "2026-09-02",
    "l": "2026-09-10"
+  },
+  "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Summer-Analyst--New-York-City---US--2027_261007501": {
+   "f": "2026-11-04",
+   "l": "2026-11-04"
   },
   "workday:citi:/job/New-York-New-York-United-States/Functions---Finance--Summer-Associate--New-York---USA--2027_26997257": {
    "f": "2026-09-29",
@@ -8813,7 +8818,7 @@
   },
   "workday:salesforce:/job/Indiana---Indianapolis/Summer-2027-Intern---Finance-Operations-Associate_JR359638-2": {
    "f": "2026-09-10",
-   "l": "2026-10-03"
+   "l": "2026-11-04"
   },
   "workday:sanofi:/job/Framingham-MA/XMLNAME-2027-Spring-Co-op-Data-Science---Digital-Transformation--Framingham--MA_R2854091": {
    "f": "2026-10-09",
