@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-11-04T00:35:50Z",
+ "broken": {
+  "Nio": "HTTP 422"
+ },
+ "last_run": "2026-11-04T00:54:10Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 1,
+  "matching": 49,
   "new": 0,
-  "postings": 27,
-  "sites": 1
+  "postings": 32479,
+  "sites": 202
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -3974,11 +3976,11 @@
   },
   "greenhouse:financialtechnologypartners:8814930002": {
    "f": "2026-09-18",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:financialtechnologypartners:8815197002": {
    "f": "2026-09-16",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:fourhands:4457775009": {
    "f": "2026-10-19",
@@ -4002,11 +4004,11 @@
   },
   "greenhouse:gcmgrosvenor:8004539003": {
    "f": "2026-11-03",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:gcmgrosvenor:8015835003": {
    "f": "2026-10-09",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:genscript:5169014007": {
    "f": "2026-08-25",
@@ -4066,7 +4068,7 @@
   },
   "greenhouse:lilasciences:4469146009": {
    "f": "2026-10-28",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:lincolninternational:8106841": {
    "f": "2026-08-25",
@@ -4090,7 +4092,7 @@
   },
   "greenhouse:olsson:5434137008": {
    "f": "2026-09-24",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:paretocaptiveservicesllc:4725309006": {
    "f": "2026-11-02",
@@ -4154,7 +4156,7 @@
   },
   "greenhouse:sharkninjaoperatingllc:4723344006": {
    "f": "2026-10-28",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "greenhouse:silananotechnologies:8157153": {
    "f": "2026-08-25",
@@ -4358,7 +4360,7 @@
   },
   "lever:brightmachines:2b3e6083-1051-4c4f-a10c-f1e765b4758e": {
    "f": "2026-10-16",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "lever:camstex:5cb714e7-72ad-45cf-9125-39d10efcd033": {
    "f": "2026-09-11",
@@ -4386,7 +4388,7 @@
   },
   "lever:neighbor:7ed377a8-69c3-4882-8b91-10ff6c891c50": {
    "f": "2026-10-15",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "lever:palantir:bd7766c4-6aea-4b37-8d47-a8864bb9bd69": {
    "f": "2026-10-31",
@@ -4414,15 +4416,15 @@
   },
   "lever:standtogether:c34d2487-b73c-403b-8a57-3287c12cafe7": {
    "f": "2026-09-14",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "lever:standtogether:d02174fe-d16c-4dbc-9298-84df32618c68": {
    "f": "2026-10-06",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "lever:standtogether:e4dd1d3c-79a0-435d-87b3-eac542b4c2b5": {
    "f": "2026-09-09",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "lever:stradaeducation:2b03de4a-699c-4f1c-aefb-3e57a3d27851": {
    "f": "2026-10-28",
@@ -4498,7 +4500,7 @@
   },
   "smartrecruiters:BoschGroup:744000153214980": {
    "f": "2026-10-02",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "smartrecruiters:BoschGroup:744000156311489": {
    "f": "2026-10-19",
@@ -4506,7 +4508,7 @@
   },
   "smartrecruiters:BoschGroup:744000157853924": {
    "f": "2026-10-26",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "smartrecruiters:CapTechConsulting:744000155060459": {
    "f": "2026-10-12",
@@ -4666,15 +4668,15 @@
   },
   "smartrecruiters:TheWonderfulCompany:744000113780016": {
    "f": "2026-03-10",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "smartrecruiters:TheWonderfulCompany:744000113780858": {
    "f": "2026-03-10",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "smartrecruiters:TheWonderfulCompany:744000113783769": {
    "f": "2026-03-10",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "smartrecruiters:TurnerTownsend:744000157524540": {
    "f": "2026-10-23",
@@ -4726,7 +4728,7 @@
   },
   "smartrecruiters:WesternDigital:744000148348049": {
    "f": "2026-09-08",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "smartrecruiters:WesternDigital:744000149367234": {
    "f": "2026-09-14",
@@ -4922,7 +4924,7 @@
   },
   "workday:ameren:/job/St-Louis-MO/Strategic-Sourcing-Intern-1_033838-1": {
    "f": "2026-08-25",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:americancentury:/job/Kansas-City-Missouri/Investment-Analyst-Summer-Associate_R0005737": {
    "f": "2026-09-24",
@@ -5298,7 +5300,7 @@
   },
   "workday:bcbst:/job/USA-TN-Chattanooga-Remote/Financial-Accounting-and-Reporting-Intern_R-51498": {
    "f": "2026-10-27",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:biibhr:/job/Cambridge-MA/Co-op--Neuropsychiatry-Strategy---Operations_REQ24383": {
    "f": "2026-10-15",
@@ -5814,15 +5816,15 @@
   },
   "workday:cswg:/job/Brattleboro-VT/Job-Posting-Title-Finance-Accounting-Intern---Summer-2027_R-269101": {
    "f": "2026-10-13",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:cswg:/job/Keene-NH/Finance-Accounting-Intern---Summer-2027_R-268931": {
    "f": "2026-09-28",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:cswg:/job/York-PA/Market-Research---Brand-Strategy-Intern--Summer-2027_R-269063": {
    "f": "2026-10-22",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:cw:/job/Saint-Louis-Missouri-USA/EIC-2027-Summer-Intern--Client-Accounting--St-Louis_R333460": {
    "f": "2026-08-31",
@@ -6126,11 +6128,11 @@
   },
   "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9365": {
    "f": "2026-08-31",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:eisneramper:/job/Miami/XMLNAME-2027-Financial-Advisory-Services-Winter-Intern---Forensics--Litigation-and-Valuation-Services_Req-9455": {
    "f": "2026-09-25",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:eisneramper:/job/New-York/XMLNAME-2027-Advisory-Winter-Intern---Real-Estate-Valuation_Req-9520": {
    "f": "2026-10-12",
@@ -6186,7 +6188,7 @@
   },
   "workday:enovis:/job/Tijuana-Baja-California-Mexico/Finance-Intern_R0034529": {
    "f": "2026-10-13",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:entegris:/job/Bedford-MA/Sales-Strategy---Commercial-Excellence-Co-op_REQ-14510": {
    "f": "2026-09-09",
@@ -6246,15 +6248,15 @@
   },
   "workday:ferrovial:/job/New-Braunfels-TX/Accounting-Intern_JR20240": {
    "f": "2026-11-02",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:ferrovial:/job/Tampa-FL/Accounting-Internship_JR19802": {
    "f": "2026-10-14",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:ferrovial:/job/The-Woodlands-TX/Accounting-Intern_JR20148": {
    "f": "2026-10-29",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:fifththird:/job/Cincinnati-OH/Corporate-Accounting-Co-Op---Spring-2027_R71854": {
    "f": "2026-09-25",
@@ -6654,7 +6656,7 @@
   },
   "workday:greenheckgroup:/job/Schofield-WI/Finance-Intern_JR104736": {
    "f": "2026-10-02",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:guardianlife:/job/New-York/XMLNAME-2027-Guardian-Summer-Intern---FP-A-and-Management-Reporting_R000110212": {
    "f": "2026-09-18",
@@ -6846,7 +6848,7 @@
   },
   "workday:hitachi:/job/Santa-Clara-California-United-States/Research-Science-Intern--Financial-Innovation-Lab_R0084929": {
    "f": "2026-08-26",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:hl:/job/Atlanta-GA-USA/XMLNAME-2027-Investment-Banking-Summer-Associate--Class-of-2028----Atlanta-Business-Services_R3725": {
    "f": "2026-11-02",
@@ -7574,11 +7576,11 @@
   },
   "workday:mckesson:/job/USA-TX-Irving/CSI-Strategy-Intern---Summer-2027_JR0154263": {
    "f": "2026-10-09",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:mckesson:/job/USA-TX-Irving/Finance-Leadership-Program-Intern---Summer-2027_JR0153101": {
    "f": "2026-09-05",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:mckesson:/job/USA-TX-Irving/Innovation-Strategy-Intern---Summer-2027_JR0151704": {
    "f": "2026-09-03",
@@ -8054,11 +8056,11 @@
   },
   "workday:papajohns:/job/HQ_Atlanta/XMLNAME-2027-Summer-Intern---Accounting_R26_0000002159": {
    "f": "2026-10-02",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:papajohns:/job/HQ_Atlanta/XMLNAME-2027-Summer-Intern---FP-A_R26_0000002174": {
    "f": "2026-10-23",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:pentair:/job/Golden-Valley-MN/Finance-Leadership-Development-Internship-Program---Summer-2027_R23698": {
    "f": "2026-08-04",
@@ -8118,11 +8120,11 @@
   },
   "workday:pimco:/job/New-York-NY-USA/XMLNAME-2027-Summer-Intern---Global-Wealth-Management--Strategic-Accounts-Analyst--US--_R106770": {
    "f": "2026-08-21",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Alternatives-Investment-Operations-Intern_R106782": {
    "f": "2026-08-25",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Consultant-Relations-Group-Analyst--US_R106741": {
    "f": "2026-08-18",
@@ -8130,11 +8132,11 @@
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Finance---Accounting-Analyst_R106623": {
    "f": "2026-08-18",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:pimco:/job/Newport-Beach-CA-USA/XMLNAME-2027-Summer-Intern---Product-Strategy-Analyst--US_R106626": {
    "f": "2026-08-18",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:pipersandler:/job/Leawood-KS/XMLNAME-2027-Summer-Internship-Program---Public-Finance_R-100708": {
    "f": "2026-09-14",
@@ -8166,7 +8168,7 @@
   },
   "workday:pnc:/job/IL---Chicago/Corporate---Institutional-Banking-Undergraduate-Intern---Commercial---Corporate-Banking---Financials-and-Diversified-Track_R230900-1": {
    "f": "2026-08-03",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:pnc:/job/MA---Boston-02110/XMLNAME-2027-M-A-Summer-Associate--Boston-_R231649": {
    "f": "2026-08-25",
@@ -9106,15 +9108,15 @@
   },
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Commercial-Banking_R_1508612": {
    "f": "2026-09-01",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program--Treasury---Finance_R_1508609": {
    "f": "2026-09-01",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:td:/job/New-York-New-York/US-Graduate-Leadership-Program-Digital-Banking---Payments_R_1508610": {
    "f": "2026-09-01",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2026-Summer-Internship-Program---Commercial-Banking--Commercial-Lending-_R_1508875": {
    "f": "2026-09-02",
@@ -9126,7 +9128,7 @@
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Graduate-Leadership-Internship-Program---Retail-Distribution_R_1508518-1": {
    "f": "2026-09-01",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:td:/job/New-York-New-York/XMLNAME-2027-Summer-Internship-Program---Commercial-Banking_R_1508788": {
    "f": "2026-09-01",
@@ -9398,7 +9400,7 @@
   },
   "workday:vizient:/job/Chicago-IL-60607/XMLNAME-2027-Summer-Internship---Strategy-Analytics-Project_36009R": {
    "f": "2026-11-03",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:volarisgroup:/job/United-States---Wayne-PA/M-A-Business-Development-Intern_R71020": {
    "f": "2026-09-15",
@@ -9406,19 +9408,19 @@
   },
   "workday:vrtx:/job/Boston-MA/Spring-2027-Co-op--Global-Regulatory-Affairs---Strategy-and-Operations_REQ-31005-1": {
    "f": "2026-10-06",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:vrtx:/job/Boston-MA/Spring-2027-Co-op--Performance-Excellence-and-Business-Transformation_REQ-31100-1": {
    "f": "2026-10-19",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:vrtx:/job/Boston-MA/Spring-2027-Co-op-Business-Process-Excellence--HR-Transformation_REQ-31104-1": {
    "f": "2026-10-08",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:vrtx:/job/Boston-MA/Spring-Co-Op_REQ-31012-1": {
    "f": "2026-09-29",
-   "l": "2026-11-03"
+   "l": "2026-11-04"
   },
   "workday:vst:/job/Irving-Texas/Accounting-Summer-Intern-1_40016924": {
    "f": "2026-11-03",
