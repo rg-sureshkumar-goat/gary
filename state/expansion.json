@@ -10050,7 +10050,7 @@
       "ats": "ashby"
     },
     "Oceanus Marine Technologies": {
-      "last": "2026-10-04",
+      "last": "2026-11-04",
       "result": "none"
     },
     "Niantic Spatial": {
@@ -11926,7 +11926,12 @@
       "last": "2026-11-03",
       "result": "added",
       "ats": "workday"
+    },
+    "Engramme": {
+      "last": "2026-11-04",
+      "result": "added",
+      "ats": "ashby"
     }
   },
-  "last_run": "2026-11-03"
+  "last_run": "2026-11-04"
 }
