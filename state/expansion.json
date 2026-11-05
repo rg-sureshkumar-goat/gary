@@ -11946,6 +11946,11 @@
       "last": "2026-11-05",
       "result": "added",
       "ats": "workday"
+    },
+    "Trajectory": {
+      "last": "2026-11-05",
+      "result": "added",
+      "ats": "ashby"
     }
   },
   "last_run": "2026-11-05"
