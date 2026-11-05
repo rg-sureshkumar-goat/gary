@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-05T19:59:54Z",
+ "last_run": "2026-11-05T23:35:33Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 26,
-  "sites": 1
+  "matching": 38,
+  "new": 1,
+  "postings": 18215,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -734,6 +734,7 @@
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/WDW-Analytical---Strategic-Planning-Intern--Spring-2027_10158138-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-1",
   "workday:disney:/job/Lake-Buena-Vista-FL-USA/Walt-Disney-World-Strategic-Sourcing-Intern--Spring-2027_10158738-2",
+  "workday:dow:/job/Midland-MI-USA/Local-College-Co-op--Business-Finance-Credit_R2069457",
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408",
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039",
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311",
@@ -6102,9 +6103,13 @@
    "f": "2026-08-25",
    "l": "2026-08-30"
   },
+  "workday:dow:/job/Midland-MI-USA/Local-College-Co-op--Business-Finance-Credit_R2069457": {
+   "f": "2026-11-05",
+   "l": "2026-11-05"
+  },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408": {
    "f": "2026-09-09",
-   "l": "2026-10-30"
+   "l": "2026-11-05"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039": {
    "f": "2026-10-12",
