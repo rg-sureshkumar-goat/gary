@@ -1,12 +1,16 @@
 {
- "broken": {},
- "last_run": "2026-11-06T14:39:04Z",
+ "broken": {
+  "Beacon Software": "HTTP 404",
+  "Maximor AI": "HTTP 404",
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-11-06T18:25:20Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 35,
+  "failed": 3,
+  "matching": 37,
   "new": 0,
-  "postings": 18173,
-  "sites": 212
+  "postings": 25571,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
