@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-06T19:20:11Z",
+ "last_run": "2026-11-06T19:36:34Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 26,
-  "sites": 1
+  "matching": 47,
+  "new": 2,
+  "postings": 25511,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -260,6 +260,7 @@
   "greenhouse:sharkninjaoperatingllc:4723344006",
   "greenhouse:silananotechnologies:8157153",
   "greenhouse:smartlyio:6191935004",
+  "greenhouse:stripe:8357739",
   "greenhouse:sxinternships:5231074007",
   "greenhouse:tenstorrentuniversity:5186884007",
   "greenhouse:thebrattlegroup:4735518005",
@@ -1435,6 +1436,7 @@
   "workday:ryan:/job/Boston/Summer-2027-Intern--Abandoned-and-Unclaimed-Property-Consulting_R0020718-1",
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214",
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214-2",
+  "workday:salesforce:/job/California---San-Francisco/Summer-2027-Intern---Applied-AI-Strategy---Research_JR367516-1",
   "workday:salesforce:/job/California---San-Francisco/Summer-2027-Intern---Product-GTM-Strategy_JR362217-1",
   "workday:salesforce:/job/Illinois---Chicago/Summer-2027-Intern---Pro-Serve-Strategy---Change-Management_JR366222-2",
   "workday:salesforce:/job/Indiana---Indianapolis/Summer-2027-Intern---Finance-Operations-Associate_JR359638-2",
@@ -4203,6 +4205,10 @@
   "greenhouse:smartlyio:6191935004": {
    "f": "2026-09-14",
    "l": "2026-09-29"
+  },
+  "greenhouse:stripe:8357739": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
   },
   "greenhouse:sxinternships:5231074007": {
    "f": "2026-09-15",
@@ -8926,6 +8932,10 @@
   },
   "workday:ryan:/job/Houston/Summer-2025-Tax-Consulting-Intern---Houston--TX_R0015214-2": {
    "f": "2026-09-03",
+   "l": "2026-11-06"
+  },
+  "workday:salesforce:/job/California---San-Francisco/Summer-2027-Intern---Applied-AI-Strategy---Research_JR367516-1": {
+   "f": "2026-11-06",
    "l": "2026-11-06"
   },
   "workday:salesforce:/job/California---San-Francisco/Summer-2027-Intern---Product-GTM-Strategy_JR362217-1": {
