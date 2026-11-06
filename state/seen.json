@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-06T19:36:34Z",
+ "last_run": "2026-11-06T23:34:55Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 47,
-  "new": 2,
-  "postings": 25511,
-  "sites": 82
+  "matching": 35,
+  "new": 0,
+  "postings": 18186,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -218,6 +218,7 @@
   "greenhouse:gallup:4398221009",
   "greenhouse:gassouth:8247555",
   "greenhouse:gassouth:8247609",
+  "greenhouse:gcmgrosvenor:7989281003",
   "greenhouse:gcmgrosvenor:8004539003",
   "greenhouse:gcmgrosvenor:8004540003",
   "greenhouse:gcmgrosvenor:8015835003",
@@ -284,6 +285,7 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Fall-2027/366604",
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Japanese-Services-Group-Summer-2027/374600",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Summer-2027/363235",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Valuation-Analytics-Winter-2027/361853",
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Government-Public-Services-Summer-Scholar-Accounting-and-Finance/360265",
@@ -761,6 +763,7 @@
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/The-Wall-Street-Journal-Summer-Business--Finance---Economic-Reporting-Internships--2027-_Job_Req_55671-1",
   "workday:dowjones:/job/New-York-City/Summer-2027-Internship-Program---FP-A-Intern_Job_Req_55318",
   "workday:dowjones:/job/New-York-City/Summer-2027-Internship-Program---Product-Strategy-Intern_Job_Req_55317",
+  "workday:dtna:/job/Portland-OR-US/Asset--Inventory-and-Travel-Accounting-Intern_DT-20611-1",
   "workday:dtna:/job/Portland-OR-US/On-Highway-Product-Marketing-and-Strategy-Intern_DT-20177-1",
   "workday:ebi:/job/Simsbury-CT/Finance-Intern_REQ107740",
   "workday:echo:/job/Chicago-IL/Accounting-Intern_R4643-1",
@@ -806,6 +809,7 @@
   "workday:fifththird:/job/Cincinnati-OH/Finance-and-Accounting-Leadership-Program-Intern---Finance-Track---Summer-2027_R71324",
   "workday:fifththird:/job/Cincinnati-OH/Summer-2027-Interns---Equipment-Finance_R71371",
   "workday:fifththird:/job/Cincinnati-OH/XMLNAME-2027-Financial-Audit-Intern_R70610",
+  "workday:firstnational:/job/Minneapolis-MN---Northland-Securities-Office/Northland-Capital-Markets-Analyst---Intern_R-20261938-1",
   "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476",
   "workday:fmr:/job/Boston-MA/Co-op--Alternatives-Project-Management---Strategic-Initiatives_2135272",
   "workday:fmr:/job/Boston-MA/Co-op--Business-Analyst_2135190",
@@ -1063,6 +1067,7 @@
   "workday:jll:/job/Tampa-FL/Capital-Markets-Summer-2027-Internship---Tampa--FL_REQ532419",
   "workday:jll:/job/Washington-DC/Capital-Markets-Summer-2027-Internship---Washington--DC_REQ530230",
   "workday:jll:/job/Washington-DC/Real-Estate-Advisory-and-Consulting-Summer-2027-Internship---Washington--DC_REQ541736",
+  "workday:jm:/job/Denver-CO-WHQ/Business-Analytics---Strategy-Intern_R26_2002",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Accounts-Payable--AP--Customer-Experience-Transformation-Intern_JR105090",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Corporate-Development-Intern_JR105084",
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Financial-Analyst-Intern_JR105141",
@@ -1151,6 +1156,7 @@
   "workday:mfs:/job/Massachusetts-Remote/Fund-Treasury-Risk-and-Internal-Control-Co-op-Spring-2027_MFS-231905",
   "workday:michelinhr:/job/GREENVILLE-SC/XMLNAME-2027-Summer-Inclusion-Strategy---Business-Integration-Intern_R-2026029963",
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774",
+  "workday:micron:/job/Boise-ID---Main-Site/Intern---Corporate-Development_JR115817",
   "workday:micron:/job/Boise-ID---Main-Site/Intern---NAND-Storage-Strategic-Roadmap-Planning_JR115838",
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Operation-Improvement-Scheduling_JR111097",
   "workday:micron:/job/Boise-ID---North-Office/Intern---Strategic-Category-Analyst_JR115962",
@@ -1447,6 +1453,7 @@
   "workday:santander:/job/UCM---Los-Angeles/XMLNAME-2027-Investment-Banking-Summer-Associate-Program---Los-Angeles_Req1614802",
   "workday:santander:/job/UCM---San-Francisco/XMLNAME-2027-Investment-Banking-Summer-Associate-Program---San-Francisco_Req1614797",
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660",
+  "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Customer-Experience-Strategy---Transformation-Intern_R121929",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784",
   "workday:simmonsbank:/job/Columbia-MO/Investment-Services-Intern_R115475",
@@ -3498,6 +3505,7 @@
   "Thomson Reuters",
   "Thrivent",
   "Ticketmaster",
+  "Tinder",
   "TobogganLabs",
   "Together AI",
   "Tokio Marine Kiln",
@@ -4038,6 +4046,10 @@
    "f": "2026-10-01",
    "l": "2026-10-02"
   },
+  "greenhouse:gcmgrosvenor:7989281003": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
+  },
   "greenhouse:gcmgrosvenor:8004539003": {
    "f": "2026-11-03",
    "l": "2026-11-06"
@@ -4301,6 +4313,10 @@
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Fall-2027/366604": {
    "f": "2026-09-14",
    "l": "2026-09-24"
+  },
+  "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Japanese-Services-Group-Summer-2027/374600": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Technology-Controls-Advisory-Summer-2027/363235": {
    "f": "2026-08-28",
@@ -6226,6 +6242,10 @@
    "f": "2026-09-15",
    "l": "2026-10-12"
   },
+  "workday:dtna:/job/Portland-OR-US/Asset--Inventory-and-Travel-Accounting-Intern_DT-20611-1": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
+  },
   "workday:dtna:/job/Portland-OR-US/On-Highway-Product-Marketing-and-Strategy-Intern_DT-20177-1": {
    "f": "2026-10-12",
    "l": "2026-10-19"
@@ -6405,6 +6425,10 @@
   "workday:fifththird:/job/Cincinnati-OH/XMLNAME-2027-Financial-Audit-Intern_R70610": {
    "f": "2026-09-25",
    "l": "2026-09-25"
+  },
+  "workday:firstnational:/job/Minneapolis-MN---Northland-Securities-Office/Northland-Capital-Markets-Analyst---Intern_R-20261938-1": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
   },
   "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476": {
    "f": "2026-09-04",
@@ -7438,6 +7462,10 @@
    "f": "2026-10-13",
    "l": "2026-10-15"
   },
+  "workday:jm:/job/Denver-CO-WHQ/Business-Analytics---Strategy-Intern_R26_2002": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
+  },
   "workday:jmfamily:/job/Florida---Deerfield-Beach/Accounts-Payable--AP--Customer-Experience-Transformation-Intern_JR105090": {
    "f": "2026-10-27",
    "l": "2026-11-06"
@@ -7793,6 +7821,10 @@
   "workday:micron:/job/Boise-ID---ID1/Intern---Automation--Operations-Improvement_JR110774": {
    "f": "2026-09-09",
    "l": "2026-09-29"
+  },
+  "workday:micron:/job/Boise-ID---Main-Site/Intern---Corporate-Development_JR115817": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---NAND-Storage-Strategic-Roadmap-Planning_JR115838": {
    "f": "2026-10-27",
@@ -8977,6 +9009,10 @@
   "workday:scj:/job/USA---WI---Racine/Finance-Accounting-Intern---Summer-2027_32660": {
    "f": "2026-08-31",
    "l": "2026-09-28"
+  },
+  "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Customer-Experience-Strategy---Transformation-Intern_R121929": {
+   "f": "2026-11-06",
+   "l": "2026-11-06"
   },
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812": {
    "f": "2026-09-15",
