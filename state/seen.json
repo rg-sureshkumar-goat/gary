@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-07T23:38:38Z",
+ "last_run": "2026-11-07T23:56:14Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
+  "matching": 35,
   "new": 0,
-  "postings": 26,
-  "sites": 1
+  "postings": 18168,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5004,7 +5004,7 @@
   },
   "workday:amat:/job/Santa-ClaraCA/Summer-2027-Data-Finance-Analyst-Intern--Bachelor-s--Santa-Clara--CA-_R2626652": {
    "f": "2026-10-28",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1": {
    "f": "2026-08-07",
@@ -6168,15 +6168,15 @@
   },
   "workday:dow:/job/Midland-MI-USA/Local-College-Co-op--Business-Finance-Credit_R2069457": {
    "f": "2026-11-05",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408": {
    "f": "2026-09-09",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039": {
    "f": "2026-10-12",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311": {
    "f": "2026-09-15",
@@ -6628,19 +6628,19 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Business-Analyst-Intern---Summer-2027_R9807-1": {
    "f": "2026-10-27",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/IT-Finance-Intern---Summer-2027_R9808": {
    "f": "2026-10-27",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/M-A-and-Investments-Intern--Summer-2027-_R9838": {
    "f": "2026-11-02",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:gaig:/job/Ohio-USA/M-A-Intern_R9779": {
    "f": "2026-10-23",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
@@ -6648,7 +6648,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-11-06"
+   "l": "2026-11-07"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
