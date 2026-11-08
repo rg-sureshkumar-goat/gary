@@ -1,12 +1,17 @@
 {
- "broken": {},
- "last_run": "2026-11-08T20:27:11Z",
+ "broken": {
+  "Ecolab": "HTTP 429",
+  "First American": "HTTP 429",
+  "PTC": "HTTP 429",
+  "Tencent": "HTTP 429"
+ },
+ "last_run": "2026-11-08T22:30:07Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 4,
+  "matching": 35,
   "new": 0,
-  "postings": 26,
-  "sites": 1
+  "postings": 17602,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -157,6 +162,7 @@
   "ashby:base-power:1b275bc7-7ea3-49f2-a41a-209431458d36",
   "ashby:base-power:50755402-f400-4ea9-8ceb-120fb42f97e9",
   "ashby:base-power:eea685b7-23a1-4a86-b661-9aeb737c9866",
+  "ashby:clera:32723318-ef67-4c80-9e40-8818274bb8cf",
   "ashby:clera:6622a020-90ea-4ec2-abc0-b87da498ff8f",
   "ashby:clera:87228ec1-05b1-498f-9010-4df91e0d8f47",
   "ashby:clera:a8c434b5-0e1e-4864-9af2-5d3439f10c28",
@@ -3807,6 +3813,10 @@
    "f": "2026-09-14",
    "l": "2026-11-03"
   },
+  "ashby:clera:32723318-ef67-4c80-9e40-8818274bb8cf": {
+   "f": "2026-11-08",
+   "l": "2026-11-08"
+  },
   "ashby:clera:6622a020-90ea-4ec2-abc0-b87da498ff8f": {
    "f": "2026-10-16",
    "l": "2026-10-23"
@@ -5005,7 +5015,7 @@
   },
   "workday:amat:/job/Santa-ClaraCA/Summer-2027-Data-Finance-Analyst-Intern--Bachelor-s--Santa-Clara--CA-_R2626652": {
    "f": "2026-10-28",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:ameren:/job/St-Louis-MO/Finance-Internal-Audit-Intern_033959-1": {
    "f": "2026-08-07",
@@ -5649,11 +5659,11 @@
   },
   "workday:cboe:/job/Chicago-IL/Enterprise-Strategy---Corporate-Development-Intern_R-4805": {
    "f": "2026-11-04",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:cboe:/job/Chicago-IL/Technical-Business-Analyst-Intern_R-4710": {
    "f": "2026-10-02",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:cbrands:/job/Rochester-New-York/Intern--Finance-Analytics_R-41494": {
    "f": "2026-10-13",
@@ -6169,15 +6179,15 @@
   },
   "workday:dow:/job/Midland-MI-USA/Local-College-Co-op--Business-Finance-Credit_R2069457": {
    "f": "2026-11-05",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408": {
    "f": "2026-09-09",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039": {
    "f": "2026-10-12",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311": {
    "f": "2026-09-15",
@@ -6629,19 +6639,19 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Business-Analyst-Intern---Summer-2027_R9807-1": {
    "f": "2026-10-27",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/IT-Finance-Intern---Summer-2027_R9808": {
    "f": "2026-10-27",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/M-A-and-Investments-Intern--Summer-2027-_R9838": {
    "f": "2026-11-02",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:gaig:/job/Ohio-USA/M-A-Intern_R9779": {
    "f": "2026-10-23",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
@@ -6649,7 +6659,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
@@ -7829,7 +7839,7 @@
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---Corporate-Development_JR115817": {
    "f": "2026-11-06",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:micron:/job/Boise-ID---Main-Site/Intern---NAND-Storage-Strategic-Roadmap-Planning_JR115838": {
    "f": "2026-10-27",
@@ -9037,7 +9047,7 @@
   },
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084": {
    "f": "2026-08-18",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:situsamc:/job/Dallas-Tx/Asset-Management-Intern---Dallas_JR03088": {
    "f": "2026-08-18",
@@ -9049,7 +9059,7 @@
   },
   "workday:situsamc:/job/New-York-NY/Debt-Asset-Management-Intern--New-York_JR03079": {
    "f": "2026-08-18",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:situsamc:/job/Plymouth-Meeting-PA/Asset-Management-Intern--Plymouth-Meeting_JR03086": {
    "f": "2026-08-18",
@@ -9057,11 +9067,11 @@
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting--Part-Time-_JR03126": {
    "f": "2026-08-20",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:situsamc:/job/West-Des-Moines-IA/Intern--Appraisal---Consulting_JR03044": {
    "f": "2026-08-12",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:smucker:/job/Orrville-OH/Finance---Accounting-Intern--Spring-2027_114929": {
    "f": "2026-09-09",
