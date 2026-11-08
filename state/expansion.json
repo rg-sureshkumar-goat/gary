@@ -11107,8 +11107,9 @@
       "ats": "workday"
     },
     "Viget": {
-      "last": "2026-10-08",
-      "result": "none"
+      "last": "2026-11-08",
+      "result": "added",
+      "ats": "lever"
     },
     "Badger Meter": {
       "last": "2026-10-08",
@@ -12001,5 +12002,5 @@
       "ats": "workday"
     }
   },
-  "last_run": "2026-11-07"
+  "last_run": "2026-11-08"
 }
