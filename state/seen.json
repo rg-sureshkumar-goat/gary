@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-08T13:15:33Z",
+ "last_run": "2026-11-08T13:43:00Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 58,
+  "matching": 50,
   "new": 0,
-  "postings": 23688,
-  "sites": 200
+  "postings": 25435,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -4860,7 +4860,7 @@
   },
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373": {
    "f": "2026-09-08",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:accenture:/job/Dallas-5205-N-OConnor-Las-Colinas-Corp/Client-Financial-Management-Summer-Analyst---Dallas---NAELFY27_R00357935": {
    "f": "2026-10-21",
