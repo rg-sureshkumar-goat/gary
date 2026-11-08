@@ -1,12 +1,16 @@
 {
- "broken": {},
- "last_run": "2026-11-08T15:08:51Z",
+ "broken": {
+  "Beacon Software": "HTTP 404",
+  "Maximor AI": "HTTP 404",
+  "Veeda AI": "HTTP 404"
+ },
+ "last_run": "2026-11-08T18:29:21Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 3,
+  "matching": 37,
   "new": 0,
-  "postings": 26,
-  "sites": 1
+  "postings": 25612,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -8041,15 +8045,15 @@
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Finance---Accounting_R23258": {
    "f": "2026-10-21",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Investments---Nelnet-Financial-Services--Starting-May-2027-_R23227": {
    "f": "2026-10-12",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Marketing-Communications-Strategy_R23221": {
    "f": "2026-10-08",
-   "l": "2026-11-07"
+   "l": "2026-11-08"
   },
   "workday:nelnet:/job/Lincoln-NE/Intern---Tax-Accounting---Spring--2026_R23056": {
    "f": "2026-08-28",
