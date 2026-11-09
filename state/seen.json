@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-09T18:43:51Z",
+ "last_run": "2026-11-09T20:30:23Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 0,
-  "new": 0,
-  "postings": 26,
-  "sites": 1
+  "matching": 46,
+  "new": 1,
+  "postings": 25421,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -665,6 +665,7 @@
   "workday:citi:/job/Los-Angeles-California-United-States/Banking---Commercial-Banking--Summer-Analyst--Los-Angeles---US--2027_26947566",
   "workday:citi:/job/NC-CHARLOTTE-BALLANTYNE/Functions---Finance--Summer-Associate--Charlotte---USA--2027_261008040",
   "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Summer-Analyst--New-York-City---US--2027_261007501",
+  "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Sustainability-and-Corporate-Transitions--Summer-Analyst--New-York-City---US--2027_261008698",
   "workday:citi:/job/New-York-New-York-United-States/Functions---Finance--Summer-Associate--New-York---USA--2027_26997257",
   "workday:citi:/job/San-Francisco-California-United-States/Banking---Commercial-Banking--Summer-Analyst--San-Francisco---US--2027_25926683",
   "workday:citi:/job/San-Francisco-California-United-States/Banking---Corporate-Banking--Summer-Analyst--San-Francisco---US--2027_25926646",
@@ -5867,6 +5868,10 @@
   "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Summer-Analyst--New-York-City---US--2027_261007501": {
    "f": "2026-11-04",
    "l": "2026-11-05"
+  },
+  "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Sustainability-and-Corporate-Transitions--Summer-Analyst--New-York-City---US--2027_261008698": {
+   "f": "2026-11-09",
+   "l": "2026-11-09"
   },
   "workday:citi:/job/New-York-New-York-United-States/Functions---Finance--Summer-Associate--New-York---USA--2027_26997257": {
    "f": "2026-09-29",
