@@ -12019,6 +12019,21 @@
       "last": "2026-11-10",
       "result": "added",
       "ats": "workday"
+    },
+    "GSA Capital": {
+      "last": "2026-11-10",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Addepar": {
+      "last": "2026-11-10",
+      "result": "added",
+      "ats": "greenhouse"
+    },
+    "Matillion": {
+      "last": "2026-11-10",
+      "result": "added",
+      "ats": "lever"
     }
   },
   "last_run": "2026-11-10"
