@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-10T10:37:43Z",
+ "last_run": "2026-11-10T11:43:50Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 45,
+  "matching": 35,
   "new": 0,
-  "postings": 25371,
-  "sites": 82
+  "postings": 18097,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -5765,11 +5765,11 @@
   },
   "workday:cboe:/job/Chicago-IL/Enterprise-Strategy---Corporate-Development-Intern_R-4805": {
    "f": "2026-11-04",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:cboe:/job/Chicago-IL/Technical-Business-Analyst-Intern_R-4710": {
    "f": "2026-10-02",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:cbrands:/job/Rochester-New-York/Intern--Finance-Analytics_R-41494": {
    "f": "2026-10-13",
@@ -6777,7 +6777,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
@@ -8013,7 +8013,7 @@
   },
   "workday:mizuho:/job/Chicago/XMLNAME-2026-M-A-Summer-Associate---Chicago_R6558": {
    "f": "2026-08-25",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:mizuho:/job/Houston-TX/XMLNAME-2028-Investment-Banking-Summer-Analyst-Program---Houston_R7483": {
    "f": "2026-10-26",
@@ -8029,7 +8029,7 @@
   },
   "workday:mizuho:/job/New-York-NY-1271-AOA6th-Ave/XMLNAME-2028-M-A-Summer-Analyst---New-York_R7498": {
    "f": "2026-10-28",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:mizuho:/job/San-Francisco/XMLNAME-2028-Investment-Banking-Summer-Analyst---San-Francisco_R7499": {
    "f": "2026-10-27",
@@ -8037,7 +8037,7 @@
   },
   "workday:mizuho:/job/San-Francisco/XMLNAME-2028-M-A-Summer-Analyst---San-Francisco_R7500": {
    "f": "2026-10-27",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:mmc:/job/Chicago---155-Wacker/Health---Benefits-Financial-Summer-Intern---Central-Market---College-Program-2027_R_365270": {
    "f": "2026-09-09",
@@ -8829,7 +8829,7 @@
   },
   "workday:rockwellautomation:/job/Milwaukee-Wisconsin-United-States/Intern--Technical-Sales---Consulting--USA-_R26-5962-2": {
    "f": "2026-09-01",
-   "l": "2026-11-09"
+   "l": "2026-11-10"
   },
   "workday:rsm:/job/Atlanta-Metro-Area/D365-Finance---Supply-Chain-Consulting-Intern--Summer-2027_JR116961": {
    "f": "2026-09-08",
