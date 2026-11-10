@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-10T15:17:41Z",
+ "last_run": "2026-11-10T18:23:06Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 34,
-  "new": 0,
-  "postings": 18072,
-  "sites": 212
+  "matching": 46,
+  "new": 1,
+  "postings": 25438,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -460,6 +460,7 @@
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Client-Financial-Management-Summer-Analyst---Chicago---NAELFY27_R00357961",
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373",
   "workday:accenture:/job/Dallas-5205-N-OConnor-Las-Colinas-Corp/Client-Financial-Management-Summer-Analyst---Dallas---NAELFY27_R00357935",
+  "workday:accenture:/job/NY---New-York/Corporate-Development---Finance-Summer-Analyst---NAELFY27_R00369309",
   "workday:acxiomllc:/job/New-York/Intern---Financial-Analyst_JR014484",
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Digital-Strategy-Analyst_R171828",
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696",
@@ -4984,6 +4985,10 @@
   },
   "workday:accenture:/job/Dallas-5205-N-OConnor-Las-Colinas-Corp/Client-Financial-Management-Summer-Analyst---Dallas---NAELFY27_R00357935": {
    "f": "2026-10-21",
+   "l": "2026-11-10"
+  },
+  "workday:accenture:/job/NY---New-York/Corporate-Development---Finance-Summer-Analyst---NAELFY27_R00369309": {
+   "f": "2026-11-10",
    "l": "2026-11-10"
   },
   "workday:acxiomllc:/job/New-York/Intern---Financial-Analyst_JR014484": {
