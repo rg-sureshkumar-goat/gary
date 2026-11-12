@@ -1,12 +1,14 @@
 {
- "broken": {},
- "last_run": "2026-11-12T10:57:15Z",
+ "broken": {
+  "First American": "HTTP 429"
+ },
+ "last_run": "2026-11-12T15:38:37Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 27,
+  "failed": 1,
+  "matching": 33,
   "new": 0,
-  "postings": 15454,
-  "sites": 185
+  "postings": 17964,
+  "sites": 214
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -291,6 +293,7 @@
   "greenhouse:sharkninjaoperatingllc:4714635006",
   "greenhouse:sharkninjaoperatingllc:4723344006",
   "greenhouse:sharkninjaoperatingllc:4727347006",
+  "greenhouse:sharkninjaoperatingllc:4727543006",
   "greenhouse:sharkninjaoperatingllc:4727554006",
   "greenhouse:silananotechnologies:8157153",
   "greenhouse:smartlyio:6191935004",
@@ -465,7 +468,10 @@
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Client-Financial-Management-Summer-Analyst---Chicago---NAELFY27_R00357961",
   "workday:accenture:/job/Chicago-Accenture-Tower-Corp/Entry-Level-Advisory-Development-Program---Process-Excellence-Summer-Analyst---NAELFY27_R00354373",
   "workday:accenture:/job/Dallas-5205-N-OConnor-Las-Colinas-Corp/Client-Financial-Management-Summer-Analyst---Dallas---NAELFY27_R00357935",
+  "workday:accenture:/job/Dallas-5205-N-OConnor-Las-Colinas-Corp/Client-Transaction-Services-Summer-Analyst---Dallas---NAELFY27_R00357966",
   "workday:accenture:/job/NY---New-York/Corporate-Development---Finance-Summer-Analyst---NAELFY27_R00369309",
+  "workday:accenture:/job/New-York-One-Manhattan-West-Corp/Client-Transaction-Services-Summer-Analyst---New-York---NAELFY27_R00371373",
+  "workday:accenture:/job/San-Francisco-415-Mission-Street-Corp/Client-Transaction-Services-Summer-Analyst---San-Francisco---NAELFY27_R00371377",
   "workday:acxiomllc:/job/New-York/Intern---Financial-Analyst_JR014484",
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Digital-Strategy-Analyst_R171828",
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696",
@@ -1044,6 +1050,7 @@
   "workday:hpe:/job/San-Jose-California-United-States-of-America/GMC-Finance---Operations-Intern_1213363",
   "workday:hpe:/job/Spring-Texas-United-States-of-America/Corporate-Strategy---Transformation-Intern_1216007",
   "workday:hpe:/job/Spring-Texas-United-States-of-America/Finance-Intern_1213639",
+  "workday:hpe:/job/Spring-Texas-United-States-of-America/Process---Operations-Transformation-Intern_1218731",
   "workday:hpe:/job/Spring-Texas-United-States-of-America/Strategic-Sourcing-AI---Automation-Intern_1213039",
   "workday:humana:/job/Louisville-KY/Finance---Accounting-Rotational-Internship-Program---September-2026_R-426435",
   "workday:huntington:/job/Columbus-OH/Summer-2027-Accounting-Internship_R0075371",
@@ -1525,6 +1532,7 @@
   "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Summer-Intern---DA-eCommerce--B2B---Parts-Strategy-_R121992",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812",
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784",
+  "workday:shawinc:/job/Shaw-Plant-72-900-VD-Parrot-Parkway-Dalton-GA-30721-USA/Spring-2027-Accounting-Internship_R-158988-1",
   "workday:simmonsbank:/job/Columbia-MO/Investment-Services-Intern_R115475",
   "workday:simmonsbank:/job/Jonesboro-AR/Investment-Services-Intern_R115474",
   "workday:situsamc:/job/Atlanta-GA/Asset-Management-Intern--Atlanta_JR03084",
@@ -2059,6 +2067,7 @@
   "CACI",
   "CAE",
   "CAMS",
+  "CARIAD",
   "CCC Intelligent Solutions",
   "CHAOS Industries",
   "CHEP",
@@ -2211,6 +2220,7 @@
   "Continental",
   "Continental Resources",
   "Contoro",
+  "Conveo.ai",
   "Cooper Standard",
   "CoorsTek",
   "Copart",
@@ -3087,6 +3097,7 @@
   "Omnicom Health",
   "Onapsis",
   "OneMain Financial",
+  "Ontario Securities Commission",
   "Ontario Teachers' Pension Plan",
   "Ontic",
   "Onto Innovation",
@@ -3194,6 +3205,7 @@
   "Plug Power",
   "Pluralis Research",
   "PlusAI",
+  "Plusgrade",
   "Podium",
   "Point C",
   "Point72",
@@ -4331,6 +4343,10 @@
    "f": "2026-11-10",
    "l": "2026-11-12"
   },
+  "greenhouse:sharkninjaoperatingllc:4727543006": {
+   "f": "2026-11-12",
+   "l": "2026-11-12"
+  },
   "greenhouse:sharkninjaoperatingllc:4727554006": {
    "f": "2026-11-10",
    "l": "2026-11-12"
@@ -4429,7 +4445,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2027/360300": {
    "f": "2026-08-28",
-   "l": "2026-10-29"
+   "l": "2026-11-12"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Audit-Assurance-Intern-Financial-Statement-Audit-Winter-2028/361295": {
    "f": "2026-08-28",
@@ -5031,8 +5047,20 @@
    "f": "2026-10-21",
    "l": "2026-11-12"
   },
+  "workday:accenture:/job/Dallas-5205-N-OConnor-Las-Colinas-Corp/Client-Transaction-Services-Summer-Analyst---Dallas---NAELFY27_R00357966": {
+   "f": "2026-11-12",
+   "l": "2026-11-12"
+  },
   "workday:accenture:/job/NY---New-York/Corporate-Development---Finance-Summer-Analyst---NAELFY27_R00369309": {
    "f": "2026-11-10",
+   "l": "2026-11-12"
+  },
+  "workday:accenture:/job/New-York-One-Manhattan-West-Corp/Client-Transaction-Services-Summer-Analyst---New-York---NAELFY27_R00371373": {
+   "f": "2026-11-12",
+   "l": "2026-11-12"
+  },
+  "workday:accenture:/job/San-Francisco-415-Mission-Street-Corp/Client-Transaction-Services-Summer-Analyst---San-Francisco---NAELFY27_R00371377": {
+   "f": "2026-11-12",
    "l": "2026-11-12"
   },
   "workday:acxiomllc:/job/New-York/Intern---Financial-Analyst_JR014484": {
@@ -7359,6 +7387,10 @@
    "f": "2026-09-28",
    "l": "2026-11-12"
   },
+  "workday:hpe:/job/Spring-Texas-United-States-of-America/Process---Operations-Transformation-Intern_1218731": {
+   "f": "2026-11-11",
+   "l": "2026-11-12"
+  },
   "workday:hpe:/job/Spring-Texas-United-States-of-America/Strategic-Sourcing-AI---Automation-Intern_1213039": {
    "f": "2026-11-10",
    "l": "2026-11-12"
@@ -9290,6 +9322,10 @@
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Student-Co-op-2027-2028_JR-142784": {
    "f": "2026-09-09",
    "l": "2026-10-14"
+  },
+  "workday:shawinc:/job/Shaw-Plant-72-900-VD-Parrot-Parkway-Dalton-GA-30721-USA/Spring-2027-Accounting-Internship_R-158988-1": {
+   "f": "2026-11-12",
+   "l": "2026-11-12"
   },
   "workday:simmonsbank:/job/Columbia-MO/Investment-Services-Intern_R115475": {
    "f": "2026-10-07",
