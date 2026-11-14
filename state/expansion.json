@@ -12138,7 +12138,17 @@
       "last": "2026-11-13",
       "result": "added",
       "ats": "workday"
+    },
+    "Nexus Cognitive Technologies": {
+      "last": "2026-11-14",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Horizon3.ai": {
+      "last": "2026-11-14",
+      "result": "added",
+      "ats": "ashby"
     }
   },
-  "last_run": "2026-11-13"
+  "last_run": "2026-11-14"
 }
