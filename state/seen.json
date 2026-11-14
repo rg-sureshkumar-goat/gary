@@ -1,12 +1,16 @@
 {
- "broken": {},
- "last_run": "2026-11-14T17:58:12Z",
+ "broken": {
+  "MetLife": "HTTP 404",
+  "Prudential Financial": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)",
+  "Target": "JSONDecodeError: Expecting value: line 1 column 1 (char 0)"
+ },
+ "last_run": "2026-11-14T18:54:51Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 3,
+  "matching": 52,
   "new": 0,
-  "postings": 24,
-  "sites": 1
+  "postings": 24932,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -4557,7 +4561,7 @@
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Investment-Banking-Summer-Associate-Corporate-Finance/364093": {
    "f": "2026-09-14",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "html:Deloitte (US):https://apply.deloitte.com/en_US/careers/JobDetail/Consultative-Offerings-Summer-Scholar-M-A-Business-Analytics/360654": {
    "f": "2026-08-31",
@@ -5157,7 +5161,7 @@
   },
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Digital-Strategy-Analyst_R171828": {
    "f": "2026-09-10",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:adobe:/job/New-York/XMLNAME-2027-Intern---Solutions-Consulting-Analyst_R171696": {
    "f": "2026-09-08",
@@ -5165,7 +5169,7 @@
   },
   "workday:adobe:/job/San-Jose/XMLNAME-2027-Intern---FP-A-Finance---Reporting_R173005": {
    "f": "2026-11-05",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:aep:/job/Columbus-OH/Accounting-Intern---Spring-Semester-2027_R20920": {
    "f": "2026-11-05",
@@ -6061,7 +6065,7 @@
   },
   "workday:cigna:/job/St-Louis-MO/Legal-Operations-Financial--Data---AI-Analytics-Intern_25016386": {
    "f": "2026-08-25",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:cir:/job/Fairfield-IA/Consulting-Services-AI---Automation-Intern_R-2025-223": {
    "f": "2026-09-19",
@@ -6097,7 +6101,7 @@
   },
   "workday:citi:/job/Getzville-New-York-United-States/Functions---Finance--Summer-Associate--Buffalo---USA--2027_261008038": {
    "f": "2026-11-05",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:citi:/job/Houston-Texas-United-States/Banking---Commercial-Banking--Summer-Analyst--Houston---US--2027_25926681": {
    "f": "2026-08-25",
@@ -6105,7 +6109,7 @@
   },
   "workday:citi:/job/Houston-Texas-United-States/Banking---Corporate-Banking--Summer-Analyst--Houston---US--2027_25926650": {
    "f": "2026-08-26",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:citi:/job/Los-Angeles-California-United-States/Banking---Commercial-Banking--Summer-Analyst--Los-Angeles---US--2027_26947566": {
    "f": "2026-09-02",
@@ -6113,7 +6117,7 @@
   },
   "workday:citi:/job/NC-CHARLOTTE-BALLANTYNE/Functions---Finance--Summer-Associate--Charlotte---USA--2027_261008040": {
    "f": "2026-11-05",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Summer-Analyst--New-York-City---US--2027_261007501": {
    "f": "2026-11-04",
@@ -6121,11 +6125,11 @@
   },
   "workday:citi:/job/New-York-New-York-United-States/Banking---Corporate-Banking--Sustainability-and-Corporate-Transitions--Summer-Analyst--New-York-City---US--2027_261008698": {
    "f": "2026-11-09",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:citi:/job/New-York-New-York-United-States/Functions---Finance--Summer-Associate--New-York---USA--2027_26997257": {
    "f": "2026-09-29",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:citi:/job/San-Francisco-California-United-States/Banking---Commercial-Banking--Summer-Analyst--San-Francisco---US--2027_25926683": {
    "f": "2026-09-02",
@@ -6137,7 +6141,7 @@
   },
   "workday:citi:/job/Tampa-Florida-United-States/Functions---Finance--Summer-Associate--Tampa---USA--2027_26997272": {
    "f": "2026-09-30",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:clarios:/job/United-States-Florida-Tampa/Finance-Intern---Tampa--FL--Summer-2027-_WD50756-1": {
    "f": "2026-10-23",
@@ -8309,7 +8313,7 @@
   },
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Global-Supplier-Management-Group-Direct-Advanced-Strategy-and-Procurement---Co-op_R415226": {
    "f": "2026-09-08",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:msd:/job/USA---New-Jersey---Rahway/XMLNAME-2027-Future-Talent-Program---Marketing-Strategy---Project-Management-Co-op_R422071": {
    "f": "2026-10-15",
@@ -8321,7 +8325,7 @@
   },
   "workday:msd:/job/USA---Pennsylvania---Lower-Gwynedd-Township-Spring-House/XMLNAME-2027-Future-Talent-Program---Digital-Transformation-Conversion---Intern_R412942": {
    "f": "2026-09-08",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:msd:/job/USA---Pennsylvania---North-Wales-Upper-Gwynedd/XMLNAME-2027-Future-Talent-Program---Global-Market-Access--Strategy---Operations---Intern_R413314": {
    "f": "2026-09-08",
@@ -9589,7 +9593,7 @@
   },
   "workday:spgi:/job/New-York-NY/Summer-Intern--Commercial-Strategy_332621-1": {
    "f": "2026-11-09",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-Accounting-Intern_SOSJ12450-1": {
    "f": "2026-09-15",
