@@ -1,12 +1,85 @@
 {
- "broken": {},
- "last_run": "2026-11-14T00:53:02Z",
+ "broken": {
+  "AAA Mountainwest Group": "HTTP 521",
+  "Acxiom": "HTTP 521",
+  "AeroVironment": "HTTP 521",
+  "Albemarle": "HTTP 521",
+  "Alston & Bird Law Firm": "HTTP 521",
+  "AltaGas": "HTTP 521",
+  "American Century Investments": "HTTP 521",
+  "Analog Devices": "HTTP 521",
+  "AriensCo": "HTTP 521",
+  "Arkansas Children's": "HTTP 521",
+  "Assurant": "HTTP 521",
+  "Auto-Owners Insurance": "HTTP 521",
+  "Axis Capital": "HTTP 521",
+  "Beacon Software": "HTTP 404",
+  "Booz Allen": "HTTP 521",
+  "Boston Dynamics": "HTTP 521",
+  "Carter's": "HTTP 521",
+  "Centerstone": "HTTP 521",
+  "Cerence": "HTTP 521",
+  "Chamberlain Group": "HTTP 521",
+  "Choice Hotels": "HTTP 521",
+  "City of Baltimore": "HTTP 521",
+  "Clorox": "HTTP 521",
+  "Conagra Brands": "HTTP 521",
+  "CoorsTek": "HTTP 521",
+  "Curtiss-Wright Corporation": "HTTP 521",
+  "Denver": "HTTP 521",
+  "DriveTime": "HTTP 521",
+  "Echo Global Logistics": "HTTP 521",
+  "Elanco": "HTTP 521",
+  "EverCommerce": "HTTP 521",
+  "First Canadian Title": "HTTP 521",
+  "Fortrea": "HTTP 521",
+  "GAP": "HTTP 521",
+  "Global Infrastructure": "HTTP 521",
+  "Guardian Life": "HTTP 521",
+  "HUB": "HTTP 521",
+  "Healthfirst": "HTTP 521",
+  "Hewlett Packard (HP)": "HTTP 521",
+  "Interdigital": "HTTP 521",
+  "Johnson Controls": "HTTP 521",
+  "KLA": "HTTP 521",
+  "KeyBank": "HTTP 521",
+  "Live Oak Bank": "HTTP 521",
+  "Logitech": "HTTP 521",
+  "Markel Group, Inc.": "HTTP 521",
+  "MassMutual Ascend": "HTTP 521",
+  "Maximor AI": "HTTP 404",
+  "Moderna": "HTTP 521",
+  "MultiCare Health System": "HTTP 521",
+  "Nelnet": "HTTP 521",
+  "O'Reilly Auto Parts": "HTTP 521",
+  "Occidental Petroleum Corporation (Oxy)": "HTTP 521",
+  "OneMain Financial": "HTTP 521",
+  "Orthofix": "HTTP 521",
+  "PennState University": "HTTP 521",
+  "S&T Bank": "HTTP 521",
+  "SEI": "HTTP 521",
+  "Saab": "HTTP 521",
+  "Solenis": "HTTP 521",
+  "Stride": "HTTP 521",
+  "Taylor Corporation": "HTTP 521",
+  "TransPerfect": "HTTP 521",
+  "U.S. Bank": "HTTP 521",
+  "Vantage Data Centers": "HTTP 521",
+  "Veeda AI": "HTTP 404",
+  "Viatris": "HTTP 521",
+  "Washpost": "HTTP 521",
+  "WellSky": "HTTP 521",
+  "X-energy": "HTTP 521",
+  "YMCA of Metropolitan Atlanta": "HTTP 521",
+  "ZOLL Medical Corporation": "HTTP 521"
+ },
+ "last_run": "2026-11-14T02:20:20Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 72,
+  "matching": 14,
   "new": 0,
-  "postings": 24,
-  "sites": 1
+  "postings": 17504,
+  "sites": 219
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -4023,7 +4096,7 @@
   },
   "greenhouse:andurilindustries:5269977007": {
    "f": "2026-10-20",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "greenhouse:appian:8088498": {
    "f": "2026-08-25",
@@ -4151,7 +4224,7 @@
   },
   "greenhouse:drweng:7993004": {
    "f": "2026-07-13",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "greenhouse:enova:8238162": {
    "f": "2026-09-28",
@@ -4387,15 +4460,15 @@
   },
   "greenhouse:scoutmotors:5287125007": {
    "f": "2026-11-09",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "greenhouse:scoutmotors:5287128007": {
    "f": "2026-11-09",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "greenhouse:scoutmotors:5287133007": {
    "f": "2026-11-09",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "greenhouse:sharkninjaoperatingllc:4714635006": {
    "f": "2026-11-10",
@@ -6015,7 +6088,7 @@
   },
   "workday:cibc:/job/Atlanta-GA/XMLNAME-2027-Summer-Intern---Commercial-Banking_2620111": {
    "f": "2026-10-28",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:cibc:/job/Chicago-IL/XMLNAME-2026-Summer-Intern---Commercial-Banking-and-Commercial-Real-Estate_2519190": {
    "f": "2026-09-04",
@@ -6043,7 +6116,7 @@
   },
   "workday:cibc:/job/New-York-NY/XMLNAME-2027-Summer-Intern-Investment-Communication--NYC_2620149": {
    "f": "2026-11-03",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:cigna:/job/Bloomfield-CT/Cigna-Investment-Management-Internship_26010198": {
    "f": "2026-08-25",
@@ -9439,23 +9512,23 @@
   },
   "workday:sec:/job/200-Connell-Drive-Berkeley-Heights-NJ-USA/Accounting-Intern_R121945": {
    "f": "2026-11-10",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Business-Strategy---Intelligence-Intern_R121962": {
    "f": "2026-11-08",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Customer-Experience-Strategy---Transformation-Intern_R121929": {
    "f": "2026-11-06",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Strategy-Intern-for-National-Retail-and-Strategic-Accounts_R122002": {
    "f": "2026-11-08",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:sec:/job/6625-Excellence-Way-Plano-TX-USA/Summer-Intern---DA-eCommerce--B2B---Parts-Strategy-_R121992": {
    "f": "2026-11-08",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:sentryinsurance:/job/Stevens-Point-WI/Accounting-Internship-Summer-2027_JR-142812": {
    "f": "2026-09-15",
@@ -9591,11 +9664,11 @@
   },
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-Accounting-Intern_SOSJ12450-1": {
    "f": "2026-09-15",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:standoutforgood:/job/Knoxville-TN/Spring-2027-FP-A-Intern_SOSJ12452": {
    "f": "2026-09-15",
-   "l": "2026-11-13"
+   "l": "2026-11-14"
   },
   "workday:strayer:/job/Minneapolis-MN/Intern---Financial-Planning-and-Analysis_R29086": {
    "f": "2026-09-16",
