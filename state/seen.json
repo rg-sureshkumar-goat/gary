@@ -1,15 +1,12 @@
 {
- "broken": {
-  "Atlas Energy Solutions": "HTTP 404",
-  "Nio": "HTTP 422"
- },
- "last_run": "2026-11-15T20:33:35Z",
+ "broken": {},
+ "last_run": "2026-11-15T21:01:11Z",
  "last_run_stats": {
-  "failed": 2,
-  "matching": 55,
+  "failed": 0,
+  "matching": 0,
   "new": 0,
-  "postings": 32414,
-  "sites": 202
+  "postings": 23,
+  "sites": 1
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
