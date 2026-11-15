@@ -12153,6 +12153,11 @@
       "last": "2026-11-15",
       "result": "added",
       "ats": "workday"
+    },
+    "Fanatics": {
+      "last": "2026-11-15",
+      "result": "added",
+      "ats": "greenhouse"
     }
   },
   "last_run": "2026-11-15"

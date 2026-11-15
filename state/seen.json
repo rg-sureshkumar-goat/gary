@@ -1,14 +1,22 @@
 {
  "broken": {
-  "MetLife": "HTTP 404"
+  "Applied Materials": "HTTP 429",
+  "Avnet": "HTTP 429",
+  "Becton Dickinson": "HTTP 429",
+  "Cboe": "HTTP 429",
+  "Dow Chemical Company": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Rockwell Automation": "HTTP 429"
  },
- "last_run": "2026-11-15T21:25:42Z",
+ "last_run": "2026-11-15T23:12:28Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 51,
+  "failed": 9,
+  "matching": 22,
   "new": 0,
-  "postings": 25302,
-  "sites": 82
+  "postings": 15413,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -188,6 +196,7 @@
   "ashby:clera:6622a020-90ea-4ec2-abc0-b87da498ff8f",
   "ashby:clera:87228ec1-05b1-498f-9010-4df91e0d8f47",
   "ashby:clera:a8c434b5-0e1e-4864-9af2-5d3439f10c28",
+  "ashby:clera:ea11d22a-20a8-435d-8de2-5fea5d4dc60c",
   "ashby:ibotta:97fc4740-8330-4bed-aab1-e95201bdb02d",
   "ashby:ibotta:f8880452-62af-4b0d-96ab-6e0943dd4fbf",
   "ashby:leland:a2c2c00d-2b9d-4e5c-bf15-289473ba1191",
@@ -240,6 +249,9 @@
   "greenhouse:eulerity:4718848006",
   "greenhouse:excelsportsmanagement:4747568005",
   "greenhouse:excelsportsmanagement:4747571005",
+  "greenhouse:fanaticscollectibles:4507797009",
+  "greenhouse:fanaticscollectibles:4507802009",
+  "greenhouse:fanaticscollectibles:4507812009",
   "greenhouse:faradayfuture:7799321003",
   "greenhouse:faradayfuture:7799326003",
   "greenhouse:financialtechnologypartners:8814930002",
@@ -2475,6 +2487,7 @@
   "Fairlife",
   "Fairstone Financial",
   "Faith Technologies",
+  "Fanatics",
   "Fannie Mae",
   "Fanvue",
   "Faraday Future",
@@ -3972,6 +3985,10 @@
    "f": "2026-10-24",
    "l": "2026-10-31"
   },
+  "ashby:clera:ea11d22a-20a8-435d-8de2-5fea5d4dc60c": {
+   "f": "2026-11-15",
+   "l": "2026-11-15"
+  },
   "ashby:ibotta:97fc4740-8330-4bed-aab1-e95201bdb02d": {
    "f": "2026-09-11",
    "l": "2026-09-25"
@@ -4178,6 +4195,18 @@
   },
   "greenhouse:excelsportsmanagement:4747571005": {
    "f": "2026-10-26",
+   "l": "2026-11-15"
+  },
+  "greenhouse:fanaticscollectibles:4507797009": {
+   "f": "2026-11-15",
+   "l": "2026-11-15"
+  },
+  "greenhouse:fanaticscollectibles:4507802009": {
+   "f": "2026-11-15",
+   "l": "2026-11-15"
+  },
+  "greenhouse:fanaticscollectibles:4507812009": {
+   "f": "2026-11-15",
    "l": "2026-11-15"
   },
   "greenhouse:faradayfuture:7799321003": {
