@@ -1,14 +1,12 @@
 {
- "broken": {
-  "MetLife": "HTTP 404"
- },
- "last_run": "2026-11-18T09:29:41Z",
+ "broken": {},
+ "last_run": "2026-11-18T16:01:17Z",
  "last_run_stats": {
-  "failed": 1,
-  "matching": 46,
+  "failed": 0,
+  "matching": 34,
   "new": 0,
-  "postings": 25256,
-  "sites": 82
+  "postings": 17125,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -263,6 +261,7 @@
   "greenhouse:coinbase:8376084",
   "greenhouse:drivewealth:8038087003",
   "greenhouse:drivewealth:8039368003",
+  "greenhouse:drivewealth:8200548003",
   "greenhouse:drweng:7992670",
   "greenhouse:drweng:7993004",
   "greenhouse:enova:8238162",
@@ -302,6 +301,7 @@
   "greenhouse:klaviyocampus:7991091003",
   "greenhouse:klaviyocampus:7996176003",
   "greenhouse:later:8802818002",
+  "greenhouse:legendcareers:4755557005",
   "greenhouse:lilasciences:4469146009",
   "greenhouse:lincolninternational:8106841",
   "greenhouse:lincolninternational:8348465",
@@ -497,6 +497,7 @@
   "smartrecruiters:VeoliaEnvironnementSA:744000151946769",
   "smartrecruiters:VeoliaEnvironnementSA:744000151948159",
   "smartrecruiters:VeoliaEnvironnementSA:744000160949990",
+  "smartrecruiters:VeoliaEnvironnementSA:744000162337189",
   "smartrecruiters:WabashValleyPowerAlliance:744000149874100",
   "smartrecruiters:Wabtec:3743990014653567",
   "smartrecruiters:Wabtec:3743990015094546",
@@ -2560,6 +2561,7 @@
   "Financial Ombudsman Service",
   "Financial Technology Partners",
   "Finning",
+  "Firefly Aerospace",
   "Firemon",
   "Firework",
   "First American",
@@ -3733,6 +3735,7 @@
   "Toshiba Commerce Solutions",
   "Toyota Research Institute",
   "Trace3",
+  "Trainline",
   "Trajectory",
   "TransMarket Group",
   "TransPerfect",
@@ -4229,6 +4232,10 @@
    "f": "2026-10-20",
    "l": "2026-11-18"
   },
+  "greenhouse:drivewealth:8200548003": {
+   "f": "2026-11-18",
+   "l": "2026-11-18"
+  },
   "greenhouse:drweng:7992670": {
    "f": "2026-07-13",
    "l": "2026-09-30"
@@ -4384,6 +4391,10 @@
   "greenhouse:later:8802818002": {
    "f": "2026-09-11",
    "l": "2026-10-30"
+  },
+  "greenhouse:legendcareers:4755557005": {
+   "f": "2026-11-18",
+   "l": "2026-11-18"
   },
   "greenhouse:lilasciences:4469146009": {
    "f": "2026-10-28",
@@ -5165,6 +5176,10 @@
    "f": "2026-11-10",
    "l": "2026-11-18"
   },
+  "smartrecruiters:VeoliaEnvironnementSA:744000162337189": {
+   "f": "2026-11-18",
+   "l": "2026-11-18"
+  },
   "smartrecruiters:WabashValleyPowerAlliance:744000149874100": {
    "f": "2026-09-16",
    "l": "2026-09-16"
@@ -5703,7 +5718,7 @@
   },
   "workday:avav:/job/Simi-Valley-CA/Finance-Systems-Intern_8899": {
    "f": "2026-10-13",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:badgermeter:/job/Milwaukee-WI/Accounting-Intern_4626": {
    "f": "2026-10-08",
@@ -5711,11 +5726,11 @@
   },
   "workday:bah:/job/Arlington-VA/R0251716-University--Digital-Transformation-Analyst---Spring-Intern_R0252398": {
    "f": "2026-10-27",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst---Summer-Intern_R0252403": {
    "f": "2026-10-27",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:bah:/job/Arlington-VA/University--Digital-Transformation-Analyst-Intern_R0251716": {
    "f": "2026-10-15",
@@ -5727,7 +5742,7 @@
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246500": {
    "f": "2026-09-22",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:bah:/job/McLean-VA/University---Corporate-Finance-Intern_R0246880": {
    "f": "2026-09-10",
@@ -5739,15 +5754,15 @@
   },
   "workday:bah:/job/McLean-VA/University--Summer-2027---Accounting-Intern_R0250271": {
    "f": "2026-09-22",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:bah:/job/McLean-VA/University--Summer-2027---Corporate-Development-Intern_R0250270": {
    "f": "2026-09-22",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:bah:/job/San-Diego-CA/University---Defense-Strategy-Intern_R0252902": {
    "f": "2026-11-10",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:bakerhughes:/job/US-TX-HOUSTON-575-N-DAIRY-ASHFORD-RD-ENERGY-CENTER-II-EC2/Finance-Intern--Summer-2027-Opportunities_R171713": {
    "f": "2026-11-04",
@@ -6103,11 +6118,11 @@
   },
   "workday:cboe:/job/Chicago-IL/Enterprise-Strategy---Corporate-Development-Intern_R-4805": {
    "f": "2026-11-04",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:cboe:/job/Chicago-IL/Technical-Business-Analyst-Intern_R-4710": {
    "f": "2026-10-02",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:cbrands:/job/Rochester-New-York/Intern--Finance-Analytics_R-41494": {
    "f": "2026-10-13",
@@ -6439,7 +6454,7 @@
   },
   "workday:cw:/job/Tempe-Arizona-USA/EIC-Client-Accounting-Intern_R342476": {
    "f": "2026-11-17",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:cw:/job/Tempe-Arizona-USA/XMLNAME-2027-Summer-Intern--Client-Accounting--Tempe_R333480": {
    "f": "2026-08-31",
@@ -6647,15 +6662,15 @@
   },
   "workday:dow:/job/Midland-MI-USA/Local-College-Co-op--Business-Finance-Credit_R2069457": {
    "f": "2026-11-05",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Accounting---Finance_R2068408": {
    "f": "2026-09-09",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:dow:/job/Midland-MI-USA/XMLNAME-2026-2027-Campus-Internship---Treasury_R2069039": {
    "f": "2026-10-12",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:dowjones:/job/NYC---1211-Ave-of-the-Americas/Summer-2027-Internship-Program---Business---Product-Strategy-Intern_Job_Req_55311": {
    "f": "2026-09-15",
@@ -7135,7 +7150,7 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/Business-Analyst-Intern---Summer-2027_R9807-1": {
    "f": "2026-10-27",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:gaig:/job/Cincinnati-OH-USA/IT-Finance-Intern---Summer-2027_R9808": {
    "f": "2026-10-27",
@@ -7143,11 +7158,11 @@
   },
   "workday:gaig:/job/Cincinnati-OH-USA/M-A-and-Investments-Intern--Summer-2027-_R9838": {
    "f": "2026-11-02",
-   "l": "2026-11-09"
+   "l": "2026-11-18"
   },
   "workday:gaig:/job/Ohio-USA/M-A-Intern_R9779": {
    "f": "2026-10-23",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-1": {
    "f": "2026-09-02",
@@ -7155,7 +7170,7 @@
   },
   "workday:gaig:/job/Richfield-OH-USA/Accounting-Intern--Summer-2027_R9497-2": {
    "f": "2026-09-02",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:gdit:/job/USA-VA-Falls-Church/Summer-2027-Project-Management-Business-Analyst--Internship_RQ228857": {
    "f": "2026-09-24",
@@ -7423,7 +7438,7 @@
   },
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Finance-Intern_R0059480": {
    "f": "2026-10-17",
-   "l": "2026-11-10"
+   "l": "2026-11-18"
   },
   "workday:hcsc:/job/IL---Chicago/Early-Careers---Process-Consultant-Intern_R0059485": {
    "f": "2026-10-21",
@@ -8551,7 +8566,7 @@
   },
   "workday:myhrhome:/job/Irving-TX/Intern_R2609-52605": {
    "f": "2026-09-30",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:myhrhome:/job/New-York-NY/Intern---Capital-Markets_R2610-53021": {
    "f": "2026-10-29",
@@ -8995,7 +9010,7 @@
   },
   "workday:quickenloans:/job/Detroit-MI/Digital-Strategy---Creator-Intern---Summer-2027_R-085131": {
    "f": "2026-11-13",
-   "l": "2026-11-16"
+   "l": "2026-11-18"
   },
   "workday:quickenloans:/job/Detroit-MI/Financial-Planning---Analysis-Intern---Summer-2027_R-085192-1": {
    "f": "2026-11-13",
@@ -9671,7 +9686,7 @@
   },
   "workday:shawinc:/job/Shaw-Plant-72-900-VD-Parrot-Parkway-Dalton-GA-30721-USA/Spring-2027-Accounting-Internship_R-158988-1": {
    "f": "2026-11-12",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:simmonsbank:/job/Columbia-MO/Investment-Services-Intern_R115475": {
    "f": "2026-10-07",
@@ -10151,11 +10166,11 @@
   },
   "workday:ttc:/job/Bloomington-MN/CRM-Business-Analyst-Intern---The-Toro-Company_JR17386": {
    "f": "2026-09-22",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:ttc:/job/Bloomington-MN/Finance-Intern---The-Toro-Company_JR17543": {
    "f": "2026-10-19",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:ttc:/job/Bloomington-MN/Finance-Intern--Global-Shared-Services---The-Toro-Company_JR17156": {
    "f": "2026-10-06",
@@ -10163,7 +10178,7 @@
   },
   "workday:ttc:/job/Bloomington-MN/Financial-Planning-and-Analysis-Intern---The-Toro-Company_JR17173": {
    "f": "2026-10-21",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:ttc:/job/Bloomington-MN/HR-Strategy---Talent-Intern---The-Toro-Company_JR17037": {
    "f": "2026-09-11",
@@ -10171,11 +10186,11 @@
   },
   "workday:ttc:/job/Bloomington-MN/RLC-Financial-Planning-and-Analysis-Intern---The-Toro-Company_JR17138": {
    "f": "2026-09-11",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:ttc:/job/Perry-OK/IT-Business-Analyst-Intern---Ditch-Witch_JR17608": {
    "f": "2026-10-13",
-   "l": "2026-11-17"
+   "l": "2026-11-18"
   },
   "workday:uhaul:/job/Phoenix-Arizona/Digital-Asset-Management-Spring-Internship_R259160": {
    "f": "2026-11-09",
