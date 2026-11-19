@@ -1,12 +1,12 @@
 {
  "broken": {},
- "last_run": "2026-11-19T16:06:43Z",
+ "last_run": "2026-11-19T17:19:30Z",
  "last_run_stats": {
   "failed": 0,
-  "matching": 32,
-  "new": 0,
-  "postings": 17156,
-  "sites": 212
+  "matching": 50,
+  "new": 2,
+  "postings": 23579,
+  "sites": 200
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -1130,7 +1130,9 @@
   "workday:huntington:/job/Columbus-OH/Summer-2027-Finance-and-Strategy-Internship_R0075368",
   "workday:huron:/job/Chicago---550-Van-Buren/Consulting-Intern---Summer-2027--Chicago--Spring-2028-Graduates-_JR-0016241",
   "workday:hyperiongrp:/job/Dallas--325-North-Saint-Paul/Accounting-Intern_R0019541",
+  "workday:hyperiongrp:/job/New-York---WeWork---430-Park-Avenue/Summer-Broking-Internship-Program---General-Industry_R0020363",
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309",
+  "workday:hyperiongrp:/job/Remote---Missouri/_R0020366",
   "workday:hyvee:/job/Corporate-Office-Westown-Pkwy-West-Des-Moines-IA/Marketing-Strategy-Intern---Summer-2027_R249892",
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Accounting--Reston--VA-_R2603678",
   "workday:icf:/job/Reston-VA/XMLNAME-2027-Summer-Intern--Business-Transformation--Reston-_R2603346",
@@ -7734,9 +7736,17 @@
    "f": "2026-09-29",
    "l": "2026-11-19"
   },
+  "workday:hyperiongrp:/job/New-York---WeWork---430-Park-Avenue/Summer-Broking-Internship-Program---General-Industry_R0020363": {
+   "f": "2026-11-19",
+   "l": "2026-11-19"
+  },
   "workday:hyperiongrp:/job/New-York--1350-Avenue-Of-The-Americas/XMLNAME-2026-Investment-Banking-Analyst-Intern_R0011309": {
    "f": "2026-08-25",
    "l": "2026-10-14"
+  },
+  "workday:hyperiongrp:/job/Remote---Missouri/_R0020366": {
+   "f": "2026-11-19",
+   "l": "2026-11-19"
   },
   "workday:hyvee:/job/Corporate-Office-Westown-Pkwy-West-Des-Moines-IA/Marketing-Strategy-Intern---Summer-2027_R249892": {
    "f": "2026-10-06",
