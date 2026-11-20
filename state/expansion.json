@@ -11335,7 +11335,7 @@
       "ats": "workday"
     },
     "Steel": {
-      "last": "2026-10-20",
+      "last": "2026-11-20",
       "result": "none"
     },
     "Redgate": {
@@ -12229,5 +12229,5 @@
       "ats": "greenhouse"
     }
   },
-  "last_run": "2026-11-19"
+  "last_run": "2026-11-20"
 }
