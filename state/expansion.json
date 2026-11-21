@@ -12267,6 +12267,16 @@
       "last": "2026-11-21",
       "result": "added",
       "ats": "lever"
+    },
+    "First PREMIER Bank": {
+      "last": "2026-11-21",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Centier Bank": {
+      "last": "2026-11-21",
+      "result": "added",
+      "ats": "workday"
     }
   },
   "last_run": "2026-11-21"

@@ -1,12 +1,24 @@
 {
- "broken": {},
- "last_run": "2026-11-21T12:35:42Z",
+ "broken": {
+  "Applied Materials": "HTTP 429",
+  "Cboe": "HTTP 429",
+  "Ecolab": "HTTP 429",
+  "Endeavor Health": "HTTP 429",
+  "Ercot": "HTTP 429",
+  "FOX": "HTTP 429",
+  "Flowserve": "HTTP 429",
+  "Great American Insurance Company": "HTTP 429",
+  "Integrity": "HTTP 429",
+  "Maricopa County": "HTTP 429",
+  "Signet Jewelers": "HTTP 429"
+ },
+ "last_run": "2026-11-21T14:58:34Z",
  "last_run_stats": {
-  "failed": 0,
-  "matching": 0,
+  "failed": 11,
+  "matching": 31,
   "new": 0,
-  "postings": 30,
-  "sites": 1
+  "postings": 15522,
+  "sites": 212
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -955,6 +967,9 @@
   "workday:fifththird:/job/Cincinnati-OH/XMLNAME-2027-Financial-Audit-Intern_R70610",
   "workday:firstnational:/job/Minneapolis-MN---Northland-Securities-Office/Northland-Capital-Markets-Analyst---Intern_R-20261938-1",
   "workday:firstnational:/job/Minneapolis-MN---Northland-Securities-Office/Public-Finance---Intern_R-20261857",
+  "workday:firstpremier:/job/Sioux-Falls-SD/PREMIER-Digital-Innovation---Strategy-Internship_R-551-1",
+  "workday:firstpremier:/job/Sioux-Falls-SD/PREMIER-Finance-Internship_R-538-1",
+  "workday:firstpremier:/job/Sioux-Falls-SD/PREMIER-Financial-Planning---Analysis-Internship_R-510-1",
   "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476",
   "workday:fmr:/job/Boston-MA/Co-op--Alternatives-Project-Management---Strategic-Initiatives_2135272",
   "workday:fmr:/job/Boston-MA/Co-op--Business-Analyst_2135190",
@@ -2255,6 +2270,7 @@
   "Center for Strategic and International Studies",
   "Centerfield",
   "Centerstone",
+  "Centier Bank",
   "Centific",
   "Central Hudson",
   "Centrica",
@@ -2603,6 +2619,7 @@
   "First Canadian Title",
   "First Financial",
   "First National Bank",
+  "First PREMIER Bank",
   "First Quality",
   "FirstDay Foundation",
   "Five Below",
@@ -7060,6 +7077,18 @@
   "workday:firstnational:/job/Minneapolis-MN---Northland-Securities-Office/Public-Finance---Intern_R-20261857": {
    "f": "2026-11-13",
    "l": "2026-11-13"
+  },
+  "workday:firstpremier:/job/Sioux-Falls-SD/PREMIER-Digital-Innovation---Strategy-Internship_R-551-1": {
+   "f": "2026-11-20",
+   "l": "2026-11-21"
+  },
+  "workday:firstpremier:/job/Sioux-Falls-SD/PREMIER-Finance-Internship_R-538-1": {
+   "f": "2026-11-20",
+   "l": "2026-11-21"
+  },
+  "workday:firstpremier:/job/Sioux-Falls-SD/PREMIER-Financial-Planning---Analysis-Internship_R-510-1": {
+   "f": "2026-11-20",
+   "l": "2026-11-21"
   },
   "workday:fivebelow:/job/Philadelphia-PA-19106/Intern--Accounting---Tax_JR94476": {
    "f": "2026-09-04",
