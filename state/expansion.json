@@ -12292,7 +12292,31 @@
       "last": "2026-11-22",
       "result": "added",
       "ats": "workday"
+    },
+    "First Resonance": {
+      "last": "2026-11-23",
+      "result": "added",
+      "ats": "ashby"
+    },
+    "Artefact": {
+      "last": "2026-11-23",
+      "result": "none"
+    },
+    "Megger": {
+      "last": "2026-11-23",
+      "result": "added",
+      "ats": "workday"
+    },
+    "QSL": {
+      "last": "2026-11-23",
+      "result": "added",
+      "ats": "smartrecruiters"
+    },
+    "AJ Bell": {
+      "last": "2026-11-23",
+      "result": "added",
+      "ats": "smartrecruiters"
     }
   },
-  "last_run": "2026-11-22"
+  "last_run": "2026-11-23"
 }
