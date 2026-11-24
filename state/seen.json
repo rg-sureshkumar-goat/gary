@@ -1,14 +1,14 @@
 {
  "broken": {
-  "MetLife": "HTTP 404"
+  "Boston Consulting Group": "no postings extracted"
  },
- "last_run": "2026-11-24T02:41:30Z",
+ "last_run": "2026-11-24T04:44:49Z",
  "last_run_stats": {
   "failed": 1,
-  "matching": 47,
+  "matching": 0,
   "new": 0,
-  "postings": 25194,
-  "sites": 82
+  "postings": 0,
+  "sites": 1
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
