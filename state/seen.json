@@ -1,29 +1,14 @@
 {
  "broken": {
-  "Applied Materials": "HTTP 429",
-  "Avnet": "HTTP 429",
-  "Becton Dickinson": "HTTP 429",
-  "Cboe": "HTTP 429",
-  "Endeavor Health": "HTTP 429",
-  "Ercot": "HTTP 429",
-  "FOX": "HTTP 429",
-  "Faith Technologies": "HTTP 429",
-  "Fannie Mae": "HTTP 429",
-  "First American": "HTTP 429",
-  "Great American Insurance Company": "HTTP 429",
-  "Maricopa County": "HTTP 429",
-  "PTC": "HTTP 429",
-  "Rockwell Automation": "HTTP 429",
-  "TelevisaUnivision": "HTTP 429",
-  "Tencent": "HTTP 429"
+  "MetLife": "HTTP 404"
  },
- "last_run": "2026-11-26T17:20:37Z",
+ "last_run": "2026-11-26T19:11:38Z",
  "last_run_stats": {
-  "failed": 16,
-  "matching": 32,
-  "new": 4,
-  "postings": 14800,
-  "sites": 212
+  "failed": 1,
+  "matching": 48,
+  "new": 0,
+  "postings": 25131,
+  "sites": 82
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
