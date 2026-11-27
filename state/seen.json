@@ -1,16 +1,16 @@
 {
  "broken": {
-  "Beacon Software": "HTTP 404",
-  "Maximor AI": "HTTP 404",
-  "Veeda AI": "HTTP 404"
+  "Great American Insurance Company": "HTTP 429",
+  "Rockwell Automation": "HTTP 429",
+  "Sedgwick Claims Management Services": "HTTP 429"
  },
- "last_run": "2026-11-27T14:17:40Z",
+ "last_run": "2026-11-27T17:01:33Z",
  "last_run_stats": {
   "failed": 3,
-  "matching": 37,
-  "new": 0,
-  "postings": 25134,
-  "sites": 219
+  "matching": 35,
+  "new": 1,
+  "postings": 16115,
+  "sites": 213
  },
  "recommended": {
   "amazon:10435673": "2026-08-31",
@@ -338,6 +338,7 @@
   "greenhouse:hpsinterns:4739896005",
   "greenhouse:icapitalnetwork:8937982002",
   "greenhouse:icapitalnetwork:8938097002",
+  "greenhouse:iconiqhandshake:8386627",
   "greenhouse:iex-interns:8171353",
   "greenhouse:inspiremedicalsystemsinc:5423274008",
   "greenhouse:inspiremedicalsystemsinc:5485322008",
@@ -686,6 +687,7 @@
   "workday:astrazeneca:/job/US---Boston---MA/Summer-2027-Innovation-and-AI-Transformation-Intern_R-264282",
   "workday:athene:/job/El-Segundo-California/XMLNAME-2026-Summer-Associate--Treasury---Business-Management_R253683",
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466",
+  "workday:att:/job/Dallas-Texas/Corporate-Development-Summer-Associate_R-119729",
   "workday:att:/job/Dallas-Texas/Finance-Development-Program---Internship_R-119471",
   "workday:att:/job/Dallas-Texas/Finance-Leadership-Development-Program---Internship_R-119563",
   "workday:att:/job/Dallas-Texas/Transformation-Supply-Chain-Leadership-Program-Internship_R-120900",
@@ -2913,6 +2915,7 @@
   "Hyphenate",
   "Hyster-Yale Materials Handling",
   "ICF",
+  "ICONIQ Capital",
   "ID.me",
   "IDEX",
   "IEX",
@@ -4565,6 +4568,10 @@
    "f": "2026-11-18",
    "l": "2026-11-20"
   },
+  "greenhouse:iconiqhandshake:8386627": {
+   "f": "2026-11-13",
+   "l": "2026-11-27"
+  },
   "greenhouse:iex-interns:8171353": {
    "f": "2026-09-01",
    "l": "2026-10-06"
@@ -5968,6 +5975,10 @@
   "workday:att:/job/Dallas-Texas/Accounting-Leadership-Development-Program---Internship_R-119466": {
    "f": "2026-08-25",
    "l": "2026-09-29"
+  },
+  "workday:att:/job/Dallas-Texas/Corporate-Development-Summer-Associate_R-119729": {
+   "f": "2026-11-27",
+   "l": "2026-11-27"
   },
   "workday:att:/job/Dallas-Texas/Finance-Development-Program---Internship_R-119471": {
    "f": "2026-08-25",
@@ -7875,7 +7886,7 @@
   },
   "workday:hntb:/job/Arlington-VA/Finance-Intern---Spring-2027_R-32571": {
    "f": "2026-11-24",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Arlington-VA/Finance-Intern---Spring-2027_R-32571-1": {
    "f": "2026-11-24",
@@ -7883,7 +7894,7 @@
   },
   "workday:hntb:/job/Atlanta-GA/Finance-Intern---Summer-2027_R-31690": {
    "f": "2026-09-23",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Atlanta-GA/Finance-Intern---Summer-2027_R-31690-1": {
    "f": "2026-09-23",
@@ -7891,7 +7902,7 @@
   },
   "workday:hntb:/job/Boston-MA/Project-Operations-and-Finance-Intern---Summer-2027_R-31584": {
    "f": "2026-09-14",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Boston-MA/Project-Operations-and-Finance-Intern---Summer-2027_R-31584-1": {
    "f": "2026-09-14",
@@ -7899,7 +7910,7 @@
   },
   "workday:hntb:/job/Chicago-IL/New-Grad-Returning-Project-Finance-Associate-II---Summer-2027---For-Current-Former-HNTB-Interns-Only_R-32214": {
    "f": "2026-10-28",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Chicago-IL/New-Grad-Returning-Project-Finance-Associate-II---Summer-2027---For-Current-Former-HNTB-Interns-Only_R-32214-1": {
    "f": "2026-10-28",
@@ -7907,7 +7918,7 @@
   },
   "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475": {
    "f": "2026-09-05",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Houston-TX-Fannin/Finance-Intern--Summer-2027-_R-31475-1": {
    "f": "2026-09-05",
@@ -7915,7 +7926,7 @@
   },
   "workday:hntb:/job/Miami-FL/Finance-Intern---Summer-2027_R-31522": {
    "f": "2026-09-09",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Miami-FL/Finance-Intern---Summer-2027_R-31522-1": {
    "f": "2026-09-09",
@@ -7939,7 +7950,7 @@
   },
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411": {
    "f": "2026-09-01",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:hntb:/job/Tampa-FL/Strategic-Technology-Intern---Summer-2027_R-31411-1": {
    "f": "2026-09-01",
@@ -9363,7 +9374,7 @@
   },
   "workday:pnc:/job/Phoenix---East-Camelback-Exec-Suite-AZ014/Asset-Management-Group-Undergraduate-Intern_R242550-1": {
    "f": "2026-11-25",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:polaris:/job/Medina-MN-USA/Finance-Internship---Summer-2027_R30415": {
    "f": "2026-08-25",
@@ -9407,7 +9418,7 @@
   },
   "workday:quickenloans:/job/Detroit-MI/Digital-Strategy---Creator-Intern---Summer-2027_R-085131": {
    "f": "2026-11-13",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:quickenloans:/job/Detroit-MI/Financial-Planning---Analysis-Intern---Summer-2027_R-085192-1": {
    "f": "2026-11-13",
@@ -10487,7 +10498,7 @@
   },
   "workday:thekineticgroup:/job/Anoka-MN/Finance-and-Accounting-Intern---Federal-Ammunition_R0013002": {
    "f": "2026-11-23",
-   "l": "2026-11-26"
+   "l": "2026-11-27"
   },
   "workday:thermofisher:/job/Waltham-Massachusetts-USA/FLDP-Finance-Intern_R-01361452": {
    "f": "2026-09-08",
