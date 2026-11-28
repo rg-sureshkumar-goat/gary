@@ -11546,11 +11546,11 @@
       "ats": "ashby"
     },
     "dmodel": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "Axiom Math": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "Certa": {
@@ -11614,7 +11614,7 @@
       "ats": "ashby"
     },
     "One Robot": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "Powertown": {
@@ -11623,19 +11623,20 @@
       "ats": "ashby"
     },
     "FUTO": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "Skyband Systems": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "Sycamore": {
-      "last": "2026-10-28",
-      "result": "none"
+      "last": "2026-11-28",
+      "result": "added",
+      "ats": "ashby"
     },
     "Xterra AI": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "NUVACORE": {
@@ -11669,11 +11670,11 @@
       "ats": "greenhouse"
     },
     "Subtotal": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "The Robotics Company": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "WebFX": {
@@ -11682,7 +11683,7 @@
       "ats": "ashby"
     },
     "WorldEngine AI": {
-      "last": "2026-10-28",
+      "last": "2026-11-28",
       "result": "none"
     },
     "FormFactor": {
@@ -12410,7 +12411,22 @@
       "last": "2026-11-27",
       "result": "added",
       "ats": "greenhouse"
+    },
+    "TravisMathew": {
+      "last": "2026-11-28",
+      "result": "added",
+      "ats": "workday"
+    },
+    "Trinzic": {
+      "last": "2026-11-28",
+      "result": "added",
+      "ats": "workday"
+    },
+    "iA Financial Group": {
+      "last": "2026-11-28",
+      "result": "added",
+      "ats": "workday"
     }
   },
-  "last_run": "2026-11-27"
+  "last_run": "2026-11-28"
 }
